@@ -294,22 +294,40 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
         .gallery-item {
-            height: 250px;
+            height: 280px;
             background-size: cover;
             background-position: center;
             border-radius: 16px;
             transition: 0.3s;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
         .gallery-item:hover {
             transform: scale(1.03);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 1rem;
+            color: white;
+            transform: translateY(100%);
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover .overlay {
+            transform: translateY(0);
         }
 
         footer {
@@ -324,6 +342,17 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
+        }
+
+        .footer-grid a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-grid a:hover {
+            color: white;
         }
 
         .copyright {
@@ -361,23 +390,23 @@
     </div>
 </nav>
 
-<!-- Hero Slider -->
+<!-- Hero Slider with YOUR original image names -->
 <div class="hero-slider">
-    <div class="slide active" style="background-image: url('images/slide1.jpg');">
+    <div class="slide active" style="background-image: url('images/IMG_20260516_190409_120.jpg');">
         <div class="slide-content">
             <h1>Empowering Ethiopia's Coffee Industry</h1>
             <p>Complete coffee lab solutions & fast logistics for exporters</p>
             <a href="quote.html" class="cta-button">Get Quote →</a>
         </div>
     </div>
-    <div class="slide" style="background-image: url('images/slide2.jpg');">
+    <div class="slide" style="background-image: url('images/IMG_20260516_190410_213.jpg');">
         <div class="slide-content">
             <h1>Premium Coffee Lab Equipment</h1>
             <p>From sample roasters to moisture testers - we have it all</p>
             <a href="coffee-lab.html" class="cta-button">View Equipment →</a>
         </div>
     </div>
-    <div class="slide" style="background-image: url('images/slide3.jpg');">
+    <div class="slide" style="background-image: url('images/IMG_20260516_190425_166.jpg');">
         <div class="slide-content">
             <h1>Fast & Reliable Logistics</h1>
             <p>Serving Ethiopian coffee exporters nationwide</p>
@@ -393,14 +422,14 @@
     <h2 class="section-title">What We Deliver</h2>
     <div class="card-grid">
         <div class="card">
-            <div class="card-image" style="background-image: url('images/logistics.jpg');"></div>
+            <div class="card-image" style="background-image: url('images/IMG_20260516_190501_537.jpg');"></div>
             <div class="card-content">
                 <h3>Import & Export Logistics</h3>
                 <p>Reliable freight, customs clearance, and end-to-end supply chain for Ethiopian coffee exporters.</p>
             </div>
         </div>
         <div class="card">
-            <div class="card-image" style="background-image: url('images/coffee-lab-equipment.jpg');"></div>
+            <div class="card-image" style="background-image: url('images/IMG_20260516_190505_195.jpg');"></div>
             <div class="card-content">
                 <h3>Complete Coffee Lab</h3>
                 <ul class="equipment-list">
@@ -412,7 +441,7 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-image" style="background-image: url('images/coffee-roasting.jpg');"></div>
+            <div class="card-image" style="background-image: url('images/IMG_20260516_190505_962.jpg');"></div>
             <div class="card-content">
                 <h3>Coffee Roasting Division</h3>
                 <p>Coming soon - artisanal Ethiopian coffee roasting, branding, and supply to local & international markets.</p>
@@ -430,7 +459,7 @@
             <a href="about.html" class="cta-button" style="background: white; color: #2d6a4f; margin-top: 1rem;">Learn More →</a>
         </div>
         <div>
-            <img src="images/about-coffee.jpg" alt="About RDG" style="width:100%; border-radius: 20px;">
+            <img src="images/IMG_20260516_190507_366.jpg" alt="About RDG" style="width:100%; border-radius: 20px;">
         </div>
     </div>
 </section>
@@ -467,6 +496,33 @@
 </footer>
 
 <script>
+    // Gallery with YOUR original image names
+    const galleryImages = [
+        { name: "Sample Roaster", img: "images/IMG_20260516_190427_419.jpg" },
+        { name: "Coffee Grinder", img: "images/IMG_20260516_190428_945.jpg" },
+        { name: "Green Coffee Sieves", img: "images/IMG_20260516_190431_365.jpg" },
+        { name: "Cupping Trays", img: "images/IMG_20260516_190431_548.jpg" },
+        { name: "Cupping Spoons", img: "images/IMG_20260516_190434_467.jpg" },
+        { name: "Cupping Bowls", img: "images/IMG_20260516_190441_433.jpg" },
+        { name: "Spittoon", img: "images/IMG_20260516_190449_190.jpg" },
+        { name: "Moisture Tester", img: "images/IMG_20260516_190451_444.jpg" },
+        { name: "Hulling Machine", img: "images/IMG_20260516_190458_867.jpg" },
+        { name: "Coffee Lab Setup", img: "images/IMG_20260516_190510_385.jpg" },
+        { name: "Coffee Beans", img: "images/IMG_20260516_190516_877.jpg" }
+    ];
+
+    const galleryGrid = document.getElementById('galleryGrid');
+    if(galleryGrid) {
+        galleryImages.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.style.backgroundImage = `url('${item.img}')`;
+            div.innerHTML = `<div class="overlay"><strong>${item.name}</strong></div>`;
+            div.onclick = () => window.location.href = 'coffee-lab.html';
+            galleryGrid.appendChild(div);
+        });
+    }
+
     // Slider functionality
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
@@ -500,36 +556,10 @@
         goToSlide(currentSlide + direction);
     }
 
-    // Auto-advance slides every 5 seconds
     setInterval(() => {
         changeSlide(1);
     }, 5000);
 
-    // Gallery images - REPLACE THESE WITH YOUR ACTUAL IMAGE PATHS
-    const galleryImages = [
-        { name: "Sample Roaster", img: "images/sample-roaster.jpg" },
-        { name: "Cupping Set", img: "images/cupping-set.jpg" },
-        { name: "Moisture Tester", img: "images/moisture-tester.jpg" },
-        { name: "Coffee Grinder", img: "images/grinder.jpg" },
-        { name: "Hulling Machine", img: "images/hulling-machine.jpg" },
-        { name: "Cupping Spoons", img: "images/cupping-spoons.jpg" },
-        { name: "Green Coffee Sieves", img: "images/sieves.jpg" },
-        { name: "Coffee Lab Setup", img: "images/lab-setup.jpg" }
-    ];
-
-    const galleryGrid = document.getElementById('galleryGrid');
-    if(galleryGrid) {
-        galleryImages.forEach(item => {
-            const div = document.createElement('div');
-            div.className = 'gallery-item';
-            div.style.backgroundImage = `url('${item.img}')`;
-            div.title = item.name;
-            div.onclick = () => window.location.href = 'coffee-lab.html';
-            galleryGrid.appendChild(div);
-        });
-    }
-
-    // Mobile menu
     const menuIcon = document.getElementById('menuIcon');
     const navLinks = document.getElementById('navLinks');
     if(menuIcon) {
