@@ -185,6 +185,12 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
         }
+        .footer-grid a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
         .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #3a553a; }
         
         @media (max-width: 768px) {
@@ -243,23 +249,23 @@
 <footer>
     <div class="footer-grid">
         <div><h4>RDG Business Holding</h4><p>Addis Ababa, Ethiopia</p><p>📞 +251 XXX XXX XXX</p><p>✉️ info@rdgbusiness.com</p></div>
-        <div><h4>Quick Links</h4><p><a href="about.html" style="color:#ccc;">About Us</a></p><p><a href="coffee-lab.html" style="color:#ccc;">Coffee Lab</a></p><p><a href="quote.html" style="color:#ccc;">Request Quote</a></p></div>
+        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="coffee-lab.html">Coffee Lab</a><a href="quote.html">Request Quote</a></div>
     </div>
     <div class="copyright">&copy; 2026 RDG Business Holding. Elevating Ethiopian trade.</div>
 </footer>
 
 <script>
-    // Equipment data with image paths - REPLACE WITH YOUR ACTUAL IMAGE PATHS
+    // Equipment data with YOUR original image names
     const equipmentData = [
-        { name: "Sample Roaster 200g", category: "roasting", price: "$2,450", desc: "Professional sample roaster for cupping labs", img: "images/sample-roaster.jpg" },
-        { name: "Electric Coffee Grinder", category: "roasting", price: "$890", desc: "Precision grinding for sample preparation", img: "images/grinder.jpg" },
-        { name: "Green Coffee Sieve Set", category: "testing", price: "$320", desc: "ASTM standard sieves for bean analysis", img: "images/sieves.jpg" },
-        { name: "Cupping Sample Trays", category: "cupping", price: "$45", desc: "Set of 5 stainless steel trays", img: "images/cupping-trays.jpg" },
-        { name: "Cupping Spoons (12pcs)", category: "cupping", price: "$28", desc: "Professional deep-bowled spoons", img: "images/cupping-spoons.jpg" },
-        { name: "Cupping Bowls Set", category: "cupping", price: "$85", desc: "Ceramic cupping bowls, set of 10", img: "images/cupping-bowls.jpg" },
-        { name: "Spittoon (Cupping)", category: "cupping", price: "$42", desc: "Stainless steel cupping spittoon", img: "images/spittoon.jpg" },
-        { name: "Coffee Moisture Tester", category: "testing", price: "$1,250", desc: "Digital moisture meter for green coffee", img: "images/moisture-tester.jpg" },
-        { name: "Coffee Hulling Machine", category: "processing", price: "$4,800", desc: "Small-scale huller for parchment removal", img: "images/hulling-machine.jpg" }
+        { name: "Sample Roaster 200g", category: "roasting", price: "$2,450", desc: "Professional sample roaster for cupping labs", img: "images/IMG_20260516_190427_419.jpg" },
+        { name: "Electric Coffee Grinder", category: "roasting", price: "$890", desc: "Precision grinding for sample preparation", img: "images/IMG_20260516_190428_945.jpg" },
+        { name: "Green Coffee Sieve Set", category: "testing", price: "$320", desc: "ASTM standard sieves for bean analysis", img: "images/IMG_20260516_190431_365.jpg" },
+        { name: "Cupping Sample Trays", category: "cupping", price: "$45", desc: "Set of 5 stainless steel trays", img: "images/IMG_20260516_190431_548.jpg" },
+        { name: "Cupping Spoons (12pcs)", category: "cupping", price: "$28", desc: "Professional deep-bowled spoons", img: "images/IMG_20260516_190434_467.jpg" },
+        { name: "Cupping Bowls Set", category: "cupping", price: "$85", desc: "Ceramic cupping bowls, set of 10", img: "images/IMG_20260516_190441_433.jpg" },
+        { name: "Spittoon (Cupping)", category: "cupping", price: "$42", desc: "Stainless steel cupping spittoon", img: "images/IMG_20260516_190449_190.jpg" },
+        { name: "Coffee Moisture Tester", category: "testing", price: "$1,250", desc: "Digital moisture meter for green coffee", img: "images/IMG_20260516_190451_444.jpg" },
+        { name: "Coffee Hulling Machine", category: "processing", price: "$4,800", desc: "Small-scale huller for parchment removal", img: "images/IMG_20260516_190458_867.jpg" }
     ];
 
     let currentCategory = "all";
