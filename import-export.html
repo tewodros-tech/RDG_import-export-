@@ -34,6 +34,10 @@
             background-clip: text;
             color: transparent;
         }
+        .logo p {
+            font-size: 0.75rem;
+            color: #5a6e5a;
+        }
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -92,6 +96,13 @@
             color: #2d6a4f;
             margin-bottom: 1rem;
         }
+        .hero-image {
+            width: 100%;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            max-height: 400px;
+            object-fit: cover;
+        }
         .process-steps {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -124,13 +135,6 @@
             text-align: center;
             margin: 3rem 0;
         }
-        .hero-image {
-            width: 100%;
-            border-radius: 24px;
-            margin-bottom: 2rem;
-            max-height: 400px;
-            object-fit: cover;
-        }
         footer {
             background: #1a2a1a;
             color: #ccc;
@@ -143,6 +147,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
+        }
+        .footer-grid a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
         }
         .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #3a553a; }
         
@@ -174,7 +184,7 @@
 </section>
 
 <div class="container">
-    <img src="images/IMG_20260516_190501_537.jpg" alt="Logistics" class="hero-image">
+    <img src="IMG_20260516_190501_537.jpg" alt="Logistics" class="hero-image">
     
     <div class="services-grid">
         <div class="service-card"><i class="fas fa-ship"></i><h3>Sea Freight</h3><p>Full container loads (FCL) and less than container loads (LCL) from global ports.</p></div>
@@ -194,7 +204,7 @@
     <div class="cta-section">
         <h2 style="margin-bottom: 1rem;">Need equipment or supplies imported?</h2>
         <p>We handle everything from sourcing to delivery. Tell us what you need.</p>
-        <a href="quote.html" class="cta-button" style="background: white; color: #2d6a4f; margin-top: 1rem; display: inline-block;">Request a Quote →</a>
+        <a href="quote.html" class="cta-button" style="background: white; color: #2d6a4f; margin-top: 1rem; display: inline-block; padding: 0.8rem 2rem; border-radius: 40px; text-decoration: none; font-weight: 600;">Request a Quote →</a>
     </div>
 </div>
 
