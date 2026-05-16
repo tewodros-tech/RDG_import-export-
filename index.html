@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RDG Business Holding | Import, Export & Coffee Lab Solutions</title>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,7 +20,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Navigation */
         nav {
             background: white;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -53,7 +50,6 @@
         .logo p {
             font-size: 0.75rem;
             color: #5a6e5a;
-            letter-spacing: 1px;
         }
 
         .nav-links {
@@ -80,58 +76,117 @@
             border-radius: 30px;
         }
 
-        .quote-btn:hover {
-            background: #1b4d3e;
-        }
-
-        /* Mobile Menu */
         .menu-icon {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
-            color: #2d6a4f;
         }
 
         @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-                margin-top: 1rem;
-            }
-            .nav-links.active {
-                display: flex;
-            }
+            .menu-icon { display: block; }
+            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; }
+            .nav-links.active { display: flex; }
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #e9f5ef 0%, #d4e9e0 100%);
-            padding: 5rem 2rem;
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white;
         }
 
-        .hero-content {
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
-            margin: auto;
+            padding: 2rem;
         }
 
-        .hero h1 {
+        .slide-content h1 {
             font-size: 3.5rem;
-            font-weight: 800;
             margin-bottom: 1rem;
-            color: #1b3b2f;
+            font-weight: 800;
         }
 
-        .hero p {
+        .slide-content p {
             font-size: 1.2rem;
-            color: #2c5441;
             margin-bottom: 2rem;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.3);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+        .slider-btn:hover {
+            background: rgba(255,255,255,0.6);
+            color: #2d6a4f;
+        }
+
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        .dot-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: white;
         }
 
         .cta-button {
@@ -153,8 +208,7 @@
             transform: translateY(-2px);
         }
 
-        /* Services Section */
-        .services {
+        .services, .equipment-section {
             max-width: 1280px;
             margin: 4rem auto;
             padding: 0 2rem;
@@ -170,66 +224,57 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .card {
             background: white;
-            padding: 2rem;
             border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: 0.3s;
-            text-align: center;
-            border: 1px solid #e0e8e0;
         }
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
-        .card i {
-            font-size: 3rem;
-            color: #2d6a4f;
-            margin-bottom: 1rem;
+        .card-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
         }
 
-        .card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.5rem;
             color: #1b3b2f;
         }
 
-        .card p {
-            color: #555;
+        .card-content p {
+            color: #666;
             line-height: 1.6;
         }
 
         .equipment-list {
-            text-align: left;
-            margin-top: 1rem;
             list-style: none;
+            margin-top: 1rem;
         }
 
         .equipment-list li {
             padding: 0.5rem 0;
-            font-size: 0.9rem;
-            border-bottom: 1px dashed #ddd;
+            border-bottom: 1px solid #eee;
         }
 
-        .equipment-list li i {
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            color: #2d6a4f;
-        }
-
-        /* About Preview Section */
         .about-preview {
             background: #2d3e2d;
             color: white;
             padding: 4rem 2rem;
-            margin: 3rem 0;
         }
 
         .about-container {
@@ -241,83 +286,32 @@
             align-items: center;
         }
 
-        .about-container h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .about-container p {
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .about-icon {
-            font-size: 4rem;
-            color: #ffd966;
-            text-align: center;
-        }
-
-        /* Coffee Lab Equipment Section */
-        .equipment-section {
+        .gallery-section {
             max-width: 1280px;
             margin: 4rem auto;
             padding: 0 2rem;
         }
 
-        /* Stats Section */
-        .stats-section {
-            max-width: 1280px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
-        .stat-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .gallery-item {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            transition: 0.3s;
+            cursor: pointer;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #2d6a4f;
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
-        .stat-label {
-            color: #666;
-            margin-top: 0.5rem;
-        }
-
-        /* Contact CTA */
-        .contact-cta {
-            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .contact-cta h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-cta .cta-button {
-            background: white;
-            color: #2d6a4f;
-            margin-top: 1rem;
-        }
-
-        .contact-cta .cta-button:hover {
-            background: #e9f5ef;
-        }
-
-        /* Footer */
         footer {
             background: #1a2a1a;
             color: #ccc;
@@ -332,22 +326,6 @@
             gap: 2rem;
         }
 
-        .footer-grid h4 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .footer-grid a {
-            color: #ccc;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-grid a:hover {
-            color: white;
-        }
-
         .copyright {
             text-align: center;
             padding-top: 2rem;
@@ -356,16 +334,9 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .about-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
+            .slide-content h1 { font-size: 2rem; }
+            .about-container { grid-template-columns: 1fr; text-align: center; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -390,83 +361,83 @@
     </div>
 </nav>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Empowering Ethiopia's Coffee & Trade Industry</h1>
-        <p>Fast logistics | Complete coffee lab solutions | Import-Export expertise</p>
-        <a href="quote.html" class="cta-button">Order Equipment →</a>
+<!-- Hero Slider -->
+<div class="hero-slider">
+    <div class="slide active" style="background-image: url('images/slide1.jpg');">
+        <div class="slide-content">
+            <h1>Empowering Ethiopia's Coffee Industry</h1>
+            <p>Complete coffee lab solutions & fast logistics for exporters</p>
+            <a href="quote.html" class="cta-button">Get Quote →</a>
+        </div>
     </div>
-</section>
+    <div class="slide" style="background-image: url('images/slide2.jpg');">
+        <div class="slide-content">
+            <h1>Premium Coffee Lab Equipment</h1>
+            <p>From sample roasters to moisture testers - we have it all</p>
+            <a href="coffee-lab.html" class="cta-button">View Equipment →</a>
+        </div>
+    </div>
+    <div class="slide" style="background-image: url('images/slide3.jpg');">
+        <div class="slide-content">
+            <h1>Fast & Reliable Logistics</h1>
+            <p>Serving Ethiopian coffee exporters nationwide</p>
+            <a href="import-export.html" class="cta-button">Learn More →</a>
+        </div>
+    </div>
+    <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+    <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+    <div class="dot-container" id="dotContainer"></div>
+</div>
 
 <section class="services">
     <h2 class="section-title">What We Deliver</h2>
     <div class="card-grid">
         <div class="card">
-            <i class="fas fa-ship"></i>
-            <h3>Import & Export Logistics</h3>
-            <p>Reliable freight, customs clearance, and end-to-end supply chain for Ethiopian coffee exporters and businesses.</p>
+            <div class="card-image" style="background-image: url('images/logistics.jpg');"></div>
+            <div class="card-content">
+                <h3>Import & Export Logistics</h3>
+                <p>Reliable freight, customs clearance, and end-to-end supply chain for Ethiopian coffee exporters.</p>
+            </div>
         </div>
         <div class="card">
-            <i class="fas fa-flask"></i>
-            <h3>Complete Coffee Lab</h3>
-            <ul class="equipment-list">
-                <li><i class="fas fa-check-circle"></i> Sample roasters & grinders</li>
-                <li><i class="fas fa-check-circle"></i> Cupping sets (bowls, spoons, trays)</li>
-                <li><i class="fas fa-check-circle"></i> Moisture testers & sieves</li>
-                <li><i class="fas fa-check-circle"></i> Hulling machines & spittoons</li>
-            </ul>
+            <div class="card-image" style="background-image: url('images/coffee-lab-equipment.jpg');"></div>
+            <div class="card-content">
+                <h3>Complete Coffee Lab</h3>
+                <ul class="equipment-list">
+                    <li>✓ Sample roasters & grinders</li>
+                    <li>✓ Cupping sets (bowls, spoons, trays)</li>
+                    <li>✓ Moisture testers & sieves</li>
+                    <li>✓ Hulling machines & spittoons</li>
+                </ul>
+            </div>
         </div>
         <div class="card">
-            <i class="fas fa-mug-hot"></i>
-            <h3>Coming Soon: Coffee Roasting</h3>
-            <p>Artisanal Ethiopian coffee – our new division focused on roasting, branding, and supplying premium Ethiopian coffee to local and international markets.</p>
+            <div class="card-image" style="background-image: url('images/coffee-roasting.jpg');"></div>
+            <div class="card-content">
+                <h3>Coffee Roasting Division</h3>
+                <p>Coming soon - artisanal Ethiopian coffee roasting, branding, and supply to local & international markets.</p>
+            </div>
         </div>
     </div>
-</section>
-
-<div class="stats-section">
-    <div class="stat-card">
-        <div class="stat-number">50+</div>
-        <div class="stat-label">Projects Completed</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">15+</div>
-        <div class="stat-label">Partner Exporters</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">24hr</div>
-        <div class="stat-label">Quote Response Time</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">3</div>
-        <div class="stat-label">Business Divisions</div>
-    </div>
-</div>
-
-<section class="equipment-section">
-    <h2 class="section-title">Coffee Lab Equipment Catalog</h2>
-    <div class="card-grid" id="equipmentGrid"></div>
 </section>
 
 <section class="about-preview">
     <div class="about-container">
         <div>
             <h2>About RDG Business Holding</h2>
-            <p>RDG Business Holding is a diversified Ethiopian business group operating in construction, import, and the coffee industry. The company currently manages two major businesses: RDG Construction, a general contractor focused on landscape construction, and RDG Import, specializing in importing electrical equipment, coffee laboratory equipment, and commercial coffee roasting machinery.</p>
-            <p>As part of its expansion strategy, RDG Business Holding is establishing a third division focused on coffee roasting, branding, and supplying high-quality Ethiopian coffee products to local and international markets.</p>
-            <a href="about.html" class="cta-button" style="background: white; color: #2d6a4f; margin-top: 1rem; display: inline-block;">Learn More →</a>
+            <p>RDG Business Holding is a diversified Ethiopian business group operating in construction, import, and the coffee industry. We specialize in importing coffee laboratory equipment, commercial coffee roasting machinery, and electrical equipment.</p>
+            <p>Our new division focuses on coffee roasting, branding, and supplying high-quality Ethiopian coffee to local and international markets.</p>
+            <a href="about.html" class="cta-button" style="background: white; color: #2d6a4f; margin-top: 1rem;">Learn More →</a>
         </div>
-        <div class="about-icon">
-            <i class="fas fa-award"></i>
-            <p style="margin-top: 1rem;"><strong>Your trusted partner<br>for Ethiopian coffee excellence</strong></p>
+        <div>
+            <img src="images/about-coffee.jpg" alt="About RDG" style="width:100%; border-radius: 20px;">
         </div>
     </div>
 </section>
 
-<section class="contact-cta">
-    <h2>Ready to equip your coffee lab?</h2>
-    <p>Get a quote within 24 hours. Fast delivery to Addis Ababa and across Ethiopia.</p>
-    <a href="quote.html" class="cta-button">Request a Quote →</a>
+<section class="gallery-section">
+    <h2 class="section-title">Our Coffee Lab Equipment Gallery</h2>
+    <div class="gallery-grid" id="galleryGrid"></div>
 </section>
 
 <footer>
@@ -482,58 +453,93 @@
             <a href="import-export.html">Import/Export Logistics</a>
             <a href="coffee-lab.html">Coffee Lab Equipment</a>
             <a href="#">Commercial Roasters</a>
-            <a href="#">Electrical Equipment</a>
         </div>
         <div>
             <h4>Quick Links</h4>
             <a href="about.html">About Us</a>
             <a href="coffee-lab.html">Equipment Catalog</a>
             <a href="quote.html">Request Quote</a>
-            <a href="#">Coffee Roasting (Coming)</a>
         </div>
     </div>
     <div class="copyright">
-        &copy; 2026 RDG Business Holding. Elevating Ethiopian trade. All rights reserved.
+        &copy; 2026 RDG Business Holding. Elevating Ethiopian trade.
     </div>
 </footer>
 
 <script>
-    // Equipment data for dynamic rendering
-    const equipment = [
-        { name: "Sample Roasters", icon: "fa-fire" },
-        { name: "Green Coffee Sieves", icon: "fa-filter" },
-        { name: "Cupping Sample Trays", icon: "fa-layer-group" },
-        { name: "Cupping Spoons", icon: "fa-utensils" },
-        { name: "Cupping Bowls", icon: "fa-mug-hot" },
-        { name: "Spittoons", icon: "fa-trash-alt" },
-        { name: "Coffee Moisture Testers", icon: "fa-tachometer-alt" },
-        { name: "Coffee Grinders", icon: "fa-gear" },
-        { name: "Coffee Hulling Machine", icon: "fa-industry" }
+    // Slider functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = [];
+
+    function createDots() {
+        const container = document.getElementById('dotContainer');
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if(index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            container.appendChild(dot);
+            dots.push(dot);
+        });
+    }
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+            if(dots[index]) dots[index].classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    function goToSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
+        updateSlides();
+    }
+
+    function changeSlide(direction) {
+        goToSlide(currentSlide + direction);
+    }
+
+    // Auto-advance slides every 5 seconds
+    setInterval(() => {
+        changeSlide(1);
+    }, 5000);
+
+    // Gallery images - REPLACE THESE WITH YOUR ACTUAL IMAGE PATHS
+    const galleryImages = [
+        { name: "Sample Roaster", img: "images/sample-roaster.jpg" },
+        { name: "Cupping Set", img: "images/cupping-set.jpg" },
+        { name: "Moisture Tester", img: "images/moisture-tester.jpg" },
+        { name: "Coffee Grinder", img: "images/grinder.jpg" },
+        { name: "Hulling Machine", img: "images/hulling-machine.jpg" },
+        { name: "Cupping Spoons", img: "images/cupping-spoons.jpg" },
+        { name: "Green Coffee Sieves", img: "images/sieves.jpg" },
+        { name: "Coffee Lab Setup", img: "images/lab-setup.jpg" }
     ];
 
-    const grid = document.getElementById("equipmentGrid");
-    if (grid) {
-        equipment.forEach(item => {
-            const div = document.createElement("div");
-            div.className = "card";
-            div.innerHTML = `
-                <i class="fas ${item.icon}"></i>
-                <h3>${item.name}</h3>
-                <p>High-precision lab grade equipment for professional coffee cupping and quality control.</p>
-                <a href="quote.html" class="cta-button" style="margin-top:1rem; padding:0.5rem 1.2rem; font-size:0.9rem; display: inline-block;">Request Quote →</a>
-            `;
-            grid.appendChild(div);
+    const galleryGrid = document.getElementById('galleryGrid');
+    if(galleryGrid) {
+        galleryImages.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.style.backgroundImage = `url('${item.img}')`;
+            div.title = item.name;
+            div.onclick = () => window.location.href = 'coffee-lab.html';
+            galleryGrid.appendChild(div);
         });
     }
 
-    // Mobile menu toggle
-    const menuIcon = document.getElementById("menuIcon");
-    const navLinks = document.getElementById("navLinks");
-    if (menuIcon) {
-        menuIcon.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
+    // Mobile menu
+    const menuIcon = document.getElementById('menuIcon');
+    const navLinks = document.getElementById('navLinks');
+    if(menuIcon) {
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     }
+
+    createDots();
+    window.changeSlide = changeSlide;
 </script>
 </body>
 </html>
