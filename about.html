@@ -29,4 +29,192 @@
         .logo h1 {
             font-size: 1.6rem;
             font-weight: 800;
-            background: linear
+            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2d3e2d;
+            transition: 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: #2d6a4f; font-weight: 700; }
+        .quote-btn {
+            background: #2d6a4f;
+            color: white !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+        }
+        .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; }
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; }
+            .nav-links.active { display: flex; }
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        
+        .container {
+            max-width: 1280px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+        .company-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid #2d6a4f;
+            margin-bottom: 1.5rem;
+        }
+        .company-card i {
+            font-size: 2.5rem;
+            color: #2d6a4f;
+            margin-bottom: 1rem;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2d6a4f;
+        }
+        .image-rounded {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        footer {
+            background: #1a2a1a;
+            color: #ccc;
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+        .footer-grid {
+            max-width: 1280px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #3a553a; }
+        
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo"><h1>RDG Business Holding</h1><p>Construction | Import | Coffee Excellence</p></div>
+        <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="coffee-lab.html">Coffee Lab</a></li>
+            <li><a href="import-export.html">Import/Export</a></li>
+            <li><a href="quote.html" class="quote-btn">Get Quote</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-header">
+    <h1>About RDG Business Holding</h1>
+    <p>Building Ethiopia's future through diversified excellence</p>
+</section>
+
+<div class="container">
+    <div class="about-grid">
+        <div>
+            <h2 style="color: #2d6a4f; margin-bottom: 1rem;">Who We Are</h2>
+            <p style="line-height: 1.8; margin-bottom: 1rem;">RDG Business Holding is a diversified Ethiopian business group operating across construction, import, and the coffee industry. Founded with a vision to deliver quality and reliability, we've grown into a trusted partner for businesses nationwide.</p>
+            <p style="line-height: 1.8;">Our commitment to excellence drives every division, from landscape construction to coffee lab equipment supply and our upcoming specialty coffee roasting brand.</p>
+        </div>
+        <div>
+            <img src="images/IMG_20260516_190507_366.jpg" alt="RDG Coffee" class="image-rounded">
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="company-card" style="text-align: center;">
+            <div class="stat-number">50+</div>
+            <p>Projects Completed</p>
+        </div>
+        <div class="company-card" style="text-align: center;">
+            <div class="stat-number">15+</div>
+            <p>Partner Exporters</p>
+        </div>
+        <div class="company-card" style="text-align: center;">
+            <div class="stat-number">3</div>
+            <p>Business Divisions</p>
+        </div>
+    </div>
+
+    <h2 style="text-align: center; margin-bottom: 2rem;">Our Divisions</h2>
+    <div class="about-grid">
+        <div class="company-card">
+            <i class="fas fa-hard-hat"></i>
+            <h3>RDG Construction</h3>
+            <p>General contractor specializing in landscape construction, outdoor development, and commercial projects.</p>
+        </div>
+        <div class="company-card">
+            <i class="fas fa-boxes"></i>
+            <h3>RDG Import</h3>
+            <p>Specialized import of electrical equipment, coffee laboratory equipment, and commercial coffee roasting machinery.</p>
+        </div>
+        <div class="company-card">
+            <i class="fas fa-mug-hot"></i>
+            <h3>RDG Coffee Roasting</h3>
+            <p>Coming soon - roasting, branding, and supplying premium Ethiopian coffee to local and international markets.</p>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin: 3rem 0;">
+        <img src="images/IMG_20260516_190510_385.jpg" alt="Coffee Lab Setup" class="image-rounded" style="max-height: 400px; object-fit: cover;">
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div><h4>RDG Business Holding</h4><p>Addis Ababa, Ethiopia</p><p>📞 +251 XXX XXX XXX</p><p>✉️ info@rdgbusiness.com</p></div>
+        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="coffee-lab.html">Coffee Lab</a><a href="quote.html">Request Quote</a></div>
+    </div>
+    <div class="copyright">&copy; 2026 RDG Business Holding. Elevating Ethiopian trade.</div>
+</footer>
+
+<script>
+    const menuIcon = document.getElementById("menuIcon");
+    const navLinks = document.getElementById("navLinks");
+    if(menuIcon) menuIcon.addEventListener("click", () => navLinks.classList.toggle("active"));
+</script>
+</body>
+</html>
