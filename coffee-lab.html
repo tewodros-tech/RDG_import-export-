@@ -7,16 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #fefcf5;
-            color: #1a1a1a;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fefcf5; }
+        
         nav {
             background: white;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -52,10 +45,7 @@
             color: #2d3e2d;
             transition: 0.3s;
         }
-        .nav-links a:hover, .nav-links a.active {
-            color: #2d6a4f;
-            font-weight: 700;
-        }
+        .nav-links a:hover, .nav-links a.active { color: #2d6a4f; font-weight: 700; }
         .quote-btn {
             background: #2d6a4f;
             color: white !important;
@@ -68,17 +58,21 @@
             .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; }
             .nav-links.active { display: flex; }
         }
+        
         .page-header {
             background: linear-gradient(135deg, #6f4e37, #4a3226);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
         }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        
         .container {
             max-width: 1280px;
             margin: 4rem auto;
             padding: 0 2rem;
         }
+        
         .filter-bar {
             display: flex;
             gap: 1rem;
@@ -100,48 +94,38 @@
             background: #2d6a4f;
             color: white;
         }
+        
         .equipment-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
         }
         .equipment-card {
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             transition: 0.3s;
             cursor: pointer;
         }
         .equipment-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
         }
         .card-image {
-            height: 200px;
-            background: #e9f5ef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: #2d6a4f;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
         }
         .card-content {
             padding: 1.5rem;
         }
-        .card-content h3 {
-            margin-bottom: 0.5rem;
-            color: #1b3b2f;
-        }
-        .card-content p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
+        .card-content h3 { margin-bottom: 0.5rem; color: #1b3b2f; }
         .price {
             font-weight: 800;
             color: #2d6a4f;
-            margin-bottom: 1rem;
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
         }
         .order-btn {
             background: #2d6a4f;
@@ -154,9 +138,8 @@
             font-weight: 600;
             transition: 0.3s;
         }
-        .order-btn:hover {
-            background: #1b4d3e;
-        }
+        .order-btn:hover { background: #1b4d3e; }
+        
         .modal {
             display: none;
             position: fixed;
@@ -175,14 +158,11 @@
             border-radius: 24px;
             max-width: 500px;
             width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
         }
         .close-modal {
             float: right;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #999;
         }
         form input, form textarea, form select {
             width: 100%;
@@ -190,8 +170,8 @@
             margin-bottom: 1rem;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-family: inherit;
         }
+        
         footer {
             background: #1a2a1a;
             color: #ccc;
@@ -205,11 +185,10 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
         }
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid #3a553a;
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #3a553a; }
+        
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -217,13 +196,8 @@
 
 <nav>
     <div class="nav-container">
-        <div class="logo">
-            <h1>RDG Business Holding</h1>
-            <p>Construction | Import | Coffee Excellence</p>
-        </div>
-        <div class="menu-icon" id="menuIcon">
-            <i class="fas fa-bars"></i>
-        </div>
+        <div class="logo"><h1>RDG Business Holding</h1><p>Construction | Import | Coffee Excellence</p></div>
+        <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -236,7 +210,7 @@
 
 <section class="page-header">
     <h1>Complete Coffee Lab Solutions</h1>
-    <p>Everything you need for professional coffee cupping and quality control</p>
+    <p>Professional equipment for coffee cupping, quality control, and processing</p>
 </section>
 
 <div class="container">
@@ -260,8 +234,8 @@
             <input type="email" placeholder="Email Address" required>
             <input type="tel" placeholder="Phone Number">
             <input type="text" placeholder="Company Name">
-            <textarea rows="3" placeholder="Additional requirements (quantity, specifications...)"></textarea>
-            <button type="submit" class="order-btn" style="margin-top:0.5rem;">Submit Inquiry</button>
+            <textarea rows="3" placeholder="Additional requirements..."></textarea>
+            <button type="submit" class="order-btn">Submit Inquiry</button>
         </form>
     </div>
 </div>
@@ -275,16 +249,17 @@
 </footer>
 
 <script>
+    // Equipment data with image paths - REPLACE WITH YOUR ACTUAL IMAGE PATHS
     const equipmentData = [
-        { name: "Sample Roaster 200g", category: "roasting", price: "$2,450", desc: "Professional sample roaster for cupping labs", icon: "fa-fire" },
-        { name: "Electric Coffee Grinder", category: "roasting", price: "$890", desc: "Precision grinding for sample preparation", icon: "fa-gear" },
-        { name: "Green Coffee Sieve Set", category: "testing", price: "$320", desc: "ASTM standard sieves for bean analysis", icon: "fa-filter" },
-        { name: "Cupping Sample Trays", category: "cupping", price: "$45", desc: "Set of 5 stainless steel trays", icon: "fa-layer-group" },
-        { name: "Cupping Spoons (12pcs)", category: "cupping", price: "$28", desc: "Professional deep-bowled spoons", icon: "fa-utensils" },
-        { name: "Cupping Bowls Set", category: "cupping", price: "$85", desc: "Ceramic cupping bowls, set of 10", icon: "fa-mug-hot" },
-        { name: "Spittoon (Cupping)", category: "cupping", price: "$42", desc: "Stainless steel cupping spittoon", icon: "fa-trash-alt" },
-        { name: "Coffee Moisture Tester", category: "testing", price: "$1,250", desc: "Digital moisture meter for green coffee", icon: "fa-tachometer-alt" },
-        { name: "Coffee Hulling Machine", category: "processing", price: "$4,800", desc: "Small-scale huller for parchment removal", icon: "fa-industry" }
+        { name: "Sample Roaster 200g", category: "roasting", price: "$2,450", desc: "Professional sample roaster for cupping labs", img: "images/sample-roaster.jpg" },
+        { name: "Electric Coffee Grinder", category: "roasting", price: "$890", desc: "Precision grinding for sample preparation", img: "images/grinder.jpg" },
+        { name: "Green Coffee Sieve Set", category: "testing", price: "$320", desc: "ASTM standard sieves for bean analysis", img: "images/sieves.jpg" },
+        { name: "Cupping Sample Trays", category: "cupping", price: "$45", desc: "Set of 5 stainless steel trays", img: "images/cupping-trays.jpg" },
+        { name: "Cupping Spoons (12pcs)", category: "cupping", price: "$28", desc: "Professional deep-bowled spoons", img: "images/cupping-spoons.jpg" },
+        { name: "Cupping Bowls Set", category: "cupping", price: "$85", desc: "Ceramic cupping bowls, set of 10", img: "images/cupping-bowls.jpg" },
+        { name: "Spittoon (Cupping)", category: "cupping", price: "$42", desc: "Stainless steel cupping spittoon", img: "images/spittoon.jpg" },
+        { name: "Coffee Moisture Tester", category: "testing", price: "$1,250", desc: "Digital moisture meter for green coffee", img: "images/moisture-tester.jpg" },
+        { name: "Coffee Hulling Machine", category: "processing", price: "$4,800", desc: "Small-scale huller for parchment removal", img: "images/hulling-machine.jpg" }
     ];
 
     let currentCategory = "all";
@@ -295,7 +270,7 @@
         if(!grid) return;
         grid.innerHTML = filtered.map(item => `
             <div class="equipment-card" onclick="openOrderModal('${item.name}')">
-                <div class="card-image"><i class="fas ${item.icon}"></i></div>
+                <div class="card-image" style="background-image: url('${item.img}'); background-size: cover; background-position: center;"></div>
                 <div class="card-content">
                     <h3>${item.name}</h3>
                     <p>${item.desc}</p>
