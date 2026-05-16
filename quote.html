@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote | RDG Business Holding</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #fefcf5; }
+        nav {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2d3e2d;
+        }
+        .nav-links a:hover { color: #2d6a4f; }
+        .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; }
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; }
+            .nav-links.active { display: flex; }
+        }
+        .page-header {
+            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        .form-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1b3b2f;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e0e8e0;
+            border-radius: 12px;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2d6a4f;
+        }
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: normal;
+        }
+        .submit-btn {
+            background: #2d6a4f;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+        .submit-btn:hover {
+            background: #1b4d3e;
+            transform: translateY(-2px);
+        }
+        footer {
+            background: #1a2a1a;
+            color: #ccc;
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+        .footer-grid {
+            max-width: 1280px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #3a553a; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo"><h1>RDG Business Holding</h1><p>Construction | Import | Coffee Excellence</p></div>
+        <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="coffee-lab.html">Coffee Lab</a></li>
+            <li><a href="import-export.html">Import/Export</a></li>
+            <li><a href="quote.html" style="background:#2d6a4f; color:white!important; padding:0.5rem 1.2rem; border-radius:30px;">Get Quote</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-header">
+    <h1>Request a Quote</h1>
+    <p>Tell us what you need, and we'll get back to you within 24 hours</p>
+</section>
+
+<div class="container">
+    <div class="form-card">
+        <form id="quoteForm">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" required>
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel">
+            </div>
+            <div class="form-group">
+                <label>Company Name</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>I'm interested in: *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="service" value="coffee-lab" required> Coffee Lab Equipment</label>
+                    <label><input type="radio" name="service" value="import-export"> Import/Export Logistics</label>
+                    <label><input type="radio" name="service" value="both"> Both</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Equipment / Products Needed</label>
+                <textarea rows="3" placeholder="List specific items, quantities, or specifications..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Preferred Contact Method</label>
+                <select>
+                    <option>Email</option>
+                    <option>Phone</option>
+                    <option>WhatsApp</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Additional Notes</label>
+                <textarea rows="2" placeholder="Delivery timeline, budget, special requirements..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Quote Request →</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div><h4>RDG Business Holding</h4><p>Addis Ababa, Ethiopia</p><p>📞 +251 XXX XXX XXX</p><p>✉️ info@rdgbusiness.com</p></div>
+        <div><h4>Quick Links</h4><p><a href="about.html" style="color:#ccc;">About Us</a></p><p><a href="coffee-lab.html" style="color:#ccc;">Coffee Lab</a></p><p><a href="quote.html" style="color:#ccc;">Request Quote</a></p></div>
+    </div>
+    <div class="copyright">&copy; 2026 RDG Business Holding. Elevating Ethiopian trade.</div>
+</footer>
+
+<script>
+    const menuIcon = document.getElementById("menuIcon");
+    const navLinks = document.getElementById("navLinks");
+    if(menuIcon) menuIcon.addEventListener("click", () => navLinks.classList.toggle("active"));
+
+    document.getElementById("quoteForm")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("✅ Thank you! Your quote request has been sent. We'll respond within 24 hours.");
+        e.target.reset();
+    });
+</script>
+</body>
+</html>
