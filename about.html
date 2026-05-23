@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>About RDG | Vision & Leadership — Robel Demisse</title>
+    <title>About RDG | Leadership — Robel Demisse</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -20,7 +20,7 @@
             scroll-behavior: smooth;
         }
 
-        /* modern nav */
+        /* modern glass nav */
         nav {
             background: rgba(255, 252, 245, 0.96);
             backdrop-filter: blur(14px);
@@ -157,7 +157,7 @@
             padding: 0 2rem;
         }
 
-        /* owner spotlight */
+        /* owner spotlight with actual image Robi.jpg */
         .owner-spotlight {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -173,36 +173,41 @@
 
         .owner-image {
             background: #EADDCB;
-            min-height: 420px;
+            min-height: 460px;
             background-size: cover;
             background-position: center;
-            background-image: url('https://placehold.co/600x700/DDD0BC/2D6A4F?text=Robel+Demisse');
+            background-image: url('Robi.jpg');
             position: relative;
-        }
-
-        /* using actual existing image if available but we will create a elegant placeholder with icon + style — we can use one of the existing gallery images as owner vibe, but to match "Robel", we use a modern gradient with avatar */
-        .owner-image {
-            background: linear-gradient(125deg, #C9B391, #A58863);
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
-            flex-direction: column;
-            color: white;
         }
-
-        .owner-image i {
-            font-size: 6rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        
+        /* fallback styling if image missing */
+        .owner-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+            border-radius: 0;
+            pointer-events: none;
         }
-
-        .owner-image h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            background: rgba(0,0,0,0.3);
-            padding: 0.5rem 1.5rem;
-            border-radius: 60px;
+        
+        .image-caption {
+            position: relative;
+            z-index: 3;
+            background: rgba(0,0,0,0.6);
             backdrop-filter: blur(4px);
+            width: 100%;
+            text-align: center;
+            padding: 0.8rem;
+            color: white;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
         .owner-info {
@@ -438,24 +443,24 @@
 </section>
 
 <div class="container">
-    <!-- Owner spotlight: Robel Demisse -->
+    <!-- Owner spotlight: Robel Demisse with Robi.jpg image -->
     <div class="owner-spotlight">
-        <div class="owner-image">
-            <i class="fas fa-user-tie"></i>
-            <h3>Robel Demisse</h3>
-            <p style="margin-top: 10px; font-weight: 300;">Founder & Managing Director</p>
+        <div class="owner-image" style="background-image: url('Robi.jpg'); background-size: cover; background-position: center top;">
+            <div class="image-caption">
+                <i class="fas fa-crown"></i> Robel Demisse — Founder & Managing Director
+            </div>
         </div>
         <div class="owner-info">
             <h2>Robel Demisse</h2>
-            <div class="owner-tagline"><i class="fas fa-chart-line"></i> Visionary Entrepreneur | Trade Expert</div>
-            <p class="owner-bio">Robel Demisse is the driving force behind RDG Business Holding. With a sharp acumen in logistics, construction project management, and coffee value chain optimization, he has built bridges between Ethiopian producers and global markets. Robel is known for pioneering turnkey solutions — from heavy machinery imports to specialty coffee lab installations.</p>
+            <div class="owner-tagline"><i class="fas fa-chart-line"></i> Visionary Entrepreneur | Trade Infrastructure Expert</div>
+            <p class="owner-bio">Robel Demisse is the driving force behind RDG Business Holding. With a sharp acumen in logistics, construction project management, and the coffee value chain, he has built bridges between Ethiopian producers and global markets. Robel is renowned for pioneering turnkey solutions — from heavy machinery imports to specialty coffee lab installations across Ethiopia.</p>
             <ul class="achievement-list">
-                <li><i class="fas fa-check-circle"></i> Led import of 20+ coffee lab equipment containers for Ethiopian exporters (2023-2025)</li>
+                <li><i class="fas fa-check-circle"></i> Led import of 20+ coffee lab equipment containers for leading Ethiopian exporters (2023-2025)</li>
                 <li><i class="fas fa-check-circle"></i> Executed large-scale landscape & construction projects for commercial clients across Addis Ababa</li>
                 <li><i class="fas fa-check-circle"></i> Orchestrated strategic partnerships with European coffee machinery manufacturers</li>
                 <li><i class="fas fa-check-circle"></i> Developed end-to-end coffee cupping lab setups for 12+ specialty coffee exporters</li>
-                <li><i class="fas fa-check-circle"></i> Launched Ethiopia's first integrated coffee lab equipment supply chain with after-sales support</li>
-                <li><i class="fas fa-check-circle"></i> Secured exclusive distribution rights for advanced moisture testers & sample roasters</li>
+                <li><i class="fas fa-check-circle"></i> Launched Ethiopia's first integrated coffee lab equipment supply chain with after-sales technical support</li>
+                <li><i class="fas fa-check-circle"></i> Secured exclusive distribution rights for advanced moisture testers & sample roasters in East Africa</li>
             </ul>
         </div>
     </div>
@@ -488,7 +493,7 @@
             <div class="division-card">
                 <i class="fas fa-globe-africa"></i>
                 <h3>RDG Import & Logistics</h3>
-                <p>Specialized import of coffee lab machinery, electrical equipment, and roasting systems. Fast clearance & door delivery.</p>
+                <p>Specialized import of coffee lab machinery, electrical equipment, and roasting systems. Fast customs clearance & door delivery.</p>
             </div>
             <div class="division-card">
                 <i class="fas fa-fire"></i>
@@ -498,7 +503,7 @@
         </div>
     </div>
 
-    <!-- Milestones / key works of Robel Demisse -->
+    <!-- Milestones / key works of Robel Demisse (without founding date) -->
     <div class="vision-quote">
         <i class="fas fa-quote-left"></i> 
         "Empowering Ethiopian trade means providing not just equipment, but complete ecosystems — from cupping labs to global logistics."
@@ -506,7 +511,7 @@
     </div>
 
     <div style="background: white; border-radius: 36px; padding: 2rem; margin: 2rem 0; box-shadow: 0 8px 25px rgba(0,0,0,0.05);">
-        <h3 style="color: #1F5E46; font-size: 1.8rem; margin-bottom: 1rem;"><i class="fas fa-medal"></i> Key Professional Milestones (Robel Demisse)</h3>
+        <h3 style="color: #1F5E46; font-size: 1.8rem; margin-bottom: 1rem;"><i class="fas fa-medal"></i> Key Professional Milestones — Robel Demisse</h3>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
             <ul class="achievement-list" style="list-style: none;">
                 <li><i class="fas fa-cogs"></i> Designed & equipped the first specialty coffee lab for a leading Ethiopian exporter</li>
@@ -523,7 +528,7 @@
         </div>
     </div>
 
-    <!-- Company ethos -->
+    <!-- Company ethos with gallery vibe -->
     <div style="text-align: center; margin: 3rem 0 1rem;">
         <img src="IMG_20260516_190510_385.jpg" alt="Coffee Lab Showcase" style="width:100%; max-width: 550px; border-radius: 32px; box-shadow: 0 20px 28px -12px rgba(0,0,0,0.2);">
         <p style="margin-top: 1rem; color: #6A5C48;">State-of-the-art cupping lab setup — supplied & installed by RDG Import Division.</p>
@@ -570,8 +575,8 @@
         });
     }
 
-    // Optional: subtle scroll reveal effect
-    const cards = document.querySelectorAll('.stat-card, .division-card, .owner-spotlight');
+    // Smooth reveal animation
+    const animatedElements = document.querySelectorAll('.stat-card, .division-card, .owner-spotlight, .vision-quote');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
@@ -580,12 +585,27 @@
             }
         });
     }, { threshold: 0.1 });
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(18px)';
-        card.style.transition = '0.4s ease-out';
-        observer.observe(card);
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(18px)';
+        el.style.transition = '0.45s ease-out';
+        observer.observe(el);
     });
+    
+    // minor fix for owner image if 404, keep gradient safe
+    const ownerImgDiv = document.querySelector('.owner-image');
+    if(ownerImgDiv) {
+        const imgUrl = window.getComputedStyle(ownerImgDiv).backgroundImage;
+        if(imgUrl === 'none' || imgUrl === '' || (imgUrl.includes('Robi.jpg') && !imgUrl.includes('url'))) {
+            ownerImgDiv.style.backgroundImage = "linear-gradient(125deg, #B48C5C, #8B6946)";
+            ownerImgDiv.style.backgroundSize = "cover";
+            // add fallback text inside if needed
+            const fallbackSpan = document.createElement('div');
+            fallbackSpan.className = "image-caption";
+            fallbackSpan.innerHTML = '<i class="fas fa-user-tie"></i> Robel Demisse — Founder';
+            if(!ownerImgDiv.querySelector('.image-caption')) ownerImgDiv.appendChild(fallbackSpan);
+        }
+    }
 </script>
 </body>
 </html>
