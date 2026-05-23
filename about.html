@@ -157,7 +157,7 @@
             padding: 0 2rem;
         }
 
-        /* owner spotlight with actual image Robi.jpg */
+        /* owner spotlight with perfectly fitted image */
         .owner-spotlight {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
@@ -171,43 +171,47 @@
             transition: all 0.3s;
         }
 
-        .owner-image {
-            background: #EADDCB;
-            min-height: 460px;
-            background-size: cover;
-            background-position: center;
-            background-image: url('Robi.jpg');
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-        }
-        
-        /* fallback styling if image missing */
-        .owner-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-            border-radius: 0;
-            pointer-events: none;
-        }
-        
-        .image-caption {
-            position: relative;
-            z-index: 3;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(4px);
+        .owner-image-wrapper {
             width: 100%;
-            text-align: center;
-            padding: 0.8rem;
+            height: 100%;
+            min-height: 460px;
+            background: #DCCFB8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .owner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        
+        .owner-image:hover {
+            transform: scale(1.02);
+        }
+        
+        /* fallback gradient if image missing */
+        .image-fallback {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #B48C5C, #8B6946);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             color: white;
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .image-fallback i {
+            font-size: 5rem;
+            margin-bottom: 1rem;
         }
 
         .owner-info {
@@ -413,6 +417,9 @@
             .stats {
                 flex-direction: column;
             }
+            .owner-image-wrapper {
+                min-height: 380px;
+            }
         }
     </style>
 </head>
@@ -443,12 +450,10 @@
 </section>
 
 <div class="container">
-    <!-- Owner spotlight: Robel Demisse with Robi.jpg image -->
+    <!-- Owner spotlight: Robel Demisse with Robi.jpg (perfectly fitted) -->
     <div class="owner-spotlight">
-        <div class="owner-image" style="background-image: url('Robi.jpg'); background-size: cover; background-position: center top;">
-            <div class="image-caption">
-                <i class="fas fa-crown"></i> Robel Demisse — Founder & Managing Director
-            </div>
+        <div class="owner-image-wrapper">
+            <img class="owner-image" src="Robi.jpg" alt="Robel Demisse - Founder of RDG Business Holding" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-user-tie\'></i><h3>Robel Demisse</h3><p>Founder & Managing Director</p></div>';">
         </div>
         <div class="owner-info">
             <h2>Robel Demisse</h2>
@@ -592,18 +597,12 @@
         observer.observe(el);
     });
     
-    // minor fix for owner image if 404, keep gradient safe
-    const ownerImgDiv = document.querySelector('.owner-image');
-    if(ownerImgDiv) {
-        const imgUrl = window.getComputedStyle(ownerImgDiv).backgroundImage;
-        if(imgUrl === 'none' || imgUrl === '' || (imgUrl.includes('Robi.jpg') && !imgUrl.includes('url'))) {
-            ownerImgDiv.style.backgroundImage = "linear-gradient(125deg, #B48C5C, #8B6946)";
-            ownerImgDiv.style.backgroundSize = "cover";
-            // add fallback text inside if needed
-            const fallbackSpan = document.createElement('div');
-            fallbackSpan.className = "image-caption";
-            fallbackSpan.innerHTML = '<i class="fas fa-user-tie"></i> Robel Demisse — Founder';
-            if(!ownerImgDiv.querySelector('.image-caption')) ownerImgDiv.appendChild(fallbackSpan);
+    // ensure image fit check: if natural image dimensions cause weird crop, but object-fit cover already handles
+    // additional small fix for any lazy load glitch
+    const ownerImg = document.querySelector('.owner-image');
+    if(ownerImg && ownerImg.complete) {
+        if(ownerImg.naturalWidth === 0) {
+            // fallback already managed via onerror
         }
     }
 </script>
