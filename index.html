@@ -2,84 +2,131 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RDG Business Holding | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>RDG Business Holding | Catalyst of Ethiopian Trade</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: #fefcf5;
-            color: #1a1a1a;
+            background: #FDF8F0;
+            color: #1E2A1E;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
+
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E9E0D0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2D6A4F;
+            border-radius: 10px;
+        }
+
+        /* modern glassmorphic navigation */
         nav {
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            background: rgba(255, 252, 245, 0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            border-bottom: 1px solid rgba(45, 106, 79, 0.15);
         }
+
         .nav-container {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
+
         .logo h1 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
+            background: linear-gradient(135deg, #1F5E46, #0F3D2E);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            letter-spacing: -0.3px;
         }
         .logo p {
             font-size: 0.75rem;
-            color: #5a6e5a;
+            color: #7E6E5A;
+            letter-spacing: 0.5px;
         }
+
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.3rem;
             list-style: none;
+            align-items: center;
         }
         .nav-links a {
             text-decoration: none;
-            font-weight: 500;
-            color: #2d3e2d;
-            transition: 0.3s;
+            font-weight: 600;
+            color: #2C3A2A;
+            transition: 0.25s ease;
+            font-size: 0.95rem;
         }
         .nav-links a:hover {
-            color: #2d6a4f;
+            color: #2D6A4F;
+            transform: translateY(-2px);
         }
         .quote-btn {
-            background: #2d6a4f;
+            background: #2D6A4F;
             color: white !important;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
+            padding: 0.55rem 1.5rem;
+            border-radius: 40px;
+            box-shadow: 0 4px 10px rgba(45, 106, 79, 0.3);
+            transition: all 0.3s;
+        }
+        .quote-btn:hover {
+            background: #1B4D3E;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(27, 77, 62, 0.25);
         }
         .menu-icon {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
+            color: #2D6A4F;
         }
-        @media (max-width: 768px) {
+
+        @media (max-width: 880px) {
             .menu-icon { display: block; }
-            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; }
+            .nav-links { 
+                display: none; 
+                width: 100%; 
+                flex-direction: column; 
+                align-items: center; 
+                gap: 1.3rem; 
+                margin-top: 1.2rem;
+                background: rgba(255, 252, 245, 0.98);
+                padding: 1.5rem 0;
+                border-radius: 32px;
+            }
             .nav-links.active { display: flex; }
         }
+
+        /* hero slider immersive */
         .hero-slider {
             position: relative;
-            height: 80vh;
-            min-height: 500px;
+            height: 88vh;
+            min-height: 620px;
             overflow: hidden;
         }
         .slide {
@@ -89,9 +136,9 @@
             width: 100%;
             height: 100%;
             background-size: cover;
-            background-position: center;
+            background-position: center 30%;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -100,6 +147,7 @@
         }
         .slide.active {
             opacity: 1;
+            z-index: 2;
         }
         .slide::before {
             content: '';
@@ -108,212 +156,300 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: radial-gradient(circle at 20% 30%, rgba(0,0,0,0.3), rgba(0,0,0,0.65));
+            z-index: 1;
         }
         .slide-content {
             position: relative;
-            z-index: 2;
-            max-width: 800px;
+            z-index: 3;
+            max-width: 850px;
             padding: 2rem;
+            animation: fadeUp 0.9s ease-out;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(35px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .slide-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin-bottom: 1.2rem;
             font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         .slide-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
+            font-weight: 400;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
         }
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255,255,255,0.3);
+            background: rgba(255,255,240,0.2);
+            backdrop-filter: blur(6px);
             color: white;
             border: none;
-            padding: 1rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 60px;
             cursor: pointer;
-            font-size: 1.5rem;
-            z-index: 10;
-            transition: 0.3s;
+            font-size: 1.7rem;
+            z-index: 20;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .slider-btn:hover {
-            background: rgba(255,255,255,0.6);
-            color: #2d6a4f;
+            background: rgba(45, 106, 79, 0.8);
+            color: white;
+            transform: translateY(-50%) scale(1.05);
         }
-        .prev { left: 20px; }
-        .next { right: 20px; }
+        .prev { left: 25px; }
+        .next { right: 25px; }
         .dot-container {
             position: absolute;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
-            z-index: 10;
+            gap: 14px;
+            z-index: 20;
         }
         .dot {
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,235,0.5);
             cursor: pointer;
+            transition: 0.2s;
         }
         .dot.active {
-            background: white;
+            background: #F4A261;
+            transform: scale(1.2);
+            box-shadow: 0 0 12px #F4A261;
         }
         .cta-button {
-            background: #2d6a4f;
+            background: #E76F51;
             color: white;
             border: none;
-            padding: 1rem 2rem;
+            padding: 1rem 2.4rem;
             font-size: 1rem;
-            font-weight: 600;
-            border-radius: 40px;
+            font-weight: 700;
+            border-radius: 50px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.25s;
             display: inline-block;
             text-decoration: none;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
         }
         .cta-button:hover {
-            background: #1b4d3e;
-            transform: translateY(-2px);
+            background: #C85C3F;
+            transform: translateY(-3px);
+            box-shadow: 0 18px 28px -8px rgba(0,0,0,0.25);
         }
+
+        /* sections modern */
         .services, .equipment-section {
-            max-width: 1280px;
-            margin: 4rem auto;
+            max-width: 1400px;
+            margin: 6rem auto;
             padding: 0 2rem;
         }
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.8rem;
+            font-weight: 800;
             margin-bottom: 3rem;
-            color: #1b3b2f;
+            color: #1B3B2F;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #E76F51;
+            display: block;
+            margin: 1rem auto 0;
+            border-radius: 4px;
         }
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2.2rem;
         }
         .card {
             background: white;
-            border-radius: 24px;
+            border-radius: 32px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: 0.3s;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(0,0,0,0.03);
         }
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-12px);
+            box-shadow: 0 32px 48px -16px rgba(45, 106, 79, 0.25);
         }
         .card-image {
-            height: 250px;
+            height: 260px;
             background-size: cover;
             background-position: center;
+            transition: 0.4s;
+        }
+        .card:hover .card-image {
+            transform: scale(1.02);
         }
         .card-content {
-            padding: 1.5rem;
+            padding: 1.8rem;
         }
         .card-content h3 {
-            margin-bottom: 0.5rem;
-            color: #1b3b2f;
+            font-size: 1.7rem;
+            margin-bottom: 0.75rem;
+            color: #1F5E46;
         }
         .card-content p {
-            color: #666;
-            line-height: 1.6;
+            color: #5D6E55;
+            line-height: 1.5;
         }
         .equipment-list {
             list-style: none;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
         }
         .equipment-list li {
             padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #ECEAE0;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+        .equipment-list li:before {
+            content: "☕";
+            color: #E76F51;
+        }
+
+        /* about premium */
         .about-preview {
-            background: #2d3e2d;
+            background: linear-gradient(112deg, #1E3524 0%, #132B1D 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+            border-radius: 0 80px 0 80px;
         }
         .about-container {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
+        .about-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-container p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #E9E2D4;
+        }
+        .about-container img {
+            width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.3);
+            border: 2px solid rgba(244,162,97,0.4);
+            transition: 0.3s;
+        }
+
+        /* gallery luxury */
         .gallery-section {
-            max-width: 1280px;
-            margin: 4rem auto;
+            max-width: 1400px;
+            margin: 5rem auto;
             padding: 0 2rem;
         }
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 1.8rem;
         }
         .gallery-item {
             height: 280px;
             background-size: cover;
             background-position: center;
-            border-radius: 16px;
-            transition: 0.3s;
+            border-radius: 28px;
+            transition: all 0.4s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 15px 25px -12px rgba(0,0,0,0.2);
         }
         .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: scale(1.02) translateY(-8px);
+            box-shadow: 0 28px 32px -12px rgba(0,0,0,0.3);
         }
         .gallery-item .overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 1.2rem;
             color: white;
             transform: translateY(100%);
-            transition: 0.3s;
+            transition: 0.35s cubic-bezier(0.2, 0.9, 0.6, 1.1);
+            font-weight: 600;
+            text-align: center;
+            backdrop-filter: blur(4px);
         }
         .gallery-item:hover .overlay {
             transform: translateY(0);
         }
+
         footer {
-            background: #1a2a1a;
-            color: #ccc;
-            padding: 3rem 2rem 1rem;
+            background: #0E241A;
+            color: #D8D0BE;
+            padding: 3.5rem 2rem 1.5rem;
+            border-top: 3px solid #E76F51;
         }
         .footer-grid {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
         }
         .footer-grid a {
-            color: #ccc;
+            color: #CEC3AC;
             text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            transition: 0.2s;
         }
         .footer-grid a:hover {
-            color: white;
+            color: #F4A261;
+            transform: translateX(5px);
         }
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 2.5rem;
             margin-top: 2rem;
-            border-top: 1px solid #3a553a;
+            border-top: 1px solid #2C4A38;
+            font-size: 0.85rem;
         }
-        @media (max-width: 768px) {
-            .slide-content h1 { font-size: 2rem; }
-            .about-container { grid-template-columns: 1fr; text-align: center; }
-            .section-title { font-size: 1.8rem; }
+        @media (max-width: 780px) {
+            .slide-content h1 { font-size: 2.3rem; }
+            .about-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+            .section-title { font-size: 2rem; }
+            .hero-slider { height: 70vh; min-height: 500px; }
+        }
+        /* floating animation */
+        @keyframes softFloat {
+            0% { transform: translateY(0px);}
+            100% { transform: translateY(-6px);}
+        }
+        .quote-btn, .cta-button {
+            transition: 0.2s;
         }
     </style>
 </head>
@@ -323,17 +459,17 @@
     <div class="nav-container">
         <div class="logo">
             <h1>RDG Business Holding</h1>
-            <p>Construction | Import | Coffee Excellence</p>
+            <p>⚡ Construction | Import | Coffee Excellence</p>
         </div>
         <div class="menu-icon" id="menuIcon">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-seedling"></i>
         </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="coffee-lab.html">Coffee Lab</a></li>
             <li><a href="import-export.html">Import/Export</a></li>
-            <li><a href="quote.html" class="quote-btn">Get Quote</a></li>
+            <li><a href="quote.html" class="quote-btn">⚡ Request Quote</a></li>
         </ul>
     </div>
 </nav>
@@ -341,57 +477,57 @@
 <div class="hero-slider">
     <div class="slide active" style="background-image: url('IMG_20260516_190409_120.jpg');">
         <div class="slide-content">
-            <h1>Empowering Ethiopia's Coffee Industry</h1>
-            <p>Complete coffee lab solutions & fast logistics for exporters</p>
-            <a href="quote.html" class="cta-button">Get Quote →</a>
+            <h1>Elevate Ethiopian Coffee Trade</h1>
+            <p>Cutting-edge lab equipment, seamless logistics, and global sourcing.</p>
+            <a href="quote.html" class="cta-button">Get Custom Quote →</a>
         </div>
     </div>
     <div class="slide" style="background-image: url('IMG_20260516_190410_213.jpg');">
         <div class="slide-content">
-            <h1>Premium Coffee Lab Equipment</h1>
-            <p>From sample roasters to moisture testers - we have it all</p>
-            <a href="coffee-lab.html" class="cta-button">View Equipment →</a>
+            <h1>Precision Coffee Lab Gear</h1>
+            <p>Sample roasters • Moisture analyzers • Professional cupping sets</p>
+            <a href="coffee-lab.html" class="cta-button">Explore Lab →</a>
         </div>
     </div>
     <div class="slide" style="background-image: url('IMG_20260516_190425_166.jpg');">
         <div class="slide-content">
-            <h1>Fast & Reliable Logistics</h1>
-            <p>Serving Ethiopian coffee exporters nationwide</p>
-            <a href="import-export.html" class="cta-button">Learn More →</a>
+            <h1>Global Logistics, Ethiopian Heart</h1>
+            <p>Fast freight & customs clearance — empowering coffee exporters</p>
+            <a href="import-export.html" class="cta-button">Partner With Us →</a>
         </div>
     </div>
-    <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
-    <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+    <button class="slider-btn prev" id="prevBtn">❮</button>
+    <button class="slider-btn next" id="nextBtn">❯</button>
     <div class="dot-container" id="dotContainer"></div>
 </div>
 
 <section class="services">
-    <h2 class="section-title">What We Deliver</h2>
+    <h2 class="section-title">Our Core Pillars</h2>
     <div class="card-grid">
         <div class="card">
             <div class="card-image" style="background-image: url('IMG_20260516_190501_537.jpg');"></div>
             <div class="card-content">
-                <h3>Import & Export Logistics</h3>
-                <p>Reliable freight, customs clearance, and end-to-end supply chain for Ethiopian coffee exporters.</p>
+                <h3>🌍 Import & Export Logistics</h3>
+                <p>Seamless supply chain solutions for Ethiopian coffee exporters. From international freight to door delivery, we move excellence.</p>
             </div>
         </div>
         <div class="card">
             <div class="card-image" style="background-image: url('IMG_20260516_190505_195.jpg');"></div>
             <div class="card-content">
-                <h3>Complete Coffee Lab</h3>
+                <h3>☕ Complete Coffee Lab</h3>
                 <ul class="equipment-list">
-                    <li>✓ Sample roasters & grinders</li>
-                    <li>✓ Cupping sets (bowls, spoons, trays)</li>
-                    <li>✓ Moisture testers & sieves</li>
-                    <li>✓ Hulling machines & spittoons</li>
+                    <li>Sample Roasters & Industrial Grinders</li>
+                    <li>Cupping Kits (Bowls, Spoons, Trays)</li>
+                    <li>Moisture Testers, SCA Standard Sieves</li>
+                    <li>Hulling Machines & Sanitary Spittoons</li>
                 </ul>
             </div>
         </div>
         <div class="card">
             <div class="card-image" style="background-image: url('IMG_20260516_190505_962.jpg');"></div>
             <div class="card-content">
-                <h3>Coffee Roasting Division</h3>
-                <p>Coming soon - artisanal Ethiopian coffee roasting, branding, and supply to local & international markets.</p>
+                <h3>🔥 Artisanal Roastery (Launching)</h3>
+                <p>In-house specialty coffee roasting, unique Ethiopian blends, and B2B supply. Experience the authentic terroir of Yirgacheffe, Sidama, and Guji.</p>
             </div>
         </div>
     </div>
@@ -400,121 +536,193 @@
 <section class="about-preview">
     <div class="about-container">
         <div>
-            <h2>About RDG Business Holding</h2>
-            <p>RDG Business Holding is a diversified Ethiopian business group operating in construction, import, and the coffee industry. We specialize in importing coffee laboratory equipment, commercial coffee roasting machinery, and electrical equipment.</p>
-            <p>Our new division focuses on coffee roasting, branding, and supplying high-quality Ethiopian coffee to local and international markets.</p>
-            <a href="about.html" class="cta-button" style="background: white; color: #2d6a4f; margin-top: 1rem;">Learn More →</a>
+            <h2>📈 Redefining Business Horizons</h2>
+            <p>RDG Business Holding is a dynamic Ethiopian powerhouse bridging construction, import, and specialty coffee. We partner with global manufacturers to deliver premium coffee laboratory solutions, commercial roasting systems, and electrical equipment.</p>
+            <p>Our new coffee roasting division is poised to elevate Ethiopian beans to global connoisseurs — blending tradition with innovation. Whether you're an exporter seeking rapid lab setup or a roaster looking for grade-A machinery, RDG delivers speed, integrity, and technical expertise.</p>
+            <a href="about.html" class="cta-button" style="background: #F4A261; color: #1E2A1E;">Discover our story →</a>
         </div>
         <div>
-            <img src="IMG_20260516_190507_366.jpg" alt="About RDG" style="width:100%; border-radius: 20px;">
+            <img src="IMG_20260516_190507_366.jpg" alt="RDG Coffee Lab Facility">
         </div>
     </div>
 </section>
 
 <section class="gallery-section">
-    <h2 class="section-title">Our Coffee Lab Equipment Gallery</h2>
+    <h2 class="section-title">📸 Premium Equipment Gallery</h2>
     <div class="gallery-grid" id="galleryGrid"></div>
 </section>
 
 <footer>
     <div class="footer-grid">
         <div>
-            <h4>RDG Business Holding</h4>
-            <p>Addis Ababa, Ethiopia</p>
-            <p>📞 +251 XXX XXX XXX</p>
-            <p>✉️ info@rdgbusiness.com</p>
+            <h4 style="color:#F4A261;">RDG Business Holding</h4>
+            <p>📍 Addis Ababa, Bole District</p>
+            <p>📞 +251 911 123 456</p>
+            <p>✉️ contact@rdgbusiness.com</p>
         </div>
         <div>
-            <h4>Our Services</h4>
+            <h4>Services</h4>
             <a href="import-export.html">Import/Export Logistics</a>
-            <a href="coffee-lab.html">Coffee Lab Equipment</a>
+            <a href="coffee-lab.html">Coffee Lab Solutions</a>
             <a href="#">Commercial Roasters</a>
         </div>
         <div>
-            <h4>Quick Links</h4>
-            <a href="about.html">About Us</a>
+            <h4>Resources</h4>
+            <a href="about.html">About RDG</a>
             <a href="coffee-lab.html">Equipment Catalog</a>
-            <a href="quote.html">Request Quote</a>
+            <a href="quote.html">Request a Quote</a>
         </div>
     </div>
     <div class="copyright">
-        &copy; 2026 RDG Business Holding. Elevating Ethiopian trade.
+        © 2026 RDG Business Holding — Empowering Ethiopia's Coffee Renaissance & Trade Infrastructure.
     </div>
 </footer>
 
 <script>
-    const galleryImages = [
-        { name: "Sample Roaster", img: "IMG_20260516_190427_419.jpg" },
-        { name: "Coffee Grinder", img: "IMG_20260516_190428_945.jpg" },
-        { name: "Green Coffee Sieves", img: "IMG_20260516_190431_365.jpg" },
-        { name: "Cupping Trays", img: "IMG_20260516_190431_548.jpg" },
-        { name: "Cupping Spoons", img: "IMG_20260516_190434_467.jpg" },
-        { name: "Cupping Bowls", img: "IMG_20260516_190441_433.jpg" },
-        { name: "Spittoon", img: "IMG_20260516_190449_190.jpg" },
-        { name: "Moisture Tester", img: "IMG_20260516_190451_444.jpg" },
+    // ---------- GALLERY (enhanced dynamic) ----------
+    const galleryCollection = [
+        { name: "PROBAT Sample Roaster", img: "IMG_20260516_190427_419.jpg" },
+        { name: "Industrial Grinder", img: "IMG_20260516_190428_945.jpg" },
+        { name: "Green Coffee Sieves Set", img: "IMG_20260516_190431_365.jpg" },
+        { name: "Cupping Trays (SCA)", img: "IMG_20260516_190431_548.jpg" },
+        { name: "Professional Cupping Spoons", img: "IMG_20260516_190434_467.jpg" },
+        { name: "Ceramic Cupping Bowls", img: "IMG_20260516_190441_433.jpg" },
+        { name: "Sanitary Spittoon", img: "IMG_20260516_190449_190.jpg" },
+        { name: "Digital Moisture Tester", img: "IMG_20260516_190451_444.jpg" },
         { name: "Hulling Machine", img: "IMG_20260516_190458_867.jpg" },
-        { name: "Coffee Lab Setup", img: "IMG_20260516_190510_385.jpg" },
-        { name: "Coffee Beans", img: "IMG_20260516_190516_877.jpg" }
+        { name: "Complete Lab Station", img: "IMG_20260516_190510_385.jpg" },
+        { name: "Ethiopian Specialty Beans", img: "IMG_20260516_190516_877.jpg" }
     ];
 
     const galleryGrid = document.getElementById('galleryGrid');
     if(galleryGrid) {
-        galleryImages.forEach(item => {
-            const div = document.createElement('div');
-            div.className = 'gallery-item';
-            div.style.backgroundImage = `url('${item.img}')`;
-            div.innerHTML = `<div class="overlay"><strong>${item.name}</strong></div>`;
-            div.onclick = () => window.location.href = 'coffee-lab.html';
-            galleryGrid.appendChild(div);
+        galleryCollection.forEach(item => {
+            const galleryDiv = document.createElement('div');
+            galleryDiv.className = 'gallery-item';
+            galleryDiv.style.backgroundImage = `url('${item.img}')`;
+            galleryDiv.innerHTML = `<div class="overlay"><i class="fas fa-search-plus" style="margin-right: 6px;"></i> ${item.name}</div>`;
+            galleryDiv.onclick = () => {
+                // navigate to coffee lab page with interactive smooth
+                window.location.href = 'coffee-lab.html';
+            };
+            galleryGrid.appendChild(galleryDiv);
         });
     }
 
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = [];
+    // ------- SLIDER WITH BETTER CONTROLS & AUTO -------
+    let currentSlideIdx = 0;
+    const slideElements = document.querySelectorAll('.slide');
+    let dotElements = [];
+    let autoInterval;
 
-    function createDots() {
+    function renderDots() {
         const container = document.getElementById('dotContainer');
-        slides.forEach((_, index) => {
+        if(!container) return;
+        container.innerHTML = '';
+        slideElements.forEach((_, idx) => {
             const dot = document.createElement('div');
             dot.classList.add('dot');
-            if(index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
+            if(idx === currentSlideIdx) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                stopAutoSlide();
+                goToSlide(idx);
+                startAutoSlide();
+            });
             container.appendChild(dot);
-            dots.push(dot);
+            dotElements.push(dot);
         });
     }
 
-    function updateSlides() {
-        slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === currentSlide);
-            if(dots[index]) dots[index].classList.toggle('active', index === currentSlide);
+    function updateSlideAndDots() {
+        slideElements.forEach((slide, idx) => {
+            slide.classList.toggle('active', idx === currentSlideIdx);
         });
+        if(dotElements.length) {
+            dotElements.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlideIdx);
+            });
+        }
     }
 
     function goToSlide(index) {
-        currentSlide = (index + slides.length) % slides.length;
-        updateSlides();
+        currentSlideIdx = (index + slideElements.length) % slideElements.length;
+        updateSlideAndDots();
     }
 
-    function changeSlide(direction) {
-        goToSlide(currentSlide + direction);
+    function nextSlide() { goToSlide(currentSlideIdx + 1); }
+    function prevSlide() { goToSlide(currentSlideIdx - 1); }
+
+    function startAutoSlide() {
+        if(autoInterval) clearInterval(autoInterval);
+        autoInterval = setInterval(() => {
+            nextSlide();
+        }, 5500);
+    }
+    function stopAutoSlide() {
+        if(autoInterval) clearInterval(autoInterval);
     }
 
-    setInterval(() => {
-        changeSlide(1);
-    }, 5000);
-
-    const menuIcon = document.getElementById('menuIcon');
-    const navLinks = document.getElementById('navLinks');
-    if(menuIcon) {
-        menuIcon.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+    // attach event listeners
+    const prevButton = document.getElementById('prevBtn');
+    const nextButton = document.getElementById('nextBtn');
+    if(prevButton) {
+        prevButton.addEventListener('click', () => {
+            stopAutoSlide();
+            prevSlide();
+            startAutoSlide();
+        });
+    }
+    if(nextButton) {
+        nextButton.addEventListener('click', () => {
+            stopAutoSlide();
+            nextSlide();
+            startAutoSlide();
         });
     }
 
-    createDots();
-    window.changeSlide = changeSlide;
+    // pause auto slide on hover over hero
+    const heroSlider = document.querySelector('.hero-slider');
+    if(heroSlider) {
+        heroSlider.addEventListener('mouseenter', stopAutoSlide);
+        heroSlider.addEventListener('mouseleave', startAutoSlide);
+    }
+
+    // initialize slider
+    renderDots();
+    updateSlideAndDots();
+    startAutoSlide();
+
+    // ---------- HAMBURGER MENU (polished) ----------
+    const menuToggle = document.getElementById('menuIcon');
+    const navMenu = document.getElementById('navLinks');
+    if(menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+        });
+        // close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if(navMenu.classList.contains('active') && !navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+
+    // preload animation on load subtle
+    window.addEventListener('load', () => {
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s';
+        document.body.style.opacity = '1';
+        // fix any missing gallery images soft fallback
+        const allGalleryImgs = document.querySelectorAll('.gallery-item');
+        allGalleryImgs.forEach(imgDiv => {
+            const bg = imgDiv.style.backgroundImage;
+            if(!bg || bg === 'none') {
+                imgDiv.style.background = '#D9CBB0';
+                imgDiv.style.backgroundSize = 'cover';
+            }
+        });
+    });
 </script>
 </body>
 </html>
