@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>RDG Import | Global Trade Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0A0F0D; color: #FFFFFF; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1A1F1D; }
+        ::-webkit-scrollbar-thumb { background: #E76F51; border-radius: 10px; }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(circle at 20% 30%, #0D2818, #0A0F0D);
+        }
+
+        nav {
+            background: rgba(10, 15, 13, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo h1 { font-size: 1.6rem; font-weight: 800; background: linear-gradient(135deg, #FFFFFF, #E76F51); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo p { font-size: 0.7rem; color: rgba(255,255,255,0.5); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; font-weight: 500; color: rgba(255,255,255,0.7); transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #E76F51; }
+        .quote-btn { background: linear-gradient(135deg, #E76F51, #C85C3F); color: white !important; padding: 0.6rem 1.5rem; border-radius: 50px; }
+        .menu-icon { display: none; font-size: 1.5rem; cursor: pointer; color: white; }
+        @media (max-width: 880px) {
+            .menu-icon { display: block; }
+            .nav-links { display: none; width: 100%; flex-direction: column; padding: 1.5rem 0; background: rgba(10,15,13,0.95); border-radius: 20px; }
+            .nav-links.active { display: flex; }
+        }
+
+        .page-header { text-align: center; padding: 5rem 2rem 3rem; }
+        .page-header h1 { font-size: 3.5rem; font-weight: 800; background: linear-gradient(135deg, #FFFFFF, #E0D8CC); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem 2rem 5rem; }
+        .section-title { text-align: center; font-size: 2rem; font-weight: 700; margin: 3rem 0 2rem; }
+        .section-title span { color: #E76F51; }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .gallery-item:hover { transform: translateY(-5px); border-color: rgba(231,111,81,0.3); }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .gallery-caption {
+            padding: 1rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        .step {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .step-number {
+            background: #E76F51;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-weight: bold;
+        }
+
+        footer { background: #060A08; border-top: 1px solid rgba(255,255,255,0.05); padding: 4rem 2rem 2rem; }
+        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+        .footer-col h4 { color: #E76F51; margin-bottom: 1rem; }
+        .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; display: block; margin-bottom: 0.5rem; }
+        .copyright { text-align: center; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); }
+
+        @media (max-width: 768px) { .process-steps { grid-template-columns: 1fr; } .page-header h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+
+<div class="gradient-bg"></div>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo"><h1>RDG</h1><p>BUSINESS HOLDING</p></div>
+        <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="construction.html">Construction</a></li>
+            <li><a href="import.html" class="active">Import</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="quote.html" class="quote-btn">Get Quote</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-header">
+    <h1>RDG Import</h1>
+    <p style="color: rgba(255,255,255,0.6); margin-top: 1rem;">Electrical Equipment | Coffee Lab Machinery | Global Sourcing</p>
+</div>
+
+<div class="container">
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="IMG_20260516_190427_419.jpg" alt="Sample Roaster"><div class="gallery-caption">PROBAT Sample Roaster</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190428_945.jpg" alt="Industrial Grinder"><div class="gallery-caption">Industrial Grinder</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190431_365.jpg" alt="Sieve Set"><div class="gallery-caption">Green Coffee Sieve Set</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190431_548.jpg" alt="Cupping Trays"><div class="gallery-caption">Cupping Sample Trays</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190434_467.jpg" alt="Cupping Spoons"><div class="gallery-caption">Professional Cupping Spoons</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190441_433.jpg" alt="Cupping Bowls"><div class="gallery-caption">Ceramic Cupping Bowls</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190449_190.jpg" alt="Spittoon"><div class="gallery-caption">Sanitary Spittoon</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190451_444.jpg" alt="Moisture Tester"><div class="gallery-caption">Digital Moisture Tester</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190458_867.jpg" alt="Hulling Machine"><div class="gallery-caption">Coffee Hulling Machine</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190501_537.jpg" alt="Logistics"><div class="gallery-caption">Import Logistics</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190510_385.jpg" alt="Lab Station"><div class="gallery-caption">Complete Lab Station</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190516_877.jpg" alt="Coffee Beans"><div class="gallery-caption">Ethiopian Coffee</div></div>
+    </div>
+
+    <h2 class="section-title">Our <span>Import</span> Process</h2>
+    <div class="process-steps">
+        <div class="step"><div class="step-number">1</div><h4>Quote & Book</h4><small>Share your requirements</small></div>
+        <div class="step"><div class="step-number">2</div><h4>Origin Handling</h4><small>Supplier coordination</small></div>
+        <div class="step"><div class="step-number">3</div><h4>Shipping</h4><small>Real-time tracking</small></div>
+        <div class="step"><div class="step-number">4</div><h4>Delivery</h4><small>Doorstep in Ethiopia</small></div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col"><h4>RDG Business Holding</h4><p>📍 Addis Ababa, Bole Sub City</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
+        <div class="footer-col"><h4>Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
+        <div class="footer-col"><h4>Quick Links</h4><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="quote.html">Request Quote</a></div>
+    </div>
+    <div class="copyright">© 2026 RDG Business Holding — Innovation Across Industries</div>
+</footer>
+
+<script>
+    const menuIcon = document.getElementById("menuIcon");
+    const navLinks = document.getElementById("navLinks");
+    if(menuIcon) {
+        menuIcon.addEventListener("click", (e) => { e.stopPropagation(); navLinks.classList.toggle("active"); });
+        document.addEventListener("click", (event) => { if(navLinks?.classList.contains("active") && !navLinks.contains(event.target) && !menuIcon.contains(event.target)) navLinks.classList.remove("active"); });
+    }
+</script>
+</body>
+</html>
