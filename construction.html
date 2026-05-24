@@ -26,8 +26,8 @@
         .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #1F5E46, #0F3D2E); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .logo p { font-size: 0.75rem; color: #7E6E5A; }
         .nav-links { display: flex; gap: 2.3rem; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; font-weight: 600; color: #2C3A2A; transition: 0.25s; }
-        .nav-links a:hover, .nav-links a.active { color: #2D6A4F; }
+        .nav-links a { text-decoration: none; font-weight: 600; color: #2C3A2A; transition: 0.25s; font-size: 0.95rem; }
+        .nav-links a:hover, .nav-links a.active { color: #2D6A4F; transform: translateY(-2px); }
         .quote-btn { background: #2D6A4F; color: white !important; padding: 0.55rem 1.5rem; border-radius: 40px; }
         .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; color: #2D6A4F; background: rgba(45, 106, 79, 0.1); padding: 8px 14px; border-radius: 50px; }
         @media (max-width: 880px) {
@@ -40,18 +40,18 @@
         .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
         .container { max-width: 1280px; margin: 4rem auto; padding: 0 2rem; }
         .section-title { text-align: center; font-size: 2rem; font-weight: 800; margin: 3rem 0 2rem; color: #1B3B2F; }
+        .section-title:after { content: ''; width: 60px; height: 3px; background: #E76F51; display: block; margin: 0.5rem auto 0; border-radius: 3px; }
         
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .service-card { background: white; padding: 2rem; border-radius: 28px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; }
         .service-card:hover { transform: translateY(-5px); }
         .service-card i { font-size: 3rem; color: #2D6A4F; margin-bottom: 1rem; }
+        .service-card h3 { color: #1F5E46; margin-bottom: 0.5rem; }
         
-        .project-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 2rem; }
-        .project-content { padding: 2rem; }
-        .project-title { font-size: 1.5rem; color: #1F5E46; margin-bottom: 0.5rem; }
-        
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 2rem 0; }
-        .team-card { background: white; padding: 1.5rem; border-radius: 24px; text-align: center; }
+        .project-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 1.5rem; }
+        .project-content { padding: 1.5rem; }
+        .project-title { font-size: 1.3rem; color: #1F5E46; margin-bottom: 0.3rem; }
+        .project-client { color: #E76F51; font-weight: 600; margin-bottom: 0.5rem; }
         
         .cta-button { background: #E76F51; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; display: inline-block; font-weight: 600; margin: 2rem 0; }
         
@@ -74,6 +74,7 @@
             <li><a href="construction.html" class="active">Construction</a></li>
             <li><a href="import.html">Import</a></li>
             <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="quote.html" class="quote-btn">⚡ Quote</a></li>
         </ul>
     </div>
@@ -86,29 +87,21 @@
 
 <div class="container">
     <div class="services-grid">
-        <div class="service-card"><i class="fas fa-tree"></i><h3>Landscape Design</h3><p>Custom designs blending aesthetics with functionality for outdoor spaces.</p></div>
-        <div class="service-card"><i class="fas fa-seedling"></i><h3>Landscape Plantation</h3><p>Careful selection and planting of greenery for vibrant environments.</p></div>
-        <div class="service-card"><i class="fas fa-hard-hat"></i><h3>Hardscape Installation</h3><p>Durable patios, pathways, retaining walls, and structural features.</p></div>
-        <div class="service-card"><i class="fas fa-paint-brush"></i><h3>Finishing Works</h3><p>Expert painting, ceramic work, and interior finishing touches.</p></div>
-        <div class="service-card"><i class="fas fa-building"></i><h3>Residential Construction</h3><p>G+1 to G+5 residential buildings and apartment complexes.</p></div>
-        <div class="service-card"><i class="fas fa-water"></i><h3>Project Management</h3><p>Full project oversight from concept to completion.</p></div>
+        <div class="service-card"><i class="fas fa-tree"></i><h3>Landscape Design</h3><p>Custom designs blending aesthetics with functionality</p></div>
+        <div class="service-card"><i class="fas fa-seedling"></i><h3>Landscape Plantation</h3><p>Careful selection and planting of greenery</p></div>
+        <div class="service-card"><i class="fas fa-hard-hat"></i><h3>Hardscape Installation</h3><p>Durable patios, pathways, retaining walls</p></div>
+        <div class="service-card"><i class="fas fa-paint-brush"></i><h3>Finishing Works</h3><p>Expert painting, ceramic work, interior finishing</p></div>
+        <div class="service-card"><i class="fas fa-building"></i><h3>Residential Construction</h3><p>G+1 to G+5 residential buildings</p></div>
+        <div class="service-card"><i class="fas fa-water"></i><h3>Project Management</h3><p>Full project oversight from concept to completion</p></div>
     </div>
 
     <h2 class="section-title">Major Projects</h2>
-    <div class="project-card"><div class="project-content"><h3 class="project-title">🏛️ UNITY PARK - Parking Lot & Mixed Use</h3><p>Landscape design and development for one of Addis Ababa's premier public spaces.</p></div></div>
-    <div class="project-card"><div class="project-content"><h3 class="project-title">🐘 ELEPHANT PAW LODGE (Chebera Churchura)</h3><p>Full landscape architecture and development for this eco-tourism destination.</p></div></div>
-    <div class="project-card"><div class="project-content"><h3 class="project-title">🏭 National Cement Lemi Project</h3><p>Landscape concept development for Africa's largest cement factory, including soil rehabilitation and plantation.</p></div></div>
-    <div class="project-card"><div class="project-content"><h3 class="project-title">🥤 East Africa Bottling Share Company</h3><p>Recreational space and landscape concept development for factory workers.</p></div></div>
-    <div class="project-card"><div class="project-content"><h3 class="project-title">🏠 Professor Menegesha & Wro Haregewoyen Residence</h3><p>G+1 Residential Design & Build (3,700,000 ETB - 2018)</p></div></div>
-    <div class="project-card"><div class="project-content"><h3 class="project-title">🏢 Ato Wassihun Adoshe Residence</h3><p>G+3+B Residential Complex (7,000,000 ETB - 2019)</p></div></div>
-
-    <h2 class="section-title">Our Expert Team</h2>
-    <div class="team-grid">
-        <div class="team-card"><i class="fas fa-user-graduate team-icon"></i><h3>Zenepech Chane</h3><p>Landscape Architect & Design Coordinator</p><small>BSc Construction Technology Management | 10+ years</small></div>
-        <div class="team-card"><i class="fas fa-drafting-compass team-icon"></i><h3>Haftom G/yesus</h3><p>Professional Architect</p><small>BSc Architectural & Urban Planning | 6+ years</small></div>
-        <div class="team-card"><i class="fas fa-drafting-compass team-icon"></i><h3>Bisrat Abebaw</h3><p>Professional Architect</p><small>BSc Architectural & Urban Planning | 7+ years</small></div>
-        <div class="team-card"><i class="fas fa-hard-hat team-icon"></i><h3>Amanuel Girma</h3><p>Structural Engineer</p><small>MSc Structural Engineering | 10+ years</small></div>
-    </div>
+    <div class="project-card"><div class="project-content"><div class="project-title">🏛️ UNITY PARK - Parking Lot & Mixed Use</div><div class="project-client">Client: Unity Park Authority</div><p>Landscape design and development for Addis Ababa's premier public space.</p></div></div>
+    <div class="project-card"><div class="project-content"><div class="project-title">🐘 ELEPHANT PAW LODGE (Chebera Churchura)</div><div class="project-client">Client: Ethiopian Wildlife Conservation</div><p>Full landscape architecture and development for this eco-tourism destination.</p></div></div>
+    <div class="project-card"><div class="project-content"><div class="project-title">🏭 National Cement Lemi Project</div><div class="project-client">Client: National Cement</div><p>Landscape concept development for Africa's largest cement factory, including soil rehabilitation.</p></div></div>
+    <div class="project-card"><div class="project-content"><div class="project-title">🥤 East Africa Bottling Share Company</div><div class="project-client">Client: East Africa Bottling</div><p>Recreational space and landscape concept development for factory workers.</p></div></div>
+    <div class="project-card"><div class="project-content"><div class="project-title">🏠 Professor Menegesha Residence</div><div class="project-client">G+1 Residential Design & Build | 3.7M ETB (2018)</div></div></div>
+    <div class="project-card"><div class="project-content"><div class="project-title">🏢 Ato Wassihun Adoshe Residence</div><div class="project-client">G+3+B Residential Complex | 7M ETB (2019)</div></div></div>
 
     <div style="text-align: center;"><a href="quote.html" class="cta-button"><i class="fas fa-file-signature"></i> Request Construction Quote</a></div>
 </div>
@@ -117,7 +110,7 @@
     <div class="footer-grid">
         <div><h4 style="color:#F4A261;">RDG Business Holding</h4><p>📍 Addis Ababa, Bole Sub City</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
         <div><h4>Our Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
-        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="quote.html">Request Quote</a></div>
+        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="quote.html">Request Quote</a></div>
     </div>
     <div class="copyright">© 2026 RDG Business Holding — Empowering Ethiopia's Construction, Import & Coffee Renaissance.</div>
 </footer>
