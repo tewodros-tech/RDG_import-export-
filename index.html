@@ -21,7 +21,6 @@
             overflow-x: hidden;
         }
 
-        /* custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -33,7 +32,7 @@
             border-radius: 10px;
         }
 
-        /* modern glassmorphic navigation */
+        /* Modern Navigation */
         nav {
             background: rgba(255, 252, 245, 0.96);
             backdrop-filter: blur(12px);
@@ -104,10 +103,21 @@
             font-size: 1.8rem;
             cursor: pointer;
             color: #2D6A4F;
+            background: rgba(45, 106, 79, 0.1);
+            padding: 8px 12px;
+            border-radius: 50px;
+            transition: 0.2s;
+        }
+        .menu-icon:hover {
+            background: rgba(45, 106, 79, 0.2);
         }
 
         @media (max-width: 880px) {
-            .menu-icon { display: block; }
+            .menu-icon { 
+                display: flex; 
+                align-items: center;
+                gap: 8px;
+            }
             .nav-links { 
                 display: none; 
                 width: 100%; 
@@ -116,13 +126,26 @@
                 gap: 1.3rem; 
                 margin-top: 1.2rem;
                 background: rgba(255, 252, 245, 0.98);
+                backdrop-filter: blur(8px);
                 padding: 1.5rem 0;
                 border-radius: 32px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             }
-            .nav-links.active { display: flex; }
+            .nav-links.active { 
+                display: flex; 
+            }
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+            .quote-btn {
+                display: inline-block;
+                width: auto;
+                margin-top: 0;
+            }
         }
 
-        /* hero slider immersive */
+        /* Hero Slider */
         .hero-slider {
             position: relative;
             height: 88vh;
@@ -251,7 +274,7 @@
             box-shadow: 0 18px 28px -8px rgba(0,0,0,0.25);
         }
 
-        /* sections modern */
+        /* Sections */
         .services, .equipment-section {
             max-width: 1400px;
             margin: 6rem auto;
@@ -329,7 +352,7 @@
             color: #E76F51;
         }
 
-        /* about premium */
+        /* About Preview */
         .about-preview {
             background: linear-gradient(112deg, #1E3524 0%, #132B1D 100%);
             color: white;
@@ -362,7 +385,7 @@
             transition: 0.3s;
         }
 
-        /* gallery luxury */
+        /* Gallery */
         .gallery-section {
             max-width: 1400px;
             margin: 5rem auto;
@@ -406,6 +429,7 @@
             transform: translateY(0);
         }
 
+        /* Footer */
         footer {
             background: #0E241A;
             color: #D8D0BE;
@@ -443,14 +467,6 @@
             .section-title { font-size: 2rem; }
             .hero-slider { height: 70vh; min-height: 500px; }
         }
-        /* floating animation */
-        @keyframes softFloat {
-            0% { transform: translateY(0px);}
-            100% { transform: translateY(-6px);}
-        }
-        .quote-btn, .cta-button {
-            transition: 0.2s;
-        }
     </style>
 </head>
 <body>
@@ -462,95 +478,22 @@
             <p>⚡ Construction | Import | Coffee Excellence</p>
         </div>
         <div class="menu-icon" id="menuIcon">
-            <i class="fas fa-seedling"></i>
+            <i class="fas fa-bars"></i> <span style="font-size: 0.9rem;">Menu</span>
         </div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="coffee-lab.html">Coffee Lab</a></li>
-            <li><a href="import-export.html">Import/Export</a></li>
-            <li><a href="quote.html" class="quote-btn">⚡ Request Quote</a></li>
+            <li><a href="#" data-page="home">Home</a></li>
+            <li><a href="#" data-page="about">About</a></li>
+            <li><a href="#" data-page="coffee-lab">Coffee Lab</a></li>
+            <li><a href="#" data-page="import-export">Import/Export</a></li>
+            <li><a href="#" data-page="quote" class="quote-btn">⚡ Request Quote</a></li>
         </ul>
     </div>
 </nav>
 
-<div class="hero-slider">
-    <div class="slide active" style="background-image: url('IMG_20260516_190409_120.jpg');">
-        <div class="slide-content">
-            <h1>Elevate Ethiopian Coffee Trade</h1>
-            <p>Cutting-edge lab equipment, seamless logistics, and global sourcing.</p>
-            <a href="quote.html" class="cta-button">Get Custom Quote →</a>
-        </div>
-    </div>
-    <div class="slide" style="background-image: url('IMG_20260516_190410_213.jpg');">
-        <div class="slide-content">
-            <h1>Precision Coffee Lab Gear</h1>
-            <p>Sample roasters • Moisture analyzers • Professional cupping sets</p>
-            <a href="coffee-lab.html" class="cta-button">Explore Lab →</a>
-        </div>
-    </div>
-    <div class="slide" style="background-image: url('IMG_20260516_190425_166.jpg');">
-        <div class="slide-content">
-            <h1>Global Logistics, Ethiopian Heart</h1>
-            <p>Fast freight & customs clearance — empowering coffee exporters</p>
-            <a href="import-export.html" class="cta-button">Partner With Us →</a>
-        </div>
-    </div>
-    <button class="slider-btn prev" id="prevBtn">❮</button>
-    <button class="slider-btn next" id="nextBtn">❯</button>
-    <div class="dot-container" id="dotContainer"></div>
-</div>
-
-<section class="services">
-    <h2 class="section-title">Our Core Pillars</h2>
-    <div class="card-grid">
-        <div class="card">
-            <div class="card-image" style="background-image: url('IMG_20260516_190501_537.jpg');"></div>
-            <div class="card-content">
-                <h3>🌍 Import & Export Logistics</h3>
-                <p>Seamless supply chain solutions for Ethiopian coffee exporters. From international freight to door delivery, we move excellence.</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image" style="background-image: url('IMG_20260516_190505_195.jpg');"></div>
-            <div class="card-content">
-                <h3>☕ Complete Coffee Lab</h3>
-                <ul class="equipment-list">
-                    <li>Sample Roasters & Industrial Grinders</li>
-                    <li>Cupping Kits (Bowls, Spoons, Trays)</li>
-                    <li>Moisture Testers, SCA Standard Sieves</li>
-                    <li>Hulling Machines & Sanitary Spittoons</li>
-                </ul>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-image" style="background-image: url('IMG_20260516_190505_962.jpg');"></div>
-            <div class="card-content">
-                <h3>🔥 Artisanal Roastery (Launching)</h3>
-                <p>In-house specialty coffee roasting, unique Ethiopian blends, and B2B supply. Experience the authentic terroir of Yirgacheffe, Sidama, and Guji.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="about-preview">
-    <div class="about-container">
-        <div>
-            <h2>📈 Redefining Business Horizons</h2>
-            <p>RDG Business Holding is a dynamic Ethiopian powerhouse bridging construction, import, and specialty coffee. We partner with global manufacturers to deliver premium coffee laboratory solutions, commercial roasting systems, and electrical equipment.</p>
-            <p>Our new coffee roasting division is poised to elevate Ethiopian beans to global connoisseurs — blending tradition with innovation. Whether you're an exporter seeking rapid lab setup or a roaster looking for grade-A machinery, RDG delivers speed, integrity, and technical expertise.</p>
-            <a href="about.html" class="cta-button" style="background: #F4A261; color: #1E2A1E;">Discover our story →</a>
-        </div>
-        <div>
-            <img src="IMG_20260516_190507_366.jpg" alt="RDG Coffee Lab Facility">
-        </div>
-    </div>
-</section>
-
-<section class="gallery-section">
-    <h2 class="section-title">📸 Premium Equipment Gallery</h2>
-    <div class="gallery-grid" id="galleryGrid"></div>
-</section>
+<!-- MAIN CONTENT WRAPPER (dynamic) -->
+<main id="app-root">
+    <!-- Homepage content will be injected here by default -->
+</main>
 
 <footer>
     <div class="footer-grid">
@@ -562,15 +505,15 @@
         </div>
         <div>
             <h4>Services</h4>
-            <a href="import-export.html">Import/Export Logistics</a>
-            <a href="coffee-lab.html">Coffee Lab Solutions</a>
+            <a href="#" data-page="import-export">Import/Export Logistics</a>
+            <a href="#" data-page="coffee-lab">Coffee Lab Solutions</a>
             <a href="#">Commercial Roasters</a>
         </div>
         <div>
             <h4>Resources</h4>
-            <a href="about.html">About RDG</a>
-            <a href="coffee-lab.html">Equipment Catalog</a>
-            <a href="quote.html">Request a Quote</a>
+            <a href="#" data-page="about">About RDG</a>
+            <a href="#" data-page="coffee-lab">Equipment Catalog</a>
+            <a href="#" data-page="quote">Request a Quote</a>
         </div>
     </div>
     <div class="copyright">
@@ -579,149 +522,270 @@
 </footer>
 
 <script>
-    // ---------- GALLERY (enhanced dynamic) ----------
-    const galleryCollection = [
-        { name: "PROBAT Sample Roaster", img: "IMG_20260516_190427_419.jpg" },
-        { name: "Industrial Grinder", img: "IMG_20260516_190428_945.jpg" },
-        { name: "Green Coffee Sieves Set", img: "IMG_20260516_190431_365.jpg" },
-        { name: "Cupping Trays (SCA)", img: "IMG_20260516_190431_548.jpg" },
-        { name: "Professional Cupping Spoons", img: "IMG_20260516_190434_467.jpg" },
-        { name: "Ceramic Cupping Bowls", img: "IMG_20260516_190441_433.jpg" },
-        { name: "Sanitary Spittoon", img: "IMG_20260516_190449_190.jpg" },
-        { name: "Digital Moisture Tester", img: "IMG_20260516_190451_444.jpg" },
-        { name: "Hulling Machine", img: "IMG_20260516_190458_867.jpg" },
-        { name: "Complete Lab Station", img: "IMG_20260516_190510_385.jpg" },
-        { name: "Ethiopian Specialty Beans", img: "IMG_20260516_190516_877.jpg" }
-    ];
+    // ---------- MULTI-PAGE SYSTEM (Fully linked, no external pages needed) ----------
+    const pages = {
+        home: `
+            <div class="hero-slider" id="dynamicSlider">
+                <div class="slide active" style="background-image: url('https://placehold.co/1600x900/2D6A4F/FFFFFF?text=Ethiopian+Coffee+Trade');">
+                    <div class="slide-content">
+                        <h1>Elevate Ethiopian Coffee Trade</h1>
+                        <p>Cutting-edge lab equipment, seamless logistics, and global sourcing.</p>
+                        <a href="#" data-page="quote" class="cta-button">Get Custom Quote →</a>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://placehold.co/1600x900/E76F51/FFFFFF?text=Precision+Coffee+Lab+Gear');">
+                    <div class="slide-content">
+                        <h1>Precision Coffee Lab Gear</h1>
+                        <p>Sample roasters • Moisture analyzers • Professional cupping sets</p>
+                        <a href="#" data-page="coffee-lab" class="cta-button">Explore Lab →</a>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('https://placehold.co/1600x900/F4A261/1E2A1E?text=Global+Logistics');">
+                    <div class="slide-content">
+                        <h1>Global Logistics, Ethiopian Heart</h1>
+                        <p>Fast freight & customs clearance — empowering coffee exporters</p>
+                        <a href="#" data-page="import-export" class="cta-button">Partner With Us →</a>
+                    </div>
+                </div>
+                <button class="slider-btn prev" id="prevBtn">❮</button>
+                <button class="slider-btn next" id="nextBtn">❯</button>
+                <div class="dot-container" id="dotContainer"></div>
+            </div>
+            
+            <section class="services">
+                <h2 class="section-title">Our Core Pillars</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-image" style="background-image: url('https://placehold.co/600x400/BCAAA4/FFFFFF?text=Import+Export');"></div>
+                        <div class="card-content"><h3>🌍 Import & Export Logistics</h3><p>Seamless supply chain solutions for Ethiopian coffee exporters. From international freight to door delivery, we move excellence.</p></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image" style="background-image: url('https://placehold.co/600x400/8D6E63/FFFFFF?text=Coffee+Lab');"></div>
+                        <div class="card-content">
+                            <h3>☕ Complete Coffee Lab</h3>
+                            <ul class="equipment-list"><li>Sample Roasters & Industrial Grinders</li><li>Cupping Kits (Bowls, Spoons, Trays)</li><li>Moisture Testers, SCA Standard Sieves</li><li>Hulling Machines & Sanitary Spittoons</li></ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image" style="background-image: url('https://placehold.co/600x400/A1887F/FFFFFF?text=Roastery');"></div>
+                        <div class="card-content"><h3>🔥 Artisanal Roastery (Launching)</h3><p>In-house specialty coffee roasting, unique Ethiopian blends, and B2B supply. Experience the authentic terroir.</p></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="about-preview">
+                <div class="about-container">
+                    <div><h2>📈 Redefining Business Horizons</h2><p>RDG Business Holding is a dynamic Ethiopian powerhouse bridging construction, import, and specialty coffee. We partner with global manufacturers to deliver premium coffee laboratory solutions.</p><a href="#" data-page="about" class="cta-button" style="background:#F4A261; color:#1E2A1E;">Discover our story →</a></div>
+                    <div><img src="https://placehold.co/600x400/3E5C3A/FFFFFF?text=RDG+Facility" alt="RDG Facility"></div>
+                </div>
+            </section>
+            
+            <section class="gallery-section">
+                <h2 class="section-title">📸 Premium Equipment Gallery</h2>
+                <div class="gallery-grid" id="galleryGrid"></div>
+            </section>
+        `,
+        about: `
+            <section style="max-width: 1200px; margin: 4rem auto; padding: 2rem;">
+                <h1 class="section-title">About RDG Business Holding</h1>
+                <div style="display: grid; gap: 2rem; background: white; border-radius: 48px; padding: 2.5rem; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);">
+                    <p style="font-size: 1.2rem; line-height: 1.6;">Founded in Addis Ababa, RDG Business Holding is a visionary enterprise committed to reshaping Ethiopia's trade landscape. With strong roots in construction, electrical import, and the specialty coffee ecosystem, we leverage global partnerships to provide world-class coffee lab equipment, roasting solutions, and logistical excellence.</p>
+                    <p style="line-height: 1.6;">Our mission: Empower Ethiopian coffee producers and exporters with premium gear and seamless supply chains. From sample roasters to cupping labs, we ensure quality control meets international SCA standards. Additionally, our new in-house roastery will showcase Ethiopia's finest beans — connecting local farmers to global connoisseurs.</p>
+                    <p style="line-height: 1.6;"><strong>RDG Values:</strong> Integrity, Innovation, and Ethiopian Pride.</p>
+                    <a href="#" data-page="quote" class="cta-button" style="align-self: start;">Request Equipment Quote →</a>
+                </div>
+            </section>
+        `,
+        "coffee-lab": `
+            <section style="max-width: 1300px; margin: 4rem auto; padding: 2rem;">
+                <h1 class="section-title">☕ Coffee Lab Solutions</h1>
+                <div class="card-grid">
+                    <div class="card"><div class="card-image" style="background-image: url('https://placehold.co/600x400/5D4037/FFFFFF?text=Sample+Roaster');"></div><div class="card-content"><h3>PROBAT Sample Roasters</h3><p>Precision gas & electric roasters for QC labs.</p></div></div>
+                    <div class="card"><div class="card-image" style="background-image: url('https://placehold.co/600x400/795548/FFFFFF?text=Moisture+Tester');"></div><div class="card-content"><h3>Moisture & Density Meters</h3><p>Digital analyzers for green bean consistency.</p></div></div>
+                    <div class="card"><div class="card-image" style="background-image: url('https://placehold.co/600x400/8D6E63/FFFFFF?text=Cupping+Set');"></div><div class="card-content"><h3>SCA Cupping Sets</h3><p>Complete kits: crystal bowls, spoons, trays, spittoons.</p></div></div>
+                    <div class="card"><div class="card-image" style="background-image: url('https://placehold.co/600x400/BCAAA4/FFFFFF?text=Huller');"></div><div class="card-content"><h3>Industrial Hulling Machines</h3><p>High-capacity eco hullers for export prep.</p></div></div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;"><a href="#" data-page="quote" class="cta-button">Request Lab Equipment Quote →</a></div>
+            </section>
+        `,
+        "import-export": `
+            <section style="max-width: 1200px; margin: 4rem auto; padding: 2rem;">
+                <h1 class="section-title">🌍 Import & Export Logistics</h1>
+                <div style="background: white; border-radius: 36px; padding: 2rem; box-shadow: 0 15px 30px rgba(0,0,0,0.05);">
+                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">RDG streamlines international procurement and freight forwarding for coffee exporters, construction firms, and agro-processors. Our network spans Asia, Europe, and the Americas.</p>
+                    <ul style="list-style: none; margin: 2rem 0;">
+                        <li style="margin: 1rem 0;">✅ <strong>Full Container Logistics</strong> – Door-to-door tracking</li>
+                        <li style="margin: 1rem 0;">✅ <strong>Customs Brokerage</strong> – Fast clearance Ethiopian customs</li>
+                        <li style="margin: 1rem 0;">✅ <strong>Equipment Sourcing</strong> – Coffee machinery, electricals, industrial parts</li>
+                        <li style="margin: 1rem 0;">✅ <strong>Warehousing & Distribution</strong> – Addis hub</li>
+                    </ul>
+                    <a href="#" data-page="quote" class="cta-button">Get Logistics Consultation →</a>
+                </div>
+            </section>
+        `,
+        quote: `
+            <section style="max-width: 700px; margin: 4rem auto; padding: 2rem;">
+                <h1 class="section-title">⚡ Request a Quote</h1>
+                <div style="background: white; border-radius: 32px; padding: 2rem; box-shadow: 0 20px 35px rgba(0,0,0,0.1);">
+                    <form id="quoteForm">
+                        <input type="text" placeholder="Full Name" required style="width:100%; padding:1rem; margin:0.7rem 0; border-radius:60px; border:1px solid #ddd; font-family:inherit;">
+                        <input type="email" placeholder="Email Address" required style="width:100%; padding:1rem; margin:0.7rem 0; border-radius:60px; border:1px solid #ddd;">
+                        <input type="text" placeholder="Company / Organization" style="width:100%; padding:1rem; margin:0.7rem 0; border-radius:60px; border:1px solid #ddd;">
+                        <select style="width:100%; padding:1rem; margin:0.7rem 0; border-radius:60px; border:1px solid #ddd;">
+                            <option>Interested in: Coffee Lab Equipment</option>
+                            <option>Import/Export Logistics</option>
+                            <option>Commercial Roastery Solutions</option>
+                            <option>Other Trade Inquiry</option>
+                        </select>
+                        <textarea placeholder="Tell us your requirements..." rows="4" style="width:100%; padding:1rem; margin:0.7rem 0; border-radius:28px; border:1px solid #ddd;"></textarea>
+                        <button type="submit" class="cta-button" style="width:100%;">Submit Inquiry →</button>
+                        <p id="formFeedback" style="margin-top:1rem; text-align:center; color:#2D6A4F;"></p>
+                    </form>
+                </div>
+            </section>
+        `
+    };
 
-    const galleryGrid = document.getElementById('galleryGrid');
-    if(galleryGrid) {
-        galleryCollection.forEach(item => {
-            const galleryDiv = document.createElement('div');
-            galleryDiv.className = 'gallery-item';
-            galleryDiv.style.backgroundImage = `url('${item.img}')`;
-            galleryDiv.innerHTML = `<div class="overlay"><i class="fas fa-search-plus" style="margin-right: 6px;"></i> ${item.name}</div>`;
-            galleryDiv.onclick = () => {
-                // navigate to coffee lab page with interactive smooth
-                window.location.href = 'coffee-lab.html';
-            };
-            galleryGrid.appendChild(galleryDiv);
-        });
+    let currentPage = "home";
+    let sliderInterval = null;
+    let sliderGlobals = { currentIdx: 0, slides: [], dots: [] };
+
+    function renderPage(pageId) {
+        const appRoot = document.getElementById('app-root');
+        if(!appRoot) return;
+        const content = pages[pageId];
+        if(!content) return;
+        appRoot.innerHTML = content;
+        currentPage = pageId;
+        
+        // Attach dynamic events after rendering
+        if(pageId === 'home') {
+            attachHomeSlider();
+            attachGalleryGrid();
+        }
+        if(pageId === 'quote') {
+            const form = document.getElementById('quoteForm');
+            if(form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const feedback = document.getElementById('formFeedback');
+                    if(feedback) feedback.innerHTML = "✅ Thank you! Our trade team will respond within 24 hours.";
+                    form.reset();
+                    setTimeout(() => { if(feedback) feedback.innerHTML = ""; }, 4000);
+                });
+            }
+        }
+        
+        // Re-attach all internal navigation links
+        attachNavigationLinks();
     }
-
-    // ------- SLIDER WITH BETTER CONTROLS & AUTO -------
-    let currentSlideIdx = 0;
-    const slideElements = document.querySelectorAll('.slide');
-    let dotElements = [];
-    let autoInterval;
-
-    function renderDots() {
-        const container = document.getElementById('dotContainer');
-        if(!container) return;
-        container.innerHTML = '';
-        slideElements.forEach((_, idx) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if(idx === currentSlideIdx) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                stopAutoSlide();
-                goToSlide(idx);
-                startAutoSlide();
+    
+    function attachNavigationLinks() {
+        const allLinks = document.querySelectorAll('[data-page]');
+        allLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.getAttribute('data-page');
+                if(page && pages[page]) {
+                    renderPage(page);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // close mobile menu after navigation if open
+                    const navMenu = document.getElementById('navLinks');
+                    if(navMenu && navMenu.classList.contains('active')) navMenu.classList.remove('active');
+                }
             });
-            container.appendChild(dot);
-            dotElements.push(dot);
         });
     }
-
-    function updateSlideAndDots() {
-        slideElements.forEach((slide, idx) => {
-            slide.classList.toggle('active', idx === currentSlideIdx);
-        });
-        if(dotElements.length) {
-            dotElements.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlideIdx);
+    
+    function attachHomeSlider() {
+        const slides = document.querySelectorAll('#dynamicSlider .slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotContainer = document.getElementById('dotContainer');
+        if(!slides.length || !dotContainer) return;
+        
+        let current = 0;
+        let autoInterval;
+        
+        function updateSlides() {
+            slides.forEach((slide, idx) => {
+                slide.classList.toggle('active', idx === current);
+            });
+            const dots = dotContainer.querySelectorAll('.dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === current);
             });
         }
+        
+        function goToSlide(idx) {
+            current = (idx + slides.length) % slides.length;
+            updateSlides();
+        }
+        function next() { goToSlide(current+1); }
+        function prev() { goToSlide(current-1); }
+        
+        function startAuto() { if(autoInterval) clearInterval(autoInterval); autoInterval = setInterval(next, 5500); }
+        function stopAuto() { if(autoInterval) clearInterval(autoInterval); }
+        
+        dotContainer.innerHTML = '';
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if(i === current) dot.classList.add('active');
+            dot.addEventListener('click', () => { stopAuto(); goToSlide(i); startAuto(); });
+            dotContainer.appendChild(dot);
+        });
+        if(prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+        if(nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+        const sliderDiv = document.getElementById('dynamicSlider');
+        if(sliderDiv) {
+            sliderDiv.addEventListener('mouseenter', stopAuto);
+            sliderDiv.addEventListener('mouseleave', startAuto);
+        }
+        startAuto();
+        updateSlides();
     }
-
-    function goToSlide(index) {
-        currentSlideIdx = (index + slideElements.length) % slideElements.length;
-        updateSlideAndDots();
-    }
-
-    function nextSlide() { goToSlide(currentSlideIdx + 1); }
-    function prevSlide() { goToSlide(currentSlideIdx - 1); }
-
-    function startAutoSlide() {
-        if(autoInterval) clearInterval(autoInterval);
-        autoInterval = setInterval(() => {
-            nextSlide();
-        }, 5500);
-    }
-    function stopAutoSlide() {
-        if(autoInterval) clearInterval(autoInterval);
-    }
-
-    // attach event listeners
-    const prevButton = document.getElementById('prevBtn');
-    const nextButton = document.getElementById('nextBtn');
-    if(prevButton) {
-        prevButton.addEventListener('click', () => {
-            stopAutoSlide();
-            prevSlide();
-            startAutoSlide();
+    
+    function attachGalleryGrid() {
+        const galleryGrid = document.getElementById('galleryGrid');
+        if(!galleryGrid) return;
+        const items = [
+            "PROBAT Sample Roaster", "Industrial Grinder", "Green Coffee Sieves Set", "Cupping Trays (SCA)", "Professional Cupping Spoons", "Ceramic Cupping Bowls", "Sanitary Spittoon", "Digital Moisture Tester", "Hulling Machine", "Complete Lab Station"
+        ];
+        galleryGrid.innerHTML = '';
+        items.forEach(name => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.style.backgroundImage = `url('https://placehold.co/600x400/6B4E3E/FFFFFF?text=${encodeURIComponent(name)}')`;
+            div.innerHTML = `<div class="overlay"><i class="fas fa-search-plus"></i> ${name}</div>`;
+            div.onclick = () => renderPage('coffee-lab');
+            galleryGrid.appendChild(div);
         });
     }
-    if(nextButton) {
-        nextButton.addEventListener('click', () => {
-            stopAutoSlide();
-            nextSlide();
-            startAutoSlide();
-        });
-    }
-
-    // pause auto slide on hover over hero
-    const heroSlider = document.querySelector('.hero-slider');
-    if(heroSlider) {
-        heroSlider.addEventListener('mouseenter', stopAutoSlide);
-        heroSlider.addEventListener('mouseleave', startAutoSlide);
-    }
-
-    // initialize slider
-    renderDots();
-    updateSlideAndDots();
-    startAutoSlide();
-
-    // ---------- HAMBURGER MENU (polished) ----------
-    const menuToggle = document.getElementById('menuIcon');
+    
+    // initialize first page + navigation
+    renderPage('home');
+    
+    // Hamburger menu functional (fixed)
+    const menuIcon = document.getElementById('menuIcon');
     const navMenu = document.getElementById('navLinks');
-    if(menuToggle) {
-        menuToggle.addEventListener('click', (e) => {
+    if(menuIcon && navMenu) {
+        menuIcon.addEventListener('click', (e) => {
             e.stopPropagation();
             navMenu.classList.toggle('active');
         });
-        // close menu when clicking outside
         document.addEventListener('click', (event) => {
-            if(navMenu.classList.contains('active') && !navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+            if(navMenu.classList.contains('active') && !navMenu.contains(event.target) && !menuIcon.contains(event.target)) {
                 navMenu.classList.remove('active');
             }
         });
     }
-
-    // preload animation on load subtle
+    
+    // fallback style preloader
     window.addEventListener('load', () => {
         document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.5s';
+        document.body.style.transition = 'opacity 0.3s';
         document.body.style.opacity = '1';
-        // fix any missing gallery images soft fallback
-        const allGalleryImgs = document.querySelectorAll('.gallery-item');
-        allGalleryImgs.forEach(imgDiv => {
-            const bg = imgDiv.style.backgroundImage;
-            if(!bg || bg === 'none') {
-                imgDiv.style.background = '#D9CBB0';
-                imgDiv.style.backgroundSize = 'cover';
-            }
-        });
     });
 </script>
 </body>
