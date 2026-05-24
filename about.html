@@ -3,607 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>About RDG | Leadership — Robel Demisse</title>
+    <title>About RDG | Business Holding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FDF8F0; color: #1E2A1E; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #E9E0D0; }
+        ::-webkit-scrollbar-thumb { background: #2D6A4F; border-radius: 10px; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #FDF9F2;
-            color: #1F2A1B;
-            scroll-behavior: smooth;
-        }
-
-        /* modern glass nav */
         nav {
             background: rgba(255, 252, 245, 0.96);
-            backdrop-filter: blur(14px);
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 1000;
             padding: 0.8rem 2rem;
-            border-bottom: 1px solid rgba(45, 106, 79, 0.2);
+            border-bottom: 1px solid rgba(45, 106, 79, 0.15);
         }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo h1 {
-            font-size: 1.7rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #1F5E46, #0F3D2E);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.3px;
-        }
-
-        .logo p {
-            font-size: 0.72rem;
-            color: #7C6E58;
-            letter-spacing: 0.4px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 600;
-            color: #2C3A2A;
-            transition: 0.2s;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: #2D6A4F;
-            border-bottom: 2px solid #E76F51;
-            padding-bottom: 4px;
-        }
-
-        .quote-btn {
-            background: #2D6A4F;
-            color: white !important;
-            padding: 0.55rem 1.5rem;
-            border-radius: 40px;
-            box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
-            border-bottom: none !important;
-        }
-
-        .quote-btn:hover {
-            background: #1B4D3E;
-            transform: translateY(-2px);
-        }
-
-        .menu-icon {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: #2D6A4F;
-        }
-
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #1F5E46, #0F3D2E); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo p { font-size: 0.75rem; color: #7E6E5A; }
+        .nav-links { display: flex; gap: 2.3rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; font-weight: 600; color: #2C3A2A; transition: 0.25s; }
+        .nav-links a:hover, .nav-links a.active { color: #2D6A4F; }
+        .quote-btn { background: #2D6A4F; color: white !important; padding: 0.55rem 1.5rem; border-radius: 40px; }
+        .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; color: #2D6A4F; background: rgba(45, 106, 79, 0.1); padding: 8px 14px; border-radius: 50px; }
         @media (max-width: 880px) {
-            .menu-icon { display: block; }
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                gap: 1.2rem;
-                margin-top: 1rem;
-                background: rgba(255, 252, 245, 0.98);
-                padding: 1.5rem;
-                border-radius: 32px;
-            }
+            .menu-icon { display: flex; align-items: center; gap: 8px; }
+            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; background: rgba(255, 252, 245, 0.98); padding: 1.5rem 0; border-radius: 32px; }
             .nav-links.active { display: flex; }
         }
 
-        /* hero about section */
-        .about-hero {
-            background: linear-gradient(107deg, #153728 0%, #1D4E3A 100%);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-hero:before {
-            content: "☕";
-            font-size: 220px;
-            opacity: 0.07;
-            position: absolute;
-            bottom: -30px;
-            right: 10px;
-            font-family: monospace;
-            pointer-events: none;
-        }
-
-        .about-hero h1 {
-            font-size: 3.6rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .about-hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
-        /* container premium */
-        .container {
-            max-width: 1280px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        /* owner spotlight with perfectly fitted image */
-        .owner-spotlight {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 3rem;
-            align-items: center;
-            background: white;
-            border-radius: 48px;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.12);
-            overflow: hidden;
-            margin-bottom: 5rem;
-            transition: all 0.3s;
-        }
-
-        .owner-image-wrapper {
-            width: 100%;
-            height: 100%;
-            min-height: 460px;
-            background: #DCCFB8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .owner-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 20%;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-        
-        .owner-image:hover {
-            transform: scale(1.02);
-        }
-        
-        /* fallback gradient if image missing */
-        .image-fallback {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #B48C5C, #8B6946);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-        
-        .image-fallback i {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-        }
-
-        .owner-info {
-            padding: 2.5rem 2rem 2.5rem 0;
-        }
-
-        .owner-info h2 {
-            font-size: 2.5rem;
-            color: #1B4D3E;
-            margin-bottom: 0.5rem;
-        }
-
-        .owner-tagline {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #E76F51;
-            margin-bottom: 1rem;
-            letter-spacing: -0.2px;
-        }
-
-        .owner-bio {
-            line-height: 1.6;
-            color: #3E4C38;
-            margin-bottom: 1.5rem;
-        }
-
-        .achievement-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .achievement-list li {
-            margin-bottom: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 500;
-        }
-
-        .achievement-list li i {
-            color: #E76F51;
-            font-size: 1.2rem;
-            width: 28px;
-        }
-
-        /* stats refined */
-        .stats {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            margin: 4rem 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 2rem 1.8rem;
-            border-radius: 32px;
-            flex: 1;
-            text-align: center;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-            transition: 0.25s;
-            border: 1px solid #f0e7db;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 22px 35px -12px rgba(45, 106, 79, 0.2);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #2D6A4F;
-        }
-
-        .stat-label {
-            font-weight: 500;
-            color: #6B5E4A;
-            margin-top: 8px;
-        }
-
-        /* divisions grid */
-        .divisions {
-            margin: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 2.8rem;
-            color: #1B3B2F;
-        }
-
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 70px;
-            height: 3px;
-            background: #E76F51;
-            margin: 0.8rem auto 0;
-            border-radius: 4px;
-        }
-
-        .division-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .division-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 28px;
-            box-shadow: 0 12px 22px -8px rgba(0, 0, 0, 0.05);
-            transition: 0.3s;
-            border-bottom: 4px solid #2D6A4F;
-        }
-
-        .division-card i {
-            font-size: 2.5rem;
-            color: #2D6A4F;
-            margin-bottom: 1.2rem;
-        }
-
-        .division-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .division-card p {
-            color: #5A6B52;
-            line-height: 1.5;
-        }
-
-        .vision-quote {
-            background: #ECEAE0;
-            border-radius: 40px;
-            padding: 2.5rem;
-            text-align: center;
-            margin: 3rem 0;
-            font-style: italic;
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: #1F3D2C;
-            box-shadow: inset 0 0 0 1px rgba(255,255,240,0.8), 0 15px 25px -10px rgba(0,0,0,0.1);
-        }
-
-        .vision-quote i {
-            color: #E76F51;
-            font-size: 2rem;
-            margin-right: 8px;
-        }
-
-        footer {
-            background: #0E241A;
-            color: #D8D0BE;
-            padding: 3rem 2rem 1.5rem;
-            margin-top: 4rem;
-            border-top: 3px solid #E76F51;
-        }
-
-        .footer-grid {
-            max-width: 1280px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-grid a {
-            color: #CEC3AC;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: 0.2s;
-        }
-
-        .footer-grid a:hover {
-            color: #F4A261;
-            transform: translateX(5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #2C4A38;
-            margin-top: 2rem;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 780px) {
-            .owner-spotlight {
-                grid-template-columns: 1fr;
-            }
-            .owner-info {
-                padding: 1.5rem;
-            }
-            .about-hero h1 {
-                font-size: 2.3rem;
-            }
-            .stats {
-                flex-direction: column;
-            }
-            .owner-image-wrapper {
-                min-height: 380px;
-            }
-        }
+        .page-header { background: linear-gradient(135deg, #1E3524, #132B1D); color: white; padding: 4rem 2rem; text-align: center; }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .container { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; }
+        .about-content { background: white; border-radius: 32px; padding: 3rem; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1); }
+        .about-content p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; color: #3D4F3A; }
+        .mission-vision { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0; }
+        .mv-card { background: #E9F5EF; padding: 2rem; border-radius: 24px; }
+        .mv-card i { font-size: 2.5rem; color: #2D6A4F; margin-bottom: 1rem; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .team-card { text-align: center; padding: 1.5rem; background: #F5F0E6; border-radius: 24px; }
+        .team-icon { font-size: 3rem; color: #2D6A4F; margin-bottom: 1rem; }
+        .cta-button { background: #E76F51; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; display: inline-block; font-weight: 600; margin-top: 2rem; }
+        footer { background: #0E241A; color: #D8D0BE; padding: 3rem 2rem 1rem; margin-top: 4rem; }
+        .footer-grid { max-width: 1400px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+        .footer-grid a { color: #CEC3AC; text-decoration: none; display: block; margin-bottom: 0.5rem; }
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #2C4A38; }
+        @media (max-width: 768px) { .mission-vision { grid-template-columns: 1fr; } .page-header h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="nav-container">
-        <div class="logo">
-            <h1>RDG Business Holding</h1>
-            <p>Construction | Import | Coffee Excellence</p>
-        </div>
-        <div class="menu-icon" id="menuIcon">
-            <i class="fas fa-leaf"></i>
-        </div>
+        <div class="logo"><h1>RDG Business Holding</h1><p>⚡ Construction | Import | Coffee Excellence</p></div>
+        <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i> <span>Menu</span></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html" class="active">About</a></li>
-            <li><a href="coffee-lab.html">Coffee Lab</a></li>
-            <li><a href="import-export.html">Import/Export</a></li>
-            <li><a href="quote.html" class="quote-btn">Get Quote</a></li>
+            <li><a href="construction.html">Construction</a></li>
+            <li><a href="import.html">Import</a></li>
+            <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="quote.html" class="quote-btn">⚡ Quote</a></li>
         </ul>
     </div>
 </nav>
 
-<section class="about-hero">
-    <h1>Beyond Business — A Legacy of Impact</h1>
-    <p>Driven by integrity, innovation, and deep roots in Ethiopian trade & construction</p>
+<section class="page-header">
+    <h1>About RDG Business Holding</h1>
+    <p>Building Ethiopia's future through construction, import, and coffee excellence</p>
 </section>
 
 <div class="container">
-    <!-- Owner spotlight: Robel Demisse with Robi.jpg (perfectly fitted) -->
-    <div class="owner-spotlight">
-        <div class="owner-image-wrapper">
-            <img class="owner-image" src="Robi.jpg" alt="Robel Demisse - Founder of RDG Business Holding" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-fallback\'><i class=\'fas fa-user-tie\'></i><h3>Robel Demisse</h3><p>Founder & Managing Director</p></div>';">
-        </div>
-        <div class="owner-info">
-            <h2>Robel Demisse</h2>
-            <div class="owner-tagline"><i class="fas fa-chart-line"></i> Visionary Entrepreneur | Trade Infrastructure Expert</div>
-            <p class="owner-bio">Robel Demisse is the driving force behind RDG Business Holding. With a sharp acumen in logistics, construction project management, and the coffee value chain, he has built bridges between Ethiopian producers and global markets. Robel is renowned for pioneering turnkey solutions — from heavy machinery imports to specialty coffee lab installations across Ethiopia.</p>
-            <ul class="achievement-list">
-                <li><i class="fas fa-check-circle"></i> Led import of 20+ coffee lab equipment containers for leading Ethiopian exporters (2023-2025)</li>
-                <li><i class="fas fa-check-circle"></i> Executed large-scale landscape & construction projects for commercial clients across Addis Ababa</li>
-                <li><i class="fas fa-check-circle"></i> Orchestrated strategic partnerships with European coffee machinery manufacturers</li>
-                <li><i class="fas fa-check-circle"></i> Developed end-to-end coffee cupping lab setups for 12+ specialty coffee exporters</li>
-                <li><i class="fas fa-check-circle"></i> Launched Ethiopia's first integrated coffee lab equipment supply chain with after-sales technical support</li>
-                <li><i class="fas fa-check-circle"></i> Secured exclusive distribution rights for advanced moisture testers & sample roasters in East Africa</li>
-            </ul>
-        </div>
-    </div>
+    <div class="about-content">
+        <p><strong>RDG Business Holding</strong> is a diversified Ethiopian business group operating in construction, import, and the coffee industry. The company currently manages two major businesses: <strong>RDG Construction</strong>, a general contractor mainly focused on landscape construction and outdoor development works, and <strong>RDG Import</strong>, which specializes in importing electrical equipment, coffee laboratory equipment, and commercial coffee roasting machinery.</p>
+        
+        <p>As part of its expansion strategy, RDG Business Holding is establishing a third division focused on <strong>coffee roasting, branding, and supplying high-quality Ethiopian coffee products</strong> to local and international markets.</p>
 
-    <!-- Key stats (track record without establishment date) -->
-    <div class="stats">
-        <div class="stat-card">
-            <div class="stat-number">45+</div>
-            <div class="stat-label">Projects & deliveries completed</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">25+</div>
-            <div class="stat-label">Coffee lab facilities equipped</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Client satisfaction focus</div>
-        </div>
-    </div>
-
-    <!-- Core divisions -->
-    <div class="divisions">
-        <h2 class="section-title">Where We Create Value</h2>
-        <div class="division-grid">
-            <div class="division-card">
-                <i class="fas fa-tractor"></i>
-                <h3>RDG Construction</h3>
-                <p>Landscape development, commercial projects, and modern outdoor infrastructure. Known for precision and sustainable design.</p>
+        <div class="mission-vision">
+            <div class="mv-card">
+                <i class="fas fa-eye"></i>
+                <h3 style="margin-bottom: 1rem;">Our Vision</h3>
+                <p>To be the leading provider of professional landscaping services in Ethiopia, renowned for innovative designs, exceptional craftsmanship, and commitment to environmental sustainability.</p>
             </div>
-            <div class="division-card">
-                <i class="fas fa-globe-africa"></i>
-                <h3>RDG Import & Logistics</h3>
-                <p>Specialized import of coffee lab machinery, electrical equipment, and roasting systems. Fast customs clearance & door delivery.</p>
-            </div>
-            <div class="division-card">
-                <i class="fas fa-fire"></i>
-                <h3>RDG Coffee Roasting (Launching)</h3>
-                <p>Artisanal Ethiopian coffee roasting, bespoke blends & B2B supply. Introducing signature single-origin experiences.</p>
+            <div class="mv-card">
+                <i class="fas fa-bullseye"></i>
+                <h3 style="margin-bottom: 1rem;">Our Mission</h3>
+                <p>To transform the Ethiopian landscaping industry by offering comprehensive, personalized, and sustainable solutions that exceed expectations and create lasting landscapes.</p>
             </div>
         </div>
-    </div>
 
-    <!-- Milestones / key works of Robel Demisse (without founding date) -->
-    <div class="vision-quote">
-        <i class="fas fa-quote-left"></i> 
-        "Empowering Ethiopian trade means providing not just equipment, but complete ecosystems — from cupping labs to global logistics."
-        <div style="margin-top: 12px; font-weight: 700;">— Robel Demisse</div>
-    </div>
+        <h3 style="color: #1F5E46; margin: 2rem 0 1rem;">Key Projects & Clients</h3>
+        <p>RDG Construction has successfully delivered major projects including <strong>UNITY PARK - Parking Lot and Mixed Use</strong>, <strong>ELEPHANT PAW LODGE (Chebera Churchura)</strong>, <strong>East Africa Bottling Share Company</strong> recreational space development, and <strong>National Cement Lemi Project</strong> landscape concept development.</p>
 
-    <div style="background: white; border-radius: 36px; padding: 2rem; margin: 2rem 0; box-shadow: 0 8px 25px rgba(0,0,0,0.05);">
-        <h3 style="color: #1F5E46; font-size: 1.8rem; margin-bottom: 1rem;"><i class="fas fa-medal"></i> Key Professional Milestones — Robel Demisse</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-            <ul class="achievement-list" style="list-style: none;">
-                <li><i class="fas fa-cogs"></i> Designed & equipped the first specialty coffee lab for a leading Ethiopian exporter</li>
-                <li><i class="fas fa-ship"></i> Managed high-volume electrical equipment import operations from China & Europe</li>
-                <li><i class="fas fa-building"></i> Supervised construction of modern commercial landscapes across Bole & Summit areas</li>
-                <li><i class="fas fa-chalkboard-user"></i> Trained 30+ coffee lab technicians on SCA cupping standards & equipment calibration</li>
-            </ul>
-            <ul class="achievement-list" style="list-style: none;">
-                <li><i class="fas fa-handshake"></i> Built direct sourcing network with green coffee producers in Sidama & Yirgacheffe</li>
-                <li><i class="fas fa-chart-line"></i> Increased supply chain efficiency by 35% for coffee exporters using consolidated freight</li>
-                <li><i class="fas fa-mug-hot"></i> Initiated “Roast Ethiopia” program to support emerging local roasters with machinery</li>
-                <li><i class="fas fa-trophy"></i> Recognized as emerging trade catalyst by Ethiopian Chamber of Commerce (2024)</li>
-            </ul>
+        <div style="text-align: center;">
+            <a href="quote.html" class="cta-button"><i class="fas fa-handshake"></i> Partner With Us</a>
         </div>
-    </div>
-
-    <!-- Company ethos with gallery vibe -->
-    <div style="text-align: center; margin: 3rem 0 1rem;">
-        <img src="IMG_20260516_190510_385.jpg" alt="Coffee Lab Showcase" style="width:100%; max-width: 550px; border-radius: 32px; box-shadow: 0 20px 28px -12px rgba(0,0,0,0.2);">
-        <p style="margin-top: 1rem; color: #6A5C48;">State-of-the-art cupping lab setup — supplied & installed by RDG Import Division.</p>
     </div>
 </div>
 
 <footer>
     <div class="footer-grid">
-        <div>
-            <h4 style="color:#F4A261;">RDG Business Holding</h4>
-            <p>Addis Ababa, Ethiopia</p>
-            <p>📞 +251 911 223 344</p>
-            <p>✉️ contact@rdgbusiness.com</p>
-        </div>
-        <div>
-            <h4>Explore</h4>
-            <a href="about.html">About & Leadership</a>
-            <a href="coffee-lab.html">Coffee Lab Solutions</a>
-            <a href="import-export.html">Import/Export</a>
-        </div>
-        <div>
-            <h4>Connect</h4>
-            <a href="quote.html">Request a Quote</a>
-            <a href="#">Equipment Catalog</a>
-        </div>
+        <div><h4 style="color:#F4A261;">RDG Business Holding</h4><p>📍 Addis Ababa, Bole Sub City</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
+        <div><h4>Our Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
+        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="quote.html">Request Quote</a></div>
     </div>
-    <div class="copyright">
-        © 2026 RDG Business Holding — Led by Robel Demisse | Elevating Ethiopian trade, construction & coffee excellence.
-    </div>
+    <div class="copyright">© 2026 RDG Business Holding — Empowering Ethiopia's Construction, Import & Coffee Renaissance.</div>
 </footer>
 
 <script>
     const menuIcon = document.getElementById("menuIcon");
     const navLinks = document.getElementById("navLinks");
     if(menuIcon) {
-        menuIcon.addEventListener("click", (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle("active");
-        });
-        document.addEventListener("click", (event) => {
-            if(navLinks.classList.contains("active") && !navLinks.contains(event.target) && !menuIcon.contains(event.target)) {
-                navLinks.classList.remove("active");
-            }
-        });
-    }
-
-    // Smooth reveal animation
-    const animatedElements = document.querySelectorAll('.stat-card, .division-card, .owner-spotlight, .vision-quote');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(18px)';
-        el.style.transition = '0.45s ease-out';
-        observer.observe(el);
-    });
-    
-    // ensure image fit check: if natural image dimensions cause weird crop, but object-fit cover already handles
-    // additional small fix for any lazy load glitch
-    const ownerImg = document.querySelector('.owner-image');
-    if(ownerImg && ownerImg.complete) {
-        if(ownerImg.naturalWidth === 0) {
-            // fallback already managed via onerror
-        }
+        menuIcon.addEventListener("click", (e) => { e.stopPropagation(); navLinks.classList.toggle("active"); });
+        document.addEventListener("click", (event) => { if(navLinks.classList.contains("active") && !navLinks.contains(event.target) && !menuIcon.contains(event.target)) navLinks.classList.remove("active"); });
     }
 </script>
 </body>
