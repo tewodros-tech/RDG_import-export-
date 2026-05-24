@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>RDG Business Holding | Construction | Import | Coffee</title>
+    <title>Request Quote | RDG Business Holding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #FDF8F0; color: #1E2A1E; scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: #FDF8F0; color: #1E2A1E; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #E9E0D0; }
         ::-webkit-scrollbar-thumb { background: #2D6A4F; border-radius: 10px; }
@@ -16,7 +16,6 @@
         nav {
             background: rgba(255, 252, 245, 0.96);
             backdrop-filter: blur(12px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -24,79 +23,39 @@
             border-bottom: 1px solid rgba(45, 106, 79, 0.15);
         }
         .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #1F5E46, #0F3D2E); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.3px; }
-        .logo p { font-size: 0.75rem; color: #7E6E5A; letter-spacing: 0.5px; }
+        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #1F5E46, #0F3D2E); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo p { font-size: 0.75rem; color: #7E6E5A; }
         .nav-links { display: flex; gap: 2.3rem; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; font-weight: 600; color: #2C3A2A; transition: 0.25s ease; font-size: 0.95rem; }
+        .nav-links a { text-decoration: none; font-weight: 600; color: #2C3A2A; transition: 0.25s; font-size: 0.95rem; }
         .nav-links a:hover, .nav-links a.active { color: #2D6A4F; transform: translateY(-2px); }
-        .quote-btn { background: #2D6A4F; color: white !important; padding: 0.55rem 1.5rem; border-radius: 40px; box-shadow: 0 4px 10px rgba(45, 106, 79, 0.3); transition: all 0.3s; }
-        .quote-btn:hover { background: #1B4D3E; transform: translateY(-2px); }
+        .quote-btn { background: #2D6A4F; color: white !important; padding: 0.55rem 1.5rem; border-radius: 40px; }
         .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; color: #2D6A4F; background: rgba(45, 106, 79, 0.1); padding: 8px 14px; border-radius: 50px; }
-        .menu-icon:hover { background: rgba(45, 106, 79, 0.2); }
         @media (max-width: 880px) {
             .menu-icon { display: flex; align-items: center; gap: 8px; }
-            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1.3rem; margin-top: 1.2rem; background: rgba(255, 252, 245, 0.98); backdrop-filter: blur(8px); padding: 1.5rem 0; border-radius: 32px; }
+            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; background: rgba(255, 252, 245, 0.98); padding: 1.5rem 0; border-radius: 32px; }
             .nav-links.active { display: flex; }
-            .nav-links li { width: 100%; text-align: center; }
         }
 
-        .hero {
-            background: linear-gradient(135deg, #1E3524, #132B1D);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 800; }
-        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9; }
-        .cta-button { background: #E76F51; color: white; padding: 1rem 2.4rem; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.3s; box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2); }
-        .cta-button:hover { background: #C85C3F; transform: translateY(-3px); }
-
-        .container { max-width: 1400px; margin: 5rem auto; padding: 0 2rem; }
-        .section-title { text-align: center; font-size: 2.5rem; font-weight: 800; margin-bottom: 3rem; color: #1B3B2F; }
-        .section-title:after { content: ''; width: 80px; height: 4px; background: #E76F51; display: block; margin: 1rem auto 0; border-radius: 4px; }
-
-        .business-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-        .business-card {
-            background: white;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-        .business-card:hover { transform: translateY(-10px); }
-        .card-header { padding: 2rem 2rem 0 2rem; }
-        .card-header i { font-size: 3rem; color: #2D6A4F; margin-bottom: 1rem; }
-        .card-header h2 { font-size: 1.8rem; color: #1F5E46; }
-        .card-content { padding: 1.5rem 2rem 2rem 2rem; }
-        .card-content p { color: #5D6E55; line-height: 1.6; margin-bottom: 1rem; }
-        .card-badge { display: inline-block; background: #E9F5EF; color: #2D6A4F; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; margin-top: 1rem; }
-
-        .stats {
-            background: linear-gradient(112deg, #1E3524 0%, #132B1D 100%);
-            color: white;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-        }
-        .stats-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; gap: 2rem; }
-        .stat-number { font-size: 2.5rem; font-weight: 800; color: #F4A261; }
-        .stat-label { font-size: 0.9rem; opacity: 0.8; }
-
-        footer {
-            background: #0E241A;
-            color: #D8D0BE;
-            padding: 3.5rem 2rem 1.5rem;
-            border-top: 3px solid #E76F51;
-        }
-        .footer-grid { max-width: 1400px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; }
-        .footer-grid a { color: #CEC3AC; text-decoration: none; display: inline-block; margin-bottom: 0.6rem; transition: 0.2s; }
-        .footer-grid a:hover { color: #F4A261; transform: translateX(5px); }
-        .copyright { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid #2C4A38; font-size: 0.85rem; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .business-grid { grid-template-columns: 1fr; }
-        }
+        .page-header { background: linear-gradient(135deg, #2D6A4F, #1B4D3E); color: white; padding: 4rem 2rem; text-align: center; }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .container { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; }
+        .quote-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .form-card { background: white; padding: 2.5rem; border-radius: 32px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1); }
+        .form-title { font-size: 1.8rem; font-weight: 700; color: #1F5E46; margin-bottom: 1.5rem; text-align: center; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #1F5E46; }
+        input, select, textarea { width: 100%; padding: 0.9rem 1rem; border: 2px solid #E8E2D6; border-radius: 16px; font-family: inherit; font-size: 1rem; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #2D6A4F; }
+        .submit-btn { background: #E76F51; color: white; border: none; padding: 1rem 2rem; font-size: 1rem; font-weight: 700; border-radius: 50px; cursor: pointer; width: 100%; }
+        .submit-btn:hover { background: #C85C3F; transform: translateY(-2px); }
+        .contact-info { background: linear-gradient(135deg, #1E3524, #132B1D); color: white; padding: 2.5rem; border-radius: 32px; }
+        .contact-detail { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .contact-detail i { font-size: 1.5rem; color: #F4A261; width: 40px; }
+        footer { background: #0E241A; color: #D8D0BE; padding: 3rem 2rem 1rem; margin-top: 4rem; }
+        .footer-grid { max-width: 1400px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+        .footer-grid a { color: #CEC3AC; text-decoration: none; display: block; margin-bottom: 0.5rem; }
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #2C4A38; }
+        @media (max-width: 900px) { .quote-wrapper { grid-template-columns: 1fr; } .page-header h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
@@ -106,75 +65,51 @@
         <div class="logo"><h1>RDG Business Holding</h1><p>⚡ Construction | Import | Coffee Excellence</p></div>
         <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i> <span>Menu</span></div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="construction.html">Construction</a></li>
             <li><a href="import.html">Import</a></li>
             <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="quote.html" class="quote-btn">⚡ Quote</a></li>
         </ul>
     </div>
 </nav>
 
-<section class="hero">
-    <h1>RDG Business Holding</h1>
-    <p>A diversified Ethiopian business group operating in Construction, Import, and Coffee — building tomorrow's Ethiopia today.</p>
-    <a href="quote.html" class="cta-button">Partner With Us →</a>
-</section>
+<section class="page-header">
+    <h1>Request a Quote</h1>
+    <p>Tell us what you need — we'll get back to you within 24 hours</p>
+</div>
 
 <div class="container">
-    <h2 class="section-title">Our Business Divisions</h2>
-    <div class="business-grid">
-        <div class="business-card">
-            <div class="card-header">
-                <i class="fas fa-hard-hat"></i>
-                <h2>RDG Construction</h2>
-            </div>
-            <div class="card-content">
-                <p>General contractor specializing in landscape design, outdoor development, residential construction, and finishing works. We transform spaces with exceptional craftsmanship.</p>
-                <p><strong>Key Services:</strong> Landscape Design & Plantation, Hardscape Installation, Residential & Apartment Construction, Finishing Works (Painting, Ceramic), Project Management.</p>
-                <span class="card-badge"><i class="fas fa-check-circle"></i> 10+ Years Experience</span>
-            </div>
+    <div class="quote-wrapper">
+        <div class="form-card">
+            <h2 class="form-title">Get in Touch</h2>
+            <form id="quoteForm">
+                <div class="form-group"><label>Full Name *</label><input type="text" id="fullName" required></div>
+                <div class="form-group"><label>Email Address *</label><input type="email" id="email" required></div>
+                <div class="form-group"><label>Phone Number</label><input type="tel" id="phone"></div>
+                <div class="form-group"><label>Company / Organization</label><input type="text" id="company"></div>
+                <div class="form-group"><label>I'm interested in *</label><select id="interest" required><option value="">Select</option><option>Coffee Lab Equipment</option><option>Import/Export Logistics</option><option>Commercial Roastery Solutions</option><option>Construction / Landscape</option><option>Other Trade Inquiry</option></select></div>
+                <div class="form-group"><label>Additional Details</label><textarea rows="4" id="message"></textarea></div>
+                <button type="submit" class="submit-btn">Submit Inquiry →</button>
+                <div id="formFeedback" style="margin-top:1rem; text-align:center;"></div>
+            </form>
         </div>
-        <div class="business-card">
-            <div class="card-header">
-                <i class="fas fa-ship"></i>
-                <h2>RDG Import</h2>
-            </div>
-            <div class="card-content">
-                <p>Specialized importer of electrical equipment, coffee laboratory equipment, and commercial coffee roasting machinery. Connecting Ethiopian businesses with world-class technology.</p>
-                <p><strong>Key Products:</strong> Coffee Lab Equipment (Sample Roasters, Cupping Sets, Moisture Testers), Commercial Roasters, Electrical Components, Industrial Machinery.</p>
-                <span class="card-badge"><i class="fas fa-globe"></i> Global Supply Chain</span>
-            </div>
-        </div>
-        <div class="business-card">
-            <div class="card-header">
-                <i class="fas fa-mug-hot"></i>
-                <h2>RDG Coffee <span style="font-size: 0.8rem; background: #E76F51; padding: 2px 8px; border-radius: 20px; color: white;">Launching 2026</span></h2>
-            </div>
-            <div class="card-content">
-                <p>Our newest division focused on coffee roasting, branding, and supplying high-quality Ethiopian coffee products to local and international markets.</p>
-                <p><strong>Coming Soon:</strong> Specialty Coffee Roasting, Ethiopian Coffee Branding, B2B Green Bean Supply, Export to International Markets.</p>
-                <span class="card-badge"><i class="fas fa-fire"></i> From Farm to Cup</span>
-            </div>
+        <div class="contact-info">
+            <h3 style="margin-bottom:1.5rem;"><i class="fas fa-building"></i> RDG Business Holding</h3>
+            <div class="contact-detail"><i class="fas fa-map-marker-alt"></i><p>Bole Sub City, Addis Ababa, Ethiopia</p></div>
+            <div class="contact-detail"><i class="fas fa-phone-alt"></i><p>+251 913 662 154</p></div>
+            <div class="contact-detail"><i class="fas fa-envelope"></i><p>rdg.construction2016@gmail.com<br>robeldemisse03@gmail.com</p></div>
         </div>
     </div>
 </div>
-
-<section class="stats">
-    <div class="stats-grid">
-        <div><div class="stat-number">10+</div><div class="stat-label">Years Experience</div></div>
-        <div><div class="stat-number">50+</div><div class="stat-label">Projects Completed</div></div>
-        <div><div class="stat-number">25+</div><div class="stat-label">Happy Clients</div></div>
-        <div><div class="stat-number">3</div><div class="stat-label">Business Divisions</div></div>
-    </div>
-</section>
 
 <footer>
     <div class="footer-grid">
         <div><h4 style="color:#F4A261;">RDG Business Holding</h4><p>📍 Addis Ababa, Bole Sub City</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
         <div><h4>Our Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
-        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="quote.html">Request Quote</a><a href="#">Portfolio</a></div>
+        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="quote.html">Request Quote</a></div>
     </div>
     <div class="copyright">© 2026 RDG Business Holding — Empowering Ethiopia's Construction, Import & Coffee Renaissance.</div>
 </footer>
@@ -185,6 +120,18 @@
     if(menuIcon) {
         menuIcon.addEventListener("click", (e) => { e.stopPropagation(); navLinks.classList.toggle("active"); });
         document.addEventListener("click", (event) => { if(navLinks.classList.contains("active") && !navLinks.contains(event.target) && !menuIcon.contains(event.target)) navLinks.classList.remove("active"); });
+    }
+
+    const form = document.getElementById("quoteForm");
+    if(form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const feedback = document.getElementById("formFeedback");
+            feedback.innerHTML = "✅ Thank you! Our team will respond within 24 hours.";
+            feedback.style.color = "#2D6A4F";
+            form.reset();
+            setTimeout(() => { feedback.innerHTML = ""; }, 5000);
+        });
     }
 </script>
 </body>
