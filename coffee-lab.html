@@ -2,324 +2,125 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Lab Equipment | RDG Business Holding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>RDG Coffee | Ethiopian Coffee Roasting & Branding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #fefcf5; }
-        
+        body { font-family: 'Inter', sans-serif; background: #FDF8F0; color: #1E2A1E; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #E9E0D0; }
+        ::-webkit-scrollbar-thumb { background: #2D6A4F; border-radius: 10px; }
+
         nav {
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            background: rgba(255, 252, 245, 0.96);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            border-bottom: 1px solid rgba(45, 106, 79, 0.15);
         }
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .logo h1 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #2d3e2d;
-            transition: 0.3s;
-        }
-        .nav-links a:hover, .nav-links a.active { color: #2d6a4f; font-weight: 700; }
-        .quote-btn {
-            background: #2d6a4f;
-            color: white !important;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-        }
-        .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; }
-        @media (max-width: 768px) {
-            .menu-icon { display: block; }
-            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; }
+        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #1F5E46, #0F3D2E); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo p { font-size: 0.75rem; color: #7E6E5A; }
+        .nav-links { display: flex; gap: 2.3rem; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; font-weight: 600; color: #2C3A2A; transition: 0.25s; }
+        .nav-links a:hover, .nav-links a.active { color: #2D6A4F; }
+        .quote-btn { background: #2D6A4F; color: white !important; padding: 0.55rem 1.5rem; border-radius: 40px; }
+        .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; color: #2D6A4F; background: rgba(45, 106, 79, 0.1); padding: 8px 14px; border-radius: 50px; }
+        @media (max-width: 880px) {
+            .menu-icon { display: flex; align-items: center; gap: 8px; }
+            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; background: rgba(255, 252, 245, 0.98); padding: 1.5rem 0; border-radius: 32px; }
             .nav-links.active { display: flex; }
         }
-        
-        .page-header {
-            background: linear-gradient(135deg, #6f4e37, #4a3226);
+
+        .hero {
+            background: linear-gradient(135deg, #6F4E37, #4A3226);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
         }
-        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
-        
-        .container {
-            max-width: 1280px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-        
-        .filter-bar {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-        .filter-btn {
-            padding: 0.7rem 1.5rem;
-            border: 2px solid #2d6a4f;
-            background: transparent;
-            color: #2d6a4f;
-            border-radius: 40px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .filter-btn.active, .filter-btn:hover {
-            background: #2d6a4f;
-            color: white;
-        }
-        
-        .equipment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-        .equipment-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .equipment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
-        }
-        .card-image {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-        }
-        .card-content {
-            padding: 1.5rem;
-        }
-        .card-content h3 { margin-bottom: 0.5rem; color: #1b3b2f; }
-        .price {
-            font-weight: 800;
-            color: #2d6a4f;
-            margin: 0.5rem 0;
-            font-size: 1.2rem;
-        }
-        .order-btn {
-            background: #2d6a4f;
-            color: white;
-            border: none;
-            padding: 0.7rem 1.2rem;
-            border-radius: 30px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .order-btn:hover { background: #1b4d3e; }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 24px;
-            max-width: 500px;
-            width: 90%;
-        }
-        .close-modal {
-            float: right;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        form input, form textarea, form select {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        
-        footer {
-            background: #1a2a1a;
-            color: #ccc;
-            padding: 3rem 2rem 1rem;
-            margin-top: 4rem;
-        }
-        .footer-grid {
-            max-width: 1280px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        .footer-grid a {
-            color: #ccc;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #3a553a; }
-        
-        @media (max-width: 768px) {
-            .page-header h1 { font-size: 2rem; }
-        }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero .badge { background: #E76F51; display: inline-block; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.9rem; margin-bottom: 1rem; }
+
+        .container { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; text-align: center; }
+        .coming-soon { font-size: 5rem; color: #2D6A4F; margin: 2rem 0; }
+        .countdown { font-size: 1.5rem; color: #E76F51; font-weight: 700; margin: 1rem 0; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .feature { background: white; padding: 2rem; border-radius: 24px; }
+        .feature i { font-size: 2.5rem; color: #2D6A4F; margin-bottom: 1rem; }
+
+        .cta-button { background: #E76F51; color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; display: inline-block; font-weight: 600; margin: 2rem 0; }
+
+        footer { background: #0E241A; color: #D8D0BE; padding: 3rem 2rem 1rem; margin-top: 4rem; }
+        .footer-grid { max-width: 1400px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+        .footer-grid a { color: #CEC3AC; text-decoration: none; display: block; margin-bottom: 0.5rem; }
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #2C4A38; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="nav-container">
-        <div class="logo"><h1>RDG Business Holding</h1><p>Construction | Import | Coffee Excellence</p></div>
-        <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
+        <div class="logo"><h1>RDG Business Holding</h1><p>⚡ Construction | Import | Coffee Excellence</p></div>
+        <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i> <span>Menu</span></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="coffee-lab.html" class="active">Coffee Lab</a></li>
-            <li><a href="import-export.html">Import/Export</a></li>
-            <li><a href="quote.html" class="quote-btn">Get Quote</a></li>
+            <li><a href="construction.html">Construction</a></li>
+            <li><a href="import.html">Import</a></li>
+            <li><a href="coffee.html" class="active">Coffee</a></li>
+            <li><a href="quote.html" class="quote-btn">⚡ Quote</a></li>
         </ul>
     </div>
 </nav>
 
-<section class="page-header">
-    <h1>Complete Coffee Lab Solutions</h1>
-    <p>Professional equipment for coffee cupping, quality control, and processing</p>
-</section>
-
-<div class="container">
-    <div class="filter-bar">
-        <button class="filter-btn active" data-category="all">All Equipment</button>
-        <button class="filter-btn" data-category="roasting">Roasting & Grinding</button>
-        <button class="filter-btn" data-category="cupping">Cupping Sets</button>
-        <button class="filter-btn" data-category="testing">Testing & Analysis</button>
-        <button class="filter-btn" data-category="processing">Processing</button>
-    </div>
-    <div class="equipment-grid" id="equipmentGrid"></div>
+<section class="hero">
+    <div class="badge"><i class="fas fa-fire"></i> Launching 2026</div>
+    <h1>RDG Coffee</h1>
+    <p>Ethiopian Coffee Roasting • Branding • Global Supply</p>
 </div>
 
-<div class="modal" id="orderModal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2 style="margin-bottom: 1rem; color: #2d6a4f;">Request Quote</h2>
-        <form id="orderForm">
-            <input type="text" id="productName" readonly style="background:#f5f5f5;">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <input type="tel" placeholder="Phone Number">
-            <input type="text" placeholder="Company Name">
-            <textarea rows="3" placeholder="Additional requirements..."></textarea>
-            <button type="submit" class="order-btn">Submit Inquiry</button>
-        </form>
+<div class="container">
+    <div class="coming-soon">
+        <i class="fas fa-mug-hot"></i>
     </div>
+    <h2 style="color: #1F5E46; margin-bottom: 1rem;">Coming Soon to the Ethiopian Coffee Scene</h2>
+    <p style="max-width: 700px; margin: 0 auto; line-height: 1.6;">RDG Coffee is our newest division focused on coffee roasting, branding, and supplying high-quality Ethiopian coffee products to local and international markets.</p>
+    
+    <div class="feature-grid">
+        <div class="feature"><i class="fas fa-seedling"></i><h3>Direct Farm Sourcing</h3><p>Partnering with Ethiopian farmers for premium green beans</p></div>
+        <div class="feature"><i class="fas fa-fire"></i><h3>Artisanal Roasting</h3><p>Small-batch roasting to highlight unique terroir</p></div>
+        <div class="feature"><i class="fas fa-trademark"></i><h3>Brand Development</h3><p>Creating distinctive Ethiopian coffee brands</p></div>
+        <div class="feature"><i class="fas fa-ship"></i><h3>Global Export</h3><p>Supplying Ethiopian coffee to international markets</p></div>
+    </div>
+
+    <div class="countdown">
+        <i class="fas fa-hourglass-half"></i> Be the first to know when we launch
+    </div>
+
+    <a href="quote.html" class="cta-button"><i class="fas fa-envelope"></i> Join Our Waitlist</a>
 </div>
 
 <footer>
     <div class="footer-grid">
-        <div><h4>RDG Business Holding</h4><p>Addis Ababa, Ethiopia</p><p>📞 +251 XXX XXX XXX</p><p>✉️ info@rdgbusiness.com</p></div>
-        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="coffee-lab.html">Coffee Lab</a><a href="quote.html">Request Quote</a></div>
+        <div><h4 style="color:#F4A261;">RDG Business Holding</h4><p>📍 Addis Ababa, Bole Sub City</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
+        <div><h4>Our Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
+        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="quote.html">Request Quote</a></div>
     </div>
-    <div class="copyright">&copy; 2026 RDG Business Holding. Elevating Ethiopian trade.</div>
+    <div class="copyright">© 2026 RDG Business Holding — Empowering Ethiopia's Construction, Import & Coffee Renaissance.</div>
 </footer>
 
 <script>
-    // Equipment data with YOUR original image names
-    const equipmentData = [
-        { name: "Sample Roaster 200g", category: "roasting", price: "$2,450", desc: "Professional sample roaster for cupping labs", img: "images/IMG_20260516_190427_419.jpg" },
-        { name: "Electric Coffee Grinder", category: "roasting", price: "$890", desc: "Precision grinding for sample preparation", img: "images/IMG_20260516_190428_945.jpg" },
-        { name: "Green Coffee Sieve Set", category: "testing", price: "$320", desc: "ASTM standard sieves for bean analysis", img: "images/IMG_20260516_190431_365.jpg" },
-        { name: "Cupping Sample Trays", category: "cupping", price: "$45", desc: "Set of 5 stainless steel trays", img: "images/IMG_20260516_190431_548.jpg" },
-        { name: "Cupping Spoons (12pcs)", category: "cupping", price: "$28", desc: "Professional deep-bowled spoons", img: "images/IMG_20260516_190434_467.jpg" },
-        { name: "Cupping Bowls Set", category: "cupping", price: "$85", desc: "Ceramic cupping bowls, set of 10", img: "images/IMG_20260516_190441_433.jpg" },
-        { name: "Spittoon (Cupping)", category: "cupping", price: "$42", desc: "Stainless steel cupping spittoon", img: "images/IMG_20260516_190449_190.jpg" },
-        { name: "Coffee Moisture Tester", category: "testing", price: "$1,250", desc: "Digital moisture meter for green coffee", img: "images/IMG_20260516_190451_444.jpg" },
-        { name: "Coffee Hulling Machine", category: "processing", price: "$4,800", desc: "Small-scale huller for parchment removal", img: "images/IMG_20260516_190458_867.jpg" }
-    ];
-
-    let currentCategory = "all";
-
-    function renderEquipment() {
-        const filtered = currentCategory === "all" ? equipmentData : equipmentData.filter(e => e.category === currentCategory);
-        const grid = document.getElementById("equipmentGrid");
-        if(!grid) return;
-        grid.innerHTML = filtered.map(item => `
-            <div class="equipment-card" onclick="openOrderModal('${item.name}')">
-                <div class="card-image" style="background-image: url('${item.img}'); background-size: cover; background-position: center;"></div>
-                <div class="card-content">
-                    <h3>${item.name}</h3>
-                    <p>${item.desc}</p>
-                    <div class="price">${item.price}</div>
-                    <button class="order-btn">Request Quote →</button>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function openOrderModal(productName) {
-        const modal = document.getElementById("orderModal");
-        const productInput = document.getElementById("productName");
-        if(productInput) productInput.value = productName;
-        if(modal) modal.style.display = "flex";
-    }
-
-    document.querySelectorAll(".filter-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            currentCategory = btn.getAttribute("data-category");
-            renderEquipment();
-        });
-    });
-
-    const modal = document.getElementById("orderModal");
-    if(modal) {
-        document.querySelector(".close-modal")?.addEventListener("click", () => modal.style.display = "none");
-        window.addEventListener("click", (e) => { if(e.target === modal) modal.style.display = "none"; });
-        document.getElementById("orderForm")?.addEventListener("submit", (e) => {
-            e.preventDefault();
-            alert("✅ Inquiry sent! We'll contact you within 24 hours.");
-            modal.style.display = "none";
-            e.target.reset();
-        });
-    }
-
     const menuIcon = document.getElementById("menuIcon");
     const navLinks = document.getElementById("navLinks");
-    if(menuIcon) menuIcon.addEventListener("click", () => navLinks.classList.toggle("active"));
-
-    renderEquipment();
+    if(menuIcon) {
+        menuIcon.addEventListener("click", (e) => { e.stopPropagation(); navLinks.classList.toggle("active"); });
+        document.addEventListener("click", (event) => { if(navLinks.classList.contains("active") && !navLinks.contains(event.target) && !menuIcon.contains(event.target)) navLinks.classList.remove("active"); });
+    }
 </script>
 </body>
 </html>
