@@ -26,8 +26,8 @@
         .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #1F5E46, #0F3D2E); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .logo p { font-size: 0.75rem; color: #7E6E5A; }
         .nav-links { display: flex; gap: 2.3rem; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; font-weight: 600; color: #2C3A2A; transition: 0.25s; }
-        .nav-links a:hover, .nav-links a.active { color: #2D6A4F; }
+        .nav-links a { text-decoration: none; font-weight: 600; color: #2C3A2A; transition: 0.25s; font-size: 0.95rem; }
+        .nav-links a:hover, .nav-links a.active { color: #2D6A4F; transform: translateY(-2px); }
         .quote-btn { background: #2D6A4F; color: white !important; padding: 0.55rem 1.5rem; border-radius: 40px; }
         .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; color: #2D6A4F; background: rgba(45, 106, 79, 0.1); padding: 8px 14px; border-radius: 50px; }
         @media (max-width: 880px) {
@@ -40,11 +40,11 @@
         .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
         .container { max-width: 1280px; margin: 4rem auto; padding: 0 2rem; }
         .section-title { text-align: center; font-size: 2rem; font-weight: 800; margin: 3rem 0 2rem; color: #1B3B2F; }
+        .section-title:after { content: ''; width: 60px; height: 3px; background: #E76F51; display: block; margin: 0.5rem auto 0; border-radius: 3px; }
         
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .product-card { background: white; border-radius: 28px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: 0.3s; }
+        .product-card { background: white; border-radius: 28px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); transition: 0.3s; padding: 1.5rem; text-align: center; }
         .product-card:hover { transform: translateY(-5px); }
-        .product-content { padding: 1.5rem; }
         .product-icon { font-size: 2.5rem; color: #2D6A4F; margin-bottom: 1rem; }
         .product-title { font-size: 1.3rem; font-weight: 700; color: #1F5E46; margin-bottom: 0.5rem; }
         
@@ -73,6 +73,7 @@
             <li><a href="construction.html">Construction</a></li>
             <li><a href="import.html" class="active">Import</a></li>
             <li><a href="coffee.html">Coffee</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="quote.html" class="quote-btn">⚡ Quote</a></li>
         </ul>
     </div>
@@ -86,19 +87,19 @@
 <div class="container">
     <h2 class="section-title">Coffee Laboratory Equipment</h2>
     <div class="product-grid">
-        <div class="product-card"><div class="product-content"><div class="product-icon"><i class="fas fa-fire"></i></div><h3 class="product-title">Sample Roasters</h3><p>PROBAT sample roasters for professional cupping labs. Precision gas & electric models available.</p></div></div>
-        <div class="product-card"><div class="product-content"><div class="product-icon"><i class="fas fa-charging-station"></i></div><h3 class="product-title">Industrial Grinders</h3><p>Heavy-duty electric grinders for consistent particle size analysis.</p></div></div>
-        <div class="product-card"><div class="product-content"><div class="product-icon"><i class="fas fa-chart-line"></i></div><h3 class="product-title">Moisture Testers</h3><p>Digital moisture meters for green coffee quality control.</p></div></div>
-        <div class="product-card"><div class="product-content"><div class="product-icon"><i class="fas fa-mug-hot"></i></div><h3 class="product-title">Cupping Sets</h3><p>Complete SCA-standard cupping sets including bowls, spoons, trays, and spittoons.</p></div></div>
-        <div class="product-card"><div class="product-content"><div class="product-icon"><i class="fas fa-filter"></i></div><h3 class="product-title">Sieve Sets</h3><p>ASTM standard green coffee sieve sets for bean size analysis.</p></div></div>
-        <div class="product-card"><div class="product-content"><div class="product-icon"><i class="fas fa-industry"></i></div><h3 class="product-title">Commercial Roasters</h3><p>Commercial coffee roasting machinery for small to large-scale operations.</p></div></div>
+        <div class="product-card"><div class="product-icon"><i class="fas fa-fire"></i></div><div class="product-title">Sample Roasters</div><p>PROBAT sample roasters for professional cupping labs</p></div>
+        <div class="product-card"><div class="product-icon"><i class="fas fa-charging-station"></i></div><div class="product-title">Industrial Grinders</div><p>Heavy-duty electric grinders for consistent particle analysis</p></div>
+        <div class="product-card"><div class="product-icon"><i class="fas fa-chart-line"></i></div><div class="product-title">Moisture Testers</div><p>Digital moisture meters for green coffee quality control</p></div>
+        <div class="product-card"><div class="product-icon"><i class="fas fa-mug-hot"></i></div><div class="product-title">Cupping Sets</div><p>Complete SCA-standard cupping sets including bowls, spoons, trays</p></div>
+        <div class="product-card"><div class="product-icon"><i class="fas fa-filter"></i></div><div class="product-title">Sieve Sets</div><p>ASTM standard green coffee sieve sets for bean size analysis</p></div>
+        <div class="product-card"><div class="product-icon"><i class="fas fa-industry"></i></div><div class="product-title">Commercial Roasters</div><p>Commercial coffee roasting machinery for various scales</p></div>
     </div>
 
     <h2 class="section-title">Electrical Equipment</h2>
     <div class="product-grid">
-        <div class="product-card"><div class="product-content"><div class="product-icon"><i class="fas fa-bolt"></i></div><h3 class="product-title">Electrical Components</h3><p>Switches, breakers, cables, and industrial electrical supplies.</p></div></div>
-        <div class="product-card"><div class="product-content"><div class="product-icon"><i class="fas fa-lightbulb"></i></div><h3 class="product-title">Lighting Solutions</h3><p>Commercial and industrial lighting fixtures.</p></div></div>
-        <div class="product-card"><div class="product-content"><div class="product-icon"><i class="fas fa-microchip"></i></div><h3 class="product-title">Control Systems</h3><p>Automation and control equipment for industrial applications.</p></div></div>
+        <div class="product-card"><div class="product-icon"><i class="fas fa-bolt"></i></div><div class="product-title">Electrical Components</div><p>Switches, breakers, cables, and industrial electrical supplies</p></div>
+        <div class="product-card"><div class="product-icon"><i class="fas fa-lightbulb"></i></div><div class="product-title">Lighting Solutions</div><p>Commercial and industrial lighting fixtures</p></div>
+        <div class="product-card"><div class="product-icon"><i class="fas fa-microchip"></i></div><div class="product-title">Control Systems</div><p>Automation and control equipment for industrial applications</p></div>
     </div>
 
     <h2 class="section-title">Our Import Process</h2>
@@ -116,7 +117,7 @@
     <div class="footer-grid">
         <div><h4 style="color:#F4A261;">RDG Business Holding</h4><p>📍 Addis Ababa, Bole Sub City</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
         <div><h4>Our Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
-        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="quote.html">Request Quote</a></div>
+        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="quote.html">Request Quote</a></div>
     </div>
     <div class="copyright">© 2026 RDG Business Holding — Empowering Ethiopia's Construction, Import & Coffee Renaissance.</div>
 </footer>
