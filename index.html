@@ -19,19 +19,8 @@
 }
 
 :root{
-    --bg:#232B31;
-    --bg2:#2E373D;
-    --card:#313C43;
-    --card-hover:#3A4750;
-
     --white:#FFFFFF;
-    --soft:#D7DDE1;
     --muted:#AAB4BB;
-
-    --accent:#EDEDED;
-    --line:rgba(255,255,255,0.08);
-
-    --shadow:0 20px 45px rgba(0,0,0,0.35);
 }
 
 body{
@@ -117,8 +106,8 @@ nav{
     position:sticky;
     top:0;
     z-index:999;
-    padding:0.9rem 1.5rem;
-    background:rgba(25,32,37,0.75);
+    padding:1rem 1.5rem;
+    background:rgba(25,32,37,0.78);
     backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(255,255,255,0.05);
 }
@@ -138,18 +127,27 @@ nav{
     text-decoration:none;
 }
 
-/* LOGO IMAGE */
+/* BIG VISIBLE LOGO */
 
 .logo-img{
-    height:72px;
+    height:95px;
     width:auto;
     object-fit:contain;
     display:block;
-    transition:0.35s ease;
+
+    filter:
+    drop-shadow(0 0 10px rgba(255,255,255,0.25))
+    drop-shadow(0 0 25px rgba(255,255,255,0.18));
+
+    transition:0.4s ease;
 }
 
 .logo-img:hover{
-    transform:scale(1.05);
+    transform:scale(1.08);
+
+    filter:
+    drop-shadow(0 0 18px rgba(255,255,255,0.45))
+    drop-shadow(0 0 35px rgba(255,255,255,0.28));
 }
 
 .nav-links{
@@ -319,9 +317,7 @@ nav{
     font-size:3rem;
     font-weight:800;
     margin-bottom:1rem;
-
     background:linear-gradient(135deg,#FFFFFF,#BFC7CC);
-
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
@@ -396,11 +392,8 @@ nav{
     );
 
     border:1px solid rgba(255,255,255,0.05);
-
     border-radius:60px;
-
     backdrop-filter:blur(10px);
-
     padding:4rem 2rem;
 }
 
@@ -489,7 +482,7 @@ footer{
 
     .nav-links{
         position:absolute;
-        top:85px;
+        top:105px;
         left:20px;
         right:20px;
         background:rgba(25,32,37,0.96);
@@ -526,7 +519,7 @@ footer{
     }
 
     .logo-img{
-        height:60px;
+        height:75px;
     }
 
 }
@@ -570,7 +563,7 @@ footer{
 
 <a href="#" class="logo">
 
-<img src="logo.jpg"
+<img src="logo1.JPG"
 alt="RDG Business Logo"
 class="logo-img">
 
