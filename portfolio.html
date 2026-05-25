@@ -1,129 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Portfolio | RDG Business Holding</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #FDF8F0; color: #1E2A1E; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #E9E0D0; }
-        ::-webkit-scrollbar-thumb { background: #2D6A4F; border-radius: 10px; }
-
-        nav {
-            background: rgba(255, 252, 245, 0.96);
-            backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 0.8rem 2rem;
-            border-bottom: 1px solid rgba(45, 106, 79, 0.15);
-        }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #1F5E46, #0F3D2E); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .logo p { font-size: 0.75rem; color: #7E6E5A; }
-        .nav-links { display: flex; gap: 2.3rem; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; font-weight: 600; color: #2C3A2A; transition: 0.25s; font-size: 0.95rem; }
-        .nav-links a:hover, .nav-links a.active { color: #2D6A4F; transform: translateY(-2px); }
-        .quote-btn { background: #2D6A4F; color: white !important; padding: 0.55rem 1.5rem; border-radius: 40px; }
-        .menu-icon { display: none; font-size: 1.8rem; cursor: pointer; color: #2D6A4F; background: rgba(45, 106, 79, 0.1); padding: 8px 14px; border-radius: 50px; }
-        @media (max-width: 880px) {
-            .menu-icon { display: flex; align-items: center; gap: 8px; }
-            .nav-links { display: none; width: 100%; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1rem; background: rgba(255, 252, 245, 0.98); padding: 1.5rem 0; border-radius: 32px; }
-            .nav-links.active { display: flex; }
-        }
-
-        .page-header { background: linear-gradient(135deg, #1E3524, #132B1D); color: white; padding: 4rem 2rem; text-align: center; }
-        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .container { max-width: 1280px; margin: 4rem auto; padding: 0 2rem; }
-        .section-title { text-align: center; font-size: 2rem; font-weight: 800; margin-bottom: 2rem; color: #1B3B2F; }
-        .section-title:after { content: ''; width: 60px; height: 3px; background: #E76F51; display: block; margin: 0.5rem auto 0; border-radius: 3px; }
-
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
-        .gallery-item {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-        .gallery-item:hover { transform: translateY(-5px); }
-        .gallery-image {
-            height: 250px;
-            background: linear-gradient(135deg, #6F4E37, #4A3226);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-        .gallery-content { padding: 1.5rem; }
-        .gallery-title { font-size: 1.3rem; font-weight: 700; color: #1F5E46; margin-bottom: 0.5rem; }
-        .gallery-client { color: #E76F51; font-weight: 600; margin-bottom: 0.5rem; }
-
-        footer { background: #0E241A; color: #D8D0BE; padding: 3rem 2rem 1rem; margin-top: 4rem; }
-        .footer-grid { max-width: 1400px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
-        .footer-grid a { color: #CEC3AC; text-decoration: none; display: block; margin-bottom: 0.5rem; }
-        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #2C4A38; }
-        @media (max-width: 768px) { .page-header h1 { font-size: 2rem; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | RDG Business Holding</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #2F3A40, #252F35, #1F272C); color: white; }
+nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); padding: 1rem 2rem; position: sticky; top: 0; }
+.nav-container { max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 18px; text-decoration: none; }
+.logo-img { height: 70px; width: auto; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { text-decoration: none; color: rgba(255,255,255,0.75); }
+.nav-links a:hover, .nav-links a.active { color: white; }
+.quote-btn { background: #F2F2F2; color: #2F3A40 !important; padding: 0.6rem 1.4rem; border-radius: 40px; }
+.menu-icon { display: none; font-size: 1.5rem; cursor: pointer; }
+.page-header { text-align: center; padding: 5rem 2rem; }
+.page-header h1 { font-size: 3rem; }
+.container { max-width: 1200px; margin: auto; padding: 2rem; text-align: center; }
+footer { background: #20282D; padding: 3rem 2rem; margin-top: 3rem; text-align: center; }
+@media (max-width: 880px) {
+    .menu-icon { display: block; }
+    .nav-links { display: none; width: 100%; flex-direction: column; background: #2B353B; padding: 1rem; border-radius: 20px; margin-top: 1rem; }
+    .nav-links.active { display: flex; }
+}
+</style>
 </head>
 <body>
-
 <nav>
-    <div class="nav-container">
-        <div class="logo"><h1>RDG Business Holding</h1><p>⚡ Construction | Import | Coffee Excellence</p></div>
-        <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i> <span>Menu</span></div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="construction.html">Construction</a></li>
-            <li><a href="import.html">Import</a></li>
-            <li><a href="coffee.html">Coffee</a></li>
-            <li><a href="portfolio.html" class="active">Portfolio</a></li>
-            <li><a href="quote.html" class="quote-btn">⚡ Quote</a></li>
-        </ul>
-    </div>
+<div class="nav-container">
+    <a href="index.html" class="logo"><img src="logo1.JPG" alt="Logo" class="logo-img"></a>
+    <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="construction.html">Construction</a></li>
+        <li><a href="import.html">Import</a></li>
+        <li><a href="coffee.html">Coffee</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="quote.html" class="quote-btn">Get Quote</a></li>
+    </ul>
+</div>
 </nav>
-
-<section class="page-header">
-    <h1>Our Portfolio</h1>
-    <p>Showcasing our finest projects across construction, landscape, and design</p>
-</div>
-
-<div class="container">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item"><div class="gallery-image"><i class="fas fa-tree"></i></div><div class="gallery-content"><div class="gallery-title">UNITY PARK</div><div class="gallery-client">Parking Lot & Mixed Use Development</div><p>Landscape design and development for Addis Ababa's premier public space.</p></div></div>
-        <div class="gallery-item"><div class="gallery-image"><i class="fas fa-paw"></i></div><div class="gallery-content"><div class="gallery-title">ELEPHANT PAW LODGE</div><div class="gallery-client">Chebera Churchura National Park</div><p>Full landscape architecture and development for this eco-tourism destination.</p></div></div>
-        <div class="gallery-item"><div class="gallery-image"><i class="fas fa-industry"></i></div><div class="gallery-content"><div class="gallery-title">NATIONAL CEMENT</div><div class="gallery-client">Lemi Project</div><p>Landscape concept development for Africa's largest cement factory.</p></div></div>
-        <div class="gallery-item"><div class="gallery-image"><i class="fas fa-bottle-water"></i></div><div class="gallery-content"><div class="gallery-title">EAST AFRICA BOTTLING</div><div class="gallery-client">Share Company</div><p>Recreational space and landscape concept development for factory workers.</p></div></div>
-        <div class="gallery-item"><div class="gallery-image"><i class="fas fa-home"></i></div><div class="gallery-content"><div class="gallery-title">PROFESSOR MENEGESHA RESIDENCE</div><div class="gallery-client">G+1 Residential Design & Build</div><p>Complete design and construction of luxury residence. Value: 3.7M ETB (2018)</p></div></div>
-        <div class="gallery-item"><div class="gallery-image"><i class="fas fa-building"></i></div><div class="gallery-content"><div class="gallery-title">ATO WASSIHUN ADOSHE RESIDENCE</div><div class="gallery-client">G+3+B Residential Complex</div><p>Full design and construction of residential complex. Value: 7M ETB (2019)</p></div></div>
-        <div class="gallery-item"><div class="gallery-image"><i class="fas fa-gas-pump"></i></div><div class="gallery-content"><div class="gallery-title">NOC GAS STATION</div><div class="gallery-client">Client: Adane Belay</div><p>Project management for gas station canopy installation, tanker installation, and office construction.</p></div></div>
-        <div class="gallery-item"><div class="gallery-image"><i class="fas fa-building"></i></div><div class="gallery-content"><div class="gallery-title">ATO ADANE BELAY APARTMENT</div><div class="gallery-client">G+5+B Apartment Building</div><p>Project management for finishing works and indoor plant works.</p></div></div>
-    </div>
-</div>
-
-<footer>
-    <div class="footer-grid">
-        <div><h4 style="color:#F4A261;">RDG Business Holding</h4><p>📍 Addis Ababa, Bole Sub City</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
-        <div><h4>Our Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
-        <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="quote.html">Request Quote</a></div>
-    </div>
-    <div class="copyright">© 2026 RDG Business Holding — Empowering Ethiopia's Construction, Import & Coffee Renaissance.</div>
-</footer>
-
+<section class="page-header"><h1>Our Portfolio</h1><p>Coming Soon</p></section>
+<footer><p>© 2026 RDG Business Holding</p></footer>
 <script>
-    const menuIcon = document.getElementById("menuIcon");
-    const navLinks = document.getElementById("navLinks");
-    if(menuIcon) {
-        menuIcon.addEventListener("click", (e) => { e.stopPropagation(); navLinks.classList.toggle("active"); });
-        document.addEventListener("click", (event) => { if(navLinks.classList.contains("active") && !navLinks.contains(event.target) && !menuIcon.contains(event.target)) navLinks.classList.remove("active"); });
-    }
+const menuIcon = document.getElementById("menuIcon");
+const navLinks = document.getElementById("navLinks");
+menuIcon.addEventListener("click", () => { navLinks.classList.toggle("active"); });
 </script>
 </body>
 </html>
