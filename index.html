@@ -1,720 +1,919 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>RDG Business Holding | Construction | Import | Coffee</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0A0F0D;
-            color: #FFFFFF;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+<title>RDG Business Holding | Construction | Import | Coffee</title>
 
-        /* Modern scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #1A1F1D; }
-        ::-webkit-scrollbar-thumb { background: #E76F51; border-radius: 10px; }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 
-        /* Dynamic gradient background */
-        .gradient-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: radial-gradient(circle at 20% 30%, #0D2818, #0A0F0D);
-        }
-        .gradient-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 80% 70%, rgba(231,111,81,0.25), transparent);
-            animation: slowDrift 10s ease-in-out infinite;
-        }
-        @keyframes slowDrift {
-            0%, 100% { transform: scale(1); opacity: 0.6; }
-            50% { transform: scale(1.2); opacity: 1; }
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
-        /* Navigation */
-        nav {
-            background: rgba(10, 15, 13, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 1.5rem;
-        }
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo h1 {
-            font-size: 1.7rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #FFFFFF, #E76F51);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.5px;
-        }
-        .logo p {
-            font-size: 0.65rem;
-            color: rgba(255,255,255,0.5);
-            letter-spacing: 1px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: rgba(255,255,255,0.75);
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: #E76F51;
-        }
-        .quote-btn {
-            background: linear-gradient(135deg, #E76F51, #C85C3F);
-            color: white !important;
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 6px 14px rgba(231,111,81,0.25);
-        }
-        .menu-icon {
-            display: none;
-            font-size: 1.6rem;
-            cursor: pointer;
-            color: white;
-        }
+<style>
 
-        /* Hero Slider - full visibility with no arrows */
-        .hero-slider {
-            position: relative;
-            height: 90vh;
-            min-height: 550px;
-            overflow: hidden;
-            width: 100%;
-        }
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center center;
-            opacity: 0;
-            transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        /* Image visibility assurance */
-        .slide {
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .slide.active {
-            opacity: 1;
-            z-index: 1;
-        }
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.55), rgba(0,0,0,0.4));
-            z-index: 1;
-        }
-        .slide-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 2rem;
-            animation: fadeUp 0.8s ease-out;
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .slide-content h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFF, #F4A261);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .slide-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: rgba(255,255,255,0.85);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .btn-primary {
-            background: #E76F51;
-            padding: 0.9rem 2.4rem;
-            border-radius: 50px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s;
-            box-shadow: 0 8px 20px rgba(231,111,81,0.3);
-            border: none;
-        }
-        .btn-primary:hover {
-            background: #C85C3F;
-            transform: scale(1.03);
-            box-shadow: 0 12px 28px rgba(231,111,81,0.4);
-        }
-        /* Dots only navigation */
-        .dot-container {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 16px;
-            z-index: 15;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: all 0.25s;
-        }
-        .dot.active {
-            background: #E76F51;
-            width: 28px;
-            border-radius: 20px;
-            transform: scale(1.1);
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* Container and sections */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.6rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFFFFF, #E76F51);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .section-subtitle {
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 3.5rem;
-            font-size: 1.1rem;
-        }
-        .business-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-        .business-card {
-            background: rgba(20, 28, 24, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 36px;
-            padding: 2.2rem;
-            transition: all 0.4s ease;
-            text-decoration: none;
-            color: white;
-            display: block;
-        }
-        .business-card:hover {
-            transform: translateY(-12px);
-            background: rgba(30, 40, 36, 0.8);
-            border-color: rgba(231,111,81,0.5);
-            box-shadow: 0 20px 35px -15px rgba(0,0,0,0.4);
-        }
-        .card-icon {
-            font-size: 3.2rem;
-            margin-bottom: 1.5rem;
-            color: #E76F51;
-        }
-        .business-card h3 {
-            font-size: 1.9rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        .business-card p {
-            color: rgba(255,255,255,0.7);
-            line-height: 1.6;
-        }
-        .card-tag {
-            display: inline-block;
-            background: rgba(231,111,81,0.2);
-            padding: 0.3rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: #F4A261;
-            margin-top: 1.2rem;
-            font-weight: 500;
-        }
-        .stats-section {
-            background: linear-gradient(125deg, rgba(231,111,81,0.08), rgba(45,106,79,0.12));
-            border-radius: 70px;
-            padding: 3.5rem 2rem;
-            margin: 1rem auto;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            text-align: center;
-            gap: 2rem;
-        }
-        .stat-number {
-            font-size: 3.2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #E76F51, #F4A261);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -1px;
-        }
-        .stats-grid div p {
-            color: rgba(255,255,255,0.6);
-            font-weight: 500;
-        }
+:root{
+    --bg:#232B31;
+    --bg2:#2E373D;
+    --card:#313C43;
+    --card-hover:#3A4750;
 
-        /* Footer */
-        footer {
-            background: #060A08;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 4rem 2rem 2rem;
-        }
-        .footer-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-        .footer-col h4 {
-            color: #E76F51;
-            margin-bottom: 1.2rem;
-            font-size: 1.2rem;
-        }
-        .footer-col p, .footer-col a {
-            color: rgba(255,255,255,0.55);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.6rem;
-            transition: 0.2s;
-        }
-        .footer-col a:hover {
-            color: #E76F51;
-            transform: translateX(5px);
-        }
-        .copyright {
-            text-align: center;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: rgba(255,255,255,0.35);
-            font-size: 0.85rem;
-        }
+    --white:#FFFFFF;
+    --soft:#D7DDE1;
+    --muted:#AAB4BB;
 
-        /* Responsive Magic */
-        @media (max-width: 980px) {
-            .business-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.8rem;
-            }
-            .slide-content h1 {
-                font-size: 2.8rem;
-            }
-        }
-        @media (max-width: 780px) {
-            .menu-icon {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                gap: 1.2rem;
-                background: rgba(10, 15, 13, 0.97);
-                backdrop-filter: blur(20px);
-                padding: 2rem 1rem;
-                border-radius: 28px;
-                margin-top: 1rem;
-                text-align: center;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-            .business-grid {
-                grid-template-columns: 1fr;
-            }
-            .container {
-                padding: 3.5rem 1.5rem;
-            }
-            .slide-content h1 {
-                font-size: 2.2rem;
-            }
-            .slide-content p {
-                font-size: 1rem;
-            }
-            .hero-slider {
-                min-height: 500px;
-                height: 80vh;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .stats-section {
-                padding: 2rem 1rem;
-                border-radius: 40px;
-            }
-            .stat-number {
-                font-size: 2.4rem;
-            }
-        }
-        @media (max-width: 480px) {
-            .slide-content h1 {
-                font-size: 1.8rem;
-            }
-            .btn-primary {
-                padding: 0.7rem 1.8rem;
-                font-size: 0.9rem;
-            }
-            .dot-container {
-                bottom: 18px;
-                gap: 12px;
-            }
-            .business-card h3 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+    --accent:#EDEDED;
+    --line:rgba(255,255,255,0.08);
+
+    --shadow:0 20px 45px rgba(0,0,0,0.35);
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(135deg,#232B31,#2B353C,#20272D);
+    color:var(--white);
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:6px;
+}
+
+::-webkit-scrollbar-track{
+    background:#1B2328;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#C7CDD1;
+    border-radius:50px;
+}
+
+/* BACKGROUND */
+
+.gradient-bg{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.03), transparent 30%),
+    linear-gradient(135deg,#232B31,#2B353C,#20272D);
+}
+
+.gradient-bg::before{
+    content:'';
+    position:absolute;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+    top:-250px;
+    right:-200px;
+    animation:floatGlow 12s ease-in-out infinite;
+}
+
+.gradient-bg::after{
+    content:'';
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.03), transparent 70%);
+    bottom:-250px;
+    left:-200px;
+    animation:floatGlow2 14s ease-in-out infinite;
+}
+
+@keyframes floatGlow{
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+    50%{
+        transform:translateY(20px) scale(1.08);
+    }
+}
+
+@keyframes floatGlow2{
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+    50%{
+        transform:translateY(-20px) scale(1.05);
+    }
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:999;
+    padding:0.9rem 1.5rem;
+    background:rgba(25,32,37,0.75);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.nav-container{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+}
+
+.logo-img{
+    height:56px;
+    width:auto;
+    border-radius:12px;
+    transition:0.35s ease;
+}
+
+.logo-img:hover{
+    transform:scale(1.03);
+}
+
+.logo-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.logo-text h1{
+    font-size:1.7rem;
+    font-weight:800;
+    letter-spacing:-1px;
+
+    background:linear-gradient(135deg,#FFFFFF,#BFC7CC);
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.logo-text p{
+    color:var(--muted);
+    font-size:0.7rem;
+    letter-spacing:2px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:2rem;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:rgba(255,255,255,0.7);
+    font-size:0.95rem;
+    font-weight:500;
+    transition:0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:white;
+}
+
+.quote-btn{
+    background:linear-gradient(135deg,#F4F4F4,#C7CDD1);
+    color:#1D252B !important;
+    padding:0.8rem 1.6rem;
+    border-radius:50px;
+    font-weight:700 !important;
+}
+
+.menu-icon{
+    display:none;
+    color:white;
+    font-size:1.6rem;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero-slider{
+    position:relative;
+    height:92vh;
+    min-height:620px;
+    overflow:hidden;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:1s ease;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.slide.active{
+    opacity:1;
+    z-index:2;
+}
+
+.slide::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.4)
+    );
+}
+
+.slide-content{
+    position:relative;
+    z-index:5;
+    max-width:900px;
+    padding:2rem;
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.slide-content h1{
+    font-size:4.5rem;
+    font-weight:900;
+    line-height:1.05;
+    margin-bottom:1.2rem;
+    letter-spacing:-2px;
+}
+
+.slide-content p{
+    font-size:1.2rem;
+    color:rgba(255,255,255,0.8);
+    max-width:700px;
+    margin:auto auto 2rem;
+    line-height:1.8;
+}
+
+/* BUTTON */
+
+.btn-primary{
+    background:linear-gradient(135deg,#F4F4F4,#C7CDD1);
+    color:#1D252B;
+    padding:0.95rem 2.4rem;
+    border-radius:60px;
+    font-weight:700;
+    text-decoration:none;
+    display:inline-block;
+    transition:0.35s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    background:white;
+}
+
+/* DOTS */
+
+.dot-container{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:14px;
+    z-index:10;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.35);
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.dot.active{
+    background:#FFFFFF;
+    width:34px;
+    border-radius:50px;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:6rem 2rem;
+}
+
+.section-title{
+    text-align:center;
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:1rem;
+
+    background:linear-gradient(135deg,#FFFFFF,#BFC7CC);
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:4rem;
+    font-size:1.1rem;
+}
+
+/* BUSINESS GRID */
+
+.business-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2rem;
+}
+
+.business-card{
+    background:rgba(49,60,67,0.72);
+    backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:34px;
+    padding:2.4rem;
+    transition:all 0.4s ease;
+    text-decoration:none;
+    color:white;
+}
+
+.business-card:hover{
+    transform:translateY(-12px);
+    background:rgba(58,71,80,0.92);
+    border-color:rgba(255,255,255,0.14);
+    box-shadow:0 25px 40px rgba(0,0,0,0.35);
+}
+
+.card-icon{
+    font-size:3rem;
+    margin-bottom:1.5rem;
+    color:#F1F1F1;
+}
+
+.business-card h3{
+    font-size:1.9rem;
+    margin-bottom:1rem;
+}
+
+.business-card p{
+    color:rgba(255,255,255,0.68);
+    line-height:1.8;
+}
+
+.card-tag{
+    display:inline-block;
+    margin-top:1.4rem;
+    background:rgba(255,255,255,0.08);
+    padding:0.45rem 1.2rem;
+    border-radius:50px;
+    font-size:0.85rem;
+    color:white;
+}
+
+/* STATS */
+
+.stats-section{
+    background:linear-gradient(
+    135deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.02)
+    );
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    border-radius:60px;
+
+    backdrop-filter:blur(10px);
+
+    padding:4rem 2rem;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:2rem;
+    text-align:center;
+}
+
+.stat-number{
+    font-size:3.5rem;
+    font-weight:800;
+    color:#FFFFFF;
+}
+
+.stats-grid p{
+    color:var(--muted);
+    margin-top:0.5rem;
+}
+
+/* FOOTER */
+
+footer{
+    background:#1C2328;
+    border-top:1px solid rgba(255,255,255,0.05);
+    padding:5rem 2rem 2rem;
+}
+
+.footer-grid{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:3rem;
+}
+
+.footer-col h4{
+    margin-bottom:1.4rem;
+    font-size:1.2rem;
+    color:white;
+}
+
+.footer-col p,
+.footer-col a{
+    color:rgba(255,255,255,0.6);
+    margin-bottom:0.8rem;
+    text-decoration:none;
+    display:block;
+    transition:0.3s ease;
+}
+
+.footer-col a:hover{
+    color:white;
+    transform:translateX(5px);
+}
+
+.copyright{
+    margin-top:4rem;
+    padding-top:2rem;
+    border-top:1px solid rgba(255,255,255,0.05);
+    text-align:center;
+    color:rgba(255,255,255,0.4);
+    font-size:0.9rem;
+}
+
+/* MOBILE */
+
+@media(max-width:980px){
+
+    .business-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .slide-content h1{
+        font-size:3.2rem;
+    }
+
+}
+
+@media(max-width:780px){
+
+    .menu-icon{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:85px;
+        left:20px;
+        right:20px;
+        background:rgba(25,32,37,0.96);
+        backdrop-filter:blur(20px);
+        border-radius:30px;
+        padding:2rem;
+        display:none;
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .business-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .slide-content h1{
+        font-size:2.5rem;
+    }
+
+    .container{
+        padding:4rem 1.5rem;
+    }
+
+    .section-title{
+        font-size:2.3rem;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .slide-content h1{
+        font-size:2rem;
+    }
+
+    .slide-content p{
+        font-size:1rem;
+    }
+
+    .btn-primary{
+        padding:0.8rem 1.8rem;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stat-number{
+        font-size:2.8rem;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="gradient-bg"></div>
 
+<!-- NAVBAR -->
+
 <nav>
-    <div class="nav-container">
-        <div class="logo">
-            <h1>RDG</h1>
-            <p>BUSINESS HOLDING</p>
-        </div>
-        <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Construction</a></li>
-            <li><a href="#">Import</a></li>
-            <li><a href="#">Coffee</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#" class="quote-btn">Get Quote</a></li>
-        </ul>
-    </div>
+
+<div class="nav-container">
+
+<a href="#" class="logo">
+
+<img src="logo.jpg"
+alt="RDG Business Logo"
+class="logo-img"
+onerror="this.style.display='none';">
+
+<div class="logo-text">
+<h1>RDG</h1>
+<p>BUSINESS HOLDING</p>
+</div>
+
+</a>
+
+<div class="menu-icon" id="menuIcon">
+<i class="fas fa-bars"></i>
+</div>
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="#" class="active">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Construction</a></li>
+<li><a href="#">Import</a></li>
+<li><a href="#">Coffee</a></li>
+<li><a href="#">Portfolio</a></li>
+<li><a href="#" class="quote-btn">Get Quote</a></li>
+
+</ul>
+
+</div>
+
 </nav>
 
-<!-- Hero Slider - no arrows, just dots + automatic sliding, images visible -->
+<!-- HERO -->
+
 <div class="hero-slider" id="heroSlider">
-    <div class="slide active" style="background-image: url('IMG_20260516_190409_120.jpg');">
-        <div class="slide-content">
-            <h1>RDG Construction</h1>
-            <p>Building Ethiopia's tomorrow with landscape mastery & premium general construction.</p>
-            <a href="#" class="btn-primary">Discover Projects →</a>
-        </div>
-    </div>
-    <div class="slide" style="background-image: url('IMG_20260516_190410_213.jpg');">
-        <div class="slide-content">
-            <h1>RDG Import</h1>
-            <p>Global supply chain for coffee lab equipment, electrical systems & industrial machinery.</p>
-            <a href="#" class="btn-primary">Global Sourcing →</a>
-        </div>
-    </div>
-    <div class="slide" style="background-image: url('IMG_20260516_190425_166.jpg');">
-        <div class="slide-content">
-            <h1>RDG Coffee</h1>
-            <p>Artisanal Ethiopian coffee — from farm to cup, premium roasting & worldwide export.</p>
-            <a href="#" class="btn-primary">Experience Coffee →</a>
-        </div>
-    </div>
-    <!-- Dot container dynamically generated -->
-    <div class="dot-container" id="dotContainer"></div>
+
+<div class="slide active"
+style="background-image:url('IMG_20260516_190409_120.jpg');">
+
+<div class="slide-content">
+
+<h1>RDG Construction</h1>
+
+<p>
+Building Ethiopia’s future through premium construction,
+landscape development and modern infrastructure solutions.
+</p>
+
+<a href="#" class="btn-primary">
+Discover Projects
+</a>
+
 </div>
 
-<div class="container">
-    <h2 class="section-title">Our Divisions</h2>
-    <p class="section-subtitle">Three pillars driving innovation and growth across Ethiopia</p>
-    <div class="business-grid">
-        <a href="#" class="business-card">
-            <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
-            <h3>RDG Construction</h3>
-            <p>General contractor specializing in landscape design, residential projects, and premium finishing works. Excellence in every brick.</p>
-            <span class="card-tag">10+ Years Experience</span>
-        </a>
-        <a href="#" class="business-card">
-            <div class="card-icon"><i class="fas fa-ship"></i></div>
-            <h3>RDG Import</h3>
-            <p>Specialized importer of electrical equipment, cutting-edge coffee lab gear, and commercial roasting machinery from world leaders.</p>
-            <span class="card-tag">Global Supply Chain</span>
-        </a>
-        <a href="#" class="business-card">
-            <div class="card-icon"><i class="fas fa-mug-hot"></i></div>
-            <h3>RDG Coffee</h3>
-            <p>Our newest passion — roasting authentic Ethiopian coffee, crafting brands, and supplying premium beans worldwide.</p>
-            <span class="card-tag">Launching 2026</span>
-        </a>
-    </div>
 </div>
 
-<div class="container">
-    <div class="stats-section">
-        <div class="stats-grid">
-            <div><div class="stat-number">10+</div><p>Years of Excellence</p></div>
-            <div><div class="stat-number">50+</div><p>Projects Completed</p></div>
-            <div><div class="stat-number">25+</div><p>Happy Clients</p></div>
-            <div><div class="stat-number">3</div><p>Business Divisions</p></div>
-        </div>
-    </div>
+<div class="slide"
+style="background-image:url('IMG_20260516_190410_213.jpg');">
+
+<div class="slide-content">
+
+<h1>RDG Import</h1>
+
+<p>
+Supplying world-class machinery, electrical systems,
+and industrial equipment through trusted global sourcing.
+</p>
+
+<a href="#" class="btn-primary">
+Explore Import
+</a>
+
 </div>
+
+</div>
+
+<div class="slide"
+style="background-image:url('IMG_20260516_190425_166.jpg');">
+
+<div class="slide-content">
+
+<h1>RDG Coffee</h1>
+
+<p>
+Premium Ethiopian coffee crafted with passion —
+from sourcing and roasting to international export.
+</p>
+
+<a href="#" class="btn-primary">
+Discover Coffee
+</a>
+
+</div>
+
+</div>
+
+<div class="dot-container" id="dotContainer"></div>
+
+</div>
+
+<!-- DIVISIONS -->
+
+<div class="container">
+
+<h2 class="section-title">Our Divisions</h2>
+
+<p class="section-subtitle">
+Three powerful sectors driving RDG Business Holding forward
+</p>
+
+<div class="business-grid">
+
+<a href="#" class="business-card">
+
+<div class="card-icon">
+<i class="fas fa-hard-hat"></i>
+</div>
+
+<h3>RDG Construction</h3>
+
+<p>
+General contracting, landscape architecture,
+premium finishing and modern infrastructure development.
+</p>
+
+<span class="card-tag">
+10+ Years Experience
+</span>
+
+</a>
+
+<a href="#" class="business-card">
+
+<div class="card-icon">
+<i class="fas fa-ship"></i>
+</div>
+
+<h3>RDG Import</h3>
+
+<p>
+Importing advanced industrial machinery,
+electrical equipment and coffee technology solutions.
+</p>
+
+<span class="card-tag">
+Global Supply Chain
+</span>
+
+</a>
+
+<a href="#" class="business-card">
+
+<div class="card-icon">
+<i class="fas fa-mug-hot"></i>
+</div>
+
+<h3>RDG Coffee</h3>
+
+<p>
+Producing and exporting authentic Ethiopian coffee
+with modern branding and roasting excellence.
+</p>
+
+<span class="card-tag">
+Launching 2026
+</span>
+
+</a>
+
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="container">
+
+<div class="stats-section">
+
+<div class="stats-grid">
+
+<div>
+<div class="stat-number">10+</div>
+<p>Years Experience</p>
+</div>
+
+<div>
+<div class="stat-number">50+</div>
+<p>Projects Completed</p>
+</div>
+
+<div>
+<div class="stat-number">25+</div>
+<p>Happy Clients</p>
+</div>
+
+<div>
+<div class="stat-number">3</div>
+<p>Business Divisions</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
 
 <footer>
-    <div class="footer-grid">
-        <div class="footer-col">
-            <h4>RDG Business Holding</h4>
-            <p>📍 Addis Ababa, Bole Sub City</p>
-            <p>📞 +251 913 662 154</p>
-            <p>✉️ rdg.construction2016@gmail.com</p>
-        </div>
-        <div class="footer-col">
-            <h4>Divisions</h4>
-            <a href="#">RDG Construction</a>
-            <a href="#">RDG Import</a>
-            <a href="#">RDG Coffee</a>
-        </div>
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <a href="#">About Us</a>
-            <a href="#">Portfolio</a>
-            <a href="#">Request Quote</a>
-        </div>
-    </div>
-    <div class="copyright">© 2026 RDG Business Holding — Innovation Across Industries</div>
+
+<div class="footer-grid">
+
+<div class="footer-col">
+
+<h4>RDG Business Holding</h4>
+
+<p>📍 Addis Ababa, Ethiopia</p>
+<p>📞 +251 913 662 154</p>
+<p>✉️ rdg.construction2016@gmail.com</p>
+
+</div>
+
+<div class="footer-col">
+
+<h4>Divisions</h4>
+
+<a href="#">RDG Construction</a>
+<a href="#">RDG Import</a>
+<a href="#">RDG Coffee</a>
+
+</div>
+
+<div class="footer-col">
+
+<h4>Quick Links</h4>
+
+<a href="#">About Us</a>
+<a href="#">Portfolio</a>
+<a href="#">Request Quote</a>
+
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 RDG Business Holding — All Rights Reserved
+</div>
+
 </footer>
 
+<!-- SCRIPT -->
+
 <script>
-    // Enhanced Slider: no arrow buttons, only dots and auto-slide, full mobile compatibility
-    // Image visibility is intact with background images, plus we ensure that slides are responsive
-    let currentSlideIdx = 0;
-    const slidesArray = document.querySelectorAll('.slide');
-    let autoSlideInterval;
-    let dotElements = [];
 
-    // Function to update active slide and active dot
-    function setActiveSlide(index) {
-        if (!slidesArray.length) return;
-        // Wrap around index
-        if (index < 0) index = slidesArray.length - 1;
-        if (index >= slidesArray.length) index = 0;
-        
-        slidesArray.forEach((slide, i) => {
-            slide.classList.toggle('active', i === index);
-        });
-        
-        if (dotElements.length) {
-            dotElements.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-        currentSlideIdx = index;
-    }
+/* MOBILE MENU */
 
-    function nextSlide() {
-        let newIndex = (currentSlideIdx + 1) % slidesArray.length;
-        setActiveSlide(newIndex);
+const menuIcon = document.getElementById('menuIcon');
+const navLinks = document.getElementById('navLinks');
+
+menuIcon.addEventListener('click',()=>{
+    navLinks.classList.toggle('active');
+});
+
+/* SLIDER */
+
+const slides = document.querySelectorAll('.slide');
+const dotContainer = document.getElementById('dotContainer');
+
+let currentSlide = 0;
+
+/* CREATE DOTS */
+
+slides.forEach((slide,index)=>{
+
+    const dot = document.createElement('div');
+
+    dot.classList.add('dot');
+
+    if(index === 0){
+        dot.classList.add('active');
     }
 
-    function prevSlide() {
-        let newIndex = (currentSlideIdx - 1 + slidesArray.length) % slidesArray.length;
-        setActiveSlide(newIndex);
-    }
-
-    // Auto-slide with reset functionality
-    function startAutoSlide() {
-        if (autoSlideInterval) clearInterval(autoSlideInterval);
-        autoSlideInterval = setInterval(() => {
-            nextSlide();
-        }, 5500);
-    }
-    
-    function stopAutoSlide() {
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = null;
-        }
-    }
-
-    // Generate dots dynamically and attach click events
-    function initDots() {
-        const container = document.getElementById('dotContainer');
-        if (!container || !slidesArray.length) return;
-        container.innerHTML = '';
-        dotElements = [];
-        
-        for (let i = 0; i < slidesArray.length; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (i === currentSlideIdx) dot.classList.add('active');
-            dot.addEventListener('click', (e) => {
-                e.stopPropagation();
-                stopAutoSlide();
-                setActiveSlide(i);
-                startAutoSlide(); // restart interval after manual interaction
-            });
-            container.appendChild(dot);
-            dotElements.push(dot);
-        }
-    }
-    
-    // Touch and hover pause for better UX on mobile (optional elegance)
-    const sliderContainer = document.getElementById('heroSlider');
-    if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', () => {
-            stopAutoSlide();
-        });
-        sliderContainer.addEventListener('mouseleave', () => {
-            startAutoSlide();
-        });
-        // For touch devices: pause on touch start, resume after touch end
-        sliderContainer.addEventListener('touchstart', () => {
-            stopAutoSlide();
-        });
-        sliderContainer.addEventListener('touchend', () => {
-            startAutoSlide();
-        });
-    }
-    
-    // Ensure images always load with full visibility even if there is a caching issue
-    // Double-check: all slides have background images set in inline style, but we also preload them visually
-    function preloadImages() {
-        const images = ['IMG_20260516_190409_120.jpg', 'IMG_20260516_190410_213.jpg', 'IMG_20260516_190425_166.jpg'];
-        images.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-    }
-    preloadImages();
-    
-    // Initialize everything when DOM ready
-    document.addEventListener('DOMContentLoaded', () => {
-        initDots();
-        startAutoSlide();
-        
-        // In case active class isn't consistent with first slide
-        setActiveSlide(0);
-        
-        // Mobile menu toggle
-        const menuIcon = document.getElementById("menuIcon");
-        const navLinks = document.getElementById("navLinks");
-        if (menuIcon && navLinks) {
-            menuIcon.addEventListener("click", (e) => {
-                e.stopPropagation();
-                navLinks.classList.toggle("active");
-            });
-            // Close nav when clicking outside or on link
-            document.addEventListener("click", (event) => {
-                if (navLinks.classList.contains("active") && 
-                    !navLinks.contains(event.target) && 
-                    !menuIcon.contains(event.target)) {
-                    navLinks.classList.remove("active");
-                }
-            });
-            // Smooth close on link click for better UX on mobile
-            const allNavLinks = navLinks.querySelectorAll('a');
-            allNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
-            });
-        }
-        
-        // Simple hash or anchor dummy - just prevent blank
-        const btns = document.querySelectorAll('.btn-primary, .quote-btn, .business-card');
-        btns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if(btn.getAttribute('href') === '#') {
-                    e.preventDefault();
-                    // subtle scroll to top or placeholder action
-                    console.log('Navigation demo: request quote/explore');
-                }
-            });
-        });
+    dot.addEventListener('click',()=>{
+        goToSlide(index);
     });
-    
-    // Responsive resize: ensure slider height is coherent
-    window.addEventListener('resize', () => {
-        // nothing critical, keep slider ratio
+
+    dotContainer.appendChild(dot);
+
+});
+
+const dots = document.querySelectorAll('.dot');
+
+/* GO TO SLIDE */
+
+function goToSlide(index){
+
+    slides.forEach(slide=>{
+        slide.classList.remove('active');
     });
-    
-    // Fallback to fix any background image not loaded edgecase: ensure slides container has min height
-    const hero = document.querySelector('.hero-slider');
-    if(hero) {
-        const fixSlideDimensions = () => {
-            let slides = document.querySelectorAll('.slide');
-            slides.forEach(slide => {
-                let computed = window.getComputedStyle(slide);
-                if(computed.backgroundImage === 'none' || computed.backgroundImage === 'url("")') {
-                    // Optional fallback gradient but images exist, just to reassure.
-                    slide.style.background = '#1e2a24';
-                }
-            });
-        };
-        setTimeout(fixSlideDimensions, 100);
+
+    dots.forEach(dot=>{
+        dot.classList.remove('active');
+    });
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+
+    currentSlide = index;
+}
+
+/* AUTO SLIDE */
+
+function autoSlide(){
+
+    currentSlide++;
+
+    if(currentSlide >= slides.length){
+        currentSlide = 0;
     }
+
+    goToSlide(currentSlide);
+}
+
+setInterval(autoSlide,5500);
+
 </script>
+
 </body>
 </html>
