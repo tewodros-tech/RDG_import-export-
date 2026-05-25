@@ -24,21 +24,25 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
 .page-header { text-align: center; padding: 5rem 2rem 3rem; }
 .page-header h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #FFFFFF, #CFD9DE); background-clip: text; -webkit-background-clip: text; color: transparent; }
 .page-header p { color: #C6CED3; max-width: 800px; margin: auto; font-size: 1.1rem; text-align: justify; }
-.container { max-width: 1200px; margin: auto; padding: 2rem; }
-.section-title { text-align: center; font-size: 2.5rem; font-weight: 700; margin: 3rem 0 2rem; }
+.container { max-width: 1200px; margin: auto; padding: 2rem 2rem 5rem; }
+.section-title { text-align: center; font-size: 2.5rem; font-weight: 700; margin: 3rem 0 2rem; position: relative; }
 .section-title span { color: #E76F51; }
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #E76F51, transparent);
+}
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; margin: 2rem 0; }
 .service-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 2rem; text-align: center; transition: all 0.3s ease; }
 .service-card:hover { transform: translateY(-8px); border-color: rgba(231,111,81,0.3); background: rgba(255, 255, 255, 0.08); }
 .service-card i { font-size: 2.8rem; color: #E76F51; margin-bottom: 1rem; }
 .service-card h3 { margin-bottom: 0.8rem; font-size: 1.4rem; color: white; }
 .service-card p { color: rgba(255, 255, 255, 0.7); line-height: 1.7; text-align: justify; }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; }
-.gallery-item { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; overflow: hidden; transition: 0.3s; }
-.gallery-item:hover { transform: translateY(-5px); border-color: rgba(231,111,81,0.4); }
-.gallery-item img { width: 100%; height: 260px; object-fit: cover; transition: transform 0.5s ease; }
-.gallery-item:hover img { transform: scale(1.05); }
-.gallery-caption { padding: 1rem; text-align: center; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; font-weight: 500; }
 footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-grid { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
 .footer-col h4 { margin-bottom: 1rem; font-size: 1.1rem; }
@@ -55,7 +59,6 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
     .container { padding: 1rem; }
 }
 @media (max-width: 480px) {
-    .gallery-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -79,10 +82,12 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
     </ul>
 </div>
 </nav>
+
 <section class="page-header">
     <h1>RDG Import</h1>
     <p>RDG Import specializes in sourcing and supplying advanced industrial machinery, electrical equipment, coffee laboratory tools, and commercial roasting machinery. With a trusted global network, we deliver high-quality solutions that empower Ethiopian businesses across multiple sectors.</p>
 </section>
+
 <div class="container">
     <div class="services-grid">
         <div class="service-card"><i class="fas fa-microchip"></i><h3>Electrical Equipment</h3><p>Premium electrical components, control systems, and industrial automation solutions from leading global manufacturers, ensuring reliability and efficiency.</p></div>
@@ -92,25 +97,8 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
         <div class="service-card"><i class="fas fa-globe"></i><h3>Global Sourcing</h3><p>Strategic partnerships with trusted international suppliers ensuring quality compliance, competitive pricing, and reliable delivery schedules.</p></div>
         <div class="service-card"><i class="fas fa-shipping-fast"></i><h3>Logistics Management</h3><p>End-to-end logistics coordination from port clearance to final delivery across Ethiopia, ensuring smooth and timely equipment arrival.</p></div>
     </div>
-    <h2 class="section-title">Import <span>Equipment</span> Gallery</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item"><img src="IMG_20260516_190427_419.jpg" alt="Sample Roaster"><div class="gallery-caption">Sample Coffee Roaster</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190428_945.jpg" alt="Industrial Grinder"><div class="gallery-caption">Industrial Grinder</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190431_365.jpg" alt="Sieve Set"><div class="gallery-caption">Professional Sieve Set</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190434_467.jpg" alt="Cupping Spoons"><div class="gallery-caption">Cupping Spoons Set</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190441_433.jpg" alt="Cupping Bowls"><div class="gallery-caption">Ceramic Cupping Bowls</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190451_444.jpg" alt="Moisture Tester"><div class="gallery-caption">Digital Moisture Tester</div></div>
-    </div>
-    <h2 class="section-title">Facilities & <span>Operations</span></h2>
-    <div class="gallery-grid">
-        <div class="gallery-item"><img src="IMG_20260516_190458_867.jpg" alt="Hulling Machine"><div class="gallery-caption">Coffee Hulling Machine</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190501_537.jpg" alt="Logistics"><div class="gallery-caption">Import Logistics Center</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190505_195.jpg" alt="Lab"><div class="gallery-caption">Equipment Lab Setup</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190507_366.jpg" alt="Facility"><div class="gallery-caption">RDG Facility</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190510_385.jpg" alt="Lab Station"><div class="gallery-caption">Complete Lab Station</div></div>
-        <div class="gallery-item"><img src="IMG_20260516_190516_877.jpg" alt="Coffee Beans"><div class="gallery-caption">Ethiopian Specialty Beans</div></div>
-    </div>
 </div>
+
 <footer>
     <div class="footer-grid">
         <div class="footer-col"><h4>RDG Business Holding</h4><p>📍 Addis Ababa, Ethiopia</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
@@ -119,6 +107,7 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
     </div>
     <div class="copyright">© 2026 RDG Business Holding | Global Supply Chain Excellence</div>
 </footer>
+
 <script>
     const menuIcon = document.getElementById("menuIcon");
     const navLinks = document.getElementById("navLinks");
