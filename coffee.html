@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>RDG Coffee | Premium Ethiopian Coffee</title>
+<title>RDG Coffee | Coffee Equipment & Machinery</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -24,10 +24,10 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
 .contact-btn:hover { background: #ffffff; transform: translateY(-2px); }
 .menu-icon { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-/* Hero Section */
+/* Hero Section - Simple without tagline */
 .hero-section {
     position: relative;
-    min-height: 85vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,32 +65,12 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
 }
-.hero-tagline {
-    font-size: 1.3rem;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 1s ease 0.2s backwards;
-}
-.coming-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: rgba(231,111,81,0.2);
-    border: 1px solid rgba(231,111,81,0.4);
-    padding: 0.7rem 2rem;
-    border-radius: 60px;
-    font-size: 1rem;
-    color: #E76F51;
-    animation: fadeInUp 1s ease 0.4s backwards;
-}
-.coming-badge i { animation: pulse 2s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Brief Section */
+/* Brief Section - Main Description */
 .brief-section {
     max-width: 1000px;
     margin: 3rem auto 0;
@@ -99,15 +79,18 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 28px;
     backdrop-filter: blur(4px);
-    text-align: center;
 }
 .brief-section p {
     color: #E6ECF0;
-    line-height: 1.8;
+    line-height: 1.9;
     font-size: 1.05rem;
     text-align: justify;
+    margin-bottom: 1rem;
 }
-.brief-section strong { color: #FFFFFF; }
+.brief-section p:last-child {
+    margin-bottom: 0;
+}
+.brief-section strong { color: #FFFFFF; font-weight: 700; }
 .brief-section .highlight { color: #E76F51; font-weight: 600; }
 
 /* Stats Section */
@@ -170,8 +153,6 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
 }
 .gallery-item:hover img { transform: scale(1.08); }
 
-/* No captions below images - removed */
-
 footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-grid { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
 .footer-col h4 { margin-bottom: 1rem; font-size: 1.1rem; }
@@ -217,32 +198,27 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
 </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Hero Section - Simple -->
 <section class="hero-section">
     <div class="hero-bg"></div>
     <div class="hero-content">
         <h1>RDG Coffee</h1>
-        <div class="hero-tagline">From Ethiopian Highlands to the World</div>
-        <div class="coming-badge">
-            <i class="fas fa-fire"></i>
-            <span>Launching 2026 | Premium Ethiopian Coffee</span>
-            <i class="fas fa-mug-hot"></i>
-        </div>
     </div>
 </section>
 
 <div class="container">
-    <!-- Brief Section -->
+    <!-- Brief Section - Accurate Business Description -->
     <div class="brief-section">
-        <p><strong>RDG Coffee</strong> is dedicated to sharing Ethiopia's rich coffee heritage with the world. We are establishing a state-of-the-art coffee roasting, branding, and export division that celebrates the authentic flavors of <strong class="highlight">Ethiopian specialty coffee</strong>, from sourcing premium beans to international delivery.</p>
+        <p><strong>RDG Business Holding</strong> is a diversified business group operating in construction, import, and the coffee industry. The company currently manages two major businesses: <strong class="highlight">RDG Construction</strong>, a general contractor mainly focused on landscape construction and outdoor development works, and <strong class="highlight">RDG Import</strong>, which specializes in importing electrical equipment, coffee laboratory equipment, and commercial coffee roasting machinery.</p>
+        <p>As part of its expansion strategy, <strong>RDG Business Holding</strong> is establishing a third division focused on coffee roasting, branding, and supplying high-quality Ethiopian coffee products to local and international markets.</p>
     </div>
 
     <!-- Stats Section -->
     <div class="stats-section">
-        <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">Ethiopian Origin</div></div>
-        <div class="stat-card"><div class="stat-number">2026</div><div class="stat-label">Global Launch</div></div>
-        <div class="stat-card"><div class="stat-number">Premium</div><div class="stat-label">Specialty Grade</div></div>
-        <div class="stat-card"><div class="stat-number">Direct</div><div class="stat-label">Farm Sourcing</div></div>
+        <div class="stat-card"><div class="stat-number">2016</div><div class="stat-label">RDG Construction Founded</div></div>
+        <div class="stat-card"><div class="stat-number">2018</div><div class="stat-label">RDG Import Launched</div></div>
+        <div class="stat-card"><div class="stat-number">2026</div><div class="stat-label">RDG Coffee Launching</div></div>
+        <div class="stat-card"><div class="stat-number">Global</div><div class="stat-label">Supply Chain</div></div>
     </div>
 
     <!-- Coffee Lab Equipment Gallery -->
@@ -274,7 +250,7 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
         <div class="footer-col"><h4>Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
         <div class="footer-col"><h4>Quick Links</h4><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact Us</a></div>
     </div>
-    <div class="copyright">© 2026 RDG Business Holding | Ethiopian Coffee Excellence</div>
+    <div class="copyright">© 2026 RDG Business Holding All Rights Reserved</div>
 </footer>
 
 <script>
