@@ -135,42 +135,21 @@ nav{
 .logo{
     display:flex;
     align-items:center;
-    gap:14px;
     text-decoration:none;
 }
 
+/* LOGO IMAGE */
+
 .logo-img{
-    height:56px;
+    height:72px;
     width:auto;
-    border-radius:12px;
+    object-fit:contain;
+    display:block;
     transition:0.35s ease;
 }
 
 .logo-img:hover{
-    transform:scale(1.03);
-}
-
-.logo-text{
-    display:flex;
-    flex-direction:column;
-}
-
-.logo-text h1{
-    font-size:1.7rem;
-    font-weight:800;
-    letter-spacing:-1px;
-
-    background:linear-gradient(135deg,#FFFFFF,#BFC7CC);
-
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
-.logo-text p{
-    color:var(--muted);
-    font-size:0.7rem;
-    letter-spacing:2px;
+    transform:scale(1.05);
 }
 
 .nav-links{
@@ -546,6 +525,10 @@ footer{
         font-size:2.3rem;
     }
 
+    .logo-img{
+        height:60px;
+    }
+
 }
 
 @media(max-width:480px){
@@ -589,13 +572,7 @@ footer{
 
 <img src="logo.jpg"
 alt="RDG Business Logo"
-class="logo-img"
-onerror="this.style.display='none';">
-
-<div class="logo-text">
-<h1>RDG</h1>
-<p>BUSINESS HOLDING</p>
-</div>
+class="logo-img">
 
 </a>
 
