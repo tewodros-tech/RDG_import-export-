@@ -24,10 +24,10 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
 .contact-btn:hover { background: #ffffff; transform: translateY(-2px); }
 .menu-icon { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-/* Hero Section - Simple without tagline */
+/* Hero Section - Clean without heading */
 .hero-section {
     position: relative;
-    min-height: 60vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,20 +55,6 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
     padding: 2rem;
     z-index: 2;
 }
-.hero-content h1 {
-    font-size: 5rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #FFFFFF, #E76F51, #FFD4A8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease;
-}
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
 /* Brief Section - Main Description */
 .brief-section {
@@ -92,26 +78,6 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
 }
 .brief-section strong { color: #FFFFFF; font-weight: 700; }
 .brief-section .highlight { color: #E76F51; font-weight: 600; }
-
-/* Stats Section */
-.stats-section {
-    max-width: 1000px;
-    margin: 3rem auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-}
-.stat-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-.stat-card:hover { transform: translateY(-5px); border-color: rgba(231,111,81,0.3); background: rgba(231,111,81,0.05); }
-.stat-number { font-size: 2.2rem; font-weight: 800; color: #E76F51; }
-.stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.5rem; }
 
 /* Container & Gallery */
 .container { max-width: 1400px; margin: auto; padding: 2rem 2rem 5rem; }
@@ -165,13 +131,9 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
     .nav-links { display: none; width: 100%; flex-direction: column; padding: 1.5rem; background: #2B353B; border-radius: 28px; margin-top: 1rem; gap: 1rem; text-align: center; }
     .nav-links.active { display: flex; }
     .logo-img { height: 70px; }
-    .hero-content h1 { font-size: 2.8rem; }
-    .stats-section { grid-template-columns: repeat(2, 1fr); }
     .section-title { font-size: 1.8rem; }
 }
 @media (max-width: 480px) {
-    .hero-content h1 { font-size: 2rem; }
-    .stats-section { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: 1fr; }
     .gallery-item img { height: 250px; }
 }
@@ -198,12 +160,10 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
 </div>
 </nav>
 
-<!-- Hero Section - Simple -->
+<!-- Hero Section - No heading -->
 <section class="hero-section">
     <div class="hero-bg"></div>
-    <div class="hero-content">
-        <h1>RDG Coffee</h1>
-    </div>
+    <div class="hero-content"></div>
 </section>
 
 <div class="container">
@@ -211,14 +171,6 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
     <div class="brief-section">
         <p><strong>RDG Business Holding</strong> is a diversified business group operating in construction, import, and the coffee industry. The company currently manages two major businesses: <strong class="highlight">RDG Construction</strong>, a general contractor mainly focused on landscape construction and outdoor development works, and <strong class="highlight">RDG Import</strong>, which specializes in importing electrical equipment, coffee laboratory equipment, and commercial coffee roasting machinery.</p>
         <p>As part of its expansion strategy, <strong>RDG Business Holding</strong> is establishing a third division focused on coffee roasting, branding, and supplying high-quality Ethiopian coffee products to local and international markets.</p>
-    </div>
-
-    <!-- Stats Section -->
-    <div class="stats-section">
-        <div class="stat-card"><div class="stat-number">2016</div><div class="stat-label">RDG Construction Founded</div></div>
-        <div class="stat-card"><div class="stat-number">2018</div><div class="stat-label">RDG Import Launched</div></div>
-        <div class="stat-card"><div class="stat-number">2026</div><div class="stat-label">RDG Coffee Launching</div></div>
-        <div class="stat-card"><div class="stat-number">Global</div><div class="stat-label">Supply Chain</div></div>
     </div>
 
     <!-- Coffee Lab Equipment Gallery -->
@@ -260,7 +212,7 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
     document.addEventListener("click", (event) => { if(navLinks?.classList.contains("active") && !navLinks.contains(event.target) && !menuIcon.contains(event.target)) navLinks.classList.remove("active"); });
     
     // Scroll animation for cards
-    const cards = document.querySelectorAll('.gallery-item, .stat-card');
+    const cards = document.querySelectorAll('.gallery-item');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
