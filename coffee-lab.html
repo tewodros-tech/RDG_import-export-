@@ -8,19 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: #0A0F0D; 
-            color: #FFFFFF; 
-            overflow-x: hidden;
-        }
-        
-        ::-webkit-scrollbar { width: 8px; }
+        body { font-family: 'Inter', sans-serif; background: #0A0F0D; color: #FFFFFF; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #1A1F1D; }
         ::-webkit-scrollbar-thumb { background: #E76F51; border-radius: 10px; }
 
-        /* Animated Background */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -30,30 +22,11 @@
             z-index: -2;
             background: radial-gradient(circle at 20% 30%, #2D1A0D, #0A0F0D);
         }
-        
-        .coffee-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" opacity="0.03"><path fill="%23E76F51" d="M100,10 L120,40 L155,45 L135,75 L140,110 L100,95 L60,110 L65,75 L45,45 L80,40 Z"/><circle cx="100" cy="100" r="15"/></svg>');
-            background-repeat: repeat;
-            background-size: 60px;
-            animation: floatBg 60s linear infinite;
-        }
-        
-        @keyframes floatBg {
-            0% { background-position: 0 0; }
-            100% { background-position: 200px 200px; }
-        }
 
-        /* Navigation */
         nav {
-            background: rgba(10, 15, 13, 0.85);
+            background: rgba(10, 15, 13, 0.8);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(231,111,81,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -66,258 +39,70 @@
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
         .nav-links a { text-decoration: none; font-weight: 500; color: rgba(255,255,255,0.7); transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: #E76F51; }
-        .quote-btn { background: linear-gradient(135deg, #E76F51, #C85C3F); color: white !important; padding: 0.6rem 1.5rem; border-radius: 50px; transition: all 0.3s; }
-        .quote-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(231,111,81,0.4); }
+        .quote-btn { background: linear-gradient(135deg, #E76F51, #C85C3F); color: white !important; padding: 0.6rem 1.5rem; border-radius: 50px; }
+        .quote-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(231,111,81,0.3); }
         .menu-icon { display: none; font-size: 1.5rem; cursor: pointer; color: white; }
-        
         @media (max-width: 880px) {
             .menu-icon { display: block; }
             .nav-links { display: none; width: 100%; flex-direction: column; padding: 1.5rem; background: rgba(10,15,13,0.95); border-radius: 20px; margin-top: 1rem; gap: 1rem; }
             .nav-links.active { display: flex; }
         }
 
-        /* Hero Section */
-        .hero-coffee {
-            position: relative;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(45,26,13,0.7), rgba(10,15,13,0.85)), url('IMG_20260516_190516_877.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            animation: slowZoom 20s ease-in-out infinite alternate;
-        }
-        
-        @keyframes slowZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-        
-        .hero-content {
-            z-index: 2;
-            padding: 2rem;
-        }
-        
-        .hero-content h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #FFFFFF, #E76F51, #FFD4A8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .hero-tagline {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-        
-        .coming-soon {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: rgba(231,111,81,0.15);
-            border: 1px solid rgba(231,111,81,0.4);
-            padding: 0.6rem 1.8rem;
-            border-radius: 60px;
-            font-size: 1rem;
-            color: #E76F51;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-        
-        .coming-soon i {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        .page-header { text-align: center; padding: 5rem 2rem 3rem; }
+        .page-header h1 { font-size: 3.5rem; font-weight: 800; background: linear-gradient(135deg, #FFFFFF, #E0D8CC); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .page-header p { color: rgba(255,255,255,0.6); margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto; text-align: justify; }
+        .coming-badge { display: inline-block; background: rgba(231,111,81,0.2); border: 1px solid rgba(231,111,81,0.3); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.9rem; color: #E76F51; margin-top: 1.5rem; }
 
-        /* Section Styles */
-        .container { max-width: 1400px; margin: 0 auto; padding: 4rem 2rem; }
-        .section-title { text-align: center; font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; }
-        .section-title span { color: #E76F51; position: relative; }
-        .section-title span::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #E76F51, transparent);
-        }
-        .section-subtitle { text-align: center; color: rgba(255,255,255,0.6); margin-bottom: 3rem; font-size: 1.1rem; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem 2rem 5rem; }
+        .section-title { text-align: center; font-size: 2.5rem; font-weight: 700; margin: 3rem 0 2rem; }
+        .section-title span { color: #E76F51; }
 
-        /* Gallery Grid Premium */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
         }
-        
         .gallery-item {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 28px;
+            border-radius: 24px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            position: relative;
+            transition: 0.3s;
         }
-        
-        .gallery-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(231,111,81,0.5);
-            box-shadow: 0 25px 40px -20px rgba(231,111,81,0.3);
-        }
-        
+        .gallery-item:hover { transform: translateY(-5px); border-color: rgba(231,111,81,0.4); }
         .gallery-item img {
             width: 100%;
-            height: 280px;
+            height: 260px;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
-        
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-        
+        .gallery-item:hover img { transform: scale(1.05); }
         .gallery-caption {
-            padding: 1.2rem;
+            padding: 1rem;
             text-align: center;
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .gallery-caption h4 {
-            font-size: 1.1rem;
-            color: #E76F51;
-            margin-bottom: 0.3rem;
-        }
-        
-        .gallery-caption p {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.85rem;
-        }
-        
-        /* Story Section */
-        .story-section {
-            background: linear-gradient(135deg, rgba(231,111,81,0.05), rgba(0,0,0,0.2));
-            border-radius: 48px;
-            padding: 3rem;
-            margin: 3rem 0;
-            border: 1px solid rgba(231,111,81,0.1);
-        }
-        
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .story-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #E76F51;
-        }
-        
-        .story-text p {
             color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            text-align: justify;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
-        
-        .story-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            text-align: center;
-        }
-        
-        .stat-item {
-            background: rgba(255,255,255,0.03);
-            padding: 1.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(231,111,81,0.2);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #E76F51;
-        }
-        
-        .stat-label {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
-            margin-top: 0.5rem;
-        }
-        
-        /* Stats Counter Animation */
-        @keyframes countUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Footer */
-        footer { background: #060A08; border-top: 1px solid rgba(231,111,81,0.1); padding: 4rem 2rem 2rem; margin-top: 2rem; }
+
+        footer { background: #060A08; border-top: 1px solid rgba(255,255,255,0.05); padding: 4rem 2rem 2rem; margin-top: 2rem; }
         .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
         .footer-col h4 { color: #E76F51; margin-bottom: 1rem; font-size: 1.1rem; }
         .footer-col p { color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; line-height: 1.6; }
         .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; display: block; margin-bottom: 0.5rem; transition: 0.2s; }
         .footer-col a:hover { color: #E76F51; transform: translateX(5px); }
-        .copyright { text-align: center; padding-top: 3rem; margin-top: 2rem; border-top: 1px solid rgba(231,111,81,0.1); color: rgba(255,255,255,0.4); font-size: 0.85rem; }
-        
-        /* Responsive */
-        @media (max-width: 968px) {
-            .story-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 3rem; }
-            .section-title { font-size: 2rem; }
-            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.2rem; }
-            .container { padding: 2rem 1rem; }
-            .story-stats { grid-template-columns: 1fr; gap: 1rem; }
-            .story-section { padding: 1.5rem; }
+        .copyright { text-align: center; padding-top: 3rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+
+        @media (max-width: 768px) { 
+            .page-header h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .container { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
 <div class="gradient-bg"></div>
-<div class="coffee-overlay"></div>
 
 <nav>
     <div class="nav-container">
@@ -338,142 +123,31 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero-coffee">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-        <h1>RDG Coffee</h1>
-        <div class="hero-tagline">From Ethiopian Highlands to the World</div>
-        <div class="coming-soon">
-            <i class="fas fa-fire"></i>
-            <span>Launching 2026 | Premium Ethiopian Coffee Experience</span>
-            <i class="fas fa-mug-hot"></i>
-        </div>
-    </div>
+<section class="page-header">
+    <h1>RDG Coffee</h1>
+    <p>RDG Coffee is dedicated to sharing Ethiopia's rich coffee heritage with the world. We are establishing a state-of-the-art coffee roasting, branding, and export division that celebrates the authentic flavors of Ethiopian specialty coffee, from sourcing premium beans to international delivery.</p>
+    <div class="coming-badge"><i class="fas fa-fire"></i> Launching 2026 | Premium Ethiopian Coffee</div>
 </section>
 
 <div class="container">
-    
-    <!-- Story Section -->
-    <div class="story-section">
-        <div class="story-grid">
-            <div class="story-text">
-                <h3>Our Coffee Journey</h3>
-                <p>RDG Coffee is born from a passion to share Ethiopia's rich coffee heritage with the world. We are establishing a state-of-the-art coffee roasting, branding, and export division that celebrates the authentic flavors of Ethiopian specialty coffee.</p>
-                <p>From sourcing premium beans directly from highland farmers to implementing modern roasting techniques, RDG Coffee will deliver unparalleled quality in every cup. Our commitment to sustainability, fair trade, and excellence drives every step of our process.</p>
-                <p>With advanced coffee laboratory equipment and professional cupping facilities, we ensure that every batch meets international standards while preserving the unique character of Ethiopian coffee.</p>
-            </div>
-            <div class="story-stats">
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Ethiopian Origin</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2026</div>
-                    <div class="stat-label">Global Launch</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">Premium</div>
-                    <div class="stat-label">Specialty Grade</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Coffee Lab Equipment Gallery -->
     <h2 class="section-title">Coffee Lab <span>Equipment</span></h2>
-    <p class="section-subtitle">Professional-grade tools for precision coffee evaluation and quality control</p>
     <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="IMG_20260516_190434_467.jpg" alt="Professional Cupping Spoons">
-            <div class="gallery-caption">
-                <h4>Cupping Spoons</h4>
-                <p>Professional-grade cupping spoons for precise coffee tasting and evaluation</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190441_433.jpg" alt="Ceramic Cupping Bowls">
-            <div class="gallery-caption">
-                <h4>Cupping Bowls</h4>
-                <p>Premium ceramic cupping bowls designed for sensory coffee analysis</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190449_190.jpg" alt="Sanitary Spittoon">
-            <div class="gallery-caption">
-                <h4>Spittoon</h4>
-                <p>Sanitary spittoon for professional coffee cupping sessions</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190451_444.jpg" alt="Digital Moisture Tester">
-            <div class="gallery-caption">
-                <h4>Moisture Tester</h4>
-                <p>Digital moisture meter for precise coffee bean analysis</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190455_504.jpg" alt="Lab Equipment">
-            <div class="gallery-caption">
-                <h4>Lab Equipment</h4>
-                <p>Complete coffee laboratory setup for quality assurance</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190458_867.jpg" alt="Coffee Hulling Machine">
-            <div class="gallery-caption">
-                <h4>Hulling Machine</h4>
-                <p>Industrial coffee hulling machine for processing excellence</p>
-            </div>
-        </div>
+        <div class="gallery-item"><img src="IMG_20260516_190434_467.jpg" alt="Cupping Spoons"><div class="gallery-caption">Professional Cupping Spoons</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190441_433.jpg" alt="Cupping Bowls"><div class="gallery-caption">Ceramic Cupping Bowls</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190449_190.jpg" alt="Spittoon"><div class="gallery-caption">Sanitary Spittoon</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190451_444.jpg" alt="Moisture Tester"><div class="gallery-caption">Digital Moisture Tester</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190455_504.jpg" alt="Equipment"><div class="gallery-caption">Lab Equipment</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190458_867.jpg" alt="Hulling Machine"><div class="gallery-caption">Coffee Hulling Machine</div></div>
     </div>
 
-    <!-- Coffee Products & Facilities Gallery -->
-    <h2 class="section-title" style="margin-top: 5rem;">Coffee <span>Products & Facilities</span></h2>
-    <p class="section-subtitle">State-of-the-art facilities and premium Ethiopian coffee products</p>
+    <h2 class="section-title">Coffee <span>Products & Facilities</span></h2>
     <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="IMG_20260516_190501_537.jpg" alt="Import Logistics">
-            <div class="gallery-caption">
-                <h4>Import Logistics</h4>
-                <p>Efficient global logistics for coffee equipment and supplies</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190505_195.jpg" alt="Coffee Lab Setup">
-            <div class="gallery-caption">
-                <h4>Coffee Lab Setup</h4>
-                <p>Professional coffee laboratory designed for quality control</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190505_962.jpg" alt="Artisanal Roastery">
-            <div class="gallery-caption">
-                <h4>Artisanal Roastery</h4>
-                <p>Modern roasting facilities for premium coffee production</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190507_366.jpg" alt="RDG Facility">
-            <div class="gallery-caption">
-                <h4>RDG Facility</h4>
-                <p>State-of-the-art coffee processing facility</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190510_385.jpg" alt="Complete Lab Station">
-            <div class="gallery-caption">
-                <h4>Lab Station</h4>
-                <p>Complete cupping station for professional evaluation</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="IMG_20260516_190516_877.jpg" alt="Ethiopian Specialty Beans">
-            <div class="gallery-caption">
-                <h4>Specialty Beans</h4>
-                <p>Premium Ethiopian coffee beans from highland regions</p>
-            </div>
-        </div>
+        <div class="gallery-item"><img src="IMG_20260516_190501_537.jpg" alt="Coffee Facility"><div class="gallery-caption">Import Logistics</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190505_195.jpg" alt="Coffee Lab"><div class="gallery-caption">Coffee Lab Setup</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190505_962.jpg" alt="Roastery"><div class="gallery-caption">Artisanal Roastery</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190507_366.jpg" alt="Facility"><div class="gallery-caption">RDG Facility</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190510_385.jpg" alt="Lab Station"><div class="gallery-caption">Complete Lab Station</div></div>
+        <div class="gallery-item"><img src="IMG_20260516_190516_877.jpg" alt="Coffee Beans"><div class="gallery-caption">Ethiopian Specialty Beans</div></div>
     </div>
 </div>
 
@@ -514,24 +188,6 @@
                 navLinks.classList.remove("active"); 
         });
     }
-    
-    // Intersection Observer for fade-in animations on scroll
-    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-            }
-        });
-    }, observerOptions);
-    
-    document.querySelectorAll('.gallery-item, .stat-item, .story-section').forEach(el => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(30px)";
-        el.style.transition = "all 0.6s ease";
-        observer.observe(el);
-    });
 </script>
 </body>
 </html>
