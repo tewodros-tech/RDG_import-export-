@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-<title>RDG Business Holding | Construction | Import | Coffee</title>
+<title>RDG Business Holding</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 
@@ -19,31 +19,17 @@
 }
 
 :root{
-    --white:#FFFFFF;
-    --muted:#AAB4BB;
+    --bg:#2F3A40;
+    --bg-dark:#252F35;
+    --white:#F5F5F5;
+    --muted:#D5D5D5;
 }
 
 body{
     font-family:'Inter',sans-serif;
-    background:linear-gradient(135deg,#232B31,#2B353C,#20272D);
-    color:var(--white);
+    background:linear-gradient(135deg,#2F3A40,#252F35,#1F272C);
+    color:white;
     overflow-x:hidden;
-    scroll-behavior:smooth;
-}
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-    width:6px;
-}
-
-::-webkit-scrollbar-track{
-    background:#1B2328;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#C7CDD1;
-    border-radius:50px;
 }
 
 /* BACKGROUND */
@@ -53,51 +39,9 @@ body{
     inset:0;
     z-index:-3;
     background:
-    radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255,255,255,0.03), transparent 30%),
-    linear-gradient(135deg,#232B31,#2B353C,#20272D);
-}
-
-.gradient-bg::before{
-    content:'';
-    position:absolute;
-    width:700px;
-    height:700px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
-    top:-250px;
-    right:-200px;
-    animation:floatGlow 12s ease-in-out infinite;
-}
-
-.gradient-bg::after{
-    content:'';
-    position:absolute;
-    width:600px;
-    height:600px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(255,255,255,0.03), transparent 70%);
-    bottom:-250px;
-    left:-200px;
-    animation:floatGlow2 14s ease-in-out infinite;
-}
-
-@keyframes floatGlow{
-    0%,100%{
-        transform:translateY(0) scale(1);
-    }
-    50%{
-        transform:translateY(20px) scale(1.08);
-    }
-}
-
-@keyframes floatGlow2{
-    0%,100%{
-        transform:translateY(0) scale(1);
-    }
-    50%{
-        transform:translateY(-20px) scale(1.05);
-    }
+    radial-gradient(circle at top left, rgba(255,255,255,0.03), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255,255,255,0.02), transparent 35%),
+    linear-gradient(135deg,#2F3A40,#252F35,#1F272C);
 }
 
 /* NAVBAR */
@@ -106,9 +50,9 @@ nav{
     position:sticky;
     top:0;
     z-index:999;
-    padding:1rem 1.5rem;
-    background:rgba(25,32,37,0.78);
-    backdrop-filter:blur(18px);
+    padding:1rem 2rem;
+    background:rgba(37,47,53,0.88);
+    backdrop-filter:blur(20px);
     border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
@@ -118,37 +62,56 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:1rem;
 }
+
+/* LOGO AREA */
 
 .logo{
     display:flex;
     align-items:center;
+    gap:18px;
     text-decoration:none;
 }
 
-/* BIG VISIBLE LOGO */
-
 .logo-img{
-    height:95px;
+    height:88px;
     width:auto;
     object-fit:contain;
     display:block;
+    transition:0.4s ease;
 
     filter:
-    drop-shadow(0 0 10px rgba(255,255,255,0.25))
-    drop-shadow(0 0 25px rgba(255,255,255,0.18));
-
-    transition:0.4s ease;
+    brightness(1.1)
+    drop-shadow(0 0 12px rgba(255,255,255,0.15));
 }
 
 .logo-img:hover{
-    transform:scale(1.08);
-
-    filter:
-    drop-shadow(0 0 18px rgba(255,255,255,0.45))
-    drop-shadow(0 0 35px rgba(255,255,255,0.28));
+    transform:scale(1.05);
 }
+
+.logo-text{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.logo-text h1{
+    font-size:3rem;
+    font-weight:300;
+    letter-spacing:1px;
+    color:#F2F2F2;
+    line-height:1;
+}
+
+.logo-text p{
+    font-size:2.2rem;
+    font-weight:300;
+    letter-spacing:1px;
+    color:#F2F2F2;
+    line-height:1.1;
+}
+
+/* NAV LINKS */
 
 .nav-links{
     display:flex;
@@ -159,7 +122,7 @@ nav{
 
 .nav-links a{
     text-decoration:none;
-    color:rgba(255,255,255,0.7);
+    color:rgba(255,255,255,0.75);
     font-size:0.95rem;
     font-weight:500;
     transition:0.3s ease;
@@ -171,8 +134,8 @@ nav{
 }
 
 .quote-btn{
-    background:linear-gradient(135deg,#F4F4F4,#C7CDD1);
-    color:#1D252B !important;
+    background:#F2F2F2;
+    color:#2F3A40 !important;
     padding:0.8rem 1.6rem;
     border-radius:50px;
     font-weight:700 !important;
@@ -190,7 +153,6 @@ nav{
 .hero-slider{
     position:relative;
     height:92vh;
-    min-height:620px;
     overflow:hidden;
 }
 
@@ -218,8 +180,8 @@ nav{
     inset:0;
     background:linear-gradient(
         135deg,
-        rgba(0,0,0,0.65),
-        rgba(0,0,0,0.4)
+        rgba(0,0,0,0.68),
+        rgba(0,0,0,0.45)
     );
 }
 
@@ -228,31 +190,18 @@ nav{
     z-index:5;
     max-width:900px;
     padding:2rem;
-    animation:fadeUp 1s ease;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 .slide-content h1{
-    font-size:4.5rem;
-    font-weight:900;
-    line-height:1.05;
+    font-size:4.7rem;
+    font-weight:800;
     margin-bottom:1.2rem;
     letter-spacing:-2px;
 }
 
 .slide-content p{
     font-size:1.2rem;
-    color:rgba(255,255,255,0.8);
+    color:rgba(255,255,255,0.82);
     max-width:700px;
     margin:auto auto 2rem;
     line-height:1.8;
@@ -261,15 +210,14 @@ nav{
 /* BUTTON */
 
 .btn-primary{
-    background:linear-gradient(135deg,#F4F4F4,#C7CDD1);
-    color:#1D252B;
-    padding:0.95rem 2.4rem;
+    background:#F2F2F2;
+    color:#2F3A40;
+    padding:1rem 2.5rem;
     border-radius:60px;
     font-weight:700;
     text-decoration:none;
     display:inline-block;
     transition:0.35s ease;
-    box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
 .btn-primary:hover{
@@ -304,7 +252,7 @@ nav{
     border-radius:50px;
 }
 
-/* CONTAINER */
+/* SECTIONS */
 
 .container{
     max-width:1400px;
@@ -317,15 +265,12 @@ nav{
     font-size:3rem;
     font-weight:800;
     margin-bottom:1rem;
-    background:linear-gradient(135deg,#FFFFFF,#BFC7CC);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+    color:white;
 }
 
 .section-subtitle{
     text-align:center;
-    color:var(--muted);
+    color:#C6CED3;
     margin-bottom:4rem;
     font-size:1.1rem;
 }
@@ -339,21 +284,18 @@ nav{
 }
 
 .business-card{
-    background:rgba(49,60,67,0.72);
-    backdrop-filter:blur(14px);
-    border:1px solid rgba(255,255,255,0.05);
+    background:rgba(55,67,74,0.82);
+    border:1px solid rgba(255,255,255,0.06);
     border-radius:34px;
-    padding:2.4rem;
-    transition:all 0.4s ease;
+    padding:2.5rem;
+    transition:0.4s ease;
     text-decoration:none;
     color:white;
 }
 
 .business-card:hover{
-    transform:translateY(-12px);
-    background:rgba(58,71,80,0.92);
-    border-color:rgba(255,255,255,0.14);
-    box-shadow:0 25px 40px rgba(0,0,0,0.35);
+    transform:translateY(-10px);
+    background:#415059;
 }
 
 .card-icon{
@@ -368,7 +310,7 @@ nav{
 }
 
 .business-card p{
-    color:rgba(255,255,255,0.68);
+    color:rgba(255,255,255,0.72);
     line-height:1.8;
 }
 
@@ -382,45 +324,12 @@ nav{
     color:white;
 }
 
-/* STATS */
-
-.stats-section{
-    background:linear-gradient(
-    135deg,
-    rgba(255,255,255,0.04),
-    rgba(255,255,255,0.02)
-    );
-
-    border:1px solid rgba(255,255,255,0.05);
-    border-radius:60px;
-    backdrop-filter:blur(10px);
-    padding:4rem 2rem;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:2rem;
-    text-align:center;
-}
-
-.stat-number{
-    font-size:3.5rem;
-    font-weight:800;
-    color:#FFFFFF;
-}
-
-.stats-grid p{
-    color:var(--muted);
-    margin-top:0.5rem;
-}
-
 /* FOOTER */
 
 footer{
-    background:#1C2328;
-    border-top:1px solid rgba(255,255,255,0.05);
+    background:#20282D;
     padding:5rem 2rem 2rem;
+    border-top:1px solid rgba(255,255,255,0.05);
 }
 
 .footer-grid{
@@ -432,32 +341,22 @@ footer{
 }
 
 .footer-col h4{
-    margin-bottom:1.4rem;
+    margin-bottom:1.3rem;
     font-size:1.2rem;
-    color:white;
 }
 
 .footer-col p,
 .footer-col a{
-    color:rgba(255,255,255,0.6);
+    color:rgba(255,255,255,0.65);
     margin-bottom:0.8rem;
     text-decoration:none;
     display:block;
-    transition:0.3s ease;
-}
-
-.footer-col a:hover{
-    color:white;
-    transform:translateX(5px);
 }
 
 .copyright{
     margin-top:4rem;
-    padding-top:2rem;
-    border-top:1px solid rgba(255,255,255,0.05);
     text-align:center;
-    color:rgba(255,255,255,0.4);
-    font-size:0.9rem;
+    color:rgba(255,255,255,0.45);
 }
 
 /* MOBILE */
@@ -469,7 +368,7 @@ footer{
     }
 
     .slide-content h1{
-        font-size:3.2rem;
+        font-size:3.3rem;
     }
 
 }
@@ -482,12 +381,11 @@ footer{
 
     .nav-links{
         position:absolute;
-        top:105px;
+        top:110px;
         left:20px;
         right:20px;
-        background:rgba(25,32,37,0.96);
-        backdrop-filter:blur(20px);
-        border-radius:30px;
+        background:#2B353B;
+        border-radius:28px;
         padding:2rem;
         display:none;
         flex-direction:column;
@@ -502,24 +400,20 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .stats-grid{
-        grid-template-columns:repeat(2,1fr);
+    .logo-img{
+        height:70px;
+    }
+
+    .logo-text h1{
+        font-size:2rem;
+    }
+
+    .logo-text p{
+        font-size:1.5rem;
     }
 
     .slide-content h1{
-        font-size:2.5rem;
-    }
-
-    .container{
-        padding:4rem 1.5rem;
-    }
-
-    .section-title{
-        font-size:2.3rem;
-    }
-
-    .logo-img{
-        height:75px;
+        font-size:2.4rem;
     }
 
 }
@@ -532,18 +426,6 @@ footer{
 
     .slide-content p{
         font-size:1rem;
-    }
-
-    .btn-primary{
-        padding:0.8rem 1.8rem;
-    }
-
-    .stats-grid{
-        grid-template-columns:1fr;
-    }
-
-    .stat-number{
-        font-size:2.8rem;
     }
 
 }
@@ -564,8 +446,13 @@ footer{
 <a href="#" class="logo">
 
 <img src="logo1.JPG"
-alt="RDG Business Logo"
+alt="RDG Logo"
 class="logo-img">
+
+<div class="logo-text">
+<h1>RDG</h1>
+<p>BUISNESS</p>
+</div>
 
 </a>
 
@@ -591,7 +478,7 @@ class="logo-img">
 
 <!-- HERO -->
 
-<div class="hero-slider" id="heroSlider">
+<div class="hero-slider">
 
 <div class="slide active"
 style="background-image:url('IMG_20260516_190409_120.jpg');">
@@ -602,7 +489,7 @@ style="background-image:url('IMG_20260516_190409_120.jpg');">
 
 <p>
 Building Ethiopia’s future through premium construction,
-landscape development and modern infrastructure solutions.
+landscape architecture and modern infrastructure solutions.
 </p>
 
 <a href="#" class="btn-primary">
@@ -621,8 +508,8 @@ style="background-image:url('IMG_20260516_190410_213.jpg');">
 <h1>RDG Import</h1>
 
 <p>
-Supplying world-class machinery, electrical systems,
-and industrial equipment through trusted global sourcing.
+Supplying industrial machinery, electrical systems
+and advanced equipment through trusted global sourcing.
 </p>
 
 <a href="#" class="btn-primary">
@@ -679,7 +566,7 @@ Three powerful sectors driving RDG Business Holding forward
 
 <p>
 General contracting, landscape architecture,
-premium finishing and modern infrastructure development.
+premium finishing and infrastructure development.
 </p>
 
 <span class="card-tag">
@@ -717,7 +604,7 @@ Global Supply Chain
 
 <p>
 Producing and exporting authentic Ethiopian coffee
-with modern branding and roasting excellence.
+with modern roasting and branding excellence.
 </p>
 
 <span class="card-tag">
@@ -725,40 +612,6 @@ Launching 2026
 </span>
 
 </a>
-
-</div>
-
-</div>
-
-<!-- STATS -->
-
-<div class="container">
-
-<div class="stats-section">
-
-<div class="stats-grid">
-
-<div>
-<div class="stat-number">10+</div>
-<p>Years Experience</p>
-</div>
-
-<div>
-<div class="stat-number">50+</div>
-<p>Projects Completed</p>
-</div>
-
-<div>
-<div class="stat-number">25+</div>
-<p>Happy Clients</p>
-</div>
-
-<div>
-<div class="stat-number">3</div>
-<p>Business Divisions</p>
-</div>
-
-</div>
 
 </div>
 
@@ -808,8 +661,6 @@ Launching 2026
 
 </footer>
 
-<!-- SCRIPT -->
-
 <script>
 
 /* MOBILE MENU */
@@ -827,8 +678,6 @@ const slides = document.querySelectorAll('.slide');
 const dotContainer = document.getElementById('dotContainer');
 
 let currentSlide = 0;
-
-/* CREATE DOTS */
 
 slides.forEach((slide,index)=>{
 
@@ -850,8 +699,6 @@ slides.forEach((slide,index)=>{
 
 const dots = document.querySelectorAll('.dot');
 
-/* GO TO SLIDE */
-
 function goToSlide(index){
 
     slides.forEach(slide=>{
@@ -867,8 +714,6 @@ function goToSlide(index){
 
     currentSlide = index;
 }
-
-/* AUTO SLIDE */
 
 function autoSlide(){
 
