@@ -7,12 +7,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #0A0F0D; color: #FFFFFF; scroll-behavior: smooth; overflow-x: hidden; }
-        ::-webkit-scrollbar { width: 6px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0F0D;
+            color: #FFFFFF;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Modern scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #1A1F1D; }
         ::-webkit-scrollbar-thumb { background: #E76F51; border-radius: 10px; }
 
+        /* Dynamic gradient background */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -29,40 +43,83 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 80% 70%, rgba(45, 106, 79, 0.3), transparent);
-            animation: pulse 8s ease-in-out infinite;
+            background: radial-gradient(circle at 80% 70%, rgba(231,111,81,0.25), transparent);
+            animation: slowDrift 10s ease-in-out infinite;
         }
-        @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+        @keyframes slowDrift {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
 
+        /* Navigation */
         nav {
-            background: rgba(10, 15, 13, 0.8);
+            background: rgba(10, 15, 13, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
         }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .logo h1 { font-size: 1.6rem; font-weight: 800; background: linear-gradient(135deg, #FFFFFF, #E76F51); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .logo p { font-size: 0.7rem; color: rgba(255,255,255,0.5); }
-        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-        .nav-links a { text-decoration: none; font-weight: 500; color: rgba(255,255,255,0.7); transition: 0.3s; font-size: 0.9rem; }
-        .nav-links a:hover, .nav-links a.active { color: #E76F51; }
-        .quote-btn { background: linear-gradient(135deg, #E76F51, #C85C3F); color: white !important; padding: 0.6rem 1.5rem; border-radius: 50px; }
-        .menu-icon { display: none; font-size: 1.5rem; cursor: pointer; color: white; }
-        @media (max-width: 880px) {
-            .menu-icon { display: block; }
-            .nav-links { display: none; width: 100%; flex-direction: column; padding: 1.5rem 0; background: rgba(10,15,13,0.95); border-radius: 20px; }
-            .nav-links.active { display: flex; }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFFFFF, #E76F51);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .logo p {
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: rgba(255,255,255,0.75);
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #E76F51;
+        }
+        .quote-btn {
+            background: linear-gradient(135deg, #E76F51, #C85C3F);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 6px 14px rgba(231,111,81,0.25);
+        }
+        .menu-icon {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: white;
         }
 
-        /* Hero Slider */
+        /* Hero Slider - full visibility with no arrows */
         .hero-slider {
             position: relative;
             height: 90vh;
-            min-height: 600px;
+            min-height: 550px;
             overflow: hidden;
+            width: 100%;
         }
         .slide {
             position: absolute;
@@ -71,15 +128,23 @@
             width: 100%;
             height: 100%;
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             opacity: 0;
-            transition: opacity 1s ease;
+            transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
         }
-        .slide.active { opacity: 1; z-index: 1; }
+        /* Image visibility assurance */
+        .slide {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
         .slide::before {
             content: '';
             position: absolute;
@@ -87,7 +152,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, rgba(0,0,0,0.55), rgba(0,0,0,0.4));
             z-index: 1;
         }
         .slide-content {
@@ -95,35 +160,55 @@
             z-index: 2;
             max-width: 800px;
             padding: 2rem;
+            animation: fadeUp 0.8s ease-out;
         }
-        .slide-content h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-        .slide-content p { font-size: 1.2rem; margin-bottom: 2rem; color: rgba(255,255,255,0.8); }
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.2);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-content h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFF, #F4A261);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .slide-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-primary {
+            background: #E76F51;
+            padding: 0.9rem 2.4rem;
+            border-radius: 50px;
+            text-decoration: none;
             color: white;
-            cursor: pointer;
-            z-index: 10;
-            font-size: 1.5rem;
-            transition: 0.3s;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(231,111,81,0.3);
+            border: none;
         }
-        .slider-btn:hover { background: #E76F51; }
-        .prev { left: 20px; }
-        .next { right: 20px; }
+        .btn-primary:hover {
+            background: #C85C3F;
+            transform: scale(1.03);
+            box-shadow: 0 12px 28px rgba(231,111,81,0.4);
+        }
+        /* Dots only navigation */
         .dot-container {
             position: absolute;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 12px;
-            z-index: 10;
+            gap: 16px;
+            z-index: 15;
         }
         .dot {
             width: 12px;
@@ -131,46 +216,223 @@
             border-radius: 50%;
             background: rgba(255,255,255,0.5);
             cursor: pointer;
+            transition: all 0.25s;
         }
-        .dot.active { background: #E76F51; transform: scale(1.2); }
+        .dot.active {
+            background: #E76F51;
+            width: 28px;
+            border-radius: 20px;
+            transform: scale(1.1);
+        }
 
-        .container { max-width: 1400px; margin: 0 auto; padding: 6rem 2rem; }
-        .section-title { text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; }
-        .section-subtitle { text-align: center; color: rgba(255,255,255,0.5); margin-bottom: 4rem; }
-
-        .business-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        /* Container and sections */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF, #E76F51);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 3.5rem;
+            font-size: 1.1rem;
+        }
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
         .business-card {
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(10px);
+            background: rgba(20, 28, 24, 0.6);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 32px;
-            padding: 2rem;
-            transition: all 0.4s;
+            border-radius: 36px;
+            padding: 2.2rem;
+            transition: all 0.4s ease;
             text-decoration: none;
             color: white;
             display: block;
         }
-        .business-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.08); border-color: rgba(231,111,81,0.3); }
-        .card-icon { font-size: 3rem; margin-bottom: 1.5rem; }
-        .business-card h3 { font-size: 1.8rem; margin-bottom: 1rem; }
-        .business-card p { color: rgba(255,255,255,0.6); line-height: 1.6; }
-        .card-tag { display: inline-block; background: rgba(231,111,81,0.2); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; color: #E76F51; margin-top: 1rem; }
+        .business-card:hover {
+            transform: translateY(-12px);
+            background: rgba(30, 40, 36, 0.8);
+            border-color: rgba(231,111,81,0.5);
+            box-shadow: 0 20px 35px -15px rgba(0,0,0,0.4);
+        }
+        .card-icon {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: #E76F51;
+        }
+        .business-card h3 {
+            font-size: 1.9rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .business-card p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+        .card-tag {
+            display: inline-block;
+            background: rgba(231,111,81,0.2);
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #F4A261;
+            margin-top: 1.2rem;
+            font-weight: 500;
+        }
+        .stats-section {
+            background: linear-gradient(125deg, rgba(231,111,81,0.08), rgba(45,106,79,0.12));
+            border-radius: 70px;
+            padding: 3.5rem 2rem;
+            margin: 1rem auto;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 2rem;
+        }
+        .stat-number {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #E76F51, #F4A261);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+        .stats-grid div p {
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+        }
 
-        .stats-section { background: linear-gradient(135deg, rgba(231,111,81,0.1), rgba(45,106,79,0.1)); border-radius: 60px; padding: 4rem; margin: 2rem auto; }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; gap: 2rem; }
-        .stat-number { font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, #E76F51, #F4A261); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        /* Footer */
+        footer {
+            background: #060A08;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 4rem 2rem 2rem;
+        }
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        .footer-col h4 {
+            color: #E76F51;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+        }
+        .footer-col p, .footer-col a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.6rem;
+            transition: 0.2s;
+        }
+        .footer-col a:hover {
+            color: #E76F51;
+            transform: translateX(5px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.35);
+            font-size: 0.85rem;
+        }
 
-        footer { background: #060A08; border-top: 1px solid rgba(255,255,255,0.05); padding: 4rem 2rem 2rem; }
-        .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
-        .footer-col h4 { color: #E76F51; margin-bottom: 1rem; }
-        .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; display: block; margin-bottom: 0.5rem; }
-        .footer-col a:hover { color: #E76F51; }
-        .copyright { text-align: center; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); }
-
-        @media (max-width: 900px) {
-            .business-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .slide-content h1 { font-size: 2rem; }
+        /* Responsive Magic */
+        @media (max-width: 980px) {
+            .business-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.8rem;
+            }
+            .slide-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+        @media (max-width: 780px) {
+            .menu-icon {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1.2rem;
+                background: rgba(10, 15, 13, 0.97);
+                backdrop-filter: blur(20px);
+                padding: 2rem 1rem;
+                border-radius: 28px;
+                margin-top: 1rem;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            .business-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 3.5rem 1.5rem;
+            }
+            .slide-content h1 {
+                font-size: 2.2rem;
+            }
+            .slide-content p {
+                font-size: 1rem;
+            }
+            .hero-slider {
+                min-height: 500px;
+                height: 80vh;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .stats-section {
+                padding: 2rem 1rem;
+                border-radius: 40px;
+            }
+            .stat-number {
+                font-size: 2.4rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .slide-content h1 {
+                font-size: 1.8rem;
+            }
+            .btn-primary {
+                padding: 0.7rem 1.8rem;
+                font-size: 0.9rem;
+            }
+            .dot-container {
+                bottom: 18px;
+                gap: 12px;
+            }
+            .business-card h3 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
@@ -180,67 +442,70 @@
 
 <nav>
     <div class="nav-container">
-        <div class="logo"><h1>RDG</h1><p>BUSINESS HOLDING</p></div>
+        <div class="logo">
+            <h1>RDG</h1>
+            <p>BUSINESS HOLDING</p>
+        </div>
         <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="construction.html">Construction</a></li>
-            <li><a href="import.html">Import</a></li>
-            <li><a href="coffee.html">Coffee</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="quote.html" class="quote-btn">Get Quote</a></li>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Construction</a></li>
+            <li><a href="#">Import</a></li>
+            <li><a href="#">Coffee</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#" class="quote-btn">Get Quote</a></li>
         </ul>
     </div>
 </nav>
 
-<div class="hero-slider">
+<!-- Hero Slider - no arrows, just dots + automatic sliding, images visible -->
+<div class="hero-slider" id="heroSlider">
     <div class="slide active" style="background-image: url('IMG_20260516_190409_120.jpg');">
         <div class="slide-content">
             <h1>RDG Construction</h1>
-            <p>Building Ethiopia's future with excellence in landscape and general construction</p>
-            <a href="construction.html" class="btn-primary">Explore →</a>
+            <p>Building Ethiopia's tomorrow with landscape mastery & premium general construction.</p>
+            <a href="#" class="btn-primary">Discover Projects →</a>
         </div>
     </div>
     <div class="slide" style="background-image: url('IMG_20260516_190410_213.jpg');">
         <div class="slide-content">
             <h1>RDG Import</h1>
-            <p>Premium coffee lab equipment and industrial supplies from global leaders</p>
-            <a href="import.html" class="btn-primary">Explore →</a>
+            <p>Global supply chain for coffee lab equipment, electrical systems & industrial machinery.</p>
+            <a href="#" class="btn-primary">Global Sourcing →</a>
         </div>
     </div>
     <div class="slide" style="background-image: url('IMG_20260516_190425_166.jpg');">
         <div class="slide-content">
             <h1>RDG Coffee</h1>
-            <p>Artisanal Ethiopian coffee roasting and global distribution</p>
-            <a href="coffee.html" class="btn-primary">Explore →</a>
+            <p>Artisanal Ethiopian coffee — from farm to cup, premium roasting & worldwide export.</p>
+            <a href="#" class="btn-primary">Experience Coffee →</a>
         </div>
     </div>
-    <button class="slider-btn prev" id="prevBtn">❮</button>
-    <button class="slider-btn next" id="nextBtn">❯</button>
+    <!-- Dot container dynamically generated -->
     <div class="dot-container" id="dotContainer"></div>
 </div>
 
 <div class="container">
     <h2 class="section-title">Our Divisions</h2>
-    <p class="section-subtitle">Three pillars driving Ethiopia's growth</p>
+    <p class="section-subtitle">Three pillars driving innovation and growth across Ethiopia</p>
     <div class="business-grid">
-        <a href="construction.html" class="business-card">
+        <a href="#" class="business-card">
             <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
             <h3>RDG Construction</h3>
-            <p>General contractor specializing in landscape design, residential construction, and finishing works.</p>
+            <p>General contractor specializing in landscape design, residential projects, and premium finishing works. Excellence in every brick.</p>
             <span class="card-tag">10+ Years Experience</span>
         </a>
-        <a href="import.html" class="business-card">
+        <a href="#" class="business-card">
             <div class="card-icon"><i class="fas fa-ship"></i></div>
             <h3>RDG Import</h3>
-            <p>Specialized importer of electrical equipment, coffee lab equipment, and commercial roasting machinery.</p>
+            <p>Specialized importer of electrical equipment, cutting-edge coffee lab gear, and commercial roasting machinery from world leaders.</p>
             <span class="card-tag">Global Supply Chain</span>
         </a>
-        <a href="coffee.html" class="business-card">
+        <a href="#" class="business-card">
             <div class="card-icon"><i class="fas fa-mug-hot"></i></div>
             <h3>RDG Coffee</h3>
-            <p>Our newest division focused on coffee roasting, branding, and supplying premium Ethiopian coffee.</p>
+            <p>Our newest passion — roasting authentic Ethiopian coffee, crafting brands, and supplying premium beans worldwide.</p>
             <span class="card-tag">Launching 2026</span>
         </a>
     </div>
@@ -249,10 +514,10 @@
 <div class="container">
     <div class="stats-section">
         <div class="stats-grid">
-            <div><div class="stat-number">10+</div><div>Years of Excellence</div></div>
-            <div><div class="stat-number">50+</div><div>Projects Completed</div></div>
-            <div><div class="stat-number">25+</div><div>Happy Clients</div></div>
-            <div><div class="stat-number">3</div><div>Business Divisions</div></div>
+            <div><div class="stat-number">10+</div><p>Years of Excellence</p></div>
+            <div><div class="stat-number">50+</div><p>Projects Completed</p></div>
+            <div><div class="stat-number">25+</div><p>Happy Clients</p></div>
+            <div><div class="stat-number">3</div><p>Business Divisions</p></div>
         </div>
     </div>
 </div>
@@ -267,66 +532,188 @@
         </div>
         <div class="footer-col">
             <h4>Divisions</h4>
-            <a href="construction.html">RDG Construction</a>
-            <a href="import.html">RDG Import</a>
-            <a href="coffee.html">RDG Coffee</a>
+            <a href="#">RDG Construction</a>
+            <a href="#">RDG Import</a>
+            <a href="#">RDG Coffee</a>
         </div>
         <div class="footer-col">
             <h4>Quick Links</h4>
-            <a href="about.html">About Us</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="quote.html">Request Quote</a>
+            <a href="#">About Us</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Request Quote</a>
         </div>
     </div>
     <div class="copyright">© 2026 RDG Business Holding — Innovation Across Industries</div>
 </footer>
 
 <script>
-    // Slider functionality
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    let autoInterval;
+    // Enhanced Slider: no arrow buttons, only dots and auto-slide, full mobile compatibility
+    // Image visibility is intact with background images, plus we ensure that slides are responsive
+    let currentSlideIdx = 0;
+    const slidesArray = document.querySelectorAll('.slide');
+    let autoSlideInterval;
+    let dotElements = [];
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
+    // Function to update active slide and active dot
+    function setActiveSlide(index) {
+        if (!slidesArray.length) return;
+        // Wrap around index
+        if (index < 0) index = slidesArray.length - 1;
+        if (index >= slidesArray.length) index = 0;
+        
+        slidesArray.forEach((slide, i) => {
             slide.classList.toggle('active', i === index);
         });
-        document.querySelectorAll('.dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-        currentSlide = index;
+        
+        if (dotElements.length) {
+            dotElements.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        currentSlideIdx = index;
     }
 
-    function nextSlide() { showSlide((currentSlide + 1) % slides.length); }
-    function prevSlide() { showSlide((currentSlide - 1 + slides.length) % slides.length); }
+    function nextSlide() {
+        let newIndex = (currentSlideIdx + 1) % slidesArray.length;
+        setActiveSlide(newIndex);
+    }
 
-    function startAutoSlide() { autoInterval = setInterval(nextSlide, 5000); }
-    function stopAutoSlide() { clearInterval(autoInterval); }
+    function prevSlide() {
+        let newIndex = (currentSlideIdx - 1 + slidesArray.length) % slidesArray.length;
+        setActiveSlide(newIndex);
+    }
 
-    document.getElementById('prevBtn')?.addEventListener('click', () => { stopAutoSlide(); prevSlide(); startAutoSlide(); });
-    document.getElementById('nextBtn')?.addEventListener('click', () => { stopAutoSlide(); nextSlide(); startAutoSlide(); });
+    // Auto-slide with reset functionality
+    function startAutoSlide() {
+        if (autoSlideInterval) clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(() => {
+            nextSlide();
+        }, 5500);
+    }
+    
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+    }
 
-    const dotContainer = document.getElementById('dotContainer');
-    if(dotContainer) {
-        dotContainer.innerHTML = '';
-        slides.forEach((_, i) => {
+    // Generate dots dynamically and attach click events
+    function initDots() {
+        const container = document.getElementById('dotContainer');
+        if (!container || !slidesArray.length) return;
+        container.innerHTML = '';
+        dotElements = [];
+        
+        for (let i = 0; i < slidesArray.length; i++) {
             const dot = document.createElement('div');
             dot.classList.add('dot');
-            if(i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => { stopAutoSlide(); showSlide(i); startAutoSlide(); });
-            dotContainer.appendChild(dot);
+            if (i === currentSlideIdx) dot.classList.add('active');
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                stopAutoSlide();
+                setActiveSlide(i);
+                startAutoSlide(); // restart interval after manual interaction
+            });
+            container.appendChild(dot);
+            dotElements.push(dot);
+        }
+    }
+    
+    // Touch and hover pause for better UX on mobile (optional elegance)
+    const sliderContainer = document.getElementById('heroSlider');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', () => {
+            stopAutoSlide();
+        });
+        sliderContainer.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+        // For touch devices: pause on touch start, resume after touch end
+        sliderContainer.addEventListener('touchstart', () => {
+            stopAutoSlide();
+        });
+        sliderContainer.addEventListener('touchend', () => {
+            startAutoSlide();
         });
     }
-
-    startAutoSlide();
-
-    // Mobile menu
-    const menuIcon = document.getElementById("menuIcon");
-    const navLinks = document.getElementById("navLinks");
-    if(menuIcon) {
-        menuIcon.addEventListener("click", (e) => { e.stopPropagation(); navLinks.classList.toggle("active"); });
-        document.addEventListener("click", (event) => { if(navLinks?.classList.contains("active") && !navLinks.contains(event.target) && !menuIcon.contains(event.target)) navLinks.classList.remove("active"); });
+    
+    // Ensure images always load with full visibility even if there is a caching issue
+    // Double-check: all slides have background images set in inline style, but we also preload them visually
+    function preloadImages() {
+        const images = ['IMG_20260516_190409_120.jpg', 'IMG_20260516_190410_213.jpg', 'IMG_20260516_190425_166.jpg'];
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
+    preloadImages();
+    
+    // Initialize everything when DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+        initDots();
+        startAutoSlide();
+        
+        // In case active class isn't consistent with first slide
+        setActiveSlide(0);
+        
+        // Mobile menu toggle
+        const menuIcon = document.getElementById("menuIcon");
+        const navLinks = document.getElementById("navLinks");
+        if (menuIcon && navLinks) {
+            menuIcon.addEventListener("click", (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle("active");
+            });
+            // Close nav when clicking outside or on link
+            document.addEventListener("click", (event) => {
+                if (navLinks.classList.contains("active") && 
+                    !navLinks.contains(event.target) && 
+                    !menuIcon.contains(event.target)) {
+                    navLinks.classList.remove("active");
+                }
+            });
+            // Smooth close on link click for better UX on mobile
+            const allNavLinks = navLinks.querySelectorAll('a');
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+        
+        // Simple hash or anchor dummy - just prevent blank
+        const btns = document.querySelectorAll('.btn-primary, .quote-btn, .business-card');
+        btns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(btn.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    // subtle scroll to top or placeholder action
+                    console.log('Navigation demo: request quote/explore');
+                }
+            });
+        });
+    });
+    
+    // Responsive resize: ensure slider height is coherent
+    window.addEventListener('resize', () => {
+        // nothing critical, keep slider ratio
+    });
+    
+    // Fallback to fix any background image not loaded edgecase: ensure slides container has min height
+    const hero = document.querySelector('.hero-slider');
+    if(hero) {
+        const fixSlideDimensions = () => {
+            let slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => {
+                let computed = window.getComputedStyle(slide);
+                if(computed.backgroundImage === 'none' || computed.backgroundImage === 'url("")') {
+                    // Optional fallback gradient but images exist, just to reassure.
+                    slide.style.background = '#1e2a24';
+                }
+            });
+        };
+        setTimeout(fixSlideDimensions, 100);
     }
 </script>
 </body>
