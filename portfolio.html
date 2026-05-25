@@ -21,13 +21,150 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
 .contact-btn { background: #F2F2F2; color: #2F3A40 !important; padding: 0.6rem 1.4rem; border-radius: 40px; font-weight: 700; transition: all 0.3s; }
 .contact-btn:hover { background: #ffffff; transform: translateY(-2px); }
 .menu-icon { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
-.page-header { text-align: center; padding: 5rem 2rem 3rem; }
+.page-header { text-align: center; padding: 4rem 2rem 2rem; }
 .page-header h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #FFFFFF, #CFD9DE); background-clip: text; -webkit-background-clip: text; color: transparent; }
-.page-header p { color: #C6CED3; max-width: 700px; margin: auto; font-size: 1.1rem; text-align: justify; }
+.page-header p { color: #C6CED3; max-width: 800px; margin: 1rem auto 0; font-size: 1.1rem; text-align: justify; line-height: 1.8; }
 
-/* Portfolio Section Styles */
-.container { max-width: 1400px; margin: auto; padding: 2rem 2rem 5rem; }
+/* About Brief Section */
+.about-brief {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    backdrop-filter: blur(4px);
+}
+.about-brief p {
+    color: #E6ECF0;
+    line-height: 1.9;
+    font-size: 1.05rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+.about-brief strong {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+.about-brief .highlight {
+    color: #E76F51;
+    font-weight: 600;
+}
 
+/* Milestone Section */
+.milestone-section {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(231,111,81,0.08), rgba(0,0,0,0.2));
+    border: 1px solid rgba(231,111,81,0.2);
+    border-radius: 28px;
+    text-align: center;
+}
+.milestone-section h3 {
+    font-size: 1.8rem;
+    color: #E76F51;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+.milestone-section h3 i {
+    font-size: 2rem;
+}
+.milestone-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.milestone-item {
+    flex: 1;
+    min-width: 180px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.milestone-item:hover {
+    transform: translateY(-8px);
+    background: rgba(231,111,81,0.15);
+    border-color: rgba(231,111,81,0.3);
+}
+.milestone-icon {
+    font-size: 2.5rem;
+    color: #E76F51;
+    margin-bottom: 1rem;
+}
+.milestone-year {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #E76F51;
+    margin-bottom: 0.5rem;
+}
+.milestone-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.milestone-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+}
+
+/* Social Media Section */
+.social-section {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    text-align: center;
+}
+.social-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.social-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.social-icon:hover {
+    transform: translateY(-5px);
+    background: #E76F51;
+    border-color: #E76F51;
+}
+.social-icon.facebook:hover { background: #1877F2; border-color: #1877F2; }
+.social-icon.twitter:hover { background: #1DA1F2; border-color: #1DA1F2; }
+.social-icon.instagram:hover { background: #E4405F; border-color: #E4405F; }
+.social-icon.linkedin:hover { background: #0077B5; border-color: #0077B5; }
+.social-icon.youtube:hover { background: #FF0000; border-color: #FF0000; }
+.social-icon.telegram:hover { background: #0088cc; border-color: #0088cc; }
+.social-icon.whatsapp:hover { background: #25D366; border-color: #25D366; }
+
+/* Gallery Styles */
+.container { max-width: 1400px; margin: auto; padding: 3rem 2rem 5rem; }
 .section-title {
     text-align: center;
     font-size: 2.5rem;
@@ -47,22 +184,17 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
     background: linear-gradient(90deg, transparent, #E76F51, transparent);
 }
 
-/* Construction Gallery */
 .construction-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
 }
-
-/* Coffee Gallery */
 .coffee-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
 }
-
-/* Attractive Image Cards - No Captions */
 .portfolio-card {
     position: relative;
     background: rgba(255, 255, 255, 0.03);
@@ -72,21 +204,16 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
     transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     cursor: pointer;
 }
-
 .portfolio-card:hover {
     transform: translateY(-10px) scale(1.02);
     border-color: rgba(231,111,81,0.5);
     box-shadow: 0 25px 40px -20px rgba(231,111,81,0.3);
 }
-
 .image-wrapper {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
-    margin: 0;
-    padding: 0;
 }
-
 .portfolio-card img {
     width: 100%;
     height: 300px;
@@ -94,13 +221,10 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
     display: block;
     transition: transform 0.6s ease, filter 0.4s ease;
 }
-
 .portfolio-card:hover img {
     transform: scale(1.08);
     filter: brightness(1.05) contrast(1.05);
 }
-
-/* Overlay effect on hover */
 .portfolio-card::before {
     content: '';
     position: absolute;
@@ -114,12 +238,9 @@ nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position:
     pointer-events: none;
     z-index: 1;
 }
-
 .portfolio-card:hover::before {
     opacity: 1;
 }
-
-/* NO CAPTION - No text below images */
 
 footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-grid { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
@@ -136,12 +257,15 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
     .page-header h1 { font-size: 2.2rem; }
     .construction-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
     .coffee-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .milestone-timeline { flex-direction: column; }
+    .milestone-item { width: 100%; }
 }
-
 @media (max-width: 480px) {
     .construction-grid { grid-template-columns: 1fr; }
     .coffee-grid { grid-template-columns: 1fr; }
     .portfolio-card img { height: 250px; }
+    .social-icons { gap: 1rem; }
+    .social-icon { width: 50px; height: 50px; font-size: 1.4rem; }
 }
 </style>
 </head>
@@ -173,124 +297,81 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
 
 <div class="container">
     
+    <!-- About Brief Section -->
+    <div class="about-brief">
+        <p><strong>RDG Business Holding</strong> is a diversified business group operating in construction, import, and the coffee industry. The company currently manages two major businesses: <strong class="highlight">RDG Construction</strong>, a general contractor mainly focused on landscape construction and outdoor development works, and <strong class="highlight">RDG Import</strong>, which specializes in importing electrical equipment, coffee laboratory equipment, and commercial coffee roasting machinery.</p>
+        <p>As part of its expansion strategy, RDG Business Holding is establishing a third division focused on coffee roasting, branding, and supplying high-quality Ethiopian coffee products to local and international markets.</p>
+    </div>
+
+    <!-- Milestone Section -->
+    <div class="milestone-section">
+        <h3><i class="fas fa-flag-checkered"></i> Our Journey Milestones</h3>
+        <div class="milestone-timeline">
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-hard-hat"></i></div>
+                <div class="milestone-year">2016</div>
+                <div class="milestone-title">RDG Construction Founded</div>
+                <div class="milestone-desc">Established as a general contractor specializing in landscape construction and outdoor development works</div>
+            </div>
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-ship"></i></div>
+                <div class="milestone-year">2018</div>
+                <div class="milestone-title">RDG Import Launched</div>
+                <div class="milestone-desc">Expanded into importing electrical equipment, coffee lab tools, and commercial roasting machinery</div>
+            </div>
+            <div class="milestone-item">
+                <div class="milestone-icon"><i class="fas fa-mug-hot"></i></div>
+                <div class="milestone-year">2026</div>
+                <div class="milestone-title">RDG Coffee Launching</div>
+                <div class="milestone-desc">Establishing third division for coffee roasting, branding, and exporting premium Ethiopian coffee</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media Section -->
+    <div class="social-section">
+        <h3><i class="fas fa-share-alt" style="color: #E76F51; margin-right: 10px;"></i> Connect With Us</h3>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/" target="_blank" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://t.me/+251913662154" target="_blank" class="social-icon telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://wa.me/251913662154" target="_blank" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+
     <!-- CONSTRUCTION GALLERY -->
     <h2 class="section-title">Construction <span>Projects</span></h2>
     <div class="construction-grid">
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190410_213.jpg" alt="Construction Project">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190425_166.jpg" alt="Construction Project">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190427_419.jpg" alt="Construction Project">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190428_945.jpg" alt="Construction Project">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190524_912.jpg" alt="Construction Project">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190529_640.jpg" alt="Construction Project">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190531_426.jpg" alt="Construction Project">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190533_217.jpg" alt="Construction Project">
-            </div>
-        </div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190410_213.jpg" alt="Construction Project"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190425_166.jpg" alt="Construction Project"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190427_419.jpg" alt="Construction Project"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190428_945.jpg" alt="Construction Project"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190524_912.jpg" alt="Construction Project"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190529_640.jpg" alt="Construction Project"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190531_426.jpg" alt="Construction Project"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190533_217.jpg" alt="Construction Project"></div></div>
     </div>
 
     <!-- COFFEE GALLERY -->
     <h2 class="section-title">Coffee <span>Equipment & Facilities</span></h2>
     <div class="coffee-grid">
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190431_365.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190431_548.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190434_467.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190441_433.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190449_190.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190451_444.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190455_504.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190458_867.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190501_537.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190505_195.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190505_962.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190507_366.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190510_385.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
-        <div class="portfolio-card">
-            <div class="image-wrapper">
-                <img src="IMG_20260516_190516_877.jpg" alt="Coffee Equipment">
-            </div>
-        </div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190431_365.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190431_548.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190434_467.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190441_433.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190449_190.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190451_444.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190455_504.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190458_867.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190501_537.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190505_195.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190505_962.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190507_366.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190510_385.jpg" alt="Coffee Equipment"></div></div>
+        <div class="portfolio-card"><div class="image-wrapper"><img src="IMG_20260516_190516_877.jpg" alt="Coffee Equipment"></div></div>
     </div>
 </div>
 
@@ -327,8 +408,8 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
             navLinks.classList.remove("active"); 
     });
     
-    // Optional: Add subtle animation on scroll
-    const cards = document.querySelectorAll('.portfolio-card');
+    // Scroll animation for cards
+    const cards = document.querySelectorAll('.portfolio-card, .milestone-item');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
