@@ -7,337 +7,96 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #2F3A40, #252F35, #1F272C);
-    color: white;
-    overflow-x: hidden;
-}
-.gradient-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 30%, rgba(255,255,240,0.02), transparent 60%);
-    pointer-events: none;
-    z-index: -1;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #2F3A40, #252F35, #1F272C); color: white; overflow-x: hidden; }
+.gradient-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, rgba(255,255,240,0.02), transparent 60%); pointer-events: none; z-index: -1; }
+
+/* Floating Social Icons */
+.social-float { position: fixed; bottom: 30px; right: 25px; z-index: 1000; display: flex; flex-direction: column; gap: 15px; }
+.social-icon { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: white; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+.social-icon:hover { transform: scale(1.12); }
+.whatsapp { background: #25D366; }
+.telegram { background: #0088cc; }
 
 /* Navigation */
-nav {
-    background: rgba(37, 47, 53, 0.92);
-    backdrop-filter: blur(20px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 0.8rem 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.nav-container {
-    max-width: 1400px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    text-decoration: none;
-}
-.logo-img {
-    height: 88px;
-    width: auto;
-    object-fit: contain;
-    transition: 0.4s ease;
-}
-.logo-img:hover {
-    transform: scale(1.05);
-}
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    align-items: center;
-}
-.nav-links a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.75);
-    font-weight: 500;
-    transition: 0.25s ease;
-    font-size: 0.95rem;
-}
-.nav-links a:hover,
-.nav-links a.active {
-    color: white;
-}
-.contact-btn {
-    background: #F2F2F2;
-    color: #2F3A40 !important;
-    padding: 0.6rem 1.4rem;
-    border-radius: 40px;
-    font-weight: 700;
-    transition: all 0.3s;
-}
-.contact-btn:hover {
-    background: #ffffff;
-    transform: translateY(-2px);
-}
-.menu-icon {
-    display: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
+nav { background: rgba(37, 47, 53, 0.92); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 1000; padding: 0.8rem 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.nav-container { max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 18px; text-decoration: none; }
+.logo-img { height: 88px; width: auto; object-fit: contain; transition: 0.4s ease; }
+.logo-img:hover { transform: scale(1.05); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; color: rgba(255, 255, 255, 0.75); font-weight: 500; transition: 0.25s ease; font-size: 0.95rem; }
+.nav-links a:hover, .nav-links a.active { color: white; }
+.contact-btn { background: #F2F2F2; color: #2F3A40 !important; padding: 0.6rem 1.4rem; border-radius: 40px; font-weight: 700; }
+.contact-btn:hover { background: #ffffff; transform: translateY(-2px); }
+.menu-icon { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
 /* Page Header */
-.page-header {
-    text-align: center;
-    padding: 4rem 2rem 2rem;
-}
-.page-header h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #FFFFFF, #CFD9DE);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-.page-header p {
-    color: #C6CED3;
-    max-width: 800px;
-    margin: auto;
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
+.page-header { text-align: center; padding: 4rem 2rem 2rem; }
+.page-header h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #FFFFFF, #CFD9DE); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-header p { color: #C6CED3; max-width: 800px; margin: auto; font-size: 1.1rem; line-height: 1.7; }
 
 /* Back Button */
-.back-home-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(231, 111, 81, 0.2);
-    backdrop-filter: blur(4px);
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    margin: 1rem 2rem;
-    transition: 0.3s;
-    border: 1px solid rgba(231, 111, 81, 0.4);
-}
-.back-home-link:hover {
-    background: #E76F51;
-    transform: translateX(-6px);
-    border-color: #E76F51;
-}
+.back-home-link { display: inline-flex; align-items: center; gap: 10px; background: rgba(231, 111, 81, 0.2); backdrop-filter: blur(4px); padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; color: white; font-weight: 600; margin: 1rem 2rem; transition: 0.3s; border: 1px solid rgba(231, 111, 81, 0.4); }
+.back-home-link:hover { background: #E76F51; transform: translateX(-6px); }
 
 /* Container */
-.container {
-    max-width: 1400px;
-    margin: auto;
-    padding: 1rem 2rem 5rem;
-}
-.section-title {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 800;
-    margin: 2rem 0 1rem;
-}
-.section-title span {
-    color: #E76F51;
-}
-.section-subtitle {
-    text-align: center;
-    color: #C6CED3;
-    margin-bottom: 3rem;
-    font-size: 1.1rem;
-}
+.container { max-width: 1400px; margin: auto; padding: 1rem 2rem 5rem; }
+.section-title { text-align: center; font-size: 2.8rem; font-weight: 800; margin: 2rem 0 1rem; }
+.section-title span { color: #E76F51; }
 
-/* ========== PROJECTS GALLERY - FULL IMAGE VISIBILITY (NO CROPPING) ========== */
-.projects-gallery {
-    margin: 2rem 0;
-}
-.gallery-stats {
-    text-align: center;
-    background: rgba(231, 111, 81, 0.15);
-    display: inline-block;
-    width: auto;
-    margin: 0 auto 2rem;
-    padding: 0.6rem 1.8rem;
-    border-radius: 60px;
-    font-weight: 600;
-    backdrop-filter: blur(4px);
-}
-.masonry-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-/* FIXED: Each project card shows FULL image without cropping */
-.project-card {
-    background: rgba(35, 45, 52, 0.85);
-    backdrop-filter: blur(8px);
-    border-radius: 36px;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    opacity: 0;
-    transform: translateY(30px);
-}
-.project-card.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-.project-card:hover {
-    transform: translateY(-8px);
-    border-color: #E76F51;
-    box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5);
-}
-/* KEY FIX: object-fit CONTAIN shows ENTIRE image including all text inside */
-.project-card img {
-    width: 100%;
-    height: auto;
-    min-height: 550px;
-    object-fit: contain;
-    display: block;
-    background: #1a1f24;
-    transition: transform 0.5s ease;
-}
-.project-card:hover img {
-    transform: scale(1.01);
-}
-.project-info {
-    padding: 1.8rem;
-    background: rgba(0, 0, 0, 0.7);
-}
-.project-info h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.8rem;
-}
-.project-info h3 i {
-    color: #E76F51;
-    margin-right: 10px;
-}
-.project-info p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 0.8rem;
-}
-.project-badge {
-    display: inline-block;
-    background: #E76F51;
-    padding: 0.25rem 1rem;
-    border-radius: 30px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-top: 8px;
-}
+/* Projects Gallery - FULL IMAGE VISIBILITY */
+.projects-gallery { margin: 2rem 0; }
+.gallery-stats { text-align: center; background: rgba(231, 111, 81, 0.15); display: inline-block; width: auto; margin: 0 auto 2rem; padding: 0.6rem 1.8rem; border-radius: 60px; font-weight: 600; }
+.masonry-grid { display: flex; flex-direction: column; gap: 3rem; }
+.project-card { background: rgba(35, 45, 52, 0.85); backdrop-filter: blur(8px); border-radius: 36px; overflow: hidden; transition: all 0.4s; border: 1px solid rgba(255, 255, 255, 0.08); opacity: 0; transform: translateY(30px); }
+.project-card.animate-in { opacity: 1; transform: translateY(0); }
+.project-card:hover { transform: translateY(-8px); border-color: #E76F51; }
+.project-card img { width: 100%; height: auto; min-height: 550px; object-fit: contain; display: block; background: #1a1f24; }
+.project-info { padding: 1.8rem; background: rgba(0, 0, 0, 0.7); }
+.project-info h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+.project-info h3 i { color: #E76F51; margin-right: 10px; }
+.project-info p { color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; line-height: 1.7; }
+.project-badge { display: inline-block; background: #E76F51; padding: 0.25rem 1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 600; margin-top: 8px; }
 
 /* Footer */
-footer {
-    background: #20282D;
-    padding: 3rem 2rem;
-    margin-top: 3rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-.footer-grid {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-}
-.footer-col h4 {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-.footer-col p,
-.footer-col a {
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 0.5rem;
-    text-decoration: none;
-    display: block;
-    transition: 0.2s;
-}
-.footer-col a:hover {
-    color: #E76F51;
-    transform: translateX(5px);
-}
-.copyright {
-    text-align: center;
-    margin-top: 2rem;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.85rem;
-}
+footer { background: #20282D; padding: 3rem 2rem; margin-top: 3rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+.footer-grid { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+.footer-col h4 { margin-bottom: 1rem; font-size: 1.1rem; }
+.footer-col p, .footer-col a { color: rgba(255, 255, 255, 0.5); margin-bottom: 0.5rem; text-decoration: none; display: block; transition: 0.2s; }
+.footer-col a:hover { color: #E76F51; transform: translateX(5px); }
+.copyright { text-align: center; margin-top: 2rem; color: rgba(255, 255, 255, 0.4); font-size: 0.85rem; }
 
-/* Responsive */
 @media (max-width: 880px) {
-    .menu-icon {
-        display: block;
-    }
-    .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        padding: 1.5rem;
-        background: #2B353B;
-        border-radius: 28px;
-        margin-top: 1rem;
-        gap: 1rem;
-        text-align: center;
-    }
-    .nav-links.active {
-        display: flex;
-    }
-    .logo-img {
-        height: 70px;
-    }
-    .page-header h1 {
-        font-size: 2.2rem;
-    }
-    .section-title {
-        font-size: 1.8rem;
-    }
-    .project-card img {
-        min-height: 350px;
-    }
+    .menu-icon { display: block; }
+    .nav-links { display: none; width: 100%; flex-direction: column; padding: 1.5rem; background: #2B353B; border-radius: 28px; margin-top: 1rem; gap: 1rem; text-align: center; }
+    .nav-links.active { display: flex; }
+    .logo-img { height: 70px; }
+    .page-header h1 { font-size: 2.2rem; }
+    .project-card img { min-height: 350px; }
+    .social-icon { width: 45px; height: 45px; font-size: 22px; }
 }
 @media (max-width: 480px) {
-    .container {
-        padding: 1rem;
-    }
-    .back-home-link {
-        margin: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-    .project-card img {
-        min-height: 280px;
-    }
-    .project-info {
-        padding: 1.2rem;
-    }
-    .project-info h3 {
-        font-size: 1.1rem;
-    }
+    .container { padding: 1rem; }
+    .back-home-link { margin: 0.5rem 1rem; }
+    .project-card img { min-height: 280px; }
+    .project-info { padding: 1.2rem; }
 }
 </style>
 </head>
 <body>
 
 <div class="gradient-bg"></div>
+
+<!-- Floating Social Icons (WhatsApp & Telegram) -->
+<div class="social-float">
+    <a href="https://wa.me/251913662154" target="_blank" class="social-icon whatsapp" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://t.me/+251913662154" target="_blank" class="social-icon telegram" title="Message on Telegram">
+        <i class="fab fa-telegram-plane"></i>
+    </a>
+</div>
 
 <nav>
 <div class="nav-container">
@@ -357,197 +116,102 @@ footer {
 </div>
 </nav>
 
-<a href="index.html" class="back-home-link" id="backHomeBtn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+<a href="index.html" class="back-home-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
 
 <section class="page-header">
     <h1>RDG Construction <span style="color:#E76F51;">Full Portfolio</span></h1>
-    <p>Explore our complete collection of construction excellence — from landscape architecture to premium finishing works. Each image represents our commitment to quality, innovation, and Ethiopian craftsmanship.</p>
+    <p>Explore our complete collection of construction excellence — from landscape architecture to premium finishing works.</p>
 </section>
 
 <div class="container">
     <div class="projects-gallery">
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <div class="gallery-stats">
-                <i class="fas fa-images"></i> Featured Projects 7 – 25 | Complete Showcase
-            </div>
-        </div>
-        <div class="masonry-grid" id="constructionGalleryGrid">
-            <!-- Dynamic images 7 to 25 will appear here -->
-        </div>
+        <div style="text-align: center;"><div class="gallery-stats"><i class="fas fa-images"></i> Featured Projects 7 – 25 | Complete Showcase</div></div>
+        <div class="masonry-grid" id="constructionGalleryGrid"></div>
     </div>
 </div>
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col">
-            <h4>RDG Business Holding</h4>
-            <p>📍 Addis Ababa, Ethiopia</p>
-            <p>📞 +251 913 662 154</p>
-            <p>✉️ rdg.construction2016@gmail.com</p>
-        </div>
-        <div class="footer-col">
-            <h4>Divisions</h4>
-            <a href="construction.html">RDG Construction</a>
-            <a href="import.html">RDG Import</a>
-            <a href="coffee.html">RDG Coffee</a>
-        </div>
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <a href="about.html">About Us</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="contact.html">Contact Us</a>
-        </div>
+        <div class="footer-col"><h4>RDG Business Holding</h4><p>📍 Addis Ababa, Ethiopia</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
+        <div class="footer-col"><h4>Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
+        <div class="footer-col"><h4>Quick Links</h4><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact Us</a></div>
     </div>
-    <div class="copyright">© 2026 RDG Business Holding | Precision • Excellence | Launching 2026</div>
+    <div class="copyright">© 2026 RDG Business Holding | Precision Excellence | Launching 2026</div>
 </footer>
 
 <script>
-    // Mobile menu toggle
-    const menuIcon = document.getElementById("menuIcon");
-    const navLinks = document.getElementById("navLinks");
-    if (menuIcon) {
-        menuIcon.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-    }
+const menuIcon = document.getElementById("menuIcon");
+const navLinks = document.getElementById("navLinks");
+if (menuIcon) { menuIcon.addEventListener("click", () => { navLinks.classList.toggle("active"); }); }
+document.querySelectorAll(".nav-links a").forEach(link => { link.addEventListener("click", () => { if (window.innerWidth <= 880) navLinks.classList.remove("active"); }); });
 
-    // Close mobile menu on link click
-    document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-            if (window.innerWidth <= 880) navLinks.classList.remove("active");
-        });
-    });
+const allImages = [
+    "IMG_20260516_193503_613.jpg", "IMG_20260516_193503_758.jpg", "IMG_20260516_193503_889.jpg", "IMG_20260516_193503_899.jpg", "IMG_20260516_193504_015.jpg",
+    "IMG_20260516_193504_108.jpg", "IMG_20260516_193504_139.jpg", "IMG_20260516_193504_253.jpg", "IMG_20260516_193504_344.jpg", "IMG_20260516_193504_492.jpg",
+    "IMG_20260516_193504_505.jpg", "IMG_20260516_193504_606.jpg", "IMG_20260516_193504_657.jpg", "IMG_20260516_193504_671.jpg", "IMG_20260516_193504_728.jpg",
+    "IMG_20260516_193504_809.jpg", "IMG_20260516_193504_893.jpg", "IMG_20260516_193545_318.jpg", "IMG_20260516_193549_149.jpg", "IMG_20260516_193551_743.jpg",
+    "IMG_20260516_193553_378.jpg", "IMG_20260516_193555_359.jpg", "IMG_20260516_193556_809.jpg", "IMG_20260516_193559_176.jpg", "IMG_20260516_193601_172.jpg"
+];
+const constructionImages = allImages.slice(6, 25);
+const projectDetails = [
+    { title: "Industrial Landscape Project", desc: "Complete landscape architecture at major cement industrial complex including soil rehabilitation and plantation." },
+    { title: "Green Infrastructure Development", desc: "Supplying fertile soil, organic compost, and sustainable grass planting for post-mining recovery zones." },
+    { title: "Expert Engineering Team", desc: "MSC Landscape Architecture, Architectural Design, Urban Planning — 10+ years experience." },
+    { title: "Residential Construction Excellence", desc: "Modern residential buildings from G+1 to G+5 with premium finishing." },
+    { title: "Hardscape Mastery", desc: "Decorative stone pathways, retaining walls, and outdoor living spaces." },
+    { title: "Ceramic & Premium Finishing", desc: "High-end ceramic tile installation and interior finishing for luxury spaces." },
+    { title: "Environmental Soil Recovery", desc: "Advanced soil rehabilitation and ecological restoration for degraded zones." },
+    { title: "Urban Greening Initiative", desc: "City park development with native trees and automated irrigation systems." },
+    { title: "Full Project Management", desc: "End-to-end construction oversight ensuring quality and timeline." },
+    { title: "Premium Painting Services", desc: "Exterior and interior decorative painting using eco-friendly materials." },
+    { title: "Apartment Complex Construction", desc: "Multi-story residential building with modern architectural facade." },
+    { title: "Softscape Design & Installation", desc: "Seasonal flowerbeds, ornamental grasses, and lush garden arrangements." },
+    { title: "Smart Irrigation Systems", desc: "Automated drip irrigation and water management solutions." },
+    { title: "Natural Stone Cladding", desc: "Professional installation of natural stone veneer for exteriors." },
+    { title: "Green Roof & Terrace Gardens", desc: "Rooftop garden solutions for urban buildings." },
+    { title: "Architectural Lighting Design", desc: "Landscape lighting for nighttime ambiance and security." },
+    { title: "Retaining Wall Structures", desc: "Gabion walls and slope stabilization for challenging terrain." },
+    { title: "Water Features & Fountains", desc: "Custom fountains and water cascade installations." },
+    { title: "Turnkey Construction Solutions", desc: "Complete packages from design to handover with guaranteed quality." }
+];
 
-    // ----- COMPLETE 25 IMAGES (exact filenames from the list) -----
-    const allImages = [
-        "IMG_20260516_193503_613.jpg", "IMG_20260516_193503_758.jpg", "IMG_20260516_193503_889.jpg", "IMG_20260516_193503_899.jpg", "IMG_20260516_193504_015.jpg",
-        "IMG_20260516_193504_108.jpg", "IMG_20260516_193504_139.jpg", "IMG_20260516_193504_253.jpg", "IMG_20260516_193504_344.jpg", "IMG_20260516_193504_492.jpg",
-        "IMG_20260516_193504_505.jpg", "IMG_20260516_193504_606.jpg", "IMG_20260516_193504_657.jpg", "IMG_20260516_193504_671.jpg", "IMG_20260516_193504_728.jpg",
-        "IMG_20260516_193504_809.jpg", "IMG_20260516_193504_893.jpg", "IMG_20260516_193545_318.jpg", "IMG_20260516_193549_149.jpg", "IMG_20260516_193551_743.jpg",
-        "IMG_20260516_193553_378.jpg", "IMG_20260516_193555_359.jpg", "IMG_20260516_193556_809.jpg", "IMG_20260516_193559_176.jpg", "IMG_20260516_193601_172.jpg"
-    ];
-
-    // CONSTRUCTION PAGE: display images 7 to 25 (indices 6 through 24)
-    const constructionImages = allImages.slice(6, 25);
-
-    // Descriptions for each project (7 to 25)
-    const projectDetails = [
-        { title: "Industrial Landscape Project", desc: "Complete landscape architecture at major cement industrial complex including soil rehabilitation, plantation, and post-care maintenance." },
-        { title: "Green Infrastructure Development", desc: "Supplying fertile soil, organic compost, and sustainable grass planting for post-mining recovery zones and degraded terrains." },
-        { title: "Expert Engineering Team", desc: "MSC Landscape Architecture, Architectural Design, Urban Planning — 10+ years delivering world-class designs and project management." },
-        { title: "Residential Construction Excellence", desc: "Modern residential buildings from G+1 to G+5 with premium finishing and smart spatial planning for luxury living." },
-        { title: "Hardscape Mastery", desc: "Decorative stone pathways, retaining walls, patios, and outdoor living spaces that blend durability with natural elegance." },
-        { title: "Ceramic & Premium Finishing", desc: "High-end ceramic tile installation, wall cladding, and interior finishing for luxury apartments, villas, and commercial spaces." },
-        { title: "Environmental Soil Recovery", desc: "Advanced soil rehabilitation techniques, erosion control, and ecological restoration for degraded industrial zones and quarries." },
-        { title: "Urban Greening Initiative", desc: "City park development featuring native trees, automated irrigation systems, public seating areas, and sustainable landscaping." },
-        { title: "Full Project Management", desc: "End-to-end construction oversight ensuring timeline adherence, budget control, and uncompromising quality standards." },
-        { title: "Premium Painting Services", desc: "Exterior and interior decorative painting using weather-resistant, eco-friendly materials with professional color consultation." },
-        { title: "Apartment Complex Construction", desc: "Multi-story residential building with modern architectural facade, energy-efficient systems, and premium amenities." },
-        { title: "Softscape Design & Installation", desc: "Seasonal flowerbeds, ornamental grasses, lush garden arrangements, and living wall installations for aesthetic appeal." },
-        { title: "Smart Irrigation Systems", desc: "Automated drip irrigation, sprinkler systems, and water management solutions for sustainable landscape maintenance." },
-        { title: "Natural Stone Cladding", desc: "Professional installation of natural stone veneer for commercial building exteriors, feature walls, and accent elements." },
-        { title: "Green Roof & Terrace Gardens", desc: "Rooftop garden solutions for urban buildings, enhancing insulation, reducing runoff, and creating usable green spaces." },
-        { title: "Architectural Lighting Design", desc: "Landscape lighting and architectural illumination for nighttime ambiance, security, and dramatic visual effects." },
-        { title: "Retaining Wall Structures", desc: "Gabion walls, reinforced earth structures, and slope stabilization for challenging terrain and elevation changes." },
-        { title: "Water Features & Fountains", desc: "Custom fountains, reflection ponds, waterfalls, and water cascade installations for luxury estates and public spaces." },
-        { title: "Turnkey Construction Solutions", desc: "Complete construction packages from initial design concept to final handover — hassle-free delivery with guaranteed quality." }
-    ];
-
-    // Render the gallery with FULL IMAGE VISIBILITY (no cropping)
-    const galleryContainer = document.getElementById("constructionGalleryGrid");
-    
-    function renderConstructionGallery() {
-        if (!galleryContainer) return;
-        galleryContainer.innerHTML = "";
-        
-        constructionImages.forEach((imgSrc, idx) => {
-            const card = document.createElement("div");
-            card.className = "project-card";
-            
-            const detail = projectDetails[idx] || { 
-                title: `RDG Construction Project ${idx + 7}`, 
-                desc: "Premium construction & landscape architecture delivering excellence across Ethiopia with professional craftsmanship." 
-            };
-            
-            const img = document.createElement("img");
-            img.src = imgSrc;
-            img.alt = `RDG Project ${idx + 7} - ${detail.title}`;
-            img.loading = "lazy";
-            img.onerror = function() {
-                this.src = "https://placehold.co/800x600/2F3A40/FFFFFF?text=RDG+Construction+Project";
-                this.style.objectFit = "contain";
-            };
-            
-            const infoDiv = document.createElement("div");
-            infoDiv.className = "project-info";
-            infoDiv.innerHTML = `
+const container = document.getElementById("constructionGalleryGrid");
+if (container) {
+    constructionImages.forEach((imgSrc, idx) => {
+        const card = document.createElement("div");
+        card.className = "project-card";
+        const detail = projectDetails[idx] || { title: `Project ${idx + 7}`, desc: "Premium construction excellence." };
+        card.innerHTML = `
+            <img src="${imgSrc}" alt="RDG Project ${idx + 7}" loading="lazy" onerror="this.src='https://placehold.co/800x600/2F3A40/FFFFFF?text=RDG+Project'">
+            <div class="project-info">
                 <h3><i class="fas fa-hard-hat"></i> Project ${idx + 7} | ${detail.title}</h3>
                 <p>${detail.desc}</p>
                 <span class="project-badge"><i class="fas fa-check-circle"></i> RDG Excellence Certified</span>
-            `;
-            
-            card.appendChild(img);
-            card.appendChild(infoDiv);
-            galleryContainer.appendChild(card);
-        });
-        
-        // Add staggered animation using Intersection Observer
-        const cards = document.querySelectorAll(".project-card");
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    const delay = Array.from(cards).indexOf(entry.target) * 80;
-                    setTimeout(() => {
-                        entry.target.classList.add("animate-in");
-                    }, delay);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: "0px 0px 40px 0px" });
-        
-        cards.forEach(card => observer.observe(card));
-        
-        // Immediate check for visible cards
-        setTimeout(() => {
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    const idx = Array.from(cards).indexOf(card);
-                    setTimeout(() => card.classList.add("animate-in"), idx * 80);
-                    observer.unobserve(card);
-                }
-            });
-        }, 200);
-    }
-    
-    renderConstructionGallery();
-    
-    // Handle external trigger from homepage
-    const shouldHighlight = sessionStorage.getItem("rdg_show_construction_gallery");
-    if (shouldHighlight === "true") {
-        sessionStorage.removeItem("rdg_show_construction_gallery");
-        setTimeout(() => {
-            const gallerySection = document.querySelector(".projects-gallery");
-            if (gallerySection) {
-                gallerySection.scrollIntoView({ behavior: "smooth", block: "start" });
-                gallerySection.style.transition = "0.3s";
-                gallerySection.style.boxShadow = "0 0 0 3px #E76F51";
-                setTimeout(() => {
-                    gallerySection.style.boxShadow = "none";
-                }, 1500);
-            }
-        }, 500);
-    }
-    
-    // Fix any broken images
-    window.addEventListener("load", () => {
-        const allImgs = document.querySelectorAll(".project-card img");
-        allImgs.forEach(img => {
-            if (img.complete && img.naturalHeight === 0) {
-                img.src = "https://placehold.co/800x600/2F3A40/FFFFFF?text=RDG+Preview";
-            }
-        });
+            </div>
+        `;
+        container.appendChild(card);
     });
+    const cards = document.querySelectorAll(".project-card");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const idx = Array.from(cards).indexOf(entry.target);
+                setTimeout(() => entry.target.classList.add("animate-in"), idx * 80);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    cards.forEach(card => observer.observe(card));
+}
+
+const shouldHighlight = sessionStorage.getItem("rdg_show_construction_gallery");
+if (shouldHighlight === "true") {
+    sessionStorage.removeItem("rdg_show_construction_gallery");
+    setTimeout(() => {
+        const gallerySection = document.querySelector(".projects-gallery");
+        if (gallerySection) { gallerySection.scrollIntoView({ behavior: "smooth" }); }
+    }, 500);
+}
 </script>
 </body>
 </html>
