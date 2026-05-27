@@ -17,7 +17,7 @@
     --bg-dark:#252F35;
     --white:#F5F5F5;
     --muted:#D5D5D5;
-    --gold:#E4C08C;
+    --accent:#E76F51;
 }
 body{
     font-family:'Inter',sans-serif;
@@ -34,7 +34,7 @@ body{
                 linear-gradient(135deg,#2F3A40,#252F35,#1F272C);
 }
 
-/* ---- LOGO SPLASH SCREEN ---- */
+/* ---- LOGO SPLASH SCREEN (5 sec) ---- */
 .splash-screen {
     position: fixed;
     top: 0;
@@ -51,18 +51,18 @@ body{
     backdrop-filter: blur(2px);
 }
 .splash-logo {
-    width: 220px;
-    max-width: 65vw;
+    width: 260px;
+    max-width: 70vw;
     animation: floatPulse 2.2s infinite ease-in-out;
     filter: drop-shadow(0 0 18px rgba(255,215,120,0.3));
     border-radius: 32px;
 }
 .splash-text {
     margin-top: 2rem;
-    font-weight: 600;
-    letter-spacing: 4px;
+    font-weight: 700;
+    letter-spacing: 6px;
     font-size: 1.2rem;
-    background: linear-gradient(135deg, #FFF, #D4CFC0);
+    background: linear-gradient(135deg, #FFF, #CFD8DC);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -78,7 +78,7 @@ body{
     pointer-events: none;
 }
 
-/* ---- NAVIGATION & MAIN CONTENT ---- */
+/* ---- NAVIGATION ---- */
 nav{
     position:sticky;
     top:0;
@@ -284,19 +284,20 @@ nav{
     color:white;
 }
 
-/* --- DYNAMIC IMAGE GALLERY (HOME: 1-5 only) --- */
+/* ========== WIDE IMAGE GALLERY (HOME: only RDG Essence 1–5, but WIDER layout) ========== */
 .gallery-cascade {
-    margin: 3rem 0 2.5rem;
-    padding: 2rem 0 1rem;
-    background: rgba(0,0,0,0.2);
-    border-radius: 60px;
+    margin: 3rem 0 2rem;
+    padding: 2rem 1rem 2rem;
+    background: rgba(0,0,0,0.25);
+    border-radius: 56px;
+    backdrop-filter: blur(4px);
 }
 .cascade-title {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 2rem;
-    font-weight: 600;
-    letter-spacing: -0.5px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
     background: linear-gradient(120deg, #FFF, #CFD8DC);
     -webkit-background-clip: text;
     background-clip: text;
@@ -308,11 +309,11 @@ nav{
     justify-content: center;
     gap: 2rem;
     position: relative;
-    min-height: 320px;
 }
+/* WIDER CARDS: increased width and better image visibility */
 .cascade-item {
-    width: 260px;
-    background: rgba(35,45,52,0.7);
+    width: 300px;
+    background: rgba(35,45,52,0.75);
     backdrop-filter: blur(6px);
     border-radius: 36px;
     overflow: hidden;
@@ -328,39 +329,31 @@ nav{
 }
 .cascade-item img {
     width: 100%;
-    height: 220px;
+    height: 260px;
     object-fit: cover;
     display: block;
     transition: 0.4s ease;
 }
 .cascade-item:hover {
     transform: translateY(-12px) scale(1.02);
-    border-color: rgba(255,215,120,0.6);
+    border-color: rgba(231,111,81,0.6);
     box-shadow: 0 28px 40px -18px black;
 }
 .cascade-item:hover img {
     filter: brightness(1.08);
 }
 .item-caption {
-    padding: 0.9rem;
-    font-size: 0.9rem;
-    font-weight: 600;
+    padding: 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
     text-align: center;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.7);
     color: #F5F3E9;
-    letter-spacing: 0.3px;
-    word-break: keep-all;
-}
-/* left/right drop variations */
-.cascade-item.left-drop {
-    transform-origin: top left;
-}
-.cascade-item.right-drop {
-    transform-origin: top right;
+    letter-spacing: 0.5px;
 }
 .view-more-btn {
     text-align: center;
-    margin: 2rem auto 1rem;
+    margin: 2.2rem auto 0.5rem;
 }
 .btn-view {
     background: linear-gradient(95deg, #F2F2F2, #E0E0E0);
@@ -386,61 +379,6 @@ nav{
     background: white;
     box-shadow: 0 14px 26px -8px black;
     gap: 18px;
-}
-
-/* Construction Page Specific (hidden initially but we'll build separate section via JS route) */
-.construction-page {
-    max-width: 1400px;
-    margin: auto;
-    padding: 5rem 2rem;
-    display: none;
-}
-.construction-active {
-    display: block;
-}
-.home-content {
-    display: block;
-}
-.home-hidden {
-    display: none;
-}
-.gallery-extended {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-.extended-card {
-    background: rgba(45, 58, 66, 0.85);
-    border-radius: 32px;
-    overflow: hidden;
-    transition: 0.3s;
-    border: 1px solid rgba(255,255,240,0.08);
-}
-.extended-card img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-}
-.extended-card .info {
-    padding: 1rem;
-    text-align: center;
-    font-weight: 500;
-    background: #1F2C32;
-}
-.back-home {
-    margin-bottom: 2rem;
-    display: inline-block;
-    background: rgba(255,255,255,0.12);
-    padding: 0.7rem 1.6rem;
-    border-radius: 40px;
-    text-decoration: none;
-    color: white;
-    transition: 0.2s;
-}
-.back-home:hover {
-    background: white;
-    color: #2F3A40;
 }
 footer{
     background:#20282D;
@@ -469,10 +407,13 @@ footer{
     text-align:center;
     color:rgba(255,255,255,0.45);
 }
+@media(max-width: 1100px){
+    .cascade-item { width: 270px; }
+}
 @media(max-width:980px){
     .business-grid{ grid-template-columns:repeat(2,1fr); }
     .slide-content h1{ font-size:3.3rem; }
-    .cascade-item { width: 220px; }
+    .cascade-item { width: 260px; }
 }
 @media(max-width:780px){
     .menu-icon{ display:block; }
@@ -492,6 +433,13 @@ footer{
     .business-grid{ grid-template-columns:1fr; }
     .logo-img{ height:70px; }
     .slide-content h1{ font-size:2.4rem; }
+    .cascade-grid { justify-content: center; gap: 1.5rem; }
+    .cascade-item { width: 85%; max-width: 320px; }
+    .cascade-item img { height: 230px; }
+}
+@media(max-width:480px){
+    .slide-content h1{ font-size:2rem; }
+    .slide-content p{ font-size:1rem; }
 }
 </style>
 </head>
@@ -506,13 +454,14 @@ footer{
 <div class="gradient-bg"></div>
 <nav>
 <div class="nav-container">
-<a href="#" class="logo" id="homeLogoLink">
+<a href="index.html" class="logo">
 <img src="logo1.JPG" alt="RDG Logo" class="logo-img" onerror="this.src='https://placehold.co/200x80?text=RDG'">
 </a>
 <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
 <ul class="nav-links" id="navLinks">
-<li><a href="#" id="navHome" class="active">Home</a></li>
-<li><a href="#" id="navConstruction">Construction</a></li>
+<li><a href="index.html" class="active">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="construction.html">Construction</a></li>
 <li><a href="import.html">Import</a></li>
 <li><a href="coffee.html">Coffee</a></li>
 <li><a href="portfolio.html">Portfolio</a></li>
@@ -521,14 +470,13 @@ footer{
 </div>
 </nav>
 
-<!-- ==================== HOME SECTION ==================== -->
-<div id="homeSection" class="home-content">
+<!-- HERO SLIDER -->
 <div class="hero-slider">
 <div class="slide active" style="background-image:url('IMG_20260516_190409_120.jpg');">
 <div class="slide-content">
 <h1>RDG Construction</h1>
 <p>Building Ethiopia's future through premium construction, landscape architecture and modern infrastructure solutions.</p>
-<a href="#" class="btn-primary" id="heroConstrBtn">Discover Projects</a>
+<a href="construction.html" class="btn-primary" id="heroDiscoverBtn">Discover Projects</a>
 </div>
 </div>
 <div class="slide" style="background-image:url('IMG_20260516_190410_213.jpg');">
@@ -552,7 +500,7 @@ footer{
 <h2 class="section-title">Our Divisions</h2>
 <p class="section-subtitle">Three powerful sectors driving RDG Business Holding forward</p>
 <div class="business-grid">
-<a href="#" class="business-card" id="cardConstr">
+<a href="construction.html" class="business-card" id="cardConstrLink">
 <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
 <h3>RDG Construction</h3>
 <p>General contracting, landscape architecture, premium finishing and infrastructure development.</p>
@@ -572,7 +520,7 @@ footer{
 </a>
 </div>
 
-<!-- HOME GALLERY: Only images 1 to 5 (RDG Essence 1–5) with left/right drop -->
+<!-- ===== WIDE HOME GALLERY: ONLY RDG ESSENCE 1 to 5 (wider images, left/right drop effect) ===== -->
 <div class="gallery-cascade">
     <div class="cascade-title">✦ Visual Chronicle ✦</div>
     <div class="cascade-grid" id="homeCascadeGrid"></div>
@@ -580,17 +528,6 @@ footer{
         <a href="#" id="viewMoreGalleryBtn" class="btn-view"><i class="fas fa-images"></i> Click to view more →</a>
     </div>
 </div>
-</div>
-</div>
-
-<!-- ==================== CONSTRUCTION PAGE (GALLERY 7 to 25) ==================== -->
-<div id="constructionSection" class="construction-page">
-    <div class="container" style="padding-top: 2rem;">
-        <a href="#" id="backHomeBtn" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        <h2 class="section-title" style="font-size: 2.8rem;">🏗️ RDG Construction Projects</h2>
-        <p class="section-subtitle">Full gallery — exclusive imagery 7 to 25 | built legacy</p>
-        <div id="extendedGallery" class="gallery-extended"></div>
-    </div>
 </div>
 
 <footer>
@@ -603,77 +540,79 @@ footer{
 </div>
 <div class="footer-col">
 <h4>Divisions</h4>
-<a href="#" id="footerConstr">RDG Construction</a>
+<a href="construction.html">RDG Construction</a>
 <a href="import.html">RDG Import</a>
 <a href="coffee.html">RDG Coffee</a>
 </div>
 <div class="footer-col">
 <h4>Quick Links</h4>
-<a href="#" id="footerHomeLink">Home</a>
-<a href="#" id="footerConstrLink">Construction Gallery</a>
+<a href="about.html">About</a>
+<a href="portfolio.html">Portfolio</a>
 <a href="contact.html">Contact Us</a>
 </div>
 </div>
-<div class="copyright">© 2026 RDG Business Holding All Rights Reserved</div>
+<div class="copyright">© 2026 RDG Business Holding | Precision • Excellence</div>
 </footer>
 
 <script>
-// ------------------------- SPLASH SCREEN: 5 SECONDS + FADE OUT -------------------------
+// ------------------------- SPLASH SCREEN: 5 SECONDS -------------------------
 const splash = document.getElementById('splashScreen');
 if (splash) {
     setTimeout(() => {
         splash.classList.add('splash-hidden');
-        setTimeout(() => { if(splash && splash.parentNode) splash.style.display = 'none'; }, 800);
+        setTimeout(() => {
+            if (splash && splash.parentNode) splash.style.display = 'none';
+        }, 800);
     }, 5000);
 }
 
-// Mobile menu
+// Mobile menu toggle
 const menuIcon = document.getElementById('menuIcon');
 const navLinks = document.getElementById('navLinks');
-if (menuIcon) menuIcon.addEventListener('click',()=>{ navLinks.classList.toggle('active'); });
+if (menuIcon) {
+    menuIcon.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+}
 
-// Hero slider logic
+// Hero Slider Logic
 const slides = document.querySelectorAll('.slide');
 const dotContainer = document.getElementById('dotContainer');
 let currentSlide = 0;
 if (slides.length && dotContainer) {
-    slides.forEach((slide,index)=>{
+    slides.forEach((slide, index) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
-        if(index === 0) dot.classList.add('active');
-        dot.addEventListener('click',()=>{ goToSlide(index); });
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => { goToSlide(index); });
         dotContainer.appendChild(dot);
     });
     const dots = document.querySelectorAll('.dot');
-    function goToSlide(index){
-        slides.forEach(s=> s.classList.remove('active'));
-        dots.forEach(d=> d.classList.remove('active'));
+    function goToSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
         slides[index].classList.add('active');
         dots[index].classList.add('active');
         currentSlide = index;
     }
-    function autoSlide(){ currentSlide++; if(currentSlide >= slides.length) currentSlide = 0; goToSlide(currentSlide); }
+    function autoSlide() { currentSlide++; if (currentSlide >= slides.length) currentSlide = 0; goToSlide(currentSlide); }
     setInterval(autoSlide, 5500);
 }
 
-// ---------- IMAGE LISTS ----------
+// ---------- FULL LIST OF 25 IMAGES ----------
 const fullImageList = [
-    "IMG_20260516_193503_613.jpg","IMG_20260516_193503_758.jpg","IMG_20260516_193503_889.jpg","IMG_20260516_193503_899.jpg","IMG_20260516_193504_015.jpg",
-    "IMG_20260516_193504_108.jpg","IMG_20260516_193504_139.jpg","IMG_20260516_193504_253.jpg","IMG_20260516_193504_344.jpg","IMG_20260516_193504_492.jpg",
-    "IMG_20260516_193504_505.jpg","IMG_20260516_193504_606.jpg","IMG_20260516_193504_657.jpg","IMG_20260516_193504_671.jpg","IMG_20260516_193504_728.jpg",
-    "IMG_20260516_193504_809.jpg","IMG_20260516_193504_893.jpg","IMG_20260516_193545_318.jpg","IMG_20260516_193549_149.jpg","IMG_20260516_193551_743.jpg",
-    "IMG_20260516_193553_378.jpg","IMG_20260516_193555_359.jpg","IMG_20260516_193556_809.jpg","IMG_20260516_193559_176.jpg","IMG_20260516_193601_172.jpg"
+    "IMG_20260516_193503_613.jpg", "IMG_20260516_193503_758.jpg", "IMG_20260516_193503_889.jpg", "IMG_20260516_193503_899.jpg", "IMG_20260516_193504_015.jpg",
+    "IMG_20260516_193504_108.jpg", "IMG_20260516_193504_139.jpg", "IMG_20260516_193504_253.jpg", "IMG_20260516_193504_344.jpg", "IMG_20260516_193504_492.jpg",
+    "IMG_20260516_193504_505.jpg", "IMG_20260516_193504_606.jpg", "IMG_20260516_193504_657.jpg", "IMG_20260516_193504_671.jpg", "IMG_20260516_193504_728.jpg",
+    "IMG_20260516_193504_809.jpg", "IMG_20260516_193504_893.jpg", "IMG_20260516_193545_318.jpg", "IMG_20260516_193549_149.jpg", "IMG_20260516_193551_743.jpg",
+    "IMG_20260516_193553_378.jpg", "IMG_20260516_193555_359.jpg", "IMG_20260516_193556_809.jpg", "IMG_20260516_193559_176.jpg", "IMG_20260516_193601_172.jpg"
 ];
 
-// HOME only indices 0..4 => images 1 to 5 (RDG Essence 1-5)
-const homeImages = fullImageList.slice(0,5);
-// CONSTRUCTION page images from index 6 to 24 (7th to 25th)
-const constructionImages = fullImageList.slice(6, 25);
+// HOME PAGE: ONLY images 1 to 5 (indices 0-4) -> RDG Essence 1–5
+const homeImages = fullImageList.slice(0, 5);
 
-// Render Home Gallery (only 5 images, left/right drop)
+// Function to render home gallery (wider cards, left/right stagger)
 function renderHomeGallery() {
     const grid = document.getElementById('homeCascadeGrid');
-    if(!grid) return;
+    if (!grid) return;
     grid.innerHTML = '';
     homeImages.forEach((src, idx) => {
         const card = document.createElement('div');
@@ -681,103 +620,106 @@ function renderHomeGallery() {
         const img = document.createElement('img');
         img.src = src;
         img.alt = `RDG Essence ${idx+1}`;
-        img.onerror = function() { this.src = 'https://placehold.co/400x300/3A4A54/FFFFFF?text=RDG+Preview'; };
+        img.onerror = function() { this.src = 'https://placehold.co/600x400/3A4A54/FFFFFF?text=RDG+Preview'; };
         const caption = document.createElement('div');
         caption.className = 'item-caption';
-        caption.innerText = `✦ RDG ESSENCE ${idx+1} ✦`;
+        caption.innerHTML = `<i class="fas fa-camera"></i> RDG ESSENCE ${idx+1}`;
         card.appendChild(img);
         card.appendChild(caption);
         grid.appendChild(card);
     });
-    // stagger reveal observer
+    
+    // Intersection Observer for staggered reveal (left/right drop)
     const items = document.querySelectorAll('#homeCascadeGrid .cascade-item');
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
-            if(entry.isIntersecting){
+            if (entry.isIntersecting) {
                 const idx = Array.from(items).indexOf(entry.target);
                 setTimeout(() => entry.target.classList.add('reveal'), idx * 100);
                 obs.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.2, rootMargin: "0px 0px 40px 0px" });
     items.forEach(i => observer.observe(i));
+    
+    // Also immediate check for visible ones
     setTimeout(() => {
-        items.forEach(i => { if(i.getBoundingClientRect().top < window.innerHeight-80) i.classList.add('reveal'); });
+        items.forEach(i => {
+            if (i.getBoundingClientRect().top < window.innerHeight - 80) {
+                const idx = Array.from(items).indexOf(i);
+                setTimeout(() => i.classList.add('reveal'), idx * 80);
+                observer.unobserve(i);
+            }
+        });
     }, 300);
 }
 
-// Render Construction Gallery (images 7-25)
-function renderConstructionGallery() {
-    const galleryDiv = document.getElementById('extendedGallery');
-    if(!galleryDiv) return;
-    galleryDiv.innerHTML = '';
-    constructionImages.forEach((src, idx) => {
-        const card = document.createElement('div');
-        card.className = 'extended-card';
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `RDG Project ${idx+7}`;
-        img.onerror = function() { this.src = 'https://placehold.co/400x300/3A4A54/FFFFFF?text=Construction+Excellence'; };
-        const info = document.createElement('div');
-        info.className = 'info';
-        info.innerText = `🏗️ Project Detail • RDG Legacy ${idx+7}`;
-        card.appendChild(img);
-        card.appendChild(info);
-        galleryDiv.appendChild(card);
+// ----- "CLICK TO VIEW MORE" leads to construction.html with flag to show images 7-25 -----
+const viewMoreBtn = document.getElementById('viewMoreGalleryBtn');
+const heroDiscoverBtn = document.getElementById('heroDiscoverBtn');
+const cardConstrLink = document.getElementById('cardConstrLink');
+
+function navigateToConstructionGallery() {
+    // Set sessionStorage flag so construction page knows to highlight full gallery (images 7-25)
+    sessionStorage.setItem('rdg_show_construction_gallery', 'true');
+    // Navigate to construction.html
+    window.location.href = 'construction.html';
+}
+
+if (viewMoreBtn) {
+    viewMoreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateToConstructionGallery();
+    });
+}
+if (heroDiscoverBtn) {
+    heroDiscoverBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateToConstructionGallery();
+    });
+}
+if (cardConstrLink) {
+    cardConstrLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateToConstructionGallery();
     });
 }
 
-// PAGE SWITCHING LOGIC (Home ↔ Construction)
-const homeSection = document.getElementById('homeSection');
-const constructionSection = document.getElementById('constructionSection');
-const navHome = document.getElementById('navHome');
-const navConstruction = document.getElementById('navConstruction');
-const backHomeBtn = document.getElementById('backHomeBtn');
-const viewMoreBtn = document.getElementById('viewMoreGalleryBtn');
-const cardConstrBtn = document.getElementById('cardConstr');
-const heroConstrBtn = document.getElementById('heroConstrBtn');
-const footerConstr = document.getElementById('footerConstr');
-const footerHomeLink = document.getElementById('footerHomeLink');
-const footerConstrLink = document.getElementById('footerConstrLink');
-const homeLogoLink = document.getElementById('homeLogoLink');
-
-function showHome() {
-    homeSection.classList.remove('home-hidden');
-    homeSection.style.display = 'block';
-    constructionSection.classList.remove('construction-active');
-    constructionSection.style.display = 'none';
-    if(navHome) navHome.classList.add('active');
-    if(navConstruction) navConstruction.classList.remove('active');
-    document.title = "RDG Business Holding | Precision • Excellence";
+// Also add any extra footer / construction links to behave same (optional but consistent)
+const footerConstrLink = document.querySelector('.footer-col a[href="construction.html"]');
+if (footerConstrLink) {
+    footerConstrLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateToConstructionGallery();
+    });
 }
-function showConstruction() {
-    homeSection.classList.add('home-hidden');
-    homeSection.style.display = 'none';
-    constructionSection.style.display = 'block';
-    constructionSection.classList.add('construction-active');
-    if(navConstruction) navConstruction.classList.add('active');
-    if(navHome) navHome.classList.remove('active');
-    document.title = "RDG Construction | Full Project Gallery";
-    if(constructionImages.length) renderConstructionGallery();
+const navConstrLink = document.querySelector('.nav-links a[href="construction.html"]');
+if (navConstrLink) {
+    navConstrLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigateToConstructionGallery();
+    });
 }
 
-// event listeners
-if(navHome) navHome.addEventListener('click', (e) => { e.preventDefault(); showHome(); if(navLinks) navLinks.classList.remove('active'); });
-if(navConstruction) navConstruction.addEventListener('click', (e) => { e.preventDefault(); showConstruction(); if(navLinks) navLinks.classList.remove('active'); });
-if(backHomeBtn) backHomeBtn.addEventListener('click', (e) => { e.preventDefault(); showHome(); });
-if(viewMoreBtn) viewMoreBtn.addEventListener('click', (e) => { e.preventDefault(); showConstruction(); });
-if(cardConstrBtn) cardConstrBtn.addEventListener('click', (e) => { e.preventDefault(); showConstruction(); });
-if(heroConstrBtn) heroConstrBtn.addEventListener('click', (e) => { e.preventDefault(); showConstruction(); });
-if(footerConstr) footerConstr.addEventListener('click', (e) => { e.preventDefault(); showConstruction(); });
-if(footerHomeLink) footerHomeLink.addEventListener('click', (e) => { e.preventDefault(); showHome(); });
-if(footerConstrLink) footerConstrLink.addEventListener('click', (e) => { e.preventDefault(); showConstruction(); });
-if(homeLogoLink) homeLogoLink.addEventListener('click', (e) => { e.preventDefault(); showHome(); });
-
-// initial rendering
+// Render home gallery on page load
 renderHomeGallery();
-// preload construction data but hidden
-renderConstructionGallery();
-showHome(); // default home
+
+// Close mobile menu on any link click
+const allNavLinks = document.querySelectorAll('.nav-links a');
+allNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 780 && navLinks) navLinks.classList.remove('active');
+    });
+});
+
+// Ensure that any image loading errors have fallback
+document.querySelectorAll('img').forEach(img => {
+    img.onerror = function() {
+        if (!this.src.includes('placehold')) {
+            this.src = 'https://placehold.co/600x400/2F3A40/FFFFFF?text=RDG+Asset';
+        }
+    };
+});
 </script>
 </body>
 </html>
