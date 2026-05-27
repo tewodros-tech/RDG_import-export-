@@ -318,7 +318,7 @@ nav{
 }
 .area-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:1rem;
 }
 .area-item{
@@ -333,10 +333,9 @@ nav{
     color:#E76F51;
 }
 
-/* ========== FIXED GALLERY - NO TEXT CUTTING ========== */
+/* ========== COMPLETELY REDESIGNED GALLERY - NO TEXT CUTTING ========== */
 .feature-gallery {
     margin: 4rem 0;
-    padding: 2rem 0;
 }
 .gallery-title {
     text-align: center;
@@ -347,74 +346,62 @@ nav{
 .gallery-title span {
     color: #E76F51;
 }
-.wide-gallery-grid {
+.gallery-grid-vertical {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
 }
-.gallery-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 2rem;
-}
-/* FIXED: Taller cards with proper height to fit all text */
-.gallery-card-wide {
-    position: relative;
-    border-radius: 28px;
+/* Each image gets its own FULL WIDTH card with ALL text visible */
+.gallery-block {
+    background: rgba(35, 45, 52, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 36px;
     overflow: hidden;
-    background: rgba(35,45,52,0.9);
-    transition: transform 0.4s ease, box-shadow 0.3s;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    display: flex;
-    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
 }
-.gallery-card-wide:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 25px 45px rgba(0,0,0,0.4);
+.gallery-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+    border-color: #E76F51;
 }
-.gallery-card-wide img {
+.gallery-block-img {
     width: 100%;
-    height: 280px;
+    height: 400px;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
 }
-.gallery-card-wide:hover img {
-    transform: scale(1.05);
+.gallery-block-content {
+    padding: 2rem;
 }
-/* FIXED: Taller overlay with scroll if needed, but enough height */
-.gallery-overlay {
-    background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.75) 100%);
-    padding: 1.5rem;
-    min-height: 160px;
-    display: flex;
-    flex-direction: column;
-}
-.gallery-overlay h4 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 0.8rem;
+.gallery-block-title {
+    font-size: 1.8rem;
+    font-weight: 800;
     color: #E76F51;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
-.gallery-overlay p {
-    font-size: 0.9rem;
+.gallery-block-title i {
+    font-size: 1.8rem;
+}
+.gallery-block-text {
+    font-size: 1rem;
+    line-height: 1.8;
     color: rgba(255,255,255,0.9);
-    line-height: 1.6;
+}
+.gallery-block-text p {
+    margin-bottom: 0.8rem;
+}
+.gallery-block-text ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    overflow-y: auto;
-    max-height: 120px;
 }
-/* Scrollbar styling for text overflow */
-.gallery-overlay p::-webkit-scrollbar {
-    width: 4px;
-}
-.gallery-overlay p::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
-}
-.gallery-overlay p::-webkit-scrollbar-thumb {
-    background: #E76F51;
-    border-radius: 10px;
+.gallery-block-text li {
+    margin-bottom: 0.3rem;
+    line-height: 1.6;
 }
 .view-more-wrapper {
     text-align: center;
@@ -479,8 +466,8 @@ footer{
     .business-grid{ grid-template-columns:repeat(2,1fr); }
     .vision-mission{ grid-template-columns:1fr; }
     .slide-content h1{ font-size:3rem; }
-    .gallery-row{ grid-template-columns:1fr; }
-    .gallery-card-wide img{ height: 250px; }
+    .gallery-block-img{ height: 280px; }
+    .gallery-block-title{ font-size: 1.4rem; }
 }
 @media(max-width:780px){
     .menu-icon{ display:block; }
@@ -500,8 +487,8 @@ footer{
     .business-grid{ grid-template-columns:1fr; }
     .logo-img{ height:65px; }
     .slide-content h1{ font-size:2rem; }
-    .gallery-overlay{ min-height: 180px; }
-    .gallery-overlay p{ max-height: 150px; }
+    .gallery-block-img{ height: 220px; }
+    .gallery-block-content{ padding: 1.2rem; }
 }
 </style>
 </head>
@@ -580,7 +567,7 @@ footer{
 </a>
 </div>
 
-<!-- Vision & Mission Section (FULL TEXT - NO CUTTING) -->
+<!-- Vision & Mission Section - FULL TEXT -->
 <div class="vision-mission">
     <div class="vm-card">
         <h3><i class="fas fa-eye"></i> Vision</h3>
@@ -590,6 +577,15 @@ footer{
         <h3><i class="fas fa-bullseye"></i> Mission</h3>
         <p>Our mission is to transform the Ethiopian landscaping industry by offering comprehensive, personalized, and sustainable solutions to our valued clients. With our expertise and unwavering dedication, we aim to exceed expectations, enhance the natural beauty of every project, and create landscapes that stand the test of time.</p>
     </div>
+</div>
+
+<!-- Client Types Section -->
+<div class="vm-card" style="margin-bottom:2rem;">
+    <h3><i class="fas fa-users"></i> Our Clients</h3>
+    <p><strong>Residential:</strong> Homeowners and property developers seeking to enhance the beauty, functionality, and value of their residential properties.<br><br>
+    <strong>Commercial:</strong> Hotels, resorts, restaurants, retail establishments, and corporate offices desiring captivating and inviting outdoor spaces that leave a lasting impression on their guests and customers.<br><br>
+    <strong>Public Spaces:</strong> Municipalities, government institutions, educational facilities, and public parks looking to create well-designed and sustainable landscapes that foster community engagement and enhance the quality of public spaces.<br><br>
+    <strong>Institutional:</strong> Hospitals, universities, housing complexes, and religious institutions interested in creating tranquil and aesthetically pleasing outdoor environments for their visitors, patients, students, and residents.</p>
 </div>
 
 <!-- Areas of Involvement -->
@@ -606,10 +602,10 @@ footer{
     </div>
 </div>
 
-<!-- WIDE ATTRACTIVE GALLERY - NO TEXT CUTTING -->
+<!-- COMPLETELY REDESIGNED GALLERY - NO TEXT CUTTING WHATSOEVER -->
 <div class="feature-gallery">
     <div class="gallery-title">✦ <span>VISUAL CHRONICLE</span> ✦</div>
-    <div class="wide-gallery-grid" id="wideGalleryGrid"></div>
+    <div class="gallery-grid-vertical" id="fullTextGallery"></div>
     <div class="view-more-wrapper">
         <a href="construction.html" id="viewMoreBtn" class="btn-gold"><i class="fas fa-images"></i> Click to view more projects →</a>
     </div>
@@ -678,39 +674,99 @@ if(slides.length && dotContainer) {
     setInterval(() => { currentSlide = (currentSlide + 1) % slides.length; goToSlide(currentSlide); }, 5500);
 }
 
-// IMAGES 1-5 with COMPLETE, FULLY VISIBLE TEXT (no cutting)
-const homeImagesData = [
-    { src: "IMG_20260516_193503_613.jpg", title: "RDG ESSENCE 1", desc: "Premium Construction & Infrastructure | Building Ethiopia's future with world-class quality and innovative design solutions. We specialize in residential buildings from G+1 to G+5, ensuring structural integrity and modern design." },
-    { src: "IMG_20260516_193503_758.jpg", title: "RDG ESSENCE 2", desc: "Landscaping at Ler Cement Industrial Complex | Supplying fertile soil, mate landscape work, manage and supervise landscape work on site, supplying grass and plants, supplying organic compost, rehabilitation and restoration of degraded soil terrains neglected after mining and quarrying activities, planting local trees, post plantation care." },
-    { src: "IMG_20260516_193503_889.jpg", title: "RDG ESSENCE 3", desc: "Expert Team | Educational background in technology management (MSC Landscape Architecture), Architect and Design coordinator with 10+ years experience, Architectural and urban planning (MSC Landscape Architecture Pending), Professional Architect with 6+ years experience, BSc in Architectural and urban planning, Professional Architect 7+ years experience, Hydro and environmental engineer with 10+ years experience." },
-    { src: "IMG_20260516_193503_899.jpg", title: "RDG ESSENCE 4", desc: "Sustainable Environmental Engineering | Advanced soil rehabilitation, water management, and eco-friendly construction practices. Professional engineering team dedicated to environmental protection and sustainable development." },
-    { src: "IMG_20260516_193504_015.jpg", title: "RDG ESSENCE 5", desc: "Premium Finishing Works | Ceramic tile installation, professional painting, decorative treatments that define elegance and durability. Complete interior and exterior finishing services for residential and commercial properties." }
+// COMPLETE GALLERY DATA - ALL TEXT FULLY VISIBLE, NO CUTTING
+const galleryData = [
+    {
+        img: "IMG_20260516_193503_613.jpg",
+        title: "RDG ESSENCE 1",
+        icon: "fa-crown",
+        text: `<p><strong>Premium Construction & Infrastructure</strong> — Building Ethiopia's future with world-class quality and innovative design solutions.</p>
+        <p>We specialize in residential buildings from G+1 to G+5, ensuring structural integrity, modern design, and timely delivery. Builder to a wide range of clients including homeowners, property developers, hotels, resorts, restaurants, retail establishments, corporate offices, municipalities, government institutions, educational facilities, public parks, hospitals, universities, housing complexes, and religious institutions.</p>`
+    },
+    {
+        img: "IMG_20260516_193503_758.jpg",
+        title: "RDG ESSENCE 2",
+        icon: "fa-tree",
+        text: `<p><strong>Landscaping Project at Lemi Nati Cement Industrial Complex</strong> — The biggest cement factory in Ethiopia.</p>
+        <ul>
+            <li>Supply fertile soil, materials for landscape work</li>
+            <li>Manage and supervise the landscape work on site</li>
+            <li>Supplying grass and plants</li>
+            <li>Supplying organic compost</li>
+            <li>Rehabilitation and renovation of degraded soil terrains neglected after mining and quarrying activities</li>
+            <li>Planting local trees</li>
+            <li>Post plantation care</li>
+        </ul>`
+    },
+    {
+        img: "IMG_20260516_193503_889.jpg",
+        title: "RDG ESSENCE 3",
+        icon: "fa-users",
+        text: `<p><strong>Expert Team Qualifications:</strong></p>
+        <ul>
+            <li>G/yesus Educational — Architectural and urban planning (MSC Landscape Architecture Pending)</li>
+            <li>Architect on Architect — Experience 6+ years</li>
+            <li>Urban Educational and urban planning — Experience 7+ years</li>
+            <li>Architectural and urban planning Professional Architect — Experience 7+ years</li>
+            <li>Structural engineer — Experience 10+ years</li>
+            <li>Fire Fighting specialist</li>
+            <li>Water supply and environmental engineering</li>
+            <li>Sanitary engineer — Experience 8+ years</li>
+            <li>Jane Belay — NOC Gas Station Management (station operation, tanker installation, building construction)</li>
+        </ul>`
+    },
+    {
+        img: "IMG_20260516_193503_899.jpg",
+        title: "RDG ESSENCE 4",
+        icon: "fa-leaf",
+        text: `<p><strong>Sustainable Environmental Engineering</strong> — Advanced soil rehabilitation, water management, and eco-friendly construction practices. Professional engineering team dedicated to environmental protection and sustainable development.</p>
+        <p>Our environmental engineers work on water supply systems, sanitary engineering, and fire fighting infrastructure to ensure complete project safety and sustainability.</p>`
+    },
+    {
+        img: "IMG_20260516_193504_015.jpg",
+        title: "RDG ESSENCE 5",
+        icon: "fa-paint-brush",
+        text: `<p><strong>Premium Finishing Works</strong> — Ceramic tile installation, professional painting, decorative treatments that define elegance and durability. Complete interior and exterior finishing services for residential and commercial properties.</p>
+        <p>We provide high-end finishing solutions including wall cladding, flooring, painting, and decorative elements that transform spaces into masterpieces.</p>`
+    }
 ];
 
-function renderWideGallery() {
-    const container = document.getElementById('wideGalleryGrid');
+function renderFullTextGallery() {
+    const container = document.getElementById('fullTextGallery');
     if(!container) return;
     container.innerHTML = '';
-    for(let i = 0; i < homeImagesData.length; i += 2) {
-        const row = document.createElement('div');
-        row.className = 'gallery-row';
-        const chunk = homeImagesData.slice(i, i + 2);
-        chunk.forEach(imgData => {
-            const card = document.createElement('div');
-            card.className = 'gallery-card-wide';
-            card.innerHTML = `
-                <img src="${imgData.src}" alt="${imgData.title}" onerror="this.src='https://placehold.co/800x500/2F3A40/FFFFFF?text=RDG+Image'">
-                <div class="gallery-overlay">
-                    <h4><i class="fas fa-crown"></i> ${imgData.title}</h4>
-                    <p>${imgData.desc}</p>
+    
+    galleryData.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'gallery-block';
+        block.style.opacity = '0';
+        block.style.transform = 'translateY(30px)';
+        block.style.transition = `opacity 0.5s ease, transform 0.5s ease`;
+        
+        block.innerHTML = `
+            <img src="${item.img}" alt="${item.title}" class="gallery-block-img" onerror="this.src='https://placehold.co/800x500/2F3A40/FFFFFF?text=RDG+Image'">
+            <div class="gallery-block-content">
+                <div class="gallery-block-title">
+                    <i class="fas ${item.icon}"></i>
+                    ${item.title}
                 </div>
-            `;
-            row.appendChild(card);
-        });
-        container.appendChild(row);
-    }
+                <div class="gallery-block-text">
+                    ${item.text}
+                </div>
+            </div>
+        `;
+        
+        container.appendChild(block);
+        
+        // Staggered animation
+        setTimeout(() => {
+            block.style.opacity = '1';
+            block.style.transform = 'translateY(0)';
+        }, idx * 150);
+    });
 }
-renderWideGallery();
+
+renderFullTextGallery();
 
 // Navigation to construction page
 function goToConstruction() {
@@ -727,7 +783,7 @@ document.querySelectorAll('a[href="construction.html"]').forEach(link => {
     }
 });
 
-// Close mobile menu on link click
+// Close mobile menu
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => { if(window.innerWidth <= 780 && navLinks) navLinks.classList.remove('active'); });
 });
