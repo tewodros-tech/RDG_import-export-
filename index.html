@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>RDG Business Holding | Home</title>
+<title>RDG Business Holding | Premium Ventures</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
@@ -17,6 +17,7 @@
     --bg-dark:#252F35;
     --white:#F5F5F5;
     --muted:#D5D5D5;
+    --gold:#E4C08C;
 }
 body{
     font-family:'Inter',sans-serif;
@@ -32,6 +33,52 @@ body{
                 radial-gradient(circle at bottom right, rgba(255,255,255,0.02), transparent 35%),
                 linear-gradient(135deg,#2F3A40,#252F35,#1F272C);
 }
+
+/* ---- LOGO SPLASH SCREEN ---- */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, #2F3A40 0%, #1A2126 100%);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    backdrop-filter: blur(2px);
+}
+.splash-logo {
+    width: 220px;
+    max-width: 65vw;
+    animation: floatPulse 2.2s infinite ease-in-out;
+    filter: drop-shadow(0 0 18px rgba(255,215,120,0.3));
+    border-radius: 32px;
+}
+.splash-text {
+    margin-top: 2rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #FFF, #D4CFC0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+@keyframes floatPulse {
+    0% { transform: scale(0.96); opacity: 0.9; }
+    50% { transform: scale(1.04); opacity: 1; }
+    100% { transform: scale(0.96); opacity: 0.9; }
+}
+.splash-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ---- NAVIGATION & MAIN CONTENT ---- */
 nav{
     position:sticky;
     top:0;
@@ -236,6 +283,80 @@ nav{
     font-size:0.85rem;
     color:white;
 }
+
+/* --- DYNAMIC IMAGE GALLERY: DROP & STAGGER (LEFT/RIGHT) --- */
+.gallery-cascade {
+    margin: 3rem 0 5rem;
+    padding: 2rem 0;
+    background: rgba(0,0,0,0.2);
+    border-radius: 60px;
+}
+.cascade-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    background: linear-gradient(120deg, #FFF, #CFD8DC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.cascade-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    min-height: 420px;
+}
+.cascade-item {
+    width: 260px;
+    background: rgba(35,45,52,0.6);
+    backdrop-filter: blur(4px);
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.4);
+    transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+.cascade-item.reveal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.cascade-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: 0.4s ease;
+}
+.cascade-item:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(255,215,120,0.5);
+    box-shadow: 0 28px 40px -18px black;
+}
+.cascade-item:hover img {
+    filter: brightness(1.08);
+}
+.item-caption {
+    padding: 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: rgba(0,0,0,0.4);
+    color: #ECEFF1;
+}
+/* left/right floating variations */
+.cascade-item.left-drop {
+    transform-origin: top left;
+}
+.cascade-item.right-drop {
+    transform-origin: top right;
+}
 footer{
     background:#20282D;
     padding:5rem 2rem 2rem;
@@ -266,6 +387,7 @@ footer{
 @media(max-width:980px){
     .business-grid{ grid-template-columns:repeat(2,1fr); }
     .slide-content h1{ font-size:3.3rem; }
+    .cascade-item { width: 220px; }
 }
 @media(max-width:780px){
     .menu-icon{ display:block; }
@@ -285,19 +407,29 @@ footer{
     .business-grid{ grid-template-columns:1fr; }
     .logo-img{ height:70px; }
     .slide-content h1{ font-size:2.4rem; }
+    .cascade-grid { gap: 1.2rem; }
+    .cascade-item { width: 180px; }
 }
 @media(max-width:480px){
     .slide-content h1{ font-size:2rem; }
     .slide-content p{ font-size:1rem; }
+    .cascade-item { width: 150px; }
 }
 </style>
 </head>
 <body>
+
+<!-- SPLASH SCREEN: LOGO appears 5 seconds -->
+<div class="splash-screen" id="splashScreen">
+    <img src="logo1.JPG" alt="RDG Business Holding" class="splash-logo" onerror="this.src='https://placehold.co/400x200?text=RDG+Group'">
+    <div class="splash-text">PRECISION • VISION • EXCELLENCE</div>
+</div>
+
 <div class="gradient-bg"></div>
 <nav>
 <div class="nav-container">
 <a href="index.html" class="logo">
-<img src="logo1.JPG" alt="RDG Logo" class="logo-img">
+<img src="logo1.JPG" alt="RDG Logo" class="logo-img" onerror="this.src='https://placehold.co/200x80?text=RDG'">
 </a>
 <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
 <ul class="nav-links" id="navLinks">
@@ -311,6 +443,7 @@ footer{
 </ul>
 </div>
 </nav>
+
 <div class="hero-slider">
 <div class="slide active" style="background-image:url('IMG_20260516_190409_120.jpg');">
 <div class="slide-content">
@@ -335,6 +468,7 @@ footer{
 </div>
 <div class="dot-container" id="dotContainer"></div>
 </div>
+
 <div class="container">
 <h2 class="section-title">Our Divisions</h2>
 <p class="section-subtitle">Three powerful sectors driving RDG Business Holding forward</p>
@@ -358,7 +492,14 @@ footer{
 <span class="card-tag">Launching 2026</span>
 </a>
 </div>
+
+<!-- ========= DYNAMIC IMAGE GALLERY: DROP DOWN LEFT & RIGHT ========= -->
+<div class="gallery-cascade">
+    <div class="cascade-title">✦ Visual Chronicle ✦</div>
+    <div class="cascade-grid" id="cascadeGrid"></div>
 </div>
+</div>
+
 <footer>
 <div class="footer-grid">
 <div class="footer-col">
@@ -382,30 +523,162 @@ footer{
 </div>
 <div class="copyright">© 2026 RDG Business Holding All Rights Reserved</div>
 </footer>
+
 <script>
+// ------------------------- SPLASH SCREEN: 5 SECONDS + FADE OUT -------------------------
+const splash = document.getElementById('splashScreen');
+if (splash) {
+    setTimeout(() => {
+        splash.classList.add('splash-hidden');
+        // after transition remove from dom to avoid overlay
+        setTimeout(() => {
+            if (splash && splash.parentNode) splash.style.display = 'none';
+        }, 800);
+    }, 5000); // exactly 5 seconds
+}
+
+// Mobile menu toggle
 const menuIcon = document.getElementById('menuIcon');
 const navLinks = document.getElementById('navLinks');
-menuIcon.addEventListener('click',()=>{ navLinks.classList.toggle('active'); });
+if (menuIcon) {
+    menuIcon.addEventListener('click',()=>{ navLinks.classList.toggle('active'); });
+}
+
+// Hero slider logic
 const slides = document.querySelectorAll('.slide');
 const dotContainer = document.getElementById('dotContainer');
 let currentSlide = 0;
-slides.forEach((slide,index)=>{
-const dot = document.createElement('div');
-dot.classList.add('dot');
-if(index === 0) dot.classList.add('active');
-dot.addEventListener('click',()=>{ goToSlide(index); });
-dotContainer.appendChild(dot);
-});
-const dots = document.querySelectorAll('.dot');
-function goToSlide(index){
-slides.forEach(slide=> slide.classList.remove('active'));
-dots.forEach(dot=> dot.classList.remove('active'));
-slides[index].classList.add('active');
-dots[index].classList.add('active');
-currentSlide = index;
+
+if (slides.length && dotContainer) {
+    slides.forEach((slide,index)=>{
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if(index === 0) dot.classList.add('active');
+        dot.addEventListener('click',()=>{ goToSlide(index); });
+        dotContainer.appendChild(dot);
+    });
+    const dots = document.querySelectorAll('.dot');
+    function goToSlide(index){
+        slides.forEach(slide=> slide.classList.remove('active'));
+        dots.forEach(dot=> dot.classList.remove('active'));
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+    function autoSlide(){ 
+        currentSlide++; 
+        if(currentSlide >= slides.length) currentSlide = 0; 
+        goToSlide(currentSlide); 
+    }
+    let slideInterval = setInterval(autoSlide, 5500);
+    // optional: pause on hover? fine.
 }
-function autoSlide(){ currentSlide++; if(currentSlide >= slides.length) currentSlide = 0; goToSlide(currentSlide); }
-setInterval(autoSlide,5500);
+
+// ------------------------ IMAGE GALLERY: 25 images LEFT/RIGHT DROP & APPEAR ------------------------
+const imageList = [
+    "IMG_20260516_193503_613.jpg",
+    "IMG_20260516_193503_758.jpg",
+    "IMG_20260516_193503_889.jpg",
+    "IMG_20260516_193503_899.jpg",
+    "IMG_20260516_193504_015.jpg",
+    "IMG_20260516_193504_108.jpg",
+    "IMG_20260516_193504_139.jpg",
+    "IMG_20260516_193504_253.jpg",
+    "IMG_20260516_193504_344.jpg",
+    "IMG_20260516_193504_492.jpg",
+    "IMG_20260516_193504_505.jpg",
+    "IMG_20260516_193504_606.jpg",
+    "IMG_20260516_193504_657.jpg",
+    "IMG_20260516_193504_671.jpg",
+    "IMG_20260516_193504_728.jpg",
+    "IMG_20260516_193504_809.jpg",
+    "IMG_20260516_193504_893.jpg",
+    "IMG_20260516_193545_318.jpg",
+    "IMG_20260516_193549_149.jpg",
+    "IMG_20260516_193551_743.jpg",
+    "IMG_20260516_193553_378.jpg",
+    "IMG_20260516_193555_359.jpg",
+    "IMG_20260516_193556_809.jpg",
+    "IMG_20260516_193559_176.jpg",
+    "IMG_20260516_193601_172.jpg"
+];
+
+const cascadeGrid = document.getElementById('cascadeGrid');
+if (cascadeGrid) {
+    // Build each card with alternate left/right classes for directional drop-in effect
+    imageList.forEach((imgSrc, idx) => {
+        const card = document.createElement('div');
+        card.className = 'cascade-item';
+        // assign left-drop or right-drop based on index parity: even -> left-drop , odd -> right-drop
+        const directionClass = (idx % 2 === 0) ? 'left-drop' : 'right-drop';
+        card.classList.add(directionClass);
+        
+        // create image element with fallback
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = `RDG Visual ${idx+1}`;
+        img.onerror = function() {
+            this.src = 'https://placehold.co/400x300/3A4A54/FFFFFF?text=RDG+Preview';
+        };
+        
+        const captionSpan = document.createElement('div');
+        captionSpan.className = 'item-caption';
+        captionSpan.innerText = `RDG Essence ${idx+1}`;
+        
+        card.appendChild(img);
+        card.appendChild(captionSpan);
+        cascadeGrid.appendChild(card);
+    });
+    
+    // Intersection Observer to make them appear one after another (staggered left-right drop)
+    const items = document.querySelectorAll('.cascade-item');
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                // slight staggering: use index * 80ms delay for smooth cascade left/right effect
+                const delay = Array.from(items).indexOf(entry.target) * 80;
+                setTimeout(() => {
+                    entry.target.classList.add('reveal');
+                }, delay);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2, rootMargin: "0px 0px 60px 0px" });
+    
+    items.forEach(item => observer.observe(item));
+    
+    // Also on page load, if some images already visible, we trigger reveal. Additionally, 
+    // ensure that after splash screen hidden, maybe recalibrate? already fine.
+    // For extra flare: when splash disappears, force a small re-check for any remaining visible?
+    setTimeout(() => {
+        items.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                const idx = Array.from(items).indexOf(item);
+                setTimeout(() => item.classList.add('reveal'), idx * 80);
+                observer.unobserve(item);
+            }
+        });
+    }, 5200);
+}
+
+// Create additional fallback to fix any missing background images? but code is robust.
+// Also ensure that any 'active' state on nav links for demo, just design.
+// Also we embed background images from existing hero images (they already exist).
+// Adding extra polish: if hero images broken, but not mandatory.
+
+// Also lazy load: add global for any external smoothness
+window.addEventListener('load', () => {
+    // Ensure any dynamic content sizes
+    if (window.innerWidth <= 780) {
+        // No ops, fine
+    }
+    // Fix for possible scroll after splash
+    document.body.style.overflow = 'auto';
+});
+
+// Adds a little extra: we also can create preload for images? but not necessary.
+// Also for demonstration we ensure the logo loading is fine, we added onerror fallback for logo1.JPG
 </script>
 </body>
 </html>
