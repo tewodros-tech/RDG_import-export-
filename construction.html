@@ -3,157 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>RDG Construction | Building Ethiopia</title>
+<title>RDG Construction | Full Project Gallery</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #2F3A40, #252F35, #1F272C); color: white; overflow-x: hidden; }
-.gradient-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, rgba(255,255,240,0.02), transparent 60%); pointer-events: none; z-index: -1; }
-nav { background: rgba(37, 47, 53, 0.88); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 1000; padding: 0.8rem 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-.nav-container { max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-.logo { display: flex; align-items: center; gap: 18px; text-decoration: none; }
-.logo-img { height: 88px; width: auto; object-fit: contain; display: block; transition: 0.4s ease; filter: brightness(1.1) drop-shadow(0 0 12px rgba(255,255,255,0.15)); }
-.logo-img:hover { transform: scale(1.05); }
-.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-.nav-links a { text-decoration: none; color: rgba(255, 255, 255, 0.75); font-weight: 500; transition: 0.25s ease; font-size: 0.95rem; }
-.nav-links a:hover, .nav-links a.active { color: white; }
-.contact-btn { background: #F2F2F2; color: #2F3A40 !important; padding: 0.6rem 1.4rem; border-radius: 40px; font-weight: 700; transition: all 0.3s; }
-.contact-btn:hover { background: #ffffff; transform: translateY(-2px); }
-.menu-icon { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
-.page-header { text-align: center; padding: 5rem 2rem 3rem; }
-.page-header h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #FFFFFF, #CFD9DE); background-clip: text; -webkit-background-clip: text; color: transparent; }
-.page-header p { color: #C6CED3; max-width: 900px; margin: auto; font-size: 1.1rem; text-align: justify; line-height: 1.7; }
-.container { max-width: 1400px; margin: auto; padding: 2rem 2rem 5rem; }
-.section-title { text-align: center; font-size: 2.5rem; font-weight: 700; margin: 3rem 0 2rem; position: relative; }
-.section-title span { color: #E76F51; }
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #E76F51, transparent);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin: 2rem 0 4rem; }
-.service-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 28px; padding: 2rem; text-align: center; transition: all 0.3s ease; backdrop-filter: blur(4px); }
-.service-card:hover { transform: translateY(-8px); border-color: rgba(231,111,81,0.4); background: rgba(255, 255, 255, 0.1); }
-.service-card i { font-size: 2.8rem; color: #E76F51; margin-bottom: 1rem; }
-.service-card h3 { margin-bottom: 0.8rem; font-size: 1.5rem; color: white; }
-.service-card p { color: rgba(255, 255, 255, 0.75); line-height: 1.7; text-align: justify; }
-
-/* ========== WIDE IMAGE GALLERY (PROJECT SHOWCASE) ========== */
-.gallery-showcase {
-    margin: 4rem 0 2rem;
-    background: rgba(0,0,0,0.2);
-    border-radius: 48px;
-    padding: 2rem 1rem;
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #2F3A40, #252F35, #1F272C);
+    color: white;
+    overflow-x: hidden;
 }
-.gallery-head {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2.5rem;
-    letter-spacing: -0.3px;
-}
-.gallery-head i {
-    color: #E76F51;
-    margin-right: 10px;
-}
-.wide-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2rem;
-}
-.gallery-card {
-    background: rgba(30, 40, 45, 0.7);
-    border-radius: 32px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s;
-    border: 1px solid rgba(255,255,200,0.1);
-    backdrop-filter: blur(2px);
-}
-.gallery-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 20px 30px -12px black;
-    border-color: rgba(231,111,81,0.5);
-}
-.gallery-card img {
+.gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-    transition: 0.4s;
-}
-.gallery-card:hover img {
-    filter: brightness(1.05);
-}
-.image-caption {
-    padding: 1rem;
-    background: rgba(0,0,0,0.55);
-    font-weight: 600;
-    text-align: center;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    color: #F0EFEA;
-}
-.image-caption i {
-    margin-right: 8px;
-    color: #E76F51;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(255,255,240,0.02), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
 }
 
-/* back navigation hint */
+/* Navigation */
+nav {
+    background: rgba(37, 47, 53, 0.92);
+    backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.nav-container {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+}
+.logo-img {
+    height: 88px;
+    width: auto;
+    object-fit: contain;
+    transition: 0.4s ease;
+}
+.logo-img:hover {
+    transform: scale(1.05);
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    transition: 0.25s ease;
+    font-size: 0.95rem;
+}
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+}
+.contact-btn {
+    background: #F2F2F2;
+    color: #2F3A40 !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 40px;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+.contact-btn:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+.menu-icon {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+}
+.page-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #FFFFFF, #CFD9DE);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.page-header p {
+    color: #C6CED3;
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Back Button */
 .back-home-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.1);
-    padding: 0.7rem 1.5rem;
-    border-radius: 40px;
+    gap: 10px;
+    background: rgba(231, 111, 81, 0.2);
+    backdrop-filter: blur(4px);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
     text-decoration: none;
     color: white;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    transition: 0.2s;
+    font-weight: 600;
+    margin: 1rem 2rem;
+    transition: 0.3s;
+    border: 1px solid rgba(231, 111, 81, 0.4);
 }
 .back-home-link:hover {
     background: #E76F51;
-    color: #1F2A2F;
-    transform: translateX(-4px);
+    transform: translateX(-6px);
+    border-color: #E76F51;
 }
 
-footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 1px solid rgba(255,255,255,0.05); }
-.footer-grid { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
-.footer-col h4 { margin-bottom: 1rem; font-size: 1.1rem; }
-.footer-col p, .footer-col a { color: rgba(255, 255, 255, 0.5); margin-bottom: 0.5rem; text-decoration: none; display: block; transition: 0.2s; }
-.footer-col a:hover { color: #E76F51; transform: translateX(5px); }
-.copyright { text-align: center; margin-top: 2rem; color: rgba(255, 255, 255, 0.4); font-size: 0.85rem; }
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 1rem 2rem 5rem;
+}
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 2rem 0 1rem;
+}
+.section-title span {
+    color: #E76F51;
+}
+.section-subtitle {
+    text-align: center;
+    color: #C6CED3;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
 
+/* ========== PROJECTS GALLERY - FULL IMAGE VISIBILITY (NO CROPPING) ========== */
+.projects-gallery {
+    margin: 2rem 0;
+}
+.gallery-stats {
+    text-align: center;
+    background: rgba(231, 111, 81, 0.15);
+    display: inline-block;
+    width: auto;
+    margin: 0 auto 2rem;
+    padding: 0.6rem 1.8rem;
+    border-radius: 60px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+.masonry-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+/* FIXED: Each project card shows FULL image without cropping */
+.project-card {
+    background: rgba(35, 45, 52, 0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 36px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    transform: translateY(30px);
+}
+.project-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: #E76F51;
+    box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5);
+}
+/* KEY FIX: object-fit CONTAIN shows ENTIRE image including all text inside */
+.project-card img {
+    width: 100%;
+    height: auto;
+    min-height: 550px;
+    object-fit: contain;
+    display: block;
+    background: #1a1f24;
+    transition: transform 0.5s ease;
+}
+.project-card:hover img {
+    transform: scale(1.01);
+}
+.project-info {
+    padding: 1.8rem;
+    background: rgba(0, 0, 0, 0.7);
+}
+.project-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+.project-info h3 i {
+    color: #E76F51;
+    margin-right: 10px;
+}
+.project-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+}
+.project-badge {
+    display: inline-block;
+    background: #E76F51;
+    padding: 0.25rem 1rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* Footer */
+footer {
+    background: #20282D;
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.footer-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+.footer-col h4 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+.footer-col p,
+.footer-col a {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    display: block;
+    transition: 0.2s;
+}
+.footer-col a:hover {
+    color: #E76F51;
+    transform: translateX(5px);
+}
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+}
+
+/* Responsive */
 @media (max-width: 880px) {
-    .menu-icon { display: block; }
-    .nav-links { display: none; width: 100%; flex-direction: column; padding: 1.5rem; background: #2B353B; border-radius: 28px; margin-top: 1rem; gap: 1rem; text-align: center; }
-    .nav-links.active { display: flex; }
-    .logo-img { height: 70px; }
-    .page-header h1 { font-size: 2.2rem; }
-    .section-title { font-size: 1.8rem; }
-    .container { padding: 1rem; }
-    .wide-gallery { grid-template-columns: 1fr; gap: 1.5rem; }
-    .gallery-card img { height: 240px; }
+    .menu-icon {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        padding: 1.5rem;
+        background: #2B353B;
+        border-radius: 28px;
+        margin-top: 1rem;
+        gap: 1rem;
+        text-align: center;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .logo-img {
+        height: 70px;
+    }
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .project-card img {
+        min-height: 350px;
+    }
 }
 @media (max-width: 480px) {
-    .services-grid { grid-template-columns: 1fr; }
-    .page-header p { text-align: left; }
+    .container {
+        padding: 1rem;
+    }
+    .back-home-link {
+        margin: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    .project-card img {
+        min-height: 280px;
+    }
+    .project-info {
+        padding: 1.2rem;
+    }
+    .project-info h3 {
+        font-size: 1.1rem;
+    }
 }
 </style>
 </head>
 <body>
+
 <div class="gradient-bg"></div>
+
 <nav>
 <div class="nav-container">
     <a href="index.html" class="logo">
-        <img src="logo1.JPG" alt="RDG Logo" class="logo-img">
+        <img src="logo1.JPG" alt="RDG Logo" class="logo-img" onerror="this.src='https://placehold.co/200x80?text=RDG'">
     </a>
     <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
     <ul class="nav-links" id="navLinks">
@@ -168,53 +357,69 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
 </div>
 </nav>
 
+<a href="index.html" class="back-home-link" id="backHomeBtn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
 <section class="page-header">
-    <h1>RDG Construction</h1>
-    <p>RDG Construction is a premier general contractor specializing in landscape architecture, residential construction, and premium finishing works. With over a decade of experience, we transform visions into reality, delivering exceptional quality and craftsmanship for every project across Ethiopia.</p>
+    <h1>RDG Construction <span style="color:#E76F51;">Full Portfolio</span></h1>
+    <p>Explore our complete collection of construction excellence — from landscape architecture to premium finishing works. Each image represents our commitment to quality, innovation, and Ethiopian craftsmanship.</p>
 </section>
 
 <div class="container">
-    <div class="services-grid">
-        <div class="service-card"><i class="fas fa-tree"></i><h3>Landscape Design</h3><p>Custom landscape designs that blend natural beauty with functional outdoor living spaces, tailored to each client's unique vision and property requirements.</p></div>
-        <div class="service-card"><i class="fas fa-seedling"></i><h3>Landscape Plantation</h3><p>Professional selection and installation of native and exotic plants, trees, and greenery for vibrant, sustainable environments that thrive year-round.</p></div>
-        <div class="service-card"><i class="fas fa-hard-hat"></i><h3>Hardscape Installation</h3><p>Expert installation of patios, walkways, retaining walls, and decorative stone features that enhance property value and curb appeal.</p></div>
-        <div class="service-card"><i class="fas fa-building"></i><h3>Residential Construction</h3><p>Complete construction services for residential buildings from G+1 to G+5, ensuring structural integrity, modern design, and timely delivery.</p></div>
-        <div class="service-card"><i class="fas fa-paint-brush"></i><h3>Finishing Works</h3><p>Premium interior and exterior finishing including professional painting, ceramic tile installation, and decorative treatments for elegant spaces.</p></div>
-        <div class="service-card"><i class="fas fa-water"></i><h3>Project Management</h3><p>End-to-end project oversight from initial concept through completion, ensuring timelines, budgets, and quality standards are consistently met.</p></div>
-    </div>
-
-    <!-- ========== WIDE PROJECT GALLERY (images 7 to 25 linked from homepage "Click to view more") ========== -->
-    <div class="gallery-showcase" id="projectGallerySection">
-        <div class="gallery-head">
-            <i class="fas fa-images"></i> Project Portfolio | Construction Excellence
+    <div class="projects-gallery">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <div class="gallery-stats">
+                <i class="fas fa-images"></i> Featured Projects 7 – 25 | Complete Showcase
+            </div>
         </div>
-        <div class="wide-gallery" id="constructionGalleryGrid">
-            <!-- Dynamic wide images will appear here (images 7 to 25) -->
+        <div class="masonry-grid" id="constructionGalleryGrid">
+            <!-- Dynamic images 7 to 25 will appear here -->
         </div>
     </div>
 </div>
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col"><h4>RDG Business Holding</h4><p>📍 Addis Ababa, Ethiopia</p><p>📞 +251 913 662 154</p><p>✉️ rdg.construction2016@gmail.com</p></div>
-        <div class="footer-col"><h4>Divisions</h4><a href="construction.html">RDG Construction</a><a href="import.html">RDG Import</a><a href="coffee.html">RDG Coffee</a></div>
-        <div class="footer-col"><h4>Quick Links</h4><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact Us</a></div>
+        <div class="footer-col">
+            <h4>RDG Business Holding</h4>
+            <p>📍 Addis Ababa, Ethiopia</p>
+            <p>📞 +251 913 662 154</p>
+            <p>✉️ rdg.construction2016@gmail.com</p>
+        </div>
+        <div class="footer-col">
+            <h4>Divisions</h4>
+            <a href="construction.html">RDG Construction</a>
+            <a href="import.html">RDG Import</a>
+            <a href="coffee.html">RDG Coffee</a>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="about.html">About Us</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
     </div>
-    <div class="copyright">© 2026 RDG Business Holding | Building Ethiopia's Future</div>
+    <div class="copyright">© 2026 RDG Business Holding | Precision • Excellence | Launching 2026</div>
 </footer>
 
 <script>
     // Mobile menu toggle
     const menuIcon = document.getElementById("menuIcon");
     const navLinks = document.getElementById("navLinks");
-    if(menuIcon) {
+    if (menuIcon) {
         menuIcon.addEventListener("click", () => {
             navLinks.classList.toggle("active");
         });
     }
 
-    // ----- IMAGE LIST (total 25 images as provided) -----
-    const fullImageSet = [
+    // Close mobile menu on link click
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth <= 880) navLinks.classList.remove("active");
+        });
+    });
+
+    // ----- COMPLETE 25 IMAGES (exact filenames from the list) -----
+    const allImages = [
         "IMG_20260516_193503_613.jpg", "IMG_20260516_193503_758.jpg", "IMG_20260516_193503_889.jpg", "IMG_20260516_193503_899.jpg", "IMG_20260516_193504_015.jpg",
         "IMG_20260516_193504_108.jpg", "IMG_20260516_193504_139.jpg", "IMG_20260516_193504_253.jpg", "IMG_20260516_193504_344.jpg", "IMG_20260516_193504_492.jpg",
         "IMG_20260516_193504_505.jpg", "IMG_20260516_193504_606.jpg", "IMG_20260516_193504_657.jpg", "IMG_20260516_193504_671.jpg", "IMG_20260516_193504_728.jpg",
@@ -222,106 +427,127 @@ footer { background: #20282D; padding: 3rem 2rem; margin-top: 5rem; border-top: 
         "IMG_20260516_193553_378.jpg", "IMG_20260516_193555_359.jpg", "IMG_20260516_193556_809.jpg", "IMG_20260516_193559_176.jpg", "IMG_20260516_193601_172.jpg"
     ];
 
-    // IMPORTANT: According to the requirement:
-    // - Homepage shows images 1 to 5 (indices 0-4) under 'Visual Chronicle'
-    // - When "Click to view more" is clicked, it must lead to THIS construction page and display images 7 to 25.
-    // Images 7 to 25 => indices 6 to 24 (since 1-based: 7th image is index 6, 25th image is index 24).
-    const constructionImages = fullImageSet.slice(6, 25);   // from index 6 (7th) to index 24 (25th) → total 19 images
+    // CONSTRUCTION PAGE: display images 7 to 25 (indices 6 through 24)
+    const constructionImages = allImages.slice(6, 25);
 
-    // Function to render wide gallery (images appear larger, full-width cards)
+    // Descriptions for each project (7 to 25)
+    const projectDetails = [
+        { title: "Industrial Landscape Project", desc: "Complete landscape architecture at major cement industrial complex including soil rehabilitation, plantation, and post-care maintenance." },
+        { title: "Green Infrastructure Development", desc: "Supplying fertile soil, organic compost, and sustainable grass planting for post-mining recovery zones and degraded terrains." },
+        { title: "Expert Engineering Team", desc: "MSC Landscape Architecture, Architectural Design, Urban Planning — 10+ years delivering world-class designs and project management." },
+        { title: "Residential Construction Excellence", desc: "Modern residential buildings from G+1 to G+5 with premium finishing and smart spatial planning for luxury living." },
+        { title: "Hardscape Mastery", desc: "Decorative stone pathways, retaining walls, patios, and outdoor living spaces that blend durability with natural elegance." },
+        { title: "Ceramic & Premium Finishing", desc: "High-end ceramic tile installation, wall cladding, and interior finishing for luxury apartments, villas, and commercial spaces." },
+        { title: "Environmental Soil Recovery", desc: "Advanced soil rehabilitation techniques, erosion control, and ecological restoration for degraded industrial zones and quarries." },
+        { title: "Urban Greening Initiative", desc: "City park development featuring native trees, automated irrigation systems, public seating areas, and sustainable landscaping." },
+        { title: "Full Project Management", desc: "End-to-end construction oversight ensuring timeline adherence, budget control, and uncompromising quality standards." },
+        { title: "Premium Painting Services", desc: "Exterior and interior decorative painting using weather-resistant, eco-friendly materials with professional color consultation." },
+        { title: "Apartment Complex Construction", desc: "Multi-story residential building with modern architectural facade, energy-efficient systems, and premium amenities." },
+        { title: "Softscape Design & Installation", desc: "Seasonal flowerbeds, ornamental grasses, lush garden arrangements, and living wall installations for aesthetic appeal." },
+        { title: "Smart Irrigation Systems", desc: "Automated drip irrigation, sprinkler systems, and water management solutions for sustainable landscape maintenance." },
+        { title: "Natural Stone Cladding", desc: "Professional installation of natural stone veneer for commercial building exteriors, feature walls, and accent elements." },
+        { title: "Green Roof & Terrace Gardens", desc: "Rooftop garden solutions for urban buildings, enhancing insulation, reducing runoff, and creating usable green spaces." },
+        { title: "Architectural Lighting Design", desc: "Landscape lighting and architectural illumination for nighttime ambiance, security, and dramatic visual effects." },
+        { title: "Retaining Wall Structures", desc: "Gabion walls, reinforced earth structures, and slope stabilization for challenging terrain and elevation changes." },
+        { title: "Water Features & Fountains", desc: "Custom fountains, reflection ponds, waterfalls, and water cascade installations for luxury estates and public spaces." },
+        { title: "Turnkey Construction Solutions", desc: "Complete construction packages from initial design concept to final handover — hassle-free delivery with guaranteed quality." }
+    ];
+
+    // Render the gallery with FULL IMAGE VISIBILITY (no cropping)
+    const galleryContainer = document.getElementById("constructionGalleryGrid");
+    
     function renderConstructionGallery() {
-        const galleryContainer = document.getElementById("constructionGalleryGrid");
         if (!galleryContainer) return;
         galleryContainer.innerHTML = "";
         
-        if (constructionImages.length === 0) {
-            galleryContainer.innerHTML = `<div style="text-align:center; padding:3rem;">No project images available at the moment. Check back soon.</div>`;
-            return;
-        }
-        
         constructionImages.forEach((imgSrc, idx) => {
             const card = document.createElement("div");
-            card.className = "gallery-card";
+            card.className = "project-card";
+            
+            const detail = projectDetails[idx] || { 
+                title: `RDG Construction Project ${idx + 7}`, 
+                desc: "Premium construction & landscape architecture delivering excellence across Ethiopia with professional craftsmanship." 
+            };
             
             const img = document.createElement("img");
             img.src = imgSrc;
-            img.alt = `RDG Construction Project ${idx + 7}`;
-            // fallback if image fails to load
+            img.alt = `RDG Project ${idx + 7} - ${detail.title}`;
+            img.loading = "lazy";
             img.onerror = function() {
-                this.src = "https://placehold.co/600x400/2F3A40/FFFFFF?text=RDG+Project+Preview";
-                this.style.objectFit = "cover";
+                this.src = "https://placehold.co/800x600/2F3A40/FFFFFF?text=RDG+Construction+Project";
+                this.style.objectFit = "contain";
             };
             
-            const captionDiv = document.createElement("div");
-            captionDiv.className = "image-caption";
-            captionDiv.innerHTML = `<i class="fas fa-hard-hat"></i> RDG Excellence • Project ${idx + 7}`;
+            const infoDiv = document.createElement("div");
+            infoDiv.className = "project-info";
+            infoDiv.innerHTML = `
+                <h3><i class="fas fa-hard-hat"></i> Project ${idx + 7} | ${detail.title}</h3>
+                <p>${detail.desc}</p>
+                <span class="project-badge"><i class="fas fa-check-circle"></i> RDG Excellence Certified</span>
+            `;
             
             card.appendChild(img);
-            card.appendChild(captionDiv);
+            card.appendChild(infoDiv);
             galleryContainer.appendChild(card);
         });
+        
+        // Add staggered animation using Intersection Observer
+        const cards = document.querySelectorAll(".project-card");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    const delay = Array.from(cards).indexOf(entry.target) * 80;
+                    setTimeout(() => {
+                        entry.target.classList.add("animate-in");
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px 40px 0px" });
+        
+        cards.forEach(card => observer.observe(card));
+        
+        // Immediate check for visible cards
+        setTimeout(() => {
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    const idx = Array.from(cards).indexOf(card);
+                    setTimeout(() => card.classList.add("animate-in"), idx * 80);
+                    observer.unobserve(card);
+                }
+            });
+        }, 200);
     }
     
-    // Check if there's a URL parameter to auto-scroll to gallery (optional)
-    function checkForGalleryAnchor() {
-        if (window.location.hash === "#project-gallery" || window.location.search.includes("show=gallery")) {
-            const gallerySection = document.getElementById("projectGallerySection");
-            if (gallerySection) {
-                setTimeout(() => {
-                    gallerySection.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 300);
-            }
-        }
-    }
-    
-    // additionally: listen for possible localStorage flag from index page? 
-    // but to make robust, we also check sessionStorage when coming from home click.
-    // This ensures that if any link on homepage "Click to view more" leads here, we can highlight.
-    // Also, we attach a function to check storage flag.
-    function handleExternalTrigger() {
-        const showGalleryFlag = sessionStorage.getItem("rdg_show_construction_gallery");
-        if (showGalleryFlag === "true") {
-            sessionStorage.removeItem("rdg_show_construction_gallery");
-            const galleryElem = document.getElementById("projectGallerySection");
-            if (galleryElem) {
-                setTimeout(() => {
-                    galleryElem.scrollIntoView({ behavior: "smooth", block: "start" });
-                    // subtle highlight
-                    galleryElem.style.transition = "0.3s";
-                    galleryElem.style.boxShadow = "0 0 0 2px #E76F51";
-                    setTimeout(() => { galleryElem.style.boxShadow = "none"; }, 1200);
-                }, 400);
-            }
-        }
-    }
-    
-    // Run rendering on page load
     renderConstructionGallery();
-    checkForGalleryAnchor();
-    handleExternalTrigger();
     
-    // Also if there is any click from homepage manually? we already set flag on homepage.
-    // To ensure that the construction page loads all images correctly, we also handle dynamic resize
-    window.addEventListener("resize", () => {});
-    
-    // Ensure active nav highlight is consistent
-    const currentPage = window.location.pathname.split("/").pop();
-    if (currentPage === "construction.html" || window.location.pathname.includes("construction")) {
-        // highlight construction link in nav (already has active class in HTML)
+    // Handle external trigger from homepage
+    const shouldHighlight = sessionStorage.getItem("rdg_show_construction_gallery");
+    if (shouldHighlight === "true") {
+        sessionStorage.removeItem("rdg_show_construction_gallery");
+        setTimeout(() => {
+            const gallerySection = document.querySelector(".projects-gallery");
+            if (gallerySection) {
+                gallerySection.scrollIntoView({ behavior: "smooth", block: "start" });
+                gallerySection.style.transition = "0.3s";
+                gallerySection.style.boxShadow = "0 0 0 3px #E76F51";
+                setTimeout(() => {
+                    gallerySection.style.boxShadow = "none";
+                }, 1500);
+            }
+        }, 500);
     }
     
-    // For smooth footer link behavior and closing mobile menu after click
-    const allNavLinkItems = document.querySelectorAll(".nav-links a");
-    allNavLinkItems.forEach(link => {
-        link.addEventListener("click", () => {
-            if (window.innerWidth <= 880) {
-                navLinks.classList.remove("active");
+    // Fix any broken images
+    window.addEventListener("load", () => {
+        const allImgs = document.querySelectorAll(".project-card img");
+        allImgs.forEach(img => {
+            if (img.complete && img.naturalHeight === 0) {
+                img.src = "https://placehold.co/800x600/2F3A40/FFFFFF?text=RDG+Preview";
             }
         });
     });
-    
-    // additionally add a fallback message if images fail to load but it's fine.
-    console.log("Construction gallery ready: displaying images 7 to 25. Total:", constructionImages.length);
 </script>
 </body>
 </html>
