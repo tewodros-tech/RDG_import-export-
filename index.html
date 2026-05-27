@@ -34,7 +34,7 @@ body{
                 linear-gradient(135deg,#2F3A40,#252F35,#1F272C);
 }
 
-/* ---- LOGO SPLASH SCREEN (5 sec) ---- */
+/* Splash Screen */
 .splash-screen {
     position: fixed;
     top: 0;
@@ -78,7 +78,7 @@ body{
     pointer-events: none;
 }
 
-/* ---- NAVIGATION ---- */
+/* Navigation */
 nav{
     position:sticky;
     top:0;
@@ -141,6 +141,8 @@ nav{
     font-size:1.6rem;
     cursor:pointer;
 }
+
+/* Hero Slider */
 .hero-slider{
     position:relative;
     height:92vh;
@@ -186,7 +188,6 @@ nav{
     max-width:700px;
     margin:auto auto 2rem;
     line-height:1.8;
-    text-align:justify;
 }
 .btn-primary{
     background:#F2F2F2;
@@ -224,6 +225,8 @@ nav{
     width:34px;
     border-radius:50px;
 }
+
+/* Main Content */
 .container{
     max-width:1400px;
     margin:auto;
@@ -242,6 +245,8 @@ nav{
     margin-bottom:4rem;
     font-size:1.1rem;
 }
+
+/* Business Grid */
 .business-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -272,7 +277,6 @@ nav{
 .business-card p{
     color:rgba(255,255,255,0.72);
     line-height:1.8;
-    text-align:justify;
 }
 .card-tag{
     display:inline-block;
@@ -284,10 +288,10 @@ nav{
     color:white;
 }
 
-/* ========== WIDE IMAGE GALLERY (HOME: only RDG Essence 1–5, but WIDER layout) ========== */
+/* WIDE IMAGE GALLERY */
 .gallery-cascade {
     margin: 3rem 0 2rem;
-    padding: 2rem 1rem 2rem;
+    padding: 2rem 1rem;
     background: rgba(0,0,0,0.25);
     border-radius: 56px;
     backdrop-filter: blur(4px);
@@ -297,7 +301,6 @@ nav{
     font-size: 2rem;
     margin-bottom: 2rem;
     font-weight: 700;
-    letter-spacing: -0.3px;
     background: linear-gradient(120deg, #FFF, #CFD8DC);
     -webkit-background-clip: text;
     background-clip: text;
@@ -308,12 +311,10 @@ nav{
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    position: relative;
 }
-/* WIDER CARDS: increased width and better image visibility */
 .cascade-item {
-    width: 300px;
-    background: rgba(35,45,52,0.75);
+    width: 320px;
+    background: rgba(35,45,52,0.85);
     backdrop-filter: blur(6px);
     border-radius: 36px;
     overflow: hidden;
@@ -329,27 +330,28 @@ nav{
 }
 .cascade-item img {
     width: 100%;
-    height: 260px;
+    height: 280px;
     object-fit: cover;
     display: block;
-    transition: 0.4s ease;
 }
 .cascade-item:hover {
     transform: translateY(-12px) scale(1.02);
     border-color: rgba(231,111,81,0.6);
-    box-shadow: 0 28px 40px -18px black;
-}
-.cascade-item:hover img {
-    filter: brightness(1.08);
 }
 .item-caption {
-    padding: 1rem;
-    font-size: 0.95rem;
-    font-weight: 700;
+    padding: 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
     text-align: center;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.75);
     color: #F5F3E9;
-    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+.item-caption p {
+    margin-top: 6px;
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #CCC;
 }
 .view-more-btn {
     text-align: center;
@@ -367,19 +369,15 @@ nav{
     align-items: center;
     gap: 12px;
     transition: 0.3s ease;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-    border: none;
     cursor: pointer;
-}
-.btn-view i {
-    font-size: 1.2rem;
 }
 .btn-view:hover {
     transform: translateY(-5px);
     background: white;
-    box-shadow: 0 14px 26px -8px black;
     gap: 18px;
 }
+
+/* Footer */
 footer{
     background:#20282D;
     padding:5rem 2rem 2rem;
@@ -407,13 +405,11 @@ footer{
     text-align:center;
     color:rgba(255,255,255,0.45);
 }
-@media(max-width: 1100px){
-    .cascade-item { width: 270px; }
-}
+
 @media(max-width:980px){
     .business-grid{ grid-template-columns:repeat(2,1fr); }
     .slide-content h1{ font-size:3.3rem; }
-    .cascade-item { width: 260px; }
+    .cascade-item { width: 280px; }
 }
 @media(max-width:780px){
     .menu-icon{ display:block; }
@@ -433,25 +429,20 @@ footer{
     .business-grid{ grid-template-columns:1fr; }
     .logo-img{ height:70px; }
     .slide-content h1{ font-size:2.4rem; }
-    .cascade-grid { justify-content: center; gap: 1.5rem; }
-    .cascade-item { width: 85%; max-width: 320px; }
-    .cascade-item img { height: 230px; }
-}
-@media(max-width:480px){
-    .slide-content h1{ font-size:2rem; }
-    .slide-content p{ font-size:1rem; }
+    .cascade-item { width: 90%; max-width: 340px; }
 }
 </style>
 </head>
 <body>
 
-<!-- SPLASH SCREEN: LOGO appears 5 seconds -->
+<!-- SPLASH SCREEN -->
 <div class="splash-screen" id="splashScreen">
-    <img src="logo1.JPG" alt="RDG Business Holding" class="splash-logo" onerror="this.src='https://placehold.co/400x200?text=RDG+Group'">
+    <img src="logo1.JPG" alt="RDG Logo" class="splash-logo" onerror="this.src='https://placehold.co/400x200?text=RDG'">
     <div class="splash-text">PRECISION • EXCELLENCE</div>
 </div>
 
 <div class="gradient-bg"></div>
+
 <nav>
 <div class="nav-container">
 <a href="index.html" class="logo">
@@ -470,7 +461,7 @@ footer{
 </div>
 </nav>
 
-<!-- HERO SLIDER -->
+<!-- Hero Slider -->
 <div class="hero-slider">
 <div class="slide active" style="background-image:url('IMG_20260516_190409_120.jpg');">
 <div class="slide-content">
@@ -500,7 +491,7 @@ footer{
 <h2 class="section-title">Our Divisions</h2>
 <p class="section-subtitle">Three powerful sectors driving RDG Business Holding forward</p>
 <div class="business-grid">
-<a href="construction.html" class="business-card" id="cardConstrLink">
+<a href="construction.html" class="business-card">
 <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
 <h3>RDG Construction</h3>
 <p>General contracting, landscape architecture, premium finishing and infrastructure development.</p>
@@ -520,12 +511,12 @@ footer{
 </a>
 </div>
 
-<!-- ===== WIDE HOME GALLERY: ONLY RDG ESSENCE 1 to 5 (wider images, left/right drop effect) ===== -->
+<!-- GALLERY: Images 1-5 with FULL VISIBLE TEXT -->
 <div class="gallery-cascade">
-    <div class="cascade-title">✦ Visual Chronicle ✦</div>
+    <div class="cascade-title">✦ VISUAL CHRONICLE ✦</div>
     <div class="cascade-grid" id="homeCascadeGrid"></div>
     <div class="view-more-btn">
-        <a href="#" id="viewMoreGalleryBtn" class="btn-view"><i class="fas fa-images"></i> Click to view more →</a>
+        <a href="construction.html" id="viewMoreGalleryBtn" class="btn-view"><i class="fas fa-images"></i> Click to view more →</a>
     </div>
 </div>
 </div>
@@ -555,25 +546,23 @@ footer{
 </footer>
 
 <script>
-// ------------------------- SPLASH SCREEN: 5 SECONDS -------------------------
+// Splash screen 5 seconds
 const splash = document.getElementById('splashScreen');
 if (splash) {
     setTimeout(() => {
         splash.classList.add('splash-hidden');
-        setTimeout(() => {
-            if (splash && splash.parentNode) splash.style.display = 'none';
-        }, 800);
+        setTimeout(() => { if(splash.parentNode) splash.style.display = 'none'; }, 800);
     }, 5000);
 }
 
-// Mobile menu toggle
+// Mobile menu
 const menuIcon = document.getElementById('menuIcon');
 const navLinks = document.getElementById('navLinks');
 if (menuIcon) {
     menuIcon.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 }
 
-// Hero Slider Logic
+// Hero slider
 const slides = document.querySelectorAll('.slide');
 const dotContainer = document.getElementById('dotContainer');
 let currentSlide = 0;
@@ -597,8 +586,8 @@ if (slides.length && dotContainer) {
     setInterval(autoSlide, 5500);
 }
 
-// ---------- FULL LIST OF 25 IMAGES ----------
-const fullImageList = [
+// 25 IMAGES LIST (exact filenames)
+const allImages = [
     "IMG_20260516_193503_613.jpg", "IMG_20260516_193503_758.jpg", "IMG_20260516_193503_889.jpg", "IMG_20260516_193503_899.jpg", "IMG_20260516_193504_015.jpg",
     "IMG_20260516_193504_108.jpg", "IMG_20260516_193504_139.jpg", "IMG_20260516_193504_253.jpg", "IMG_20260516_193504_344.jpg", "IMG_20260516_193504_492.jpg",
     "IMG_20260516_193504_505.jpg", "IMG_20260516_193504_606.jpg", "IMG_20260516_193504_657.jpg", "IMG_20260516_193504_671.jpg", "IMG_20260516_193504_728.jpg",
@@ -606,10 +595,19 @@ const fullImageList = [
     "IMG_20260516_193553_378.jpg", "IMG_20260516_193555_359.jpg", "IMG_20260516_193556_809.jpg", "IMG_20260516_193559_176.jpg", "IMG_20260516_193601_172.jpg"
 ];
 
-// HOME PAGE: ONLY images 1 to 5 (indices 0-4) -> RDG Essence 1–5
-const homeImages = fullImageList.slice(0, 5);
+// Homepage shows images 1-5 (indices 0-4) with full descriptive text
+const homeImages = allImages.slice(0, 5);
 
-// Function to render home gallery (wider cards, left/right stagger)
+// Detailed captions for ESSENCE 1-5 (complete, visible text)
+const captions = [
+    { title: "RDG ESSENCE 1", desc: "Premium Construction & Infrastructure | Building Ethiopia's future with world-class quality and innovative design solutions." },
+    { title: "RDG ESSENCE 2", desc: "Landscaping at Ler Cement Industrial Complex | Supplying fertile soil, grass, organic compost. Rehabilitation of degraded mining terrains. Planting local trees with post-plantation care." },
+    { title: "RDG ESSENCE 3", desc: "Expert Team | MSC Landscape Architecture, Architectural Design, Urban Planning. Professional Engineers with 10+ years experience delivering excellence." },
+    { title: "RDG ESSENCE 4", desc: "Sustainable Environmental Engineering | Advanced soil rehabilitation, water management, and eco-friendly construction practices." },
+    { title: "RDG ESSENCE 5", desc: "Premium Finishing Works | Ceramic tile installation, painting, decorative treatments that define elegance and durability." }
+];
+
+// Render home gallery
 function renderHomeGallery() {
     const grid = document.getElementById('homeCascadeGrid');
     if (!grid) return;
@@ -619,106 +617,57 @@ function renderHomeGallery() {
         card.className = `cascade-item ${idx % 2 === 0 ? 'left-drop' : 'right-drop'}`;
         const img = document.createElement('img');
         img.src = src;
-        img.alt = `RDG Essence ${idx+1}`;
-        img.onerror = function() { this.src = 'https://placehold.co/600x400/3A4A54/FFFFFF?text=RDG+Preview'; };
-        const caption = document.createElement('div');
-        caption.className = 'item-caption';
-        caption.innerHTML = `<i class="fas fa-camera"></i> RDG ESSENCE ${idx+1}`;
+        img.alt = captions[idx].title;
+        img.onerror = function() { this.src = 'https://placehold.co/600x400/2F3A40/FFFFFF?text=RDG+Image'; };
+        const captionDiv = document.createElement('div');
+        captionDiv.className = 'item-caption';
+        captionDiv.innerHTML = `<strong><i class="fas fa-camera"></i> ${captions[idx].title}</strong><p>${captions[idx].desc}</p>`;
         card.appendChild(img);
-        card.appendChild(caption);
+        card.appendChild(captionDiv);
         grid.appendChild(card);
     });
     
-    // Intersection Observer for staggered reveal (left/right drop)
+    // Stagger reveal animation
     const items = document.querySelectorAll('#homeCascadeGrid .cascade-item');
-    const observer = new IntersectionObserver((entries, obs) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const idx = Array.from(items).indexOf(entry.target);
                 setTimeout(() => entry.target.classList.add('reveal'), idx * 100);
-                obs.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.2, rootMargin: "0px 0px 40px 0px" });
+    }, { threshold: 0.2 });
     items.forEach(i => observer.observe(i));
-    
-    // Also immediate check for visible ones
-    setTimeout(() => {
-        items.forEach(i => {
-            if (i.getBoundingClientRect().top < window.innerHeight - 80) {
-                const idx = Array.from(items).indexOf(i);
-                setTimeout(() => i.classList.add('reveal'), idx * 80);
-                observer.unobserve(i);
-            }
-        });
-    }, 300);
 }
 
-// ----- "CLICK TO VIEW MORE" leads to construction.html with flag to show images 7-25 -----
+// Navigation to construction page with session flag
 const viewMoreBtn = document.getElementById('viewMoreGalleryBtn');
 const heroDiscoverBtn = document.getElementById('heroDiscoverBtn');
-const cardConstrLink = document.getElementById('cardConstrLink');
+const allConstrLinks = document.querySelectorAll('a[href="construction.html"]');
 
-function navigateToConstructionGallery() {
-    // Set sessionStorage flag so construction page knows to highlight full gallery (images 7-25)
+function goToConstruction() {
     sessionStorage.setItem('rdg_show_construction_gallery', 'true');
-    // Navigate to construction.html
     window.location.href = 'construction.html';
 }
 
-if (viewMoreBtn) {
-    viewMoreBtn.addEventListener('click', (e) => {
+if (viewMoreBtn) viewMoreBtn.addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
+if (heroDiscoverBtn) heroDiscoverBtn.addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
+allConstrLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
         e.preventDefault();
-        navigateToConstructionGallery();
-    });
-}
-if (heroDiscoverBtn) {
-    heroDiscoverBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigateToConstructionGallery();
-    });
-}
-if (cardConstrLink) {
-    cardConstrLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigateToConstructionGallery();
-    });
-}
-
-// Also add any extra footer / construction links to behave same (optional but consistent)
-const footerConstrLink = document.querySelector('.footer-col a[href="construction.html"]');
-if (footerConstrLink) {
-    footerConstrLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigateToConstructionGallery();
-    });
-}
-const navConstrLink = document.querySelector('.nav-links a[href="construction.html"]');
-if (navConstrLink) {
-    navConstrLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        navigateToConstructionGallery();
-    });
-}
-
-// Render home gallery on page load
-renderHomeGallery();
-
-// Close mobile menu on any link click
-const allNavLinks = document.querySelectorAll('.nav-links a');
-allNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 780 && navLinks) navLinks.classList.remove('active');
+        goToConstruction();
     });
 });
 
-// Ensure that any image loading errors have fallback
-document.querySelectorAll('img').forEach(img => {
-    img.onerror = function() {
-        if (!this.src.includes('placehold')) {
-            this.src = 'https://placehold.co/600x400/2F3A40/FFFFFF?text=RDG+Asset';
-        }
-    };
+// Initialize
+renderHomeGallery();
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 780 && navLinks) navLinks.classList.remove('active');
+    });
 });
 </script>
 </body>
