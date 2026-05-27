@@ -333,7 +333,7 @@ nav{
     color:#E76F51;
 }
 
-/* ========== COMPLETELY REDESIGNED GALLERY - NO TEXT CUTTING ========== */
+/* ========== FIXED: IMAGES SHOW FULL CONTENT (NO CROPPING) ========== */
 .feature-gallery {
     margin: 4rem 0;
 }
@@ -351,7 +351,7 @@ nav{
     flex-direction: column;
     gap: 3rem;
 }
-/* Each image gets its own FULL WIDTH card with ALL text visible */
+/* IMPORTANT: Each image block shows FULL image without cropping */
 .gallery-block {
     background: rgba(35, 45, 52, 0.85);
     backdrop-filter: blur(8px);
@@ -365,11 +365,14 @@ nav{
     box-shadow: 0 20px 35px rgba(0,0,0,0.3);
     border-color: #E76F51;
 }
+/* FIXED: object-fit CONTAIN shows the ENTIRE image without cropping */
 .gallery-block-img {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+    height: auto;
+    min-height: 500px;
+    object-fit: contain;
     display: block;
+    background: #1a1f24;
 }
 .gallery-block-content {
     padding: 2rem;
@@ -466,7 +469,7 @@ footer{
     .business-grid{ grid-template-columns:repeat(2,1fr); }
     .vision-mission{ grid-template-columns:1fr; }
     .slide-content h1{ font-size:3rem; }
-    .gallery-block-img{ height: 280px; }
+    .gallery-block-img{ min-height: 350px; }
     .gallery-block-title{ font-size: 1.4rem; }
 }
 @media(max-width:780px){
@@ -487,7 +490,7 @@ footer{
     .business-grid{ grid-template-columns:1fr; }
     .logo-img{ height:65px; }
     .slide-content h1{ font-size:2rem; }
-    .gallery-block-img{ height: 220px; }
+    .gallery-block-img{ min-height: 280px; }
     .gallery-block-content{ padding: 1.2rem; }
 }
 </style>
@@ -567,7 +570,7 @@ footer{
 </a>
 </div>
 
-<!-- Vision & Mission Section - FULL TEXT -->
+<!-- Vision & Mission Section -->
 <div class="vision-mission">
     <div class="vm-card">
         <h3><i class="fas fa-eye"></i> Vision</h3>
@@ -602,7 +605,7 @@ footer{
     </div>
 </div>
 
-<!-- COMPLETELY REDESIGNED GALLERY - NO TEXT CUTTING WHATSOEVER -->
+<!-- GALLERY WITH FULL IMAGES (NO CROPPING - object-fit: contain) -->
 <div class="feature-gallery">
     <div class="gallery-title">✦ <span>VISUAL CHRONICLE</span> ✦</div>
     <div class="gallery-grid-vertical" id="fullTextGallery"></div>
@@ -674,61 +677,13 @@ if(slides.length && dotContainer) {
     setInterval(() => { currentSlide = (currentSlide + 1) % slides.length; goToSlide(currentSlide); }, 5500);
 }
 
-// COMPLETE GALLERY DATA - ALL TEXT FULLY VISIBLE, NO CUTTING
+// GALLERY DATA - Images use object-fit: contain to show FULL content
 const galleryData = [
-    {
-        img: "IMG_20260516_193503_613.jpg",
-        title: "RDG ESSENCE 1",
-        icon: "fa-crown",
-        text: `<p><strong>Premium Construction & Infrastructure</strong> — Building Ethiopia's future with world-class quality and innovative design solutions.</p>
-        <p>We specialize in residential buildings from G+1 to G+5, ensuring structural integrity, modern design, and timely delivery. Builder to a wide range of clients including homeowners, property developers, hotels, resorts, restaurants, retail establishments, corporate offices, municipalities, government institutions, educational facilities, public parks, hospitals, universities, housing complexes, and religious institutions.</p>`
-    },
-    {
-        img: "IMG_20260516_193503_758.jpg",
-        title: "RDG ESSENCE 2",
-        icon: "fa-tree",
-        text: `<p><strong>Landscaping Project at Lemi Nati Cement Industrial Complex</strong> — The biggest cement factory in Ethiopia.</p>
-        <ul>
-            <li>Supply fertile soil, materials for landscape work</li>
-            <li>Manage and supervise the landscape work on site</li>
-            <li>Supplying grass and plants</li>
-            <li>Supplying organic compost</li>
-            <li>Rehabilitation and renovation of degraded soil terrains neglected after mining and quarrying activities</li>
-            <li>Planting local trees</li>
-            <li>Post plantation care</li>
-        </ul>`
-    },
-    {
-        img: "IMG_20260516_193503_889.jpg",
-        title: "RDG ESSENCE 3",
-        icon: "fa-users",
-        text: `<p><strong>Expert Team Qualifications:</strong></p>
-        <ul>
-            <li>G/yesus Educational — Architectural and urban planning (MSC Landscape Architecture Pending)</li>
-            <li>Architect on Architect — Experience 6+ years</li>
-            <li>Urban Educational and urban planning — Experience 7+ years</li>
-            <li>Architectural and urban planning Professional Architect — Experience 7+ years</li>
-            <li>Structural engineer — Experience 10+ years</li>
-            <li>Fire Fighting specialist</li>
-            <li>Water supply and environmental engineering</li>
-            <li>Sanitary engineer — Experience 8+ years</li>
-            <li>Jane Belay — NOC Gas Station Management (station operation, tanker installation, building construction)</li>
-        </ul>`
-    },
-    {
-        img: "IMG_20260516_193503_899.jpg",
-        title: "RDG ESSENCE 4",
-        icon: "fa-leaf",
-        text: `<p><strong>Sustainable Environmental Engineering</strong> — Advanced soil rehabilitation, water management, and eco-friendly construction practices. Professional engineering team dedicated to environmental protection and sustainable development.</p>
-        <p>Our environmental engineers work on water supply systems, sanitary engineering, and fire fighting infrastructure to ensure complete project safety and sustainability.</p>`
-    },
-    {
-        img: "IMG_20260516_193504_015.jpg",
-        title: "RDG ESSENCE 5",
-        icon: "fa-paint-brush",
-        text: `<p><strong>Premium Finishing Works</strong> — Ceramic tile installation, professional painting, decorative treatments that define elegance and durability. Complete interior and exterior finishing services for residential and commercial properties.</p>
-        <p>We provide high-end finishing solutions including wall cladding, flooring, painting, and decorative elements that transform spaces into masterpieces.</p>`
-    }
+    { img: "IMG_20260516_193503_613.jpg", title: "RDG ESSENCE 1", icon: "fa-crown", text: "<p><strong>Premium Construction & Infrastructure</strong> — Building Ethiopia's future with world-class quality and innovative design solutions. We specialize in residential buildings from G+1 to G+5, ensuring structural integrity and modern design.</p>" },
+    { img: "IMG_20260516_193503_758.jpg", title: "RDG ESSENCE 2", icon: "fa-tree", text: "<p><strong>Landscaping Project at Lemi Nati Cement Industrial Complex</strong> — The biggest cement factory in Ethiopia.</p><ul><li>Supply fertile soil, materials for landscape work</li><li>Manage and supervise the landscape work on site</li><li>Supplying grass and plants</li><li>Supplying organic compost</li><li>Rehabilitation and renovation of degraded soil terrains</li><li>Planting local trees</li><li>Post plantation care</li></ul>" },
+    { img: "IMG_20260516_193503_889.jpg", title: "RDG ESSENCE 3", icon: "fa-users", text: "<p><strong>Expert Team Qualifications:</strong></p><ul><li>Architectural and urban planning (MSC Landscape Architecture Pending) — 6+ years</li><li>Professional Architect — 7+ years experience</li><li>Structural engineer — 10+ years experience</li><li>Fire Fighting specialist</li><li>Water supply and environmental engineering</li><li>Sanitary engineer — 8+ years experience</li></ul>" },
+    { img: "IMG_20260516_193503_899.jpg", title: "RDG ESSENCE 4", icon: "fa-leaf", text: "<p><strong>Sustainable Environmental Engineering</strong> — Advanced soil rehabilitation, water management, and eco-friendly construction practices. Professional engineering team dedicated to environmental protection and sustainable development.</p>" },
+    { img: "IMG_20260516_193504_015.jpg", title: "RDG ESSENCE 5", icon: "fa-paint-brush", text: "<p><strong>Premium Finishing Works</strong> — Ceramic tile installation, professional painting, decorative treatments that define elegance and durability. Complete interior and exterior finishing services.</p>" }
 ];
 
 function renderFullTextGallery() {
@@ -744,7 +699,7 @@ function renderFullTextGallery() {
         block.style.transition = `opacity 0.5s ease, transform 0.5s ease`;
         
         block.innerHTML = `
-            <img src="${item.img}" alt="${item.title}" class="gallery-block-img" onerror="this.src='https://placehold.co/800x500/2F3A40/FFFFFF?text=RDG+Image'">
+            <img src="${item.img}" alt="${item.title}" class="gallery-block-img" onerror="this.src='https://placehold.co/800x600/2F3A40/FFFFFF?text=RDG+Image'">
             <div class="gallery-block-content">
                 <div class="gallery-block-title">
                     <i class="fas ${item.icon}"></i>
@@ -758,7 +713,6 @@ function renderFullTextGallery() {
         
         container.appendChild(block);
         
-        // Staggered animation
         setTimeout(() => {
             block.style.opacity = '1';
             block.style.transform = 'translateY(0)';
