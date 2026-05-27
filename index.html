@@ -16,7 +16,6 @@
     --bg:#2F3A40;
     --bg-dark:#252F35;
     --accent:#E76F51;
-    --gold:#D4AF37;
 }
 body{
     font-family:'Inter',sans-serif;
@@ -334,7 +333,7 @@ nav{
     color:#E76F51;
 }
 
-/* ========== WIDE ATTRACTIVE GALLERY - FULL WIDTH IMAGES ========== */
+/* ========== FIXED GALLERY - NO TEXT CUTTING ========== */
 .feature-gallery {
     margin: 4rem 0;
     padding: 2rem 0;
@@ -355,17 +354,19 @@ nav{
 }
 .gallery-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 2rem;
 }
+/* FIXED: Taller cards with proper height to fit all text */
 .gallery-card-wide {
     position: relative;
     border-radius: 28px;
     overflow: hidden;
-    aspect-ratio: 16 / 10;
-    cursor: pointer;
+    background: rgba(35,45,52,0.9);
     transition: transform 0.4s ease, box-shadow 0.3s;
     box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
 }
 .gallery-card-wide:hover {
     transform: translateY(-8px) scale(1.02);
@@ -373,32 +374,47 @@ nav{
 }
 .gallery-card-wide img {
     width: 100%;
-    height: 100%;
+    height: 280px;
     object-fit: cover;
+    display: block;
     transition: transform 0.5s ease;
 }
 .gallery-card-wide:hover img {
     transform: scale(1.05);
 }
+/* FIXED: Taller overlay with scroll if needed, but enough height */
 .gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+    background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.75) 100%);
     padding: 1.5rem;
-    transform: translateY(0);
-    transition: 0.3s;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
 }
 .gallery-overlay h4 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    color: #E76F51;
 }
 .gallery-overlay p {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.5;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    overflow-y: auto;
+    max-height: 120px;
+}
+/* Scrollbar styling for text overflow */
+.gallery-overlay p::-webkit-scrollbar {
+    width: 4px;
+}
+.gallery-overlay p::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+.gallery-overlay p::-webkit-scrollbar-thumb {
+    background: #E76F51;
+    border-radius: 10px;
 }
 .view-more-wrapper {
     text-align: center;
@@ -464,6 +480,7 @@ footer{
     .vision-mission{ grid-template-columns:1fr; }
     .slide-content h1{ font-size:3rem; }
     .gallery-row{ grid-template-columns:1fr; }
+    .gallery-card-wide img{ height: 250px; }
 }
 @media(max-width:780px){
     .menu-icon{ display:block; }
@@ -483,7 +500,8 @@ footer{
     .business-grid{ grid-template-columns:1fr; }
     .logo-img{ height:65px; }
     .slide-content h1{ font-size:2rem; }
-    .gallery-card-wide{ aspect-ratio: 4/3; }
+    .gallery-overlay{ min-height: 180px; }
+    .gallery-overlay p{ max-height: 150px; }
 }
 </style>
 </head>
@@ -562,11 +580,11 @@ footer{
 </a>
 </div>
 
-<!-- Vision & Mission Section -->
+<!-- Vision & Mission Section (FULL TEXT - NO CUTTING) -->
 <div class="vision-mission">
     <div class="vm-card">
         <h3><i class="fas fa-eye"></i> Vision</h3>
-        <p>At RDG Topography Beautification, our vision is to be the leading provider of professional landscaping services in Ethiopia, renowned for our innovative designs, exceptional craftsmanship, and commitment to environmental sustainability. We strive to create captivating outdoor spaces that enrich the lives of our clients and inspire a deeper connection with nature.</p>
+        <p>AT RDG TOPOGRAPHY BEAUTIFICATION, our vision is to be the leading provider of professional landscaping services in Ethiopia, renowned for our innovative designs, exceptional craftsmanship, and commitment to environmental sustainability. We strive to create captivating outdoor spaces that enrich the lives of our clients and inspire a deeper connection with nature.</p>
     </div>
     <div class="vm-card">
         <h3><i class="fas fa-bullseye"></i> Mission</h3>
@@ -578,17 +596,17 @@ footer{
 <div class="involvement-area">
     <h3><i class="fas fa-chart-line"></i> RDG Areas of Involvement</h3>
     <div class="area-grid">
-        <div class="area-item"><i class="fas fa-pen-ruler"></i> Landscape Design</div>
-        <div class="area-item"><i class="fas fa-seedling"></i> Landscape & Plantation</div>
-        <div class="area-item"><i class="fas fa-leaf"></i> Indoor Plants</div>
-        <div class="area-item"><i class="fas fa-mountain"></i> Hardscape & Softscape</div>
-        <div class="area-item"><i class="fas fa-wrench"></i> Landscape Maintenance</div>
-        <div class="area-item"><i class="fas fa-building"></i> Residential & Apartment Construction</div>
-        <div class="area-item"><i class="fas fa-paint-brush"></i> Finishing Works</div>
+        <div class="area-item"><i class="fas fa-pen-ruler"></i> Landscape design</div>
+        <div class="area-item"><i class="fas fa-seedling"></i> Landscape and plantation</div>
+        <div class="area-item"><i class="fas fa-leaf"></i> Indoor plants</div>
+        <div class="area-item"><i class="fas fa-mountain"></i> Hardscape and softscape</div>
+        <div class="area-item"><i class="fas fa-wrench"></i> Landscape maintenance</div>
+        <div class="area-item"><i class="fas fa-building"></i> Construction of residential and small apartment buildings</div>
+        <div class="area-item"><i class="fas fa-paint-brush"></i> Finishing works</div>
     </div>
 </div>
 
-<!-- WIDE ATTRACTIVE GALLERY - Images 1-5 Full Width -->
+<!-- WIDE ATTRACTIVE GALLERY - NO TEXT CUTTING -->
 <div class="feature-gallery">
     <div class="gallery-title">✦ <span>VISUAL CHRONICLE</span> ✦</div>
     <div class="wide-gallery-grid" id="wideGalleryGrid"></div>
@@ -633,42 +651,46 @@ setTimeout(() => {
 // Mobile menu
 const menuIcon = document.getElementById('menuIcon');
 const navLinks = document.getElementById('navLinks');
-menuIcon.addEventListener('click', () => navLinks.classList.toggle('active'));
+if(menuIcon) {
+    menuIcon.addEventListener('click', () => navLinks.classList.toggle('active'));
+}
 
 // Hero slider
 const slides = document.querySelectorAll('.slide');
 const dotContainer = document.getElementById('dotContainer');
 let currentSlide = 0;
-slides.forEach((slide, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if(index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(index));
-    dotContainer.appendChild(dot);
-});
-const dots = document.querySelectorAll('.dot');
-function goToSlide(index) {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-    currentSlide = index;
+if(slides.length && dotContainer) {
+    slides.forEach((slide, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if(index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotContainer.appendChild(dot);
+    });
+    const dots = document.querySelectorAll('.dot');
+    function goToSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentSlide = index;
+    }
+    setInterval(() => { currentSlide = (currentSlide + 1) % slides.length; goToSlide(currentSlide); }, 5500);
 }
-setInterval(() => { currentSlide = (currentSlide + 1) % slides.length; goToSlide(currentSlide); }, 5500);
 
-// IMAGES 1-5 with complete descriptions
+// IMAGES 1-5 with COMPLETE, FULLY VISIBLE TEXT (no cutting)
 const homeImagesData = [
-    { src: "IMG_20260516_193503_613.jpg", title: "RDG ESSENCE 1", desc: "Premium Construction & Infrastructure | Building Ethiopia's future with world-class quality and innovative design solutions." },
-    { src: "IMG_20260516_193503_758.jpg", title: "RDG ESSENCE 2", desc: "Landscaping at Ler Cement Industrial Complex | Supplying fertile soil, grass, organic compost. Rehabilitation of degraded mining terrains. Planting local trees with post-plantation care." },
-    { src: "IMG_20260516_193503_889.jpg", title: "RDG ESSENCE 3", desc: "Expert Team | MSC Landscape Architecture, Architectural Design, Urban Planning. Professional Engineers with 10+ years experience delivering excellence." },
-    { src: "IMG_20260516_193503_899.jpg", title: "RDG ESSENCE 4", desc: "Sustainable Environmental Engineering | Advanced soil rehabilitation, water management, and eco-friendly construction practices." },
-    { src: "IMG_20260516_193504_015.jpg", title: "RDG ESSENCE 5", desc: "Premium Finishing Works | Ceramic tile installation, painting, decorative treatments that define elegance and durability." }
+    { src: "IMG_20260516_193503_613.jpg", title: "RDG ESSENCE 1", desc: "Premium Construction & Infrastructure | Building Ethiopia's future with world-class quality and innovative design solutions. We specialize in residential buildings from G+1 to G+5, ensuring structural integrity and modern design." },
+    { src: "IMG_20260516_193503_758.jpg", title: "RDG ESSENCE 2", desc: "Landscaping at Ler Cement Industrial Complex | Supplying fertile soil, mate landscape work, manage and supervise landscape work on site, supplying grass and plants, supplying organic compost, rehabilitation and restoration of degraded soil terrains neglected after mining and quarrying activities, planting local trees, post plantation care." },
+    { src: "IMG_20260516_193503_889.jpg", title: "RDG ESSENCE 3", desc: "Expert Team | Educational background in technology management (MSC Landscape Architecture), Architect and Design coordinator with 10+ years experience, Architectural and urban planning (MSC Landscape Architecture Pending), Professional Architect with 6+ years experience, BSc in Architectural and urban planning, Professional Architect 7+ years experience, Hydro and environmental engineer with 10+ years experience." },
+    { src: "IMG_20260516_193503_899.jpg", title: "RDG ESSENCE 4", desc: "Sustainable Environmental Engineering | Advanced soil rehabilitation, water management, and eco-friendly construction practices. Professional engineering team dedicated to environmental protection and sustainable development." },
+    { src: "IMG_20260516_193504_015.jpg", title: "RDG ESSENCE 5", desc: "Premium Finishing Works | Ceramic tile installation, professional painting, decorative treatments that define elegance and durability. Complete interior and exterior finishing services for residential and commercial properties." }
 ];
 
 function renderWideGallery() {
     const container = document.getElementById('wideGalleryGrid');
+    if(!container) return;
     container.innerHTML = '';
-    // Create rows of 2-3 images for better visual
     for(let i = 0; i < homeImagesData.length; i += 2) {
         const row = document.createElement('div');
         row.className = 'gallery-row';
@@ -695,15 +717,19 @@ function goToConstruction() {
     sessionStorage.setItem('rdg_show_construction_gallery', 'true');
     window.location.href = 'construction.html';
 }
-document.getElementById('viewMoreBtn').addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
-document.getElementById('heroDiscoverBtn').addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
+const viewMoreBtn = document.getElementById('viewMoreBtn');
+const heroDiscoverBtn = document.getElementById('heroDiscoverBtn');
+if(viewMoreBtn) viewMoreBtn.addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
+if(heroDiscoverBtn) heroDiscoverBtn.addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
 document.querySelectorAll('a[href="construction.html"]').forEach(link => {
-    link.addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
+    if(link.id !== 'viewMoreBtn' && link.id !== 'heroDiscoverBtn') {
+        link.addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
+    }
 });
 
-// Close mobile menu on click
+// Close mobile menu on link click
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => { if(window.innerWidth <= 780) navLinks.classList.remove('active'); });
+    link.addEventListener('click', () => { if(window.innerWidth <= 780 && navLinks) navLinks.classList.remove('active'); });
 });
 </script>
 </body>
