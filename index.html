@@ -15,9 +15,8 @@
 :root{
     --bg:#2F3A40;
     --bg-dark:#252F35;
-    --white:#F5F5F5;
-    --muted:#D5D5D5;
     --accent:#E76F51;
+    --gold:#D4AF37;
 }
 body{
     font-family:'Inter',sans-serif;
@@ -48,13 +47,12 @@ body{
     justify-content: center;
     align-items: center;
     transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    backdrop-filter: blur(2px);
 }
 .splash-logo {
-    width: 260px;
+    width: 280px;
     max-width: 70vw;
     animation: floatPulse 2.2s infinite ease-in-out;
-    filter: drop-shadow(0 0 18px rgba(255,215,120,0.3));
+    filter: drop-shadow(0 0 18px rgba(255,215,120,0.4));
     border-radius: 32px;
 }
 .splash-text {
@@ -84,9 +82,9 @@ nav{
     top:0;
     z-index:999;
     padding:1rem 2rem;
-    background:rgba(37,47,53,0.88);
+    background:rgba(37,47,53,0.92);
     backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,0.05);
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 .nav-container{
     max-width:1400px;
@@ -105,23 +103,20 @@ nav{
     height:88px;
     width:auto;
     object-fit:contain;
-    display:block;
     transition:0.4s ease;
-    filter: brightness(1.1) drop-shadow(0 0 12px rgba(255,255,255,0.15));
 }
 .logo-img:hover{
     transform:scale(1.05);
 }
 .nav-links{
     display:flex;
-    align-items:center;
     gap:2rem;
     list-style:none;
+    align-items:center;
 }
 .nav-links a{
     text-decoration:none;
     color:rgba(255,255,255,0.75);
-    font-size:0.95rem;
     font-weight:500;
     transition:0.3s ease;
 }
@@ -131,7 +126,7 @@ nav{
 .contact-btn{
     background:#F2F2F2;
     color:#2F3A40 !important;
-    padding:0.8rem 1.6rem;
+    padding:0.7rem 1.5rem;
     border-radius:50px;
     font-weight:700 !important;
 }
@@ -145,7 +140,7 @@ nav{
 /* Hero Slider */
 .hero-slider{
     position:relative;
-    height:92vh;
+    height:85vh;
     overflow:hidden;
 }
 .slide{
@@ -168,7 +163,7 @@ nav{
     content:'';
     position:absolute;
     inset:0;
-    background:linear-gradient(135deg, rgba(0,0,0,0.68), rgba(0,0,0,0.45));
+    background:linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
 }
 .slide-content{
     position:relative;
@@ -177,14 +172,14 @@ nav{
     padding:2rem;
 }
 .slide-content h1{
-    font-size:4.7rem;
+    font-size:4.5rem;
     font-weight:800;
     margin-bottom:1.2rem;
     letter-spacing:-2px;
 }
 .slide-content p{
     font-size:1.2rem;
-    color:rgba(255,255,255,0.82);
+    color:rgba(255,255,255,0.85);
     max-width:700px;
     margin:auto auto 2rem;
     line-height:1.8;
@@ -205,7 +200,7 @@ nav{
 }
 .dot-container{
     position:absolute;
-    bottom:35px;
+    bottom:30px;
     left:50%;
     transform:translateX(-50%);
     display:flex;
@@ -216,33 +211,32 @@ nav{
     width:12px;
     height:12px;
     border-radius:50%;
-    background:rgba(255,255,255,0.35);
+    background:rgba(255,255,255,0.4);
     cursor:pointer;
     transition:0.3s ease;
 }
 .dot.active{
-    background:#FFFFFF;
+    background:#E76F51;
     width:34px;
     border-radius:50px;
 }
 
-/* Main Content */
+/* Container */
 .container{
     max-width:1400px;
     margin:auto;
-    padding:6rem 2rem;
+    padding:5rem 2rem;
 }
 .section-title{
     text-align:center;
     font-size:3rem;
     font-weight:800;
     margin-bottom:1rem;
-    color:white;
 }
 .section-subtitle{
     text-align:center;
     color:#C6CED3;
-    margin-bottom:4rem;
+    margin-bottom:3rem;
     font-size:1.1rem;
 }
 
@@ -251,136 +245,190 @@ nav{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:2rem;
+    margin-bottom:5rem;
 }
 .business-card{
-    background:rgba(55,67,74,0.82);
-    border:1px solid rgba(255,255,255,0.06);
+    background:rgba(55,67,74,0.85);
+    border:1px solid rgba(255,255,255,0.08);
     border-radius:34px;
-    padding:2.5rem;
+    padding:2rem;
     transition:0.4s ease;
     text-decoration:none;
     color:white;
+    text-align:center;
 }
 .business-card:hover{
     transform:translateY(-10px);
     background:#415059;
+    border-color:#E76F51;
 }
 .card-icon{
     font-size:3rem;
-    margin-bottom:1.5rem;
-    color:#F1F1F1;
+    margin-bottom:1rem;
+    color:#E76F51;
 }
 .business-card h3{
-    font-size:1.9rem;
-    margin-bottom:1rem;
+    font-size:1.8rem;
+    margin-bottom:0.8rem;
 }
 .business-card p{
-    color:rgba(255,255,255,0.72);
-    line-height:1.8;
-}
-.card-tag{
-    display:inline-block;
-    margin-top:1.4rem;
-    background:rgba(255,255,255,0.08);
-    padding:0.45rem 1.2rem;
-    border-radius:50px;
-    font-size:0.85rem;
-    color:white;
+    color:rgba(255,255,255,0.7);
+    line-height:1.7;
 }
 
-/* WIDE IMAGE GALLERY */
-.gallery-cascade {
-    margin: 3rem 0 2rem;
-    padding: 2rem 1rem;
-    background: rgba(0,0,0,0.25);
-    border-radius: 56px;
-    backdrop-filter: blur(4px);
+/* Vision & Mission Section */
+.vision-mission{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2.5rem;
+    margin:4rem 0;
 }
-.cascade-title {
+.vm-card{
+    background:rgba(35,45,52,0.7);
+    backdrop-filter:blur(8px);
+    border-radius:32px;
+    padding:2.5rem;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.3s;
+}
+.vm-card:hover{
+    transform:translateY(-5px);
+    border-color:#E76F51;
+}
+.vm-card h3{
+    font-size:1.8rem;
+    margin-bottom:1rem;
+    color:#E76F51;
+}
+.vm-card p{
+    line-height:1.8;
+    color:rgba(255,255,255,0.85);
+    text-align:justify;
+}
+.involvement-area{
+    background:rgba(0,0,0,0.3);
+    border-radius:32px;
+    padding:2rem;
+    margin:2rem 0;
+}
+.involvement-area h3{
+    text-align:center;
+    font-size:1.8rem;
+    margin-bottom:1.5rem;
+    color:#E76F51;
+}
+.area-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:1rem;
+}
+.area-item{
+    background:rgba(255,255,255,0.08);
+    padding:0.8rem 1rem;
+    border-radius:50px;
+    text-align:center;
+    font-weight:500;
+}
+.area-item i{
+    margin-right:8px;
+    color:#E76F51;
+}
+
+/* ========== WIDE ATTRACTIVE GALLERY - FULL WIDTH IMAGES ========== */
+.feature-gallery {
+    margin: 4rem 0;
+    padding: 2rem 0;
+}
+.gallery-title {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    background: linear-gradient(120deg, #FFF, #CFD8DC);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2.5rem;
 }
-.cascade-grid {
+.gallery-title span {
+    color: #E76F51;
+}
+.wide-gallery-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     gap: 2rem;
 }
-.cascade-item {
-    width: 320px;
-    background: rgba(35,45,52,0.85);
-    backdrop-filter: blur(6px);
-    border-radius: 36px;
+.gallery-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+.gallery-card-wide {
+    position: relative;
+    border-radius: 28px;
     overflow: hidden;
-    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
-    transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    opacity: 0;
-    transform: translateY(40px) scale(0.96);
-    border: 1px solid rgba(255,255,255,0.12);
+    aspect-ratio: 16 / 10;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.3s;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 }
-.cascade-item.reveal {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+.gallery-card-wide:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.4);
 }
-.cascade-item img {
+.gallery-card-wide img {
     width: 100%;
-    height: 280px;
+    height: 100%;
     object-fit: cover;
-    display: block;
+    transition: transform 0.5s ease;
 }
-.cascade-item:hover {
-    transform: translateY(-12px) scale(1.02);
-    border-color: rgba(231,111,81,0.6);
+.gallery-card-wide:hover img {
+    transform: scale(1.05);
 }
-.item-caption {
-    padding: 1.2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+    padding: 1.5rem;
+    transform: translateY(0);
+    transition: 0.3s;
+}
+.gallery-overlay h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.gallery-overlay p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+}
+.view-more-wrapper {
     text-align: center;
-    background: rgba(0,0,0,0.75);
-    color: #F5F3E9;
-    line-height: 1.6;
+    margin: 3rem 0 1rem;
 }
-.item-caption p {
-    margin-top: 6px;
-    font-size: 0.8rem;
-    font-weight: normal;
-    color: #CCC;
-}
-.view-more-btn {
-    text-align: center;
-    margin: 2.2rem auto 0.5rem;
-}
-.btn-view {
-    background: linear-gradient(95deg, #F2F2F2, #E0E0E0);
-    color: #1F2A2F;
+.btn-gold {
+    background: linear-gradient(135deg, #E76F51, #D45A3A);
+    color: white;
     padding: 1rem 2.8rem;
     border-radius: 60px;
-    font-weight: 800;
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 1.1rem;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    transition: 0.3s ease;
-    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(231,111,81,0.3);
 }
-.btn-view:hover {
-    transform: translateY(-5px);
-    background: white;
+.btn-gold:hover {
+    transform: translateY(-4px);
     gap: 18px;
+    box-shadow: 0 12px 28px rgba(231,111,81,0.5);
 }
 
 /* Footer */
 footer{
     background:#20282D;
-    padding:5rem 2rem 2rem;
+    padding:4rem 2rem 2rem;
+    margin-top:4rem;
     border-top:1px solid rgba(255,255,255,0.05);
 }
 .footer-grid{
@@ -395,27 +443,33 @@ footer{
     font-size:1.2rem;
 }
 .footer-col p, .footer-col a{
-    color:rgba(255,255,255,0.65);
-    margin-bottom:0.8rem;
+    color:rgba(255,255,255,0.6);
+    margin-bottom:0.7rem;
     text-decoration:none;
     display:block;
+    transition:0.2s;
+}
+.footer-col a:hover{
+    color:#E76F51;
+    transform:translateX(5px);
 }
 .copyright{
-    margin-top:4rem;
+    margin-top:3rem;
     text-align:center;
-    color:rgba(255,255,255,0.45);
+    color:rgba(255,255,255,0.4);
 }
 
 @media(max-width:980px){
     .business-grid{ grid-template-columns:repeat(2,1fr); }
-    .slide-content h1{ font-size:3.3rem; }
-    .cascade-item { width: 280px; }
+    .vision-mission{ grid-template-columns:1fr; }
+    .slide-content h1{ font-size:3rem; }
+    .gallery-row{ grid-template-columns:1fr; }
 }
 @media(max-width:780px){
     .menu-icon{ display:block; }
     .nav-links{
         position:absolute;
-        top:110px;
+        top:100px;
         left:20px;
         right:20px;
         background:#2B353B;
@@ -427,9 +481,9 @@ footer{
     }
     .nav-links.active{ display:flex; }
     .business-grid{ grid-template-columns:1fr; }
-    .logo-img{ height:70px; }
-    .slide-content h1{ font-size:2.4rem; }
-    .cascade-item { width: 90%; max-width: 340px; }
+    .logo-img{ height:65px; }
+    .slide-content h1{ font-size:2rem; }
+    .gallery-card-wide{ aspect-ratio: 4/3; }
 }
 </style>
 </head>
@@ -437,7 +491,7 @@ footer{
 
 <!-- SPLASH SCREEN -->
 <div class="splash-screen" id="splashScreen">
-    <img src="logo1.JPG" alt="RDG Logo" class="splash-logo" onerror="this.src='https://placehold.co/400x200?text=RDG'">
+    <img src="logo1.JPG" alt="RDG Business Holding" class="splash-logo" onerror="this.src='https://placehold.co/400x200?text=RDG'">
     <div class="splash-text">PRECISION • EXCELLENCE</div>
 </div>
 
@@ -495,28 +549,51 @@ footer{
 <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
 <h3>RDG Construction</h3>
 <p>General contracting, landscape architecture, premium finishing and infrastructure development.</p>
-<span class="card-tag">10+ Years Experience</span>
 </a>
 <a href="import.html" class="business-card">
 <div class="card-icon"><i class="fas fa-ship"></i></div>
 <h3>RDG Import</h3>
 <p>Importing advanced industrial machinery, electrical equipment and coffee technology solutions.</p>
-<span class="card-tag">Global Supply Chain</span>
 </a>
 <a href="coffee.html" class="business-card">
 <div class="card-icon"><i class="fas fa-mug-hot"></i></div>
 <h3>RDG Coffee</h3>
 <p>Producing and exporting authentic Ethiopian coffee with modern roasting and branding excellence.</p>
-<span class="card-tag">Launching 2026</span>
 </a>
 </div>
 
-<!-- GALLERY: Images 1-5 with FULL VISIBLE TEXT -->
-<div class="gallery-cascade">
-    <div class="cascade-title">✦ VISUAL CHRONICLE ✦</div>
-    <div class="cascade-grid" id="homeCascadeGrid"></div>
-    <div class="view-more-btn">
-        <a href="construction.html" id="viewMoreGalleryBtn" class="btn-view"><i class="fas fa-images"></i> Click to view more →</a>
+<!-- Vision & Mission Section -->
+<div class="vision-mission">
+    <div class="vm-card">
+        <h3><i class="fas fa-eye"></i> Vision</h3>
+        <p>At RDG Topography Beautification, our vision is to be the leading provider of professional landscaping services in Ethiopia, renowned for our innovative designs, exceptional craftsmanship, and commitment to environmental sustainability. We strive to create captivating outdoor spaces that enrich the lives of our clients and inspire a deeper connection with nature.</p>
+    </div>
+    <div class="vm-card">
+        <h3><i class="fas fa-bullseye"></i> Mission</h3>
+        <p>Our mission is to transform the Ethiopian landscaping industry by offering comprehensive, personalized, and sustainable solutions to our valued clients. With our expertise and unwavering dedication, we aim to exceed expectations, enhance the natural beauty of every project, and create landscapes that stand the test of time.</p>
+    </div>
+</div>
+
+<!-- Areas of Involvement -->
+<div class="involvement-area">
+    <h3><i class="fas fa-chart-line"></i> RDG Areas of Involvement</h3>
+    <div class="area-grid">
+        <div class="area-item"><i class="fas fa-pen-ruler"></i> Landscape Design</div>
+        <div class="area-item"><i class="fas fa-seedling"></i> Landscape & Plantation</div>
+        <div class="area-item"><i class="fas fa-leaf"></i> Indoor Plants</div>
+        <div class="area-item"><i class="fas fa-mountain"></i> Hardscape & Softscape</div>
+        <div class="area-item"><i class="fas fa-wrench"></i> Landscape Maintenance</div>
+        <div class="area-item"><i class="fas fa-building"></i> Residential & Apartment Construction</div>
+        <div class="area-item"><i class="fas fa-paint-brush"></i> Finishing Works</div>
+    </div>
+</div>
+
+<!-- WIDE ATTRACTIVE GALLERY - Images 1-5 Full Width -->
+<div class="feature-gallery">
+    <div class="gallery-title">✦ <span>VISUAL CHRONICLE</span> ✦</div>
+    <div class="wide-gallery-grid" id="wideGalleryGrid"></div>
+    <div class="view-more-wrapper">
+        <a href="construction.html" id="viewMoreBtn" class="btn-gold"><i class="fas fa-images"></i> Click to view more projects →</a>
     </div>
 </div>
 </div>
@@ -537,137 +614,96 @@ footer{
 </div>
 <div class="footer-col">
 <h4>Quick Links</h4>
-<a href="about.html">About</a>
+<a href="about.html">About Us</a>
 <a href="portfolio.html">Portfolio</a>
 <a href="contact.html">Contact Us</a>
 </div>
 </div>
-<div class="copyright">© 2026 RDG Business Holding | Precision • Excellence</div>
+<div class="copyright">© 2026 RDG Business Holding | Precision • Excellence | Launching 2026</div>
 </footer>
 
 <script>
-// Splash screen 5 seconds
+// Splash screen
 const splash = document.getElementById('splashScreen');
-if (splash) {
-    setTimeout(() => {
-        splash.classList.add('splash-hidden');
-        setTimeout(() => { if(splash.parentNode) splash.style.display = 'none'; }, 800);
-    }, 5000);
-}
+setTimeout(() => {
+    splash.classList.add('splash-hidden');
+    setTimeout(() => { if(splash.parentNode) splash.style.display = 'none'; }, 800);
+}, 5000);
 
 // Mobile menu
 const menuIcon = document.getElementById('menuIcon');
 const navLinks = document.getElementById('navLinks');
-if (menuIcon) {
-    menuIcon.addEventListener('click', () => { navLinks.classList.toggle('active'); });
-}
+menuIcon.addEventListener('click', () => navLinks.classList.toggle('active'));
 
 // Hero slider
 const slides = document.querySelectorAll('.slide');
 const dotContainer = document.getElementById('dotContainer');
 let currentSlide = 0;
-if (slides.length && dotContainer) {
-    slides.forEach((slide, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => { goToSlide(index); });
-        dotContainer.appendChild(dot);
-    });
-    const dots = document.querySelectorAll('.dot');
-    function goToSlide(index) {
-        slides.forEach(s => s.classList.remove('active'));
-        dots.forEach(d => d.classList.remove('active'));
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        currentSlide = index;
-    }
-    function autoSlide() { currentSlide++; if (currentSlide >= slides.length) currentSlide = 0; goToSlide(currentSlide); }
-    setInterval(autoSlide, 5500);
+slides.forEach((slide, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if(index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(index));
+    dotContainer.appendChild(dot);
+});
+const dots = document.querySelectorAll('.dot');
+function goToSlide(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    currentSlide = index;
 }
+setInterval(() => { currentSlide = (currentSlide + 1) % slides.length; goToSlide(currentSlide); }, 5500);
 
-// 25 IMAGES LIST (exact filenames)
-const allImages = [
-    "IMG_20260516_193503_613.jpg", "IMG_20260516_193503_758.jpg", "IMG_20260516_193503_889.jpg", "IMG_20260516_193503_899.jpg", "IMG_20260516_193504_015.jpg",
-    "IMG_20260516_193504_108.jpg", "IMG_20260516_193504_139.jpg", "IMG_20260516_193504_253.jpg", "IMG_20260516_193504_344.jpg", "IMG_20260516_193504_492.jpg",
-    "IMG_20260516_193504_505.jpg", "IMG_20260516_193504_606.jpg", "IMG_20260516_193504_657.jpg", "IMG_20260516_193504_671.jpg", "IMG_20260516_193504_728.jpg",
-    "IMG_20260516_193504_809.jpg", "IMG_20260516_193504_893.jpg", "IMG_20260516_193545_318.jpg", "IMG_20260516_193549_149.jpg", "IMG_20260516_193551_743.jpg",
-    "IMG_20260516_193553_378.jpg", "IMG_20260516_193555_359.jpg", "IMG_20260516_193556_809.jpg", "IMG_20260516_193559_176.jpg", "IMG_20260516_193601_172.jpg"
+// IMAGES 1-5 with complete descriptions
+const homeImagesData = [
+    { src: "IMG_20260516_193503_613.jpg", title: "RDG ESSENCE 1", desc: "Premium Construction & Infrastructure | Building Ethiopia's future with world-class quality and innovative design solutions." },
+    { src: "IMG_20260516_193503_758.jpg", title: "RDG ESSENCE 2", desc: "Landscaping at Ler Cement Industrial Complex | Supplying fertile soil, grass, organic compost. Rehabilitation of degraded mining terrains. Planting local trees with post-plantation care." },
+    { src: "IMG_20260516_193503_889.jpg", title: "RDG ESSENCE 3", desc: "Expert Team | MSC Landscape Architecture, Architectural Design, Urban Planning. Professional Engineers with 10+ years experience delivering excellence." },
+    { src: "IMG_20260516_193503_899.jpg", title: "RDG ESSENCE 4", desc: "Sustainable Environmental Engineering | Advanced soil rehabilitation, water management, and eco-friendly construction practices." },
+    { src: "IMG_20260516_193504_015.jpg", title: "RDG ESSENCE 5", desc: "Premium Finishing Works | Ceramic tile installation, painting, decorative treatments that define elegance and durability." }
 ];
 
-// Homepage shows images 1-5 (indices 0-4) with full descriptive text
-const homeImages = allImages.slice(0, 5);
-
-// Detailed captions for ESSENCE 1-5 (complete, visible text)
-const captions = [
-    { title: "RDG ESSENCE 1", desc: "Premium Construction & Infrastructure | Building Ethiopia's future with world-class quality and innovative design solutions." },
-    { title: "RDG ESSENCE 2", desc: "Landscaping at Ler Cement Industrial Complex | Supplying fertile soil, grass, organic compost. Rehabilitation of degraded mining terrains. Planting local trees with post-plantation care." },
-    { title: "RDG ESSENCE 3", desc: "Expert Team | MSC Landscape Architecture, Architectural Design, Urban Planning. Professional Engineers with 10+ years experience delivering excellence." },
-    { title: "RDG ESSENCE 4", desc: "Sustainable Environmental Engineering | Advanced soil rehabilitation, water management, and eco-friendly construction practices." },
-    { title: "RDG ESSENCE 5", desc: "Premium Finishing Works | Ceramic tile installation, painting, decorative treatments that define elegance and durability." }
-];
-
-// Render home gallery
-function renderHomeGallery() {
-    const grid = document.getElementById('homeCascadeGrid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    homeImages.forEach((src, idx) => {
-        const card = document.createElement('div');
-        card.className = `cascade-item ${idx % 2 === 0 ? 'left-drop' : 'right-drop'}`;
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = captions[idx].title;
-        img.onerror = function() { this.src = 'https://placehold.co/600x400/2F3A40/FFFFFF?text=RDG+Image'; };
-        const captionDiv = document.createElement('div');
-        captionDiv.className = 'item-caption';
-        captionDiv.innerHTML = `<strong><i class="fas fa-camera"></i> ${captions[idx].title}</strong><p>${captions[idx].desc}</p>`;
-        card.appendChild(img);
-        card.appendChild(captionDiv);
-        grid.appendChild(card);
-    });
-    
-    // Stagger reveal animation
-    const items = document.querySelectorAll('#homeCascadeGrid .cascade-item');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const idx = Array.from(items).indexOf(entry.target);
-                setTimeout(() => entry.target.classList.add('reveal'), idx * 100);
-                observer.unobserve(entry.target);
-            }
+function renderWideGallery() {
+    const container = document.getElementById('wideGalleryGrid');
+    container.innerHTML = '';
+    // Create rows of 2-3 images for better visual
+    for(let i = 0; i < homeImagesData.length; i += 2) {
+        const row = document.createElement('div');
+        row.className = 'gallery-row';
+        const chunk = homeImagesData.slice(i, i + 2);
+        chunk.forEach(imgData => {
+            const card = document.createElement('div');
+            card.className = 'gallery-card-wide';
+            card.innerHTML = `
+                <img src="${imgData.src}" alt="${imgData.title}" onerror="this.src='https://placehold.co/800x500/2F3A40/FFFFFF?text=RDG+Image'">
+                <div class="gallery-overlay">
+                    <h4><i class="fas fa-crown"></i> ${imgData.title}</h4>
+                    <p>${imgData.desc}</p>
+                </div>
+            `;
+            row.appendChild(card);
         });
-    }, { threshold: 0.2 });
-    items.forEach(i => observer.observe(i));
+        container.appendChild(row);
+    }
 }
+renderWideGallery();
 
-// Navigation to construction page with session flag
-const viewMoreBtn = document.getElementById('viewMoreGalleryBtn');
-const heroDiscoverBtn = document.getElementById('heroDiscoverBtn');
-const allConstrLinks = document.querySelectorAll('a[href="construction.html"]');
-
+// Navigation to construction page
 function goToConstruction() {
     sessionStorage.setItem('rdg_show_construction_gallery', 'true');
     window.location.href = 'construction.html';
 }
-
-if (viewMoreBtn) viewMoreBtn.addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
-if (heroDiscoverBtn) heroDiscoverBtn.addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
-allConstrLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        goToConstruction();
-    });
+document.getElementById('viewMoreBtn').addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
+document.getElementById('heroDiscoverBtn').addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
+document.querySelectorAll('a[href="construction.html"]').forEach(link => {
+    link.addEventListener('click', (e) => { e.preventDefault(); goToConstruction(); });
 });
 
-// Initialize
-renderHomeGallery();
-
-// Close mobile menu on link click
+// Close mobile menu on click
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 780 && navLinks) navLinks.classList.remove('active');
-    });
+    link.addEventListener('click', () => { if(window.innerWidth <= 780) navLinks.classList.remove('active'); });
 });
 </script>
 </body>
